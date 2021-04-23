@@ -43,7 +43,6 @@ void BarController::ChangeBarHandle(int handle) {
 		i->SetHandle(handle);
 	}
 }
-
 void BarController::Update() {
 	if (CheckHitKey(KEY_INPUT_D) != 0) {
 		DeleteObj();

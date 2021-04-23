@@ -5,6 +5,7 @@
 #define NOTES_SIZE_WIDTH 79
 #define NOTES_SIZE_HEIGHT 15
 
+//comitテスト
 //ゲームループ
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
