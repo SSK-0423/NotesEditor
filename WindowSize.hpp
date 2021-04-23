@@ -1,0 +1,3 @@
+#pragma once
+#define WINDOW_SIZE_WIDTH 1024
+#define WINDOW_SIZE_HEIGHT 768
