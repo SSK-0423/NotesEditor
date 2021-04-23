@@ -3,7 +3,7 @@
 #include "Button.hpp"
 #include "Camera2D.hpp"
 #include "TextBox.hpp"
-#include "Bar.hpp"
+#include "BarManager.hpp"
 
 #define BUTTON_SIZE_WIDTH 126
 #define BUTTON_SIZE_HEIGHT 66
@@ -52,7 +52,7 @@ private:
 	TextBox text;
 	Music music;
 	Camera2D camera;
-	BarController barController;
+	BarManager barManager;
 
 	// ¬ßü‚Ì•`‰æ
 	// Šy‹È‚ÌBPM‚ÆÄ¶ŠÔ‚©‚ç¬ß”‚ğZo‚µ‚Ä•`‰æ
@@ -60,6 +60,7 @@ private:
 	void DrawBar();
 	void DrawButton();
 	void InitButton();
+	void DebugDraw();
 
 public:
 	Editor(ISceneChanger* changer);

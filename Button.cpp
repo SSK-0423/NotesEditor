@@ -36,10 +36,8 @@ void Button::SetButtonInfo(const int x, const int y, const int w, const int h, c
 void Button::Draw() {
 	if (handle.size() == 0) {
 		DrawBox(position.x - width / 2 + sub, position.y - height / 2 + sub, position.x + width / 2 - sub, position.y + height / 2 - sub, buttonColor, fill);
-		//DrawString((vec1.x + vec2.x) / 2, (vec2.y + vec1.y) / 2,"再生", GetColor(255, 255, 255));
 	}
 	else {
-		//DrawRotaGraph3(100, 100, 0, 0, 1.0, 1.0, 0.0, handle, true, false);
 		DrawModiGraph(
 			position.x - width / 2 + sub, position.y - height / 2 + sub, //左上座標
 			position.x + width / 2 - sub, position.y - height / 2 + sub, //右上座標
@@ -66,13 +64,13 @@ int Button::OnClick() {
 	}
 }
 
-void Button::CheckClick() {
+int Button::CheckClick() {
 	int mouse_x, mouse_y;
 	GetMousePoint(&mouse_x, &mouse_y);//マウスの座標取得
 	//マウスポインタがボタンに乗っている時
 	if (position.x - width / 2 < mouse_x && mouse_x < position.x + width / 2 && mouse_y > position.y - height / 2 && mouse_y < position.y + height / 2) {
 		Mouse::Instance()->Update();
-		DrawFormatString(0, 400, buttonColor, "ボタンの上に乗っています");
+		//DrawFormatString(0, 400, buttonColor, "ボタンの上に乗っています");
 		fill = true;
 		if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) > 0) {
 			isPressed = true;
@@ -84,7 +82,7 @@ void Button::CheckClick() {
 				isPressed = false;
 				sub = 0;
 				count++;
-				OnClick();
+				return 0;
 			}
 		}
 	}
@@ -92,6 +90,7 @@ void Button::CheckClick() {
 		sub = 0;
 		fill = false;
 		isPressed = false;
+		return -1;
 	}
 }
 

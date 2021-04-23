@@ -2,7 +2,7 @@
 #include "WindowSize.hpp"
 #include "OpenFileExplorer.hpp"
 #include "Delegate.hpp"
-#include "Bar.hpp"
+#include "BarManager.hpp"
 #include "Camera2D.hpp"
 #include "DxLib.h"
 #include <string>
@@ -26,18 +26,18 @@ Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0) 
 	text.SetColor(0, 0, 0);
 
 	//小節線画像のセット
-	barController.SetHandle(barHandle);
-	barController.SetHandle(bar4Handle);
-	barController.SetHandle(bar8Handle);
-	barController.SetHandle(bar16Handle);
-	barController.SetHandle(bar32Handle);
+	barManager.SetHandle(barHandle);
+	barManager.SetHandle(bar4Handle);
+	barManager.SetHandle(bar8Handle);
+	barManager.SetHandle(bar16Handle);
+	barManager.SetHandle(bar32Handle);
 	InitButton();
 }
 
 // 小節数オブジェクトの生成
 void Editor::MakeBar() {
 	camera.DeleteObj();
-	barController.DeleteObj();
+	barManager.DeleteObj();
 	//小節数の計算
 	//ループまでの間にも小節線を描画するために+2をする
 	int bar_num = music.GetTotalTime() / 1000 * music.bpm / (60 * music.beat) + 2;
@@ -47,7 +47,7 @@ void Editor::MakeBar() {
 	for (int i = 0; i < bar_num + 2; i++) {
 		Bar* bar = new Bar(bar32Handle, i);
 		camera.SetObject(bar);
-		barController.SetObject(bar);
+		barManager.SetObject(bar);
 	}
 }
 
@@ -94,35 +94,20 @@ void Editor::Update() {
 	if (CheckHitKey(KEY_INPUT_3) != 0) {
 	}
 
-	barController.Update();
+	barManager.Update();
 	camera.Update();
 }
 
 //描画
 void Editor::Draw() {
-	int bar_num = (music.GetTotalTime() / 1000) * music.bpm / (60 * music.beat);
 	DrawGraph(0, 0, backgroungHandle, true);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
-	//DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, lineHandle, true, false);
 	DrawBar();
 	DrawButton();
-	//DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, barLineHandle, true, false);
-	//DrawModiGraph(10, 10, BUTTON_SIZE_WIDTH * 2 + ADD / 2, 10, BUTTON_SIZE_WIDTH * 2 + ADD / 2, BUTTON_SIZE_HEIGHT*2, 10, BUTTON_SIZE_HEIGHT, test_handle, true);
-	//DrawFormatString(512, 0, GetColor(0, 255, 0), "小節数:%d", bar_num);
-	//DrawFormatStringToHandle(BUTTON_SIZE_WIDTH/2, 10, GetColor(0, 0, 255),fontHandle, "BPM:%6.2f", music.bpm);
-	/*DrawFormatString(700, 20, GetColor(0, 255, 0), "BEAT:%d", music.beat);
-	DrawFormatString(700, 40, GetColor(0, 255, 0), "NAME:%s", music.name.c_str());
-	DrawFormatString(700, 60, GetColor(0, 255, 0), "musicHandle:%d", music.musicHandle);
-	*/
-	DrawFormatString(800, 50, GetColor(0, 255, 0), "%dフレーム", count);
-	//float frame_move = 780 / ((3600 * music.beat * 1) / music.bpm);
-	DrawFormatString(800, 100, GetColor(0, 255, 0), "経過時間:%f", music.GetElapsedTime() / 1000.0f);
-	barController.Draw();
+	barManager.Draw();
 	text.Draw();
 	camera.Draw();
-	char buff[MAX_PATH];
-	GetCurrentDirectory(MAX_PATH, buff);
-	DrawFormatString(0, 740, GetColor(0, 255, 0), "%s", buff);
+	DebugDraw();
 
 }
 
@@ -189,11 +174,11 @@ void Editor::InitButton() {
 	//譜面データ書き出し
 	//DelegateBase<void(void)>* saveJson = Delegate<Music, void(void)>::createDelegator(&music, &Music::saveJson);
 	//小節線変更
-	DelegateBase<void(void)>* change_bar = Delegate<BarController, void(void)>::createDelegator(&barController, &BarController::ChangeHandle);
-	DelegateBase<void(void)>* change_bar4 = Delegate<BarController, void(void)>::createDelegator(&barController, &BarController::ChangeHandle4);
-	DelegateBase<void(void)>* change_bar8 = Delegate<BarController, void(void)>::createDelegator(&barController, &BarController::ChangeHandle8);
-	DelegateBase<void(void)>* change_bar16 = Delegate<BarController, void(void)>::createDelegator(&barController, &BarController::ChangeHandle16);
-	DelegateBase<void(void)>* change_bar32 = Delegate<BarController, void(void)>::createDelegator(&barController, &BarController::ChangeHandle32);
+	DelegateBase<void(void)>* change_bar = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle);
+	DelegateBase<void(void)>* change_bar4 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle4);
+	DelegateBase<void(void)>* change_bar8 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle8);
+	DelegateBase<void(void)>* change_bar16 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle16);
+	DelegateBase<void(void)>* change_bar32 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle32);
 	//押下時の関数セット
 	button[BUTTON_PLAY].SetEventFunction(playMusic);
 	button[BUTTON_RESTART].SetEventFunction(restartMusic);
@@ -203,4 +188,13 @@ void Editor::InitButton() {
 	button[BUTTON_CHANGEBAR8].SetEventFunction(change_bar8);
 	button[BUTTON_CHANGEBAR16].SetEventFunction(change_bar16);
 	button[BUTTON_CHANGEBAR32].SetEventFunction(change_bar32);
+}
+
+void Editor::DebugDraw() {
+	int bar_num = (music.GetTotalTime() / 1000) * music.bpm / (60 * music.beat);
+	DrawFormatString(800, 50, GetColor(0, 255, 0), "%dフレーム", count);
+	DrawFormatString(800, 100, GetColor(0, 255, 0), "経過時間:%f", music.GetElapsedTime() / 1000.0f);
+	char buff[MAX_PATH];
+	GetCurrentDirectory(MAX_PATH, buff);
+	DrawFormatString(0, 740, GetColor(0, 255, 0), "%s", buff);
 }

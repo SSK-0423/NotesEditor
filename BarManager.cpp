@@ -1,57 +1,57 @@
-#include "Bar.hpp"
+#include "BarManager.hpp"
 #include "WindowSize.hpp"
 #include "DxLib.h"
 #define ADD 20
 
-BarController::BarController() {
+BarManager::BarManager() {
 }
-BarController::~BarController() {
+BarManager::~BarManager() {
 }
 
-void BarController::SetObject(GameObject* bar) {
+void BarManager::SetObject(GameObject* bar) {
 	bars.push_back(bar);
 }
 
-void BarController::SetHandle(int& handle) {
+void BarManager::SetHandle(int& handle) {
 	barHandle.push_back(handle);
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "BarControllerä÷êî");
+	DrawFormatString(800, 250, GetColor(0, 255, 0), "BarManagerä÷êî");
 }
 
-void BarController::ChangeHandle() {
+void BarManager::ChangeHandle() {
 	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandleä÷êî");
 	ChangeBarHandle(barHandle[0]);
 }
-void BarController::ChangeHandle4() {
+void BarManager::ChangeHandle4() {
 	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle4ä÷êî");
 	ChangeBarHandle(barHandle[1]);
 }
-void BarController::ChangeHandle8() {
+void BarManager::ChangeHandle8() {
 	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle8ä÷êî");
 	ChangeBarHandle(barHandle[2]);
 }
-void BarController::ChangeHandle16() {
+void BarManager::ChangeHandle16() {
 	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle16ä÷êî");
 	ChangeBarHandle(barHandle[3]);
 }
-void BarController::ChangeHandle32() {
+void BarManager::ChangeHandle32() {
 	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle32ä÷êî");
 	ChangeBarHandle(barHandle[4]);
 }
 
-void BarController::ChangeBarHandle(int handle) {
+void BarManager::ChangeBarHandle(int handle) {
 	for (auto i : bars) {
 		i->SetHandle(handle);
 	}
 }
-void BarController::Update() {
+void BarManager::Update() {
 	if (CheckHitKey(KEY_INPUT_D) != 0) {
 		DeleteObj();
 	}
 }
-void BarController::Draw() {
+void BarManager::Draw() {
 	DrawFormatString(800,200,GetColor(0,255,0),"è¨êﬂê¸êî:%d",bars.size());
 }
-void BarController::DeleteObj() {
+void BarManager::DeleteObj() {
 	bars.clear();
 }
 
@@ -60,12 +60,9 @@ Bar::Bar(int handle, int i) {
 	imageHandle = handle;
 	GetGraphSize(handle, &width, &height);
 	position.x = WINDOW_SIZE_WIDTH / 2;
-	//position.y = WINDOW_SIZE_HEIGHT / 2 - WINDOW_SIZE_HEIGHT * i - ADD * i;
-	position.y = WINDOW_SIZE_HEIGHT / 2 - height * i;
+	position.y = WINDOW_SIZE_HEIGHT / 2 - height * (WINDOW_SIZE_HEIGHT / height) *i;
 	collisionPos.x = WINDOW_SIZE_WIDTH / 2;
-	//collisionPos.y = WINDOW_SIZE_HEIGHT / 2 - WINDOW_SIZE_HEIGHT * i - ADD * i;
-	collisionPos.y = WINDOW_SIZE_HEIGHT / 2 - height * i;
-	type = BAR32;
+	collisionPos.y = WINDOW_SIZE_HEIGHT / 2 - height * (WINDOW_SIZE_HEIGHT / height) * i;
 	//height = 1024;
 }
 Bar::~Bar() {

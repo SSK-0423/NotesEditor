@@ -33,22 +33,6 @@ void TextBox::Draw() {
 void TextBox::SetText(const char* str) {
 	std::string s = str;
 	text.push_back(str);
-	//for (int i = 0; i < s.size(); i++) {
-	//	std::string s2;
-	//	DrawFormatString(0, 200, color, "%d", i);
-	//	if (s[i] != '\n' || s[i] != '\0') {
-	//		s2 += s[i];
-	//	}
-	//	else if (s[i] == '\n') {
-	//		text.push_back(s2);
-	//		//s2.clear();
-	//	}
-	//	else if (s[i] == '\0') {
-	//		text.push_back(s2);
-	//		//s2.clear();
-	//		break;
-	//	}
-	//}
 }
 void TextBox::SetColor(int r, int g, int b) {
 	color = GetColor(r, g, b);

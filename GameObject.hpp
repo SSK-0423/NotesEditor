@@ -23,9 +23,9 @@ public:
 	Vector2D collisionPos;
 
 	// 画像の設定
-	virtual void SetHandle(int handle) { imageHandle = handle; }
+	virtual void SetHandle(int handle) {};
 	// 位置の設定・更新
-	virtual void SetPosition(float x, float y) {}
+	virtual void SetPosition(float x, float y) {};
 
 	// オブジェクトの高さ、幅
 	int width;

@@ -57,6 +57,7 @@ void Camera2D::Update() {
 	if (position.y > maxPos.y) {
 		position.y = maxPos.y;
 	}
+
 	//int x, y;
 	//GetMousePoint(&x, &y);
 	//position.x = x;
