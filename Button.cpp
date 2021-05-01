@@ -2,7 +2,7 @@
 #include "Mouse.hpp"
 
 // コンストラクタ
-Button::Button() {
+Button::Button() noexcept{
 	position.x = position.y = 0;
 	height = 0;
 	width = 0;
@@ -14,16 +14,18 @@ Button::Button() {
 	myDg = nullptr;
 }
 
-Button::~Button() {
+Button::~Button() noexcept {
 
 }
 
-void Button::Update() {
-	CheckClick();//ボタンクリックチェック
+void Button::Update() noexcept {
+	if (IsCheckClick() == 0) {
+		OnClick();
+	}
 }
 
 //ボタンの描画情報の設定(座標、幅、高さ、色、塗りつぶし)
-void Button::SetButtonInfo(const int x, const int y, const int w, const int h, const unsigned int color, const bool f) {
+void Button::SetButtonInfo(const int x, const int y, const int w, const int h, const unsigned int color, const bool f)  noexcept {
 	position.x = x;
 	position.y = y;
 	height = h;
@@ -33,7 +35,7 @@ void Button::SetButtonInfo(const int x, const int y, const int w, const int h, c
 }
 
 //描画
-void Button::Draw() {
+void Button::Draw() noexcept {
 	if (handle.size() == 0) {
 		DrawBox(position.x - width / 2 + sub, position.y - height / 2 + sub, position.x + width / 2 - sub, position.y + height / 2 - sub, buttonColor, fill);
 	}
@@ -47,13 +49,13 @@ void Button::Draw() {
 	}
 }
 
-void Button::SetEventFunction(DelegateBase<void(void)>* dg)
+void Button::SetEventFunction(DelegateBase<void(void)>* dg) noexcept
 {
 	myDg = dg;
 }
 
 //クリック時に実行される関数
-int Button::OnClick() {
+int Button::OnClick()  noexcept {
 	// 関数が設定されてないなら実行しない
 	if (myDg == nullptr) {
 		return -1;
@@ -64,13 +66,12 @@ int Button::OnClick() {
 	}
 }
 
-int Button::CheckClick() {
+int Button::IsCheckClick()  noexcept {
 	int mouse_x, mouse_y;
 	GetMousePoint(&mouse_x, &mouse_y);//マウスの座標取得
-	//マウスポインタがボタンに乗っている時
+	//マウスがボタンに乗っている時
 	if (position.x - width / 2 < mouse_x && mouse_x < position.x + width / 2 && mouse_y > position.y - height / 2 && mouse_y < position.y + height / 2) {
 		Mouse::Instance()->Update();
-		//DrawFormatString(0, 400, buttonColor, "ボタンの上に乗っています");
 		fill = true;
 		if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) > 0) {
 			isPressed = true;
@@ -85,6 +86,7 @@ int Button::CheckClick() {
 				return 0;
 			}
 		}
+		return -1;
 	}
 	else {
 		sub = 0;
@@ -94,7 +96,7 @@ int Button::CheckClick() {
 	}
 }
 
-void Button::SetImageHandle(const char* file_name) {
+void Button::SetImageHandle(const char* file_name) noexcept{
 	handle.push_back(LoadGraph(file_name));
 	SetDrawMode(DX_DRAWMODE_BILINEAR);
 	//GetGraphSize(handle[0], &width, &height);

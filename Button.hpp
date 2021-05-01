@@ -3,12 +3,7 @@
 #include "Music.hpp"
 #include "Delegate.hpp"
 #include <vector>
-//描画の左上右下座標(x,y)
-struct Vector2D
-{
-	float x;
-	float y;
-};
+#include "Vector2D.hpp"
 
 class Button {
 private:
@@ -32,7 +27,7 @@ private:
 
 	int OnClick() noexcept;						//ボタンが押されたら
 
-	int CheckClick() noexcept;					//マウスクリックのチェック
+	int IsCheckClick() noexcept;					//マウスクリックのチェック
 
 	DelegateBase<void(void)>* myDg;		// デリゲート
 public:

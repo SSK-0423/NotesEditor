@@ -1,36 +1,51 @@
 #pragma once
 #include "Task.hpp"
 #include "GameObject.hpp"
+#include "PlayableObj.hpp"
 #include <vector>
 #include "Music.hpp"
 
-class Camera2D : public GameObject{
+class Camera2D : public GameObject, PlayableObj {
 private:
 	// 描画対象オブジェクトのポインタ
 	std::vector<GameObject*> objList;
 	// カメラ内の描画可能オブジェクトのポインタ
 	std::vector<GameObject*> drawList;
 
+	//カメラ内オブジェクトの更新処理
+	void InCameraObjUpdate() noexcept;
+	//カメラ内オブジェクトの描画
+	void InCameraObjDraw() noexcept;
+	//デバッグ用描画関数
+	void DebugDraw() noexcept;
+	//キーボード、マウス操作
+	void Controll() noexcept override;
+	//移動限界
+	void PosLimit() noexcept override;
+
 public:
-	Camera2D();
-	~Camera2D();
+	Camera2D() noexcept;
+	~Camera2D() noexcept;
 
 	//カメラのスクロール限界
 	Vector2D minPos;	//下限
 	Vector2D maxPos;	//上限
 
+	//更新
+	void Update() noexcept;
+	//描画
+	void Draw() noexcept;
 	//描画対象オブジェクトに追加
-	void SetObject(GameObject* obj);
+	void SetObject(GameObject& obj) noexcept;
 	// カメラ内オブジェクトリストの更新
-	void UpdateDrawList();
+	void UpdateDrawList() noexcept;
 	// 描画対象オブジェクトのメモリ開放
-	void DeleteObj();
+	void DeleteObj() noexcept;
 
-	void Update();
-	void Draw();
+	//移動限界
+	void SetMinPosition(float x, float y) noexcept;
+	void SetMaxPosition(float x, float y) noexcept;
 
-	void SetPosition(float x, float y);
-	void SetMinPosition(float x, float y);
-	void SetMaxPosition(float x, float y);
-	bool Collision(const GameObject& obj) const;
+	//オブジェクトがカメラ内に入ったかどうかを判定
+	bool Collision(const GameObject& obj) const noexcept;
 };

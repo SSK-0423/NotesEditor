@@ -1,7 +1,7 @@
 #include "TextBox.hpp"
 #include "DxLib.h"
 
-TextBox::TextBox() {
+TextBox::TextBox() noexcept {
 	position.x = BOX_SIZE_WIDTH / 2 + 8;
 	position.y = BOX_SIZE_HEIGHT / 2 + 8;
 	width = BOX_SIZE_WIDTH;
@@ -10,14 +10,14 @@ TextBox::TextBox() {
 	imageHandle = -1;
 	color = GetColor(255, 255, 255);
 }
-TextBox::~TextBox() {
+TextBox::~TextBox() noexcept {
 
 }
-void TextBox::Update() {
+void TextBox::Update() noexcept {
 
 }
 
-void TextBox::Draw() {
+void TextBox::Draw() noexcept {
 	DrawModiGraph(
 		position.x - width / 2, position.y - height / 2, //ç∂è„ç¿ïW
 		position.x + width / 2, position.y - height / 2, //âEè„ç¿ïW
@@ -30,16 +30,16 @@ void TextBox::Draw() {
 	}
 	text.clear();
 }
-void TextBox::SetText(const char* str) {
+void TextBox::SetText(const char* str) noexcept {
 	std::string s = str;
 	text.push_back(str);
 }
-void TextBox::SetColor(int r, int g, int b) {
+void TextBox::SetColor(int r, int g, int b) noexcept {
 	color = GetColor(r, g, b);
 }
-void TextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype) {
+void TextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype) noexcept {
 	fontHandle = CreateFontToHandle(name, size, thick, fonttype);
 }
-void TextBox::SetImage(int handle) {
+void TextBox::SetImage(int handle) noexcept {
 	imageHandle = handle;
 }

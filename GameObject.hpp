@@ -1,11 +1,6 @@
 #pragma once
 #include "Task.hpp"
-
-// 座標
-struct Vector2D {
-	float x;
-	float y;
-};
+#include "Vector2D.hpp"
 
 class GameObject : public Task{
 protected:
@@ -14,8 +9,8 @@ protected:
 	int imageHandle;
 
 public:
-	GameObject();
-	~GameObject();
+	GameObject() noexcept;
+	~GameObject() noexcept;
 
 	// オブジェクトの座標
 	Vector2D position;
@@ -23,14 +18,14 @@ public:
 	Vector2D collisionPos;
 
 	// 画像の設定
-	virtual void SetHandle(int handle) {};
+	void SetHandle(int handle) noexcept;
 	// 位置の設定・更新
-	virtual void SetPosition(float x, float y) {};
+	void SetPosition(float x, float y) noexcept;
 
 	// オブジェクトの高さ、幅
 	int width;
 	int height;
 	
-	virtual void Update();
-	virtual void Draw();
+	virtual void Update() noexcept;
+	virtual void Draw() noexcept;
 };

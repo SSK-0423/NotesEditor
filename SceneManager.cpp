@@ -25,7 +25,7 @@ void SceneManager::Update() {
 		delete mScene;
 		switch (mNextScene) {       //シーンによって処理を分岐
 		case eScene_Menu:        //次の画面がメニューなら
-			mScene = (BaseScene*) new Editor(this);   //メニュー画面のインスタンスを生成する
+			mScene = (BaseScene*) new Editor(this); //メニュー画面のインスタンスを生成する
 			break;//以下略
 		}
 		mNextScene = eScene_None;    //次のシーン情報をクリア

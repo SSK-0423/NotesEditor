@@ -2,6 +2,7 @@
 #include "WindowSize.hpp"
 #include "SceneManager.hpp"
 #include "FPS.hpp"
+#include "Editor.hpp"
 #define NOTES_SIZE_WIDTH 79
 #define NOTES_SIZE_HEIGHT 15
 

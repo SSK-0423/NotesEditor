@@ -15,12 +15,12 @@ private:
 	//テキスト
 	std::vector<std::string> text;
 public:
-	TextBox();
-	~TextBox();
-	void Update();
-	void Draw();
-	void SetText(const char* str);
-	void SetColor(int r, int g, int b);
-	void CreateFontHandle(const char* name, int size, int thick, int fonttype);
-	void SetImage(int handle);
+	TextBox() noexcept;
+	~TextBox() noexcept;
+	void Update() noexcept;
+	void Draw() noexcept;
+	void SetText(const char* str) noexcept;
+	void SetColor(int r, int g, int b) noexcept;
+	void CreateFontHandle(const char* name, int size, int thick, int fonttype) noexcept;
+	void SetImage(int handle) noexcept;
 };

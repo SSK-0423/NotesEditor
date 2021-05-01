@@ -57,7 +57,6 @@ private:
 	// ¬ßü‚Ì•`‰æ
 	// Šy‹È‚ÌBPM‚ÆÄ¶ŠÔ‚©‚ç¬ß”‚ğZo‚µ‚Ä•`‰æ
 	void MakeBar();
-	void DrawBar();
 	void DrawButton();
 	void InitButton();
 	void DebugDraw();

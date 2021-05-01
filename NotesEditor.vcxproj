@@ -162,6 +162,7 @@
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ISceneChanger.cpp" />
+    <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Music.cpp" />
@@ -175,6 +176,8 @@
     <ClInclude Include="BaseScene.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Canvas.hpp" />
+    <ClInclude Include="KeyInput.hpp" />
+    <ClInclude Include="PlayableObj.hpp" />
     <ClInclude Include="Delegate.hpp" />
     <ClInclude Include="Editor.hpp" />
     <ClInclude Include="FPS.hpp" />
@@ -182,7 +185,7 @@
     <ClInclude Include="ISceneChanger.hpp" />
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Music.hpp" />
-    <ClInclude Include="Object2D.hpp" />
+    <ClInclude Include="Vector2D.hpp" />
     <ClInclude Include="OpenFileExplorer.hpp" />
     <ClInclude Include="picojson.h" />
     <ClInclude Include="SceneManager.hpp" />

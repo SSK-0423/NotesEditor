@@ -46,12 +46,11 @@ void Editor::MakeBar() {
 	//小節線オブジェクトの生成
 	for (int i = 0; i < bar_num + 2; i++) {
 		Bar* bar = new Bar(bar32Handle, i);
-		camera.SetObject(bar);
-		barManager.SetObject(bar);
+		camera.SetObject(*bar);
+		barManager.SetObject(*bar);
 	}
 }
 
-void Editor::DrawBar() {}
 void Editor::Initialize() {}
 void Editor::Finalize() {}
 
@@ -64,11 +63,6 @@ void Editor::Update() {
 	//Buttonのアップデート
 	for (int i = 0; i < BUTTON_NUM; i++) {
 		button[i].Update();
-	}
-	//
-	if (CheckHitKey(KEY_INPUT_D) != 0) {
-		//GameObjectのメモリ開放
-		camera.DeleteObj();
 	}
 
 	//曲名とBPMの表示
@@ -93,7 +87,7 @@ void Editor::Update() {
 	// 3が押されたら
 	if (CheckHitKey(KEY_INPUT_3) != 0) {
 	}
-
+	//canvas.Update();
 	barManager.Update();
 	camera.Update();
 }
@@ -102,12 +96,12 @@ void Editor::Update() {
 void Editor::Draw() {
 	DrawGraph(0, 0, backgroungHandle, true);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
-	DrawBar();
 	DrawButton();
 	barManager.Draw();
 	text.Draw();
 	camera.Draw();
 	DebugDraw();
+	//canvas.Draw();
 
 }
 
@@ -118,19 +112,6 @@ void Editor::DrawButton() {
 }
 
 void Editor::InitButton() {
-
-	////ボタン画像のハンドル
-	//int* imageHandle = new int[BUTTON_NUM];
-	//imageHandle[BUTTON_SHORT] = LoadGraph("image/SHORT.png");
-	//imageHandle[BUTTON_LONG] = LoadGraph("image/LONG.png");
-	//imageHandle[BUTTON_SLIDE] = LoadGraph("image/SLIDE.png");
-	//imageHandle[BUTTON_PLAY] = LoadGraph("image/PLAY.png");
-	//imageHandle[BUTTON_STOP] = LoadGraph("image/STOP.png");
-	//imageHandle[BUTTON_RESTART] = LoadGraph("image/RESTART.png");
-	//imageHandle[BUTTON_LOADMUSIC ] = LoadGraph("image/LOADMUSIC.png");
-	//imageHandle[BUTTON_LOAD] = LoadGraph("image/LOAD.png");
-	//imageHandle[BUTTON_SAVE] = LoadGraph("image/SAVE.png");
-
 	//ボタンの初期化と配置
 	button = new Button[BUTTON_NUM];
 

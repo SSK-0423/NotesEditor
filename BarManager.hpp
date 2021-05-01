@@ -18,30 +18,30 @@ private:
 	//生成した小節線オブジェクト
 	std::vector<GameObject*> bars;
 	//小節線画像の変更
-	void ChangeBarHandle(int handle);
+	void ChangeBarHandle(int handle) noexcept;
 public:
-	BarManager();
-	~BarManager();
+	BarManager() noexcept;
+	~BarManager() noexcept;
 	//Barオブジェクトのセット
-	void SetObject(GameObject* bar);
+	void SetObject(GameObject& bar) noexcept;
 	//画像ハンドルのセット
-	void SetHandle(int& handle);
+	void SetHandle(int& handle) noexcept;
 
 	//画像変更 1/1
-	void ChangeHandle();
+	void ChangeHandle() noexcept;
 	//画像変更 1/4
-	void ChangeHandle4();
+	void ChangeHandle4() noexcept;
 	//画像変更 1/8
-	void ChangeHandle8();
+	void ChangeHandle8() noexcept;
 	//画像変更 1/16
-	void ChangeHandle16();
+	void ChangeHandle16() noexcept;
 	//画像変更 1/32
-	void ChangeHandle32();
+	void ChangeHandle32() noexcept;
 
-	void Update();
-	void Draw();
+	void Update() noexcept;
+	void Draw() noexcept;
 
-	void DeleteObj();
+	void DeleteObj() noexcept;
 };
 
 // 小節線クラス
@@ -50,11 +50,8 @@ private:
 	//何小節目か
 	int barNum;
 public:
-	Bar(int handle,int i);
-	~Bar();
-	void Update();
-	void Draw();
-
-	//画像ハンドルのセット
-	void SetHandle(int handle);
+	Bar(int handle,int i) noexcept;
+	~Bar() noexcept;
+	void Update() noexcept;
+	void Draw() noexcept;
 };

@@ -6,7 +6,7 @@
 #define CAMERA_SIZE_WIDTH WINDOW_SIZE_WIDTH / 2
 #define CAMERA_SIZE_HEIGHT WINDOW_SIZE_HEIGHT / 2
 
-Camera2D::Camera2D() {
+Camera2D::Camera2D() noexcept {
 	position.x = WINDOW_SIZE_WIDTH / 2;
 	position.y = WINDOW_SIZE_HEIGHT / 2;
 	width = CAMERA_SIZE_WIDTH;
@@ -20,80 +20,38 @@ Camera2D::Camera2D() {
 }
 
 //デストラクタ
-Camera2D::~Camera2D() {
-	for (auto i : objList) {
-		delete[] i;
-	}
-	for (auto i : drawList) {
-		delete[] i;
-	}
-	objList.clear();
-	drawList.clear();
+Camera2D::~Camera2D() noexcept {
+	DeleteObj();
 }
 
-void Camera2D::SetObject(GameObject* obj) {
-	objList.push_back(obj);
+void Camera2D::Update() noexcept {
+	// カメラ内オブジェクトリストを更新
+	UpdateDrawList();
+	//カメラ内オブジェクトのUpdate実行
+	InCameraObjUpdate();
+	//キー、マウス操作
+	Controll();
+	//移動制限
+	PosLimit();
 }
 
-void Camera2D::UpdateDrawList() {
-	for (int i = 0; i < objList.size(); i++) {
-		if (Collision(*objList[i])) {
-			drawList.push_back(objList[i]);
+void Camera2D::Draw() noexcept {
+	//デバッグ用文字列などの描画
+	DebugDraw();
+	//カメラ内オブジェクトの描画
+	InCameraObjDraw();
+}
+//描画オブジェクトリストを更新
+void Camera2D::UpdateDrawList() noexcept {
+	for (auto obj : objList) {
+		//カメラに入っているか判定して描画リストに追加
+		if (Collision(*obj)) {
+			drawList.push_back(obj);
 		}
 	}
 }
-
-void Camera2D::Update() {
-	position.y += 10 * GetMouseWheelRotVol();
-	if (CheckHitKey(KEY_INPUT_DOWN) != 0) {
-		position.y -= 5;
-	}
-	if (CheckHitKey(KEY_INPUT_UP) != 0) {
-		position.y += 5;
-	}
-	if (position.y < minPos.y) {
-		position.y = minPos.y;
-	}
-	if (position.y > maxPos.y) {
-		position.y = maxPos.y;
-	}
-
-	//int x, y;
-	//GetMousePoint(&x, &y);
-	//position.x = x;
-	//position.y = y;
-
-	// カメラ内のオブジェクトリストを更新
-	UpdateDrawList();
-	// カメラ内オブジェクトのUpdate
-	for (int i = 0; i < drawList.size(); i++) {
-		drawList[i]->Update();
-	}
-}
-
-void Camera2D::Draw() {
-	// カメラの座標表示
-	DrawFormatString(800, 0, GetColor(0, 255, 0), "x:%f y:%f", position.x, position.y);
-	DrawFormatString(800, 150, GetColor(0, 255, 0), "オブジェクト数:%d", objList.size());
-
-	// カメラ枠表示
-	/*DrawBox(
-		WINDOW_SIZE_WIDTH / 2 - width / 2, WINDOW_SIZE_HEIGHT / 2 - height / 2,
-		WINDOW_SIZE_WIDTH / 2 + width / 2, WINDOW_SIZE_HEIGHT / 2 + height / 2,
-		GetColor(255, 255, 255), false);*/
-
-	for (auto& a : drawList)
-	{
-		a->position.y = a->collisionPos.y - (this->position.y - collisionPos.y);
-		a->Draw();
-	}
-
-	drawList.clear();
-}
-
 //カメラに枠に入ったか判定
-bool Camera2D::Collision(const GameObject& obj) const {
-	//DrawFormatString(500, 700, GetColor(0, 255, 0), "x:%f y:%f", obj.position.x, obj.position.y);
+bool Camera2D::Collision(const GameObject& obj) const noexcept {
 	Vector2D distance;	//距離の格納
 	//中心座標の距離
 	distance.x = fabsf(this->position.x - obj.collisionPos.x);
@@ -115,31 +73,99 @@ bool Camera2D::Collision(const GameObject& obj) const {
 	}
 }
 
-void Camera2D::DeleteObj() {
+void Camera2D::DeleteObj() noexcept {
 	//GameObjectのメモリ開放
-	for (auto i : objList) {
-		delete[] i;
+	for (auto obj : objList) {
+		delete[] obj;
 	}
 	objList.clear();
 	drawList.clear();
 }
 
-void Camera2D::SetPosition(float x, float y) {
-	//float frame_move = 760 / ((3600 * beat * speed) / bpm);
-	//DrawFormatString(400, 200, GetColor(0, 0, 255), "beat:%d speed:%d bpm:%d count:%d", beat, speed, bpm, count);
-	//DrawFormatString(400, 300, GetColor(0, 0, 255), "FrameMove:%f", frame_move);
-	//// 1小節の縦幅 / ((60 * beat * speed / bpm)  * 60) = 1フレームの移動幅
-	//position.y = -frame_move * count + WINDOW_SIZE_HEIGHT/2;
-	position.x = x;
-	position.y = y;
+//カメラ内オブジェクトの更新処理
+void Camera2D::InCameraObjUpdate() noexcept {
+	//カメラ内オブジェクトのUpdateを実行
+	for (auto obj : drawList) {
+		obj->Update();
+	}
 }
 
-void Camera2D::SetMinPosition(float x, float y) {
+//カメラ内オブジェクトの描画
+void Camera2D::InCameraObjDraw() noexcept {
+	for (auto obj : drawList)
+	{
+		obj->position.y = obj->collisionPos.y - (this->position.y - collisionPos.y);
+		obj->Draw();
+	}
+	drawList.clear();
+}
+
+//キーボード,マウス操作
+void Camera2D::Controll() noexcept {
+	gpUpdateKey();
+	//マウスホイールでスクロール
+	position.y += 10 * GetMouseWheelRotVol();
+	//上下矢印キーでスクロール
+	if (Key[KEY_INPUT_DOWN] != 0) {
+		position.y += 5;
+	}
+	if (Key[KEY_INPUT_UP] != 0) {
+		position.y -= 5;
+	}
+
+	//PgUp PgDnでウィンドウサイズ分スクロール
+	if (Key[KEY_INPUT_PGDN] == 1) {
+		position.y += WINDOW_SIZE_HEIGHT;
+	}
+	if (Key[KEY_INPUT_PGUP] == 1) {
+		position.y -= WINDOW_SIZE_HEIGHT;
+	}
+
+	//長押しで連続スクロール
+	if (Key[KEY_INPUT_PGDN] != 0 && Key[KEY_INPUT_PGDN] % 15 == 0) {
+		position.y += WINDOW_SIZE_HEIGHT;
+	}
+	if (Key[KEY_INPUT_PGUP] != 0 && Key[KEY_INPUT_PGUP] % 15 == 0) {
+		position.y -= WINDOW_SIZE_HEIGHT;
+	}	
+	if (CheckHitKey(KEY_INPUT_D) != 0) {
+		//GameObjectのメモリ開放
+		DeleteObj();
+	}
+}
+
+//移動制限
+void Camera2D::PosLimit() noexcept {
+	if (position.y < minPos.y) {
+		position.y = minPos.y;
+	}
+	if (position.y > maxPos.y) {
+		position.y = maxPos.y;
+	}
+}
+
+void Camera2D::DebugDraw() noexcept {
+	// カメラの座標表示
+	DrawFormatString(800, 0, GetColor(0, 255, 0), "x:%f y:%f", position.x, position.y);
+	DrawFormatString(800, 150, GetColor(0, 255, 0), "オブジェクト数:%d", objList.size());
+
+	// カメラ枠表示
+	/*DrawBox(
+		WINDOW_SIZE_WIDTH / 2 - width / 2, WINDOW_SIZE_HEIGHT / 2 - height / 2,
+		WINDOW_SIZE_WIDTH / 2 + width / 2, WINDOW_SIZE_HEIGHT / 2 + height / 2,
+		GetColor(255, 255, 255), false);*/
+}
+
+void Camera2D::SetMinPosition(float x, float y) noexcept {
 	minPos.x = x;
 	minPos.y = y;
 }
 
-void Camera2D::SetMaxPosition(float x, float y) {
+void Camera2D::SetMaxPosition(float x, float y) noexcept {
 	maxPos.x = x;
 	maxPos.y = y;
+}
+
+void Camera2D::SetObject(GameObject& obj) noexcept {
+	objList.push_back(&obj);
 }
