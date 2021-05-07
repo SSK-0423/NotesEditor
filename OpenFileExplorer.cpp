@@ -46,7 +46,7 @@ OpenFileExplorer::OpenFileExplorer(){
 	ofn.lpstrTitle = "ファイルの読み込み";
 }
 
-int OpenFileExplorer::OpenAudioFile() {
+int OpenFileExplorer::OpenAudioFile() noexcept {
 	ofn.lpstrTitle = "音楽ファイルの読み込み";
 	ofn.lpstrFilter = "WAVファイル(*.wav)\0*.wav\0MP3ファイル(*.mp3)\0*.mp3\0\0";
 	if (GetOpenFileName(&ofn) != 0) {
@@ -55,7 +55,7 @@ int OpenFileExplorer::OpenAudioFile() {
 	return -1;
 }
 
-int OpenFileExplorer::OpenImageFile() {
+int OpenFileExplorer::OpenImageFile() noexcept {
 	ofn.lpstrTitle = "画像ファイルの読み込み";
 	ofn.lpstrFilter = "PNGファイル(*.png)\0*.png\0JPEGファイル(*.jpg)\0*.jpg\0\0";
 	if (GetOpenFileName(&ofn) != 0) {
@@ -64,7 +64,7 @@ int OpenFileExplorer::OpenImageFile() {
 	return -1;
 }
 
-int OpenFileExplorer::OpenJsonFile(picojson::value& v) {
+int OpenFileExplorer::OpenJsonFile(picojson::value& v) noexcept {
 	ofn.lpstrTitle = "Jsonファイルの読み込み";
 	ofn.lpstrFilter = "Jsonファイル(*.json)\0*.json\0\0";
 	if (GetOpenFileName(&ofn) != 0) {

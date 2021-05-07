@@ -11,11 +11,11 @@ public:
 	OpenFileExplorer();
 	
 	//音楽ファイルを開いてハンドルを返す
-	int OpenAudioFile();
+	int OpenAudioFile() noexcept;
 	
 	//画像ファイルを開いてハンドルを返す
-	int OpenImageFile();
+	int OpenImageFile() noexcept;
 
 	//Jsonファイルを開く
-	int OpenJsonFile(picojson::value& v);
+	int OpenJsonFile(picojson::value& v) noexcept;
 };

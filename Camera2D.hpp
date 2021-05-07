@@ -27,10 +27,6 @@ public:
 	Camera2D() noexcept;
 	~Camera2D() noexcept;
 
-	//カメラのスクロール限界
-	Vector2D minPos;	//下限
-	Vector2D maxPos;	//上限
-
 	//更新
 	void Update() noexcept;
 	//描画

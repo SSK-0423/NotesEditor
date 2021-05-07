@@ -24,5 +24,5 @@ void Bar::Draw() noexcept {
 		position.x + (float)width / 2, position.y + (float)height / 2, //右下座標
 		position.x - (float)width / 2, position.y + (float)height / 2, //左下座標
 		imageHandle, true); //グラフィックハンドル、透過処理
-	DrawFormatStringToHandle(780, position.y + (float)height / 2 - 20, GetColor(255, 255, 255), fontHandle, "%d", barNum);
+	DrawFormatStringToHandle(780, position.y + (float)height / 2 - 20, GetColor(255, 255, 255), fontHandle, "%d", barNum+1);
 }

@@ -13,10 +13,6 @@ Camera2D::Camera2D() noexcept {
 	height = WINDOW_SIZE_HEIGHT;
 	collisionPos.x = position.x;
 	collisionPos.y = position.y;
-	maxPos.x = 0;
-	maxPos.y = 0;
-	minPos.x = 0;
-	minPos.y = 0;
 }
 
 //デストラクタ
@@ -140,11 +136,11 @@ void Camera2D::Controll() noexcept {
 
 //移動制限
 void Camera2D::PosLimit() noexcept {
-	if (position.y < minPos.y) {
-		position.y = minPos.y;
+	if (position.y < minLimitPos.y) {
+		position.y = minLimitPos.y;
 	}
-	if (position.y > maxPos.y) {
-		position.y = maxPos.y;
+	if (position.y > maxLimitPos.y) {
+		position.y = maxLimitPos.y;
 	}
 }
 
@@ -161,13 +157,13 @@ void Camera2D::DebugDraw() noexcept {
 }
 
 void Camera2D::SetMinPosition(float x, float y) noexcept {
-	minPos.x = x;
-	minPos.y = y;
+	minLimitPos.x = x;
+	minLimitPos.y = y;
 }
 
 void Camera2D::SetMaxPosition(float x, float y) noexcept {
-	maxPos.x = x;
-	maxPos.y = y;
+	maxLimitPos.x = x;
+	maxLimitPos.y = y;
 }
 
 void Camera2D::SetObject(GameObject& obj) noexcept {

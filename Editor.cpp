@@ -47,10 +47,11 @@ void Editor::Update() noexcept {
 	}
 	KeyInput();
 	//canvas.Update();
+	ScrollCamera();
 	UpdateButton();
+	InitTextBox();
 	barManager.Update();
 	camera.Update();
-	InitTextBox();
 }
 
 //•`‰æ
