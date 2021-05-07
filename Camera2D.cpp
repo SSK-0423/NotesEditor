@@ -41,6 +41,7 @@ void Camera2D::Draw() noexcept {
 	//カメラ内オブジェクトの描画
 	InCameraObjDraw();
 }
+
 //描画オブジェクトリストを更新
 void Camera2D::UpdateDrawList() noexcept {
 	for (auto obj : objList) {
@@ -50,8 +51,9 @@ void Camera2D::UpdateDrawList() noexcept {
 		}
 	}
 }
+
 //カメラに枠に入ったか判定
-bool Camera2D::Collision(const GameObject& obj) const noexcept {
+bool Camera2D::Collision(GameObject& obj) const noexcept {
 	Vector2D distance;	//距離の格納
 	//中心座標の距離
 	distance.x = fabsf(this->position.x - obj.collisionPos.x);
@@ -59,8 +61,8 @@ bool Camera2D::Collision(const GameObject& obj) const noexcept {
 
 	Vector2D sizeSum;	//サイズの格納
 	//サイズ計算
-	sizeSum.x = (this->width + obj.width) / 2.0f;
-	sizeSum.y = (this->height + obj.height) / 2.0f;
+	sizeSum.x = (this->width + obj.GetObjWidth()) / 2.0f;
+	sizeSum.y = (this->height + obj.GetObjHeight()) / 2.0f;
 
 	// 衝突判定
 	if (distance.x <= sizeSum.x && distance.y <= sizeSum.y) {
@@ -127,7 +129,9 @@ void Camera2D::Controll() noexcept {
 	}
 	if (Key[KEY_INPUT_PGUP] != 0 && Key[KEY_INPUT_PGUP] % 15 == 0) {
 		position.y -= WINDOW_SIZE_HEIGHT;
-	}	
+	}
+
+	//objListの初期化・GameObjectのdelete
 	if (CheckHitKey(KEY_INPUT_D) != 0) {
 		//GameObjectのメモリ開放
 		DeleteObj();

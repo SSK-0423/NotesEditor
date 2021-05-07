@@ -2,15 +2,11 @@
 #include "Mouse.hpp"
 
 // コンストラクタ
-Button::Button() noexcept{
+Button::Button() noexcept : count(0),fill(false), isPressed(false), sub(0){
 	position.x = position.y = 0;
 	height = 0;
 	width = 0;
-	count = 0;
 	buttonColor = GetColor(255, 255, 255);
-	fill = false;
-	isPressed = false;
-	sub = 0;
 	myDg = nullptr;
 }
 
@@ -99,5 +95,4 @@ int Button::IsCheckClick()  noexcept {
 void Button::SetImageHandle(const char* file_name) noexcept{
 	handle.push_back(LoadGraph(file_name));
 	SetDrawMode(DX_DRAWMODE_BILINEAR);
-	//GetGraphSize(handle[0], &width, &height);
 }

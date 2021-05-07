@@ -24,3 +24,11 @@ void GameObject::SetPosition(float x, float y) noexcept {
 	position.x = x;
 	position.y = y;
 }
+
+int GameObject::GetObjHeight() noexcept {
+	return height;
+}
+
+int GameObject::GetObjWidth() noexcept {
+	return width;
+}

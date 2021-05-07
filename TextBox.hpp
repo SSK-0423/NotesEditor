@@ -19,8 +19,7 @@ public:
 	~TextBox() noexcept;
 	void Update() noexcept;
 	void Draw() noexcept;
-	void SetText(const char* str) noexcept;
+	void SetText(std::string str) noexcept;
 	void SetColor(int r, int g, int b) noexcept;
 	void CreateFontHandle(const char* name, int size, int thick, int fonttype) noexcept;
-	void SetImage(int handle) noexcept;
 };

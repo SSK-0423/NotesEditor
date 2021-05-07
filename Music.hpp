@@ -7,7 +7,6 @@ private:
 	//jsonファイル
 	picojson::value json;
 
-public:
 	int musicHandle;
 	//曲名
 	std::string name;
@@ -20,22 +19,35 @@ public:
 	bool isMusicLoad;
 	//曲が再生中かどうか
 	bool isPlay;
+
+public:
 	//コンストラクタ
 	Music();
 	//曲のセット
-	void SetMusic(const int& handle);
+	void SetMusic(const int& handle) noexcept;
 	//曲の読込
-	void LoadMusic();
+	void LoadMusic() noexcept;
 	//デストラクタ
-	virtual ~Music();
+	virtual ~Music() noexcept;
 	//曲の再生・停止
-	void PlayMusic();
+	void PlayMusic() noexcept;
 	//曲を最初から再生
-	void RestartMusic();
+	void RestartMusic() noexcept;
 	//曲の長さを取得
-	int GetTotalTime();
+	int GetTotalTime() noexcept;
 	//現在の再生位置を取得
-	float GetElapsedTime();
-
-	void MusicTimeDraw();
+	float GetElapsedTime() noexcept;
+	//曲名取得
+	std::string GetName() noexcept;
+	//BPM取得
+	float GetBPM() noexcept;
+	//拍子取得
+	int GetBeat() noexcept;
+	//曲が読み込まれたかどうかを取得
+	bool IsMusicLoad() noexcept;
+	//曲が再生中がどうか
+	bool IsPlay() noexcept;
+	//フラグ変更
+	void ChangeIsMusicLoad() noexcept;
+	void MusicTimeDraw() noexcept;
 };

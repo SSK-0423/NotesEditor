@@ -30,7 +30,7 @@ void TextBox::Draw() noexcept {
 	}
 	text.clear();
 }
-void TextBox::SetText(const char* str) noexcept {
+void TextBox::SetText(std::string str) noexcept {
 	std::string s = str;
 	text.push_back(str);
 }
@@ -39,7 +39,4 @@ void TextBox::SetColor(int r, int g, int b) noexcept {
 }
 void TextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype) noexcept {
 	fontHandle = CreateFontToHandle(name, size, thick, fonttype);
-}
-void TextBox::SetImage(int handle) noexcept {
-	imageHandle = handle;
 }

@@ -35,18 +35,12 @@ private:
 	int speed;				//スクロールスピード
 	int backgroungHandle;	//背景
 	int laneHandle;			//レーン	
-	//int lineHandle;			//ノーツライン
-
-	//小節線のハンドル
-	int barHandle;		// 1/1
-	int bar4Handle;		// 1/4
-	int bar8Handle;		// 1/8
-	int bar16Handle;	// 1/16
-	int bar32Handle;	// 1/32
 
 	int musicInfoHandle;	//楽曲情報表示枠
 
 	int count; // 曲を再生してから経過したフレーム数
+
+	float frame_move; //自動スクロール時の1フレーム当たりのカメラの移動量
 
 	Button* button;
 	TextBox text;
@@ -56,15 +50,38 @@ private:
 
 	// 小節線の描画
 	// 楽曲のBPMと再生時間から小節数を算出して描画
-	void MakeBar();
-	void DrawButton();
-	void InitButton();
-	void DebugDraw();
+	void MakeBar() noexcept;
+	//ボタンの更新
+	void UpdateButton() noexcept;
+	// ボタン描画
+	void DrawButton() noexcept;
+	// テキストボックス描画
+	//void DrawTextBox() noexcept;
+	//ボタンの初期化
+	void InitButton() noexcept;
+	//テキストボックスの初期化
+	void InitTextBox() noexcept;
+	//ボタンの画像セット
+	void SetButtonImage() noexcept;
+	//ボタンの位置セット
+	void SetButtonPos() noexcept;
+	//ボタンのイベント関数セット
+	void SetClickEventFunc() noexcept;
+	//小節線管理クラスの初期化
+	void InitBarManager() noexcept;
+	//カメラスクロール
+	void ScrollCamera() noexcept;
+	//キー入力管理
+	void KeyInput() noexcept;
+	//デバッグ用テキストなどの描画
+	void DebugDraw() noexcept;
+	//自動スクロール時の移動幅計算
+	void CalcFrameMove() noexcept;
 
 public:
 	Editor(ISceneChanger* changer);
-	void Initialize() override;
-	void Finalize() override;
-	void Update() override;
-	void Draw() override;
+	void Initialize()  noexcept override;
+	void Finalize()  noexcept override;
+	void Update()  noexcept override;
+	void Draw()  noexcept override;
 };

@@ -10,11 +10,11 @@ Music::Music() {
 	isPlay = false;
 	name = "No Data";
 }
-void Music::SetMusic(const int& handle) {
+void Music::SetMusic(const int& handle) noexcept {
 	musicHandle = handle;//this->Handle = 0;
 }
 
-void Music::LoadMusic() {
+void Music::LoadMusic() noexcept {
 	OpenFileExplorer open;
 	//jsonファイルを読み込む
 	if (open.OpenJsonFile(json) != -1) {
@@ -28,10 +28,7 @@ void Music::LoadMusic() {
 		beat = json.get<picojson::object>()["BEAT"].get<double>();
 		//ファイルパス読込
 		std::string path = json.get<picojson::object>()["PATH"].get<std::string>();
-		//std::string path = "C\\DxLib\\MyProjects\\NotesEditor\\sounds\\";
-		//path += name + ".wav";
 		//曲読み込み
-		//musicHandle = LoadSoundMem("sounds\\Memory of Heaven.wav");
 		musicHandle = LoadSoundMem(path.c_str());
 		if (musicHandle != -1) {
 			isMusicLoad = true;
@@ -39,7 +36,7 @@ void Music::LoadMusic() {
 	}
 }
 // 曲の再生・停止
-void Music::PlayMusic() {
+void Music::PlayMusic() noexcept {
 	//DrawFormatString(0, 0, GetColor(255, 255, 255), "Musicクラスの関数");
 	if (!CheckSoundMem(musicHandle)) {
 		PlaySoundMem(musicHandle, DX_PLAYTYPE_LOOP, false);
@@ -52,7 +49,7 @@ void Music::PlayMusic() {
 	//isPlay = true;
 }
 
-void Music::RestartMusic() {
+void Music::RestartMusic() noexcept {
 	isPlay = true;
 	if (CheckSoundMem(musicHandle)) {
 		StopSoundMem(musicHandle);
@@ -60,21 +57,46 @@ void Music::RestartMusic() {
 		PlaySoundMem(musicHandle, DX_PLAYTYPE_LOOP, true);
 }
 
-int Music::GetTotalTime()
+int Music::GetTotalTime() noexcept
 {
 	return GetSoundTotalTime(musicHandle);
 }
 
-float Music::GetElapsedTime()
+float Music::GetElapsedTime() noexcept
 {
 	if (musicHandle != -1)
 		return (float)GetSoundCurrentTime(musicHandle);
 	else
 		return 0.0f;
 }
-void Music::MusicTimeDraw() {
+
+std::string Music::GetName() noexcept{
+	return name;
+}
+
+float Music::GetBPM() noexcept {
+	return bpm;
+}
+
+int Music::GetBeat() noexcept{
+	return beat;
+}
+
+bool Music::IsMusicLoad() noexcept{
+	return isMusicLoad;
+}
+
+bool Music::IsPlay() noexcept{
+	return isPlay;
+}
+
+void Music::MusicTimeDraw() noexcept {
 	DrawFormatString(0, 0, GetColor(0, 255, 0), "総再生時間(ms)%d", GetSoundTotalTime(musicHandle));
 	DrawFormatString(200, 0, GetColor(0, 255, 0), "経過時間(ms)%d", GetSoundCurrentTime(musicHandle));
+}
+
+void Music::ChangeIsMusicLoad() noexcept {
+	isMusicLoad = false;
 }
 
 Music::~Music()

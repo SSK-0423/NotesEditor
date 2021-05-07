@@ -1,20 +1,38 @@
 #include "BarManager.hpp"
 #include "WindowSize.hpp"
+#include "Bar.hpp"
 #include "DxLib.h"
 #define ADD 20
 
 BarManager::BarManager() noexcept {
+	SetHandle();
+	Bar::fontHandle = CreateFontToHandle("Bar", 30, 1);
 }
 BarManager::~BarManager() noexcept {
 }
 
-void BarManager::SetObject(GameObject& bar) noexcept {
-	bars.push_back(&bar);
+void BarManager::SetHandle() noexcept {
+	//小節線画像ハンドルの初期化
+	int bar1Handle = LoadGraph("image/Bar.png");
+	int bar4Handle = LoadGraph("image/Bar4.png");
+	int bar8Handle = LoadGraph("image/Bar8.png");
+	int bar16Handle = LoadGraph("image/Bar16.png");
+	int bar32Handle = LoadGraph("image/Bar32.png");
+
+	barHandle.push_back(bar1Handle);
+	barHandle.push_back(bar4Handle);
+	barHandle.push_back(bar8Handle);
+	barHandle.push_back(bar16Handle);
+	barHandle.push_back(bar32Handle);
 }
 
-void BarManager::SetHandle(int& handle) noexcept {
-	barHandle.push_back(handle);
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "BarManager関数");
+void BarManager::MakeBar(Camera2D& camera, int num) noexcept {
+	//小節線オブジェクトの生成
+	for (int i = 0; i < num + 2; i++) {
+		Bar* bar = new Bar(barHandle[0],i);
+		bars.push_back(bar);
+		camera.SetObject(*bar);
+	}
 }
 
 void BarManager::ChangeHandle() noexcept {
@@ -53,28 +71,4 @@ void BarManager::Draw() noexcept {
 }
 void BarManager::DeleteObj() noexcept {
 	bars.clear();
-}
-
-Bar::Bar(int handle, int i) noexcept {
-	barNum = i;
-	imageHandle = handle;
-	GetGraphSize(handle, &width, &height);
-	position.x = WINDOW_SIZE_WIDTH / 2;
-	position.y = WINDOW_SIZE_HEIGHT / 2 - height * (WINDOW_SIZE_HEIGHT / height) *i;
-	collisionPos.x = WINDOW_SIZE_WIDTH / 2;
-	collisionPos.y = WINDOW_SIZE_HEIGHT / 2 - height * (WINDOW_SIZE_HEIGHT / height) * i;
-	//height = 1024;
-}
-Bar::~Bar() noexcept {
-
-}
-void Bar::Update() noexcept {
-}
-void Bar::Draw() noexcept {
-	DrawModiGraph(
-		position.x - width / 2, position.y - height / 2, //左上座標
-		position.x + width / 2, position.y - height / 2, //右上座標
-		position.x + width / 2, position.y + height / 2, //右下座標
-		position.x - width / 2, position.y + height / 2, //左下座標
-		imageHandle, true); //グラフィックハンドル、透過処理
 }

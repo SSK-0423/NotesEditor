@@ -8,6 +8,10 @@ protected:
 	// 画像ハンドル
 	int imageHandle;
 
+	// オブジェクトの高さ、幅
+	int width;
+	int height;
+
 public:
 	GameObject() noexcept;
 	~GameObject() noexcept;
@@ -21,11 +25,11 @@ public:
 	void SetHandle(int handle) noexcept;
 	// 位置の設定・更新
 	void SetPosition(float x, float y) noexcept;
+	// 幅の取得
+	int GetObjWidth() noexcept;
+	// 高さの取得
+	int GetObjHeight() noexcept;
 
-	// オブジェクトの高さ、幅
-	int width;
-	int height;
-	
 	virtual void Update() noexcept;
 	virtual void Draw() noexcept;
 };

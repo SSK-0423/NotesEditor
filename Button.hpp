@@ -1,18 +1,12 @@
 #pragma once
 #include "DxLib.h"
-#include "Music.hpp"
 #include "Delegate.hpp"
 #include <vector>
 #include "Vector2D.hpp"
+#include "GameObject.hpp"
 
-class Button {
+class Button : public GameObject{
 private:
-	Vector2D position;					// ボタンの座標
-
-	int height;							// ボタンの高さ
-
-	int width;							// ボタンの幅
-
 	int count;							// ボタンが押された回数（押された場合にボタンを切り替える際に使用）
 
 	unsigned int buttonColor;			//ボタンの色

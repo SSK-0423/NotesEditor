@@ -47,5 +47,5 @@ public:
 	void SetMaxPosition(float x, float y) noexcept;
 
 	//オブジェクトがカメラ内に入ったかどうかを判定
-	bool Collision(const GameObject& obj) const noexcept;
+	bool Collision(GameObject& obj) const noexcept;
 };
