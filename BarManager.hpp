@@ -14,6 +14,8 @@ private:
 	void ChangeBarHandle(int handle) noexcept;
 	//画像ハンドルのセット
 	void SetHandle() noexcept;
+	//キー入力管理
+	void KeyInput() noexcept;
 
 public:
 	BarManager() noexcept;
@@ -32,6 +34,8 @@ public:
 	void ChangeHandle16() noexcept;
 	//画像変更 1/32
 	void ChangeHandle32() noexcept;
+	//小節線の当たり判定実行
+	void CheckBarCollision() noexcept;
 
 	void Update() noexcept;
 	void Draw() noexcept;

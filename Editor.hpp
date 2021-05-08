@@ -77,6 +77,8 @@ private:
 	void DebugDraw() noexcept;
 	//自動スクロール時の移動幅計算
 	void CalcFrameMove() noexcept;
+	//ノーツの設置
+	void PutNotes() noexcept;
 
 public:
 	Editor(ISceneChanger* changer);

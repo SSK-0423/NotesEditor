@@ -5,6 +5,8 @@
 #include "BarManager.hpp"
 #include "Camera2D.hpp"
 #include "DxLib.h"
+#include "Mouse.hpp"
+#include "KeyInput.hpp"
 #include <string>
 #include <Windows.h>
 
@@ -31,7 +33,7 @@ void Editor::MakeBar() noexcept {
 	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * bar_num);
 	camera.SetMaxPosition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
 
-	barManager.MakeBar(camera,bar_num);
+	barManager.MakeBar(camera, bar_num);
 }
 
 void Editor::Initialize() noexcept {}
@@ -46,7 +48,6 @@ void Editor::Update() noexcept {
 		CalcFrameMove();
 	}
 	KeyInput();
-	//canvas.Update();
 	ScrollCamera();
 	UpdateButton();
 	InitTextBox();
@@ -59,12 +60,10 @@ void Editor::Draw() noexcept {
 	DrawGraph(0, 0, backgroungHandle, true);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
 	DrawButton();
-	barManager.Draw();
 	text.Draw();
 	camera.Draw();
+	barManager.Draw();
 	DebugDraw();
-	//canvas.Draw();
-
 }
 
 void Editor::DrawButton() noexcept {
@@ -184,18 +183,13 @@ void Editor::ScrollCamera() noexcept {
 }
 
 void Editor::KeyInput() noexcept {
-	// 1が押されたら
-	if (CheckHitKey(KEY_INPUT_1) != 0) {
-	}
-	// 2が押されたら
-	if (CheckHitKey(KEY_INPUT_2) != 0) {
-	}
-	// 3が押されたら
-	if (CheckHitKey(KEY_INPUT_3) != 0) {
-	}
-	if (CheckHitKey(KEY_INPUT_D) != 0) {
+	if (Key[KEY_INPUT_D] == 1) {
 		camera.DeleteObj();
 		barManager.DeleteObj();
+	}
+	Mouse::Instance()->Update();
+	if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) == 1) {
+		PutNotes();
 	}
 }
 
@@ -203,3 +197,12 @@ void Editor::CalcFrameMove() noexcept {
 	// 1小節の縦幅 / ((60 * beat * speed / bpm)  * 60) = 1フレームの移動幅
 	frame_move = WINDOW_SIZE_HEIGHT / (music.GetBeat() * (60 / music.GetBPM()) * 60);
 }
+
+void Editor::PutNotes() noexcept {
+	//何小節目は判定
+	//何分目か判定
+	//レーン判定
+	//設置
+
+}
+

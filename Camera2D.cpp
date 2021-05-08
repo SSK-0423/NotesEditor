@@ -62,11 +62,9 @@ bool Camera2D::Collision(GameObject& obj) const noexcept {
 
 	// 衝突判定
 	if (distance.x <= sizeSum.x && distance.y <= sizeSum.y) {
-		//DrawFormatString(0, 100, GetColor(0, 255, 0), "入った");
 		return true;
 	}
 	else {
-		//DrawFormatString(0, 100, GetColor(0, 255, 0), "入ってない");
 		return false;
 	}
 }
@@ -145,15 +143,18 @@ void Camera2D::PosLimit() noexcept {
 }
 
 void Camera2D::DebugDraw() noexcept {
+	unsigned int c = GetColor(0, 255, 0);
 	// カメラの座標表示
 	DrawFormatString(800, 0, GetColor(0, 255, 0), "x:%f y:%f", position.x, position.y);
 	DrawFormatString(800, 150, GetColor(0, 255, 0), "オブジェクト数:%d", objList.size());
+	DrawFormatString(800, 250, GetColor(0, 255, 0), "カメラの上端座標:%f",position.y - height/2);
+	DrawFormatString(800, 300, GetColor(0, 255, 0), "カメラの下端座標:%f",position.y + height/2);
 
 	// カメラ枠表示
-	/*DrawBox(
+	DrawBox(
 		WINDOW_SIZE_WIDTH / 2 - width / 2, WINDOW_SIZE_HEIGHT / 2 - height / 2,
 		WINDOW_SIZE_WIDTH / 2 + width / 2, WINDOW_SIZE_HEIGHT / 2 + height / 2,
-		GetColor(255, 255, 255), false);*/
+		GetColor(255, 255, 255), false);
 }
 
 void Camera2D::SetMinPosition(float x, float y) noexcept {

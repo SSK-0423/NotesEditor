@@ -1,6 +1,7 @@
 #include "BarManager.hpp"
 #include "WindowSize.hpp"
 #include "Bar.hpp"
+#include "Mouse.hpp"
 #include "DxLib.h"
 #define ADD 20
 
@@ -36,39 +37,53 @@ void BarManager::MakeBar(Camera2D& camera, int num) noexcept {
 }
 
 void BarManager::ChangeHandle() noexcept {
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle関数");
 	ChangeBarHandle(barHandle[0]);
 }
 void BarManager::ChangeHandle4() noexcept {
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle4関数");
 	ChangeBarHandle(barHandle[1]);
 }
 void BarManager::ChangeHandle8() noexcept {
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle8関数");
 	ChangeBarHandle(barHandle[2]);
 }
 void BarManager::ChangeHandle16() noexcept {
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle16関数");
 	ChangeBarHandle(barHandle[3]);
 }
 void BarManager::ChangeHandle32() noexcept {
-	DrawFormatString(800, 250, GetColor(0, 255, 0), "ChangeHandle32関数");
 	ChangeBarHandle(barHandle[4]);
 }
 
+//小節線の画像変更
 void BarManager::ChangeBarHandle(int handle) noexcept {
 	for (auto obj : bars) {
 		obj->SetHandle(handle);
 	}
 }
+
 void BarManager::Update() noexcept {
+	KeyInput();
+}
+
+//
+void BarManager::Draw() noexcept {
+	DrawFormatString(800,200,GetColor(0,255,0),"小節線数:%d",bars.size());
+}
+
+void BarManager::DeleteObj() noexcept {
+	bars.clear();
+}
+
+//キー入力関連
+void BarManager::KeyInput() noexcept {
+	
 	if (CheckHitKey(KEY_INPUT_D) != 0) {
 		DeleteObj();
 	}
 }
-void BarManager::Draw() noexcept {
-	DrawFormatString(800,200,GetColor(0,255,0),"小節線数:%d",bars.size());
-}
-void BarManager::DeleteObj() noexcept {
-	bars.clear();
+
+//小節の当たり判定実行
+void BarManager::CheckBarCollision() noexcept {
+	for (auto* obj : bars) {
+		Bar* bar = (Bar*)obj;
+		bar->Collision();
+	}
 }
