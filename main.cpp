@@ -12,6 +12,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	//ウィンドウモード、初期化、裏画面設定
 	SetGraphMode(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, 16);
 	ChangeWindowMode(true), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
+	SetAlwaysRunFlag(true);
 
 	int handle = LoadGraph("image/ShortNotes02.png");
 

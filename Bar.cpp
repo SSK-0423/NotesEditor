@@ -38,10 +38,6 @@ void Bar::Draw() noexcept {
 	DebugDraw();
 }
 
-void Bar::PutNotes() noexcept{
-}
-
-
 //“–‚½‚è”»’è
 void Bar::Collision() noexcept {
 	int x, y;
@@ -59,12 +55,13 @@ void Bar::CollisionLine(int& x, int& y) noexcept {
 	int num = 3;
 	if (num == 3) {
 		for (int posY : line16) {
-			if (x >= posY + 10 && y <= posY - 10) {
+			if (y <= posY + 20 && y >= posY - 20) {
 				DrawBox(width / 2 - 10, posY - 10, width / 2 + 10, posY + 10, GetColor(0, 0, 255), true);
 			}
 		}
 	}
 }
+
 void Bar::CollisionLane(int& x, int& y) noexcept {
 
 }

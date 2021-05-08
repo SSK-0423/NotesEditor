@@ -4,6 +4,7 @@
 #include "Camera2D.hpp"
 #include "TextBox.hpp"
 #include "BarManager.hpp"
+#include <vector>
 
 #define BUTTON_SIZE_WIDTH 126
 #define BUTTON_SIZE_HEIGHT 66
@@ -48,6 +49,9 @@ private:
 	Camera2D camera;
 	BarManager barManager;
 
+	//エディター内の全てのオブジェクト
+	std::vector<GameObject*> objList;
+
 	// 小節線の描画
 	// 楽曲のBPMと再生時間から小節数を算出して描画
 	void MakeBar() noexcept;
@@ -79,6 +83,8 @@ private:
 	void CalcFrameMove() noexcept;
 	//ノーツの設置
 	void PutNotes() noexcept;
+	//オブジェクトの破棄
+	void DeleteObj() noexcept;
 
 public:
 	Editor(ISceneChanger* changer);
@@ -86,4 +92,5 @@ public:
 	void Finalize()  noexcept override;
 	void Update()  noexcept override;
 	void Draw()  noexcept override;
+	void AddObject(GameObject& obj) noexcept;
 };

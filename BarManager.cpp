@@ -3,7 +3,6 @@
 #include "Bar.hpp"
 #include "Mouse.hpp"
 #include "DxLib.h"
-#define ADD 20
 
 BarManager::BarManager() noexcept {
 	SetHandle();
@@ -27,12 +26,12 @@ void BarManager::SetHandle() noexcept {
 	barHandle.push_back(bar32Handle);
 }
 
-void BarManager::MakeBar(Camera2D& camera, int num) noexcept {
+void BarManager::MakeBar(std::vector<GameObject*>& vec, int num) noexcept {
 	//小節線オブジェクトの生成
 	for (int i = 0; i < num + 2; i++) {
 		Bar* bar = new Bar(barHandle[0],i);
 		bars.push_back(bar);
-		camera.SetObject(*bar);
+		vec.push_back((GameObject*)bar);
 	}
 }
 

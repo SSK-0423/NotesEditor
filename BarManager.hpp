@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.hpp"
-#include "Camera2D.hpp"
+//#include "Editor.hpp"
 #include <vector>
 
 // 小節線管理クラス
@@ -22,7 +22,7 @@ public:
 	~BarManager() noexcept;
 
 	//Barオブジェクトの生成
-	void MakeBar(Camera2D& camera,int num) noexcept;
+	void MakeBar(std::vector<GameObject*>& vec,int num) noexcept;
 
 	//画像変更 1/1
 	void ChangeHandle() noexcept;

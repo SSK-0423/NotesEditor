@@ -2,15 +2,13 @@
 #include "WindowSize.hpp"
 #include "OpenFileExplorer.hpp"
 #include "Delegate.hpp"
-#include "BarManager.hpp"
-#include "Camera2D.hpp"
 #include "DxLib.h"
 #include "Mouse.hpp"
 #include "KeyInput.hpp"
 #include <string>
 #include <Windows.h>
 
-Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0) {
+Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0), camera(objList) {
 	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
 	backgroungHandle = LoadGraph("image/”wŒi.jpg");
 	laneHandle = LoadGraph("image/Lane.png");
@@ -33,7 +31,7 @@ void Editor::MakeBar() noexcept {
 	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * bar_num);
 	camera.SetMaxPosition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
 
-	barManager.MakeBar(camera, bar_num);
+	barManager.MakeBar(objList, bar_num);
 }
 
 void Editor::Initialize() noexcept {}
@@ -184,12 +182,15 @@ void Editor::ScrollCamera() noexcept {
 
 void Editor::KeyInput() noexcept {
 	if (Key[KEY_INPUT_D] == 1) {
-		camera.DeleteObj();
-		barManager.DeleteObj();
+		DeleteObj();
 	}
 	Mouse::Instance()->Update();
 	if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) == 1) {
-		PutNotes();
+		int x, y;
+		GetMousePoint(&x, &y);
+		if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
+			PutNotes();
+		}
 	}
 }
 
@@ -198,11 +199,24 @@ void Editor::CalcFrameMove() noexcept {
 	frame_move = WINDOW_SIZE_HEIGHT / (music.GetBeat() * (60 / music.GetBPM()) * 60);
 }
 
+void Editor::AddObject(GameObject& obj) noexcept {
+	objList.push_back(&obj);
+}
+
 void Editor::PutNotes() noexcept {
 	//‰½¬ß–Ú‚Í”»’è
 	//‰½•ª–Ú‚©”»’è
 	//ƒŒ[ƒ“”»’è
+	barManager.CheckBarCollision();
 	//Ý’u
-
+	//NotesManager.AddNotes();
 }
 
+void Editor::DeleteObj() noexcept {
+	camera.DeleteObj();
+	barManager.DeleteObj();
+	for (auto i : objList) {
+		delete[] i;
+		objList.clear();
+	}
+}
