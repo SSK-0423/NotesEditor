@@ -15,7 +15,7 @@ public:
 	int GetReleasingCount(int keyCode);//keyCodeのキーが離されているフレーム数を取得
 	int GetX() { return x; }
 	int GetY() { return y; }
-
+	Mouse* Get() { return this; }
 private:
 	static constexpr int KEY_NUM = 8;	//キー総数
 	int x, y;

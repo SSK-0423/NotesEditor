@@ -204,12 +204,14 @@ void Editor::AddObject(GameObject& obj) noexcept {
 }
 
 void Editor::PutNotes() noexcept {
+	float putPosX, putPosY;
 	//‰½¬ß–Ú‚Í”»’è
 	//‰½•ª–Ú‚©”»’è
 	//ƒŒ[ƒ“”»’è
-	barManager.CheckBarCollision();
+	barManager.BarsCollision();
 	//İ’u
-	//NotesManager.AddNotes();
+	//Notes notes = new Notes(putPosX,putPosY);
+	//NotesManager.AddNotes(Notes);
 }
 
 void Editor::DeleteObj() noexcept {

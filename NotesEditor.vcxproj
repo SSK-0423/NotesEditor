@@ -179,6 +179,8 @@
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Canvas.hpp" />
     <ClInclude Include="KeyInput.hpp" />
+    <ClInclude Include="LongNotes.hpp" />
+    <ClInclude Include="Notes.hpp" />
     <ClInclude Include="PlayableObj.hpp" />
     <ClInclude Include="Delegate.hpp" />
     <ClInclude Include="Editor.hpp" />
@@ -187,6 +189,7 @@
     <ClInclude Include="ISceneChanger.hpp" />
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Music.hpp" />
+    <ClInclude Include="SlideNotes.hpp" />
     <ClInclude Include="Vector2D.hpp" />
     <ClInclude Include="OpenFileExplorer.hpp" />
     <ClInclude Include="picojson.h" />
