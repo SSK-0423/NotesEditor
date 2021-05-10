@@ -49,6 +49,12 @@
     <Filter Include="ソース ファイル\Game\System/Interface">
       <UniqueIdentifier>{0a14c04b-f973-456c-8a90-aaef4d5035fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Tools">
+      <UniqueIdentifier>{ce646e0d-6b2d-4639-b17c-2045facf716a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Tools">
+      <UniqueIdentifier>{51239324-5513-47fe-bc21-aa5e62e96f38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KeyInput.cpp">
@@ -110,6 +116,18 @@
     </ClCompile>
     <ClCompile Include="ShortNotes.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="CubicSpline.cpp">
+      <Filter>ソース ファイル\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="EquationsSolver.cpp">
+      <Filter>ソース ファイル\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="GaussElimination.cpp">
+      <Filter>ソース ファイル\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="LUdecomposition.cpp">
+      <Filter>ソース ファイル\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +217,18 @@
     </ClInclude>
     <ClInclude Include="ShortNotes.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="CubicSpline.hpp">
+      <Filter>ヘッダー ファイル\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="EquationsSolver.hpp">
+      <Filter>ヘッダー ファイル\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GaussElimination.hpp">
+      <Filter>ヘッダー ファイル\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="LUdecomposition.hpp">
+      <Filter>ヘッダー ファイル\Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

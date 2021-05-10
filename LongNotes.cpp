@@ -2,7 +2,7 @@
 #include "DxLib.h"
 
 //ƒNƒ‰ƒX•Ï”À‘Ì‰»
-unsigned int color = GetColor(128,128,128);
+unsigned int LongNotes::color = GetColor(128,128,128);
 
 LongNotes::LongNotes() noexcept {
 	startNotes = nullptr;
