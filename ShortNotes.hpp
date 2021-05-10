@@ -2,9 +2,12 @@
 #include "Notes.hpp"
 
 class ShortNotes : public Notes {
+protected:
+	static int clapHandle;
 private:
+	void PlayClap() noexcept;
 public:
-	ShortNotes() noexcept;
+	ShortNotes(float& x, float& y) noexcept;
 	~ShortNotes() noexcept;
 	void Draw() noexcept override;
 };

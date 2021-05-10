@@ -76,17 +76,27 @@ float Bar::CollisionLane(int& x) noexcept {
 
 //何分目なのかを判定
 float Bar::CollisionLine(int& y) noexcept {
+
+	//小節線の開始位置からの距離
 	std::vector<int> linePosYList;
 	MakeLineCollisionList(linePosYList);
-	int min = abs(linePosYList[0]);
+
+	//描画座標を使って判定
+	float startBarPosY = this->position.y + height / 2;
+	//初期の最小距離
+	int min = abs(startBarPosY - y);
+	//初期インデックス
 	int lineIndex = 0;
+	//判定処理
 	for (int i = 1; i < linePosYList.size(); i++) {
-		if (min > abs(lane[i] - y)) {
-			min = abs(lane[i] - y);
+		if (min > abs(startBarPosY - linePosYList[i] - y)) {
+			min = abs(startBarPosY - linePosYList[i] - y);
 			lineIndex = i;
 		}
 	}
-	return lane[lineIndex];
+	//小節線からの相対座標から絶対座標に変換
+	float posY = this->collisionPos.y + height / 2 - linePosYList[lineIndex];
+	return posY;
 }
 
 void Bar::DebugDraw() noexcept {
@@ -122,6 +132,8 @@ void Bar::MakeLineCollisionList(std::vector<int>& list) noexcept {
 
 //リスト作成
 void Bar::MakeList(std::vector<int>& list, int lineNum) noexcept {
+	//小節線の開始位置との判定に必要
+	list.push_back(0);
 	for (int i = 0; i < lineNum; i++) {
 		list.push_back(height / lineNum * (i + 1));
 	}

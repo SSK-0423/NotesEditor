@@ -4,11 +4,6 @@
 //ƒNƒ‰ƒX•Ï”À‘Ì‰»
 unsigned int LongNotes::color = GetColor(128,128,128);
 
-LongNotes::LongNotes() noexcept {
-	startNotes = nullptr;
-	endNotes = nullptr;
-}
-
 LongNotes::LongNotes(Notes& start, Notes& end) {
 	startNotes = &start;
 	endNotes = &end;

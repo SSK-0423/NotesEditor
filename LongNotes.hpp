@@ -8,7 +8,6 @@ private:
 	Notes* startNotes;
 	Notes* endNotes;
 public:
-	LongNotes() noexcept;
 	LongNotes(Notes& start, Notes& end);
 	~LongNotes() noexcept;
 	void Draw() noexcept override;
