@@ -19,7 +19,7 @@ private:
 	std::vector<int> barHandle;
 	//生成した小節線オブジェクト
 	std::vector<GameObject*> bars;
-	static BARTYPE TYPE;
+	static BARTYPE type;
 	//小節線画像の変更
 	void ChangeBarHandle(int handle) noexcept;
 	//画像ハンドルのセット
@@ -27,6 +27,8 @@ private:
 	//キー入力管理
 	void KeyInput() noexcept;
 
+	//小節線の当たり判定実行
+	void BarsCollision(float& posX, float& posY) noexcept;
 public:
 	BarManager() noexcept;
 	~BarManager() noexcept;
@@ -44,9 +46,8 @@ public:
 	void ChangeHandle16() noexcept;
 	//画像変更 1/32
 	void ChangeHandle32() noexcept;
-	//小節線の当たり判定実行
-	void BarsCollision() noexcept;
-
+	//ノーツ設置時の座標を決定
+	void DecidePutPos(float& posX, float& posY) noexcept;
 	static BARTYPE GetBarType() noexcept;
 
 	void Update() noexcept;

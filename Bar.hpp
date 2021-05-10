@@ -23,9 +23,9 @@ public:
 	~Bar() noexcept;
 	void Update() noexcept;
 	void Draw() noexcept;
-	void Collision() noexcept;
+	void Collision(float& posX, float& posY) noexcept;
 	bool CollisionBar(int& x, int& y) noexcept;
-	void CollisionLane(int& x) noexcept;
-	void CollisionLine(int& y) noexcept;
+	float CollisionLane(int& x) noexcept;
+	float CollisionLine(int& y) noexcept;
 	void DebugDraw() noexcept;
 };

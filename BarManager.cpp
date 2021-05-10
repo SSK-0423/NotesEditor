@@ -4,11 +4,11 @@
 #include "Mouse.hpp"
 #include "DxLib.h"
 
-BARTYPE BarManager::TYPE;
+BARTYPE BarManager::type;
 BarManager::BarManager() noexcept{
 	SetHandle();
 	Bar::fontHandle = CreateFontToHandle("Bar", 30, 1);
-	TYPE = BAR1;
+	type = BAR1;
 }
 BarManager::~BarManager() noexcept {
 }
@@ -39,23 +39,23 @@ void BarManager::MakeBar(std::vector<GameObject*>& vec, int num) noexcept {
 
 void BarManager::ChangeHandle() noexcept {
 	ChangeBarHandle(barHandle[0]);
-	TYPE = BAR1;
+	type = BAR1;
 }
 void BarManager::ChangeHandle4() noexcept {
 	ChangeBarHandle(barHandle[1]);
-	TYPE = BAR4;
+	type = BAR4;
 }
 void BarManager::ChangeHandle8() noexcept {
 	ChangeBarHandle(barHandle[2]);
-	TYPE = BAR8;
+	type = BAR8;
 }
 void BarManager::ChangeHandle16() noexcept {
 	ChangeBarHandle(barHandle[3]);
-	TYPE = BAR16;
+	type = BAR16;
 }
 void BarManager::ChangeHandle32() noexcept {
 	ChangeBarHandle(barHandle[4]);
-	TYPE = BAR32;
+	type = BAR32;
 }
 
 //¬ßü‚Ì‰æ‘œ•ÏX
@@ -87,13 +87,17 @@ void BarManager::KeyInput() noexcept {
 }
 
 //¬ß‚Ì“–‚½‚è”»’èŽÀs
-void BarManager::BarsCollision() noexcept {
+void BarManager::BarsCollision(float& posX, float& posY) noexcept {
 	for (auto* obj : bars) {
 		Bar* bar = (Bar*)obj;
-		bar->Collision();
+		bar->Collision(posX, posY);
 	}
 }
 
 BARTYPE BarManager::GetBarType() noexcept {
-	return TYPE;
+	return type;
+}
+
+void BarManager::DecidePutPos(float& posX, float& posY) noexcept {
+	BarsCollision(posX, posY);
 }

@@ -96,6 +96,21 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
+    <ClCompile Include="NotesManager.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="LongNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Notes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mouse.hpp">
@@ -178,6 +193,12 @@
     </ClInclude>
     <ClInclude Include="picojson.h">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="NotesManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

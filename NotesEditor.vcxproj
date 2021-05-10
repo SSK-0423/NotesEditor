@@ -164,11 +164,16 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ISceneChanger.cpp" />
     <ClCompile Include="KeyInput.cpp" />
+    <ClCompile Include="LongNotes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Music.cpp" />
+    <ClCompile Include="Notes.cpp" />
+    <ClCompile Include="NotesManager.cpp" />
     <ClCompile Include="OpenFileExplorer.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShortNotes.cpp" />
+    <ClCompile Include="SlideNotes.cpp" />
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +186,7 @@
     <ClInclude Include="KeyInput.hpp" />
     <ClInclude Include="LongNotes.hpp" />
     <ClInclude Include="Notes.hpp" />
+    <ClInclude Include="NotesManager.hpp" />
     <ClInclude Include="PlayableObj.hpp" />
     <ClInclude Include="Delegate.hpp" />
     <ClInclude Include="Editor.hpp" />
@@ -189,6 +195,7 @@
     <ClInclude Include="ISceneChanger.hpp" />
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Music.hpp" />
+    <ClInclude Include="ShortNotes.hpp" />
     <ClInclude Include="SlideNotes.hpp" />
     <ClInclude Include="Vector2D.hpp" />
     <ClInclude Include="OpenFileExplorer.hpp" />

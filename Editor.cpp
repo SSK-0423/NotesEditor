@@ -122,6 +122,10 @@ void Editor::SetButtonPos() noexcept {
 
 //ボタンのイベント関数セット
 void Editor::SetClickEventFunc() noexcept {
+	//設置するノーツの変更
+	DelegateBase<void(void)>* changeNotesTypeShort = Delegate<NotesManager, void(void)>::createDelegator(&notesManager, &NotesManager::ChangeNotesTypeShort);
+	DelegateBase<void(void)>* changeNotesTypeLong = Delegate<NotesManager, void(void)>::createDelegator(&notesManager, &NotesManager::ChangeNotesTypeLong);
+	DelegateBase<void(void)>* changeNotesTypeSlide = Delegate<NotesManager, void(void)>::createDelegator(&notesManager, &NotesManager::ChangeNotesTypeSlide);
 	//曲の再生停止
 	DelegateBase<void(void)>* playMusic = Delegate<Music, void(void)>::createDelegator(&music, &Music::PlayMusic);
 	//曲を始めから再生
@@ -141,6 +145,9 @@ void Editor::SetClickEventFunc() noexcept {
 	DelegateBase<void(void)>* change_bar32 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle32);
 
 	//押下時の関数セット
+	button[BUTTON_SHORT].SetEventFunction(changeNotesTypeShort);
+	button[BUTTON_LONG].SetEventFunction(changeNotesTypeLong);
+	button[BUTTON_SLIDE].SetEventFunction(changeNotesTypeSlide);
 	button[BUTTON_PLAY].SetEventFunction(playMusic);
 	button[BUTTON_RESTART].SetEventFunction(restartMusic);
 	button[BUTTON_LOADMUSIC].SetEventFunction(loadMusic);
@@ -205,13 +212,12 @@ void Editor::AddObject(GameObject& obj) noexcept {
 
 void Editor::PutNotes() noexcept {
 	float putPosX, putPosY;
-	//何小節目は判定
-	//何分目か判定
-	//レーン判定
-	barManager.BarsCollision();
+	//ノーツの設置位置を決定
+	barManager.DecidePutPos(putPosX, putPosY);
 	//設置
 	//Notes notes = new Notes(putPosX,putPosY);
 	//NotesManager.AddNotes(Notes);
+	//
 }
 
 void Editor::DeleteObj() noexcept {

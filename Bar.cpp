@@ -25,6 +25,7 @@ Bar::Bar(int handle, int i) noexcept : barNum(i) {
 Bar::~Bar() noexcept {
 
 }
+
 void Bar::Update() noexcept {
 }
 
@@ -40,14 +41,14 @@ void Bar::Draw() noexcept {
 }
 
 //ìñÇΩÇËîªíË
-void Bar::Collision() noexcept {
+void Bar::Collision(float& posX, float& posY) noexcept {
 	int x, y;
 	GetMousePoint(&x, &y);
 	DrawFormatString(800, 400, GetColor(0, 255, 0), "ìñÇΩÇËîªíËé¿çs");
 	if (CollisionBar(x, y)) {
 		DrawFormatString(800, 450, GetColor(0, 255, 0), "%dè¨êﬂñ⁄", barNum + 1);
-		CollisionLane(x);
-		CollisionLine(y);
+		posX = CollisionLane(x);
+		posY = CollisionLine(y);
 	}
 }
 
@@ -60,7 +61,7 @@ bool Bar::CollisionBar(int& x, int& y) noexcept {
 }
 
 //ÉåÅ[ÉìîªíË
-void Bar::CollisionLane(int& x) noexcept {
+float Bar::CollisionLane(int& x) noexcept {
 	//èâä˙ÇÃç≈è¨ílê›íË
 	int min = abs(lane[0] - x);
 	int laneIndex = 0;
@@ -70,11 +71,11 @@ void Bar::CollisionLane(int& x) noexcept {
 			laneIndex = i;
 		}
 	}
-	//return lane[laneIndex];
+	return lane[laneIndex];
 }
 
 //âΩï™ñ⁄Ç»ÇÃÇ©ÇîªíË
-void Bar::CollisionLine(int& y) noexcept {
+float Bar::CollisionLine(int& y) noexcept {
 	std::vector<int> linePosYList;
 	MakeLineCollisionList(linePosYList);
 	int min = abs(linePosYList[0]);
@@ -85,7 +86,7 @@ void Bar::CollisionLine(int& y) noexcept {
 			lineIndex = i;
 		}
 	}
-	//return lane[lineIndex];
+	return lane[lineIndex];
 }
 
 void Bar::DebugDraw() noexcept {
@@ -94,15 +95,6 @@ void Bar::DebugDraw() noexcept {
 		GetMousePoint(&x, &y);
 		unsigned int c = GetColor(0, 255, 0);
 	}
-	//DrawFormatString(800, 500, GetColor(0, 255, 0), "List1:%d", line1.size());
-	//DrawFormatString(800, 525, GetColor(0, 255, 0), "List4:%d", line4.size());
-	//DrawFormatString(800, 550, GetColor(0, 255, 0), "List8:%d", line8.size());
-	//DrawFormatString(800, 575, GetColor(0, 255, 0), "List16:%d", line16.size());
-	//DrawFormatString(800, 600, GetColor(0, 255, 0), "List32:%d", line32.size());
-	//for (int i = 0; i < line16.size() / 2; i++) {
-	//	DrawFormatString(800, 350 + 25 * (i + 1), GetColor(0, 255, 0), "posY%d:%d", 2 * i, line16[2 * i]);
-	//	DrawFormatString(900, 350 + 25 * (i + 1), GetColor(0, 255, 0), "posY%d:%d", 2 * i + 1, line16[2 * i + 1]);
-	//}
 }
 
 void Bar::MakeLineCollisionList(std::vector<int>& list) noexcept {
