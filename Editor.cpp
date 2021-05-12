@@ -216,9 +216,6 @@ void Editor::PutNotes() noexcept {
 	barManager.DecidePutPos(putPosX, putPosY);
 	//ê›íu
 	notesManager.CreateNotes(objList,putPosX, putPosY);
-	//Notes notes = new Notes(putPosX,putPosY);
-	//NotesManager.AddNotes(Notes);
-	//
 }
 
 void Editor::DeleteObj() noexcept {

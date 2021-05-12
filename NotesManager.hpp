@@ -20,6 +20,6 @@ public:
 	void ChangeNotesTypeShort() noexcept;
 	void ChangeNotesTypeLong() noexcept;
 	void ChangeNotesTypeSlide() noexcept;
-	void PutNotes(std::vector<GameObject*> objList,float& x, float& y) noexcept;
 	void CreateNotes(std::vector<GameObject*>& objList, float& x, float& y) noexcept;
+	Notes CreateNotes(float& x, float& y) noexcept;
 };

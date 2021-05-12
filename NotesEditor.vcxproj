@@ -187,6 +187,8 @@
     <ClInclude Include="BaseScene.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Canvas.hpp" />
+    <ClInclude Include="LongNotesCreator.hpp" />
+    <ClInclude Include="NotesCreator.hpp" />
     <ClInclude Include="CubicSpline.hpp" />
     <ClInclude Include="EquationsSolver.hpp" />
     <ClInclude Include="GaussElimination.hpp" />
@@ -204,7 +206,9 @@
     <ClInclude Include="Mouse.hpp" />
     <ClInclude Include="Music.hpp" />
     <ClInclude Include="ShortNotes.hpp" />
+    <ClInclude Include="ShortNotesCreator.hpp" />
     <ClInclude Include="SlideNotes.hpp" />
+    <ClInclude Include="SlideNotesCreator.hpp" />
     <ClInclude Include="Vector2D.hpp" />
     <ClInclude Include="OpenFileExplorer.hpp" />
     <ClInclude Include="picojson.h" />

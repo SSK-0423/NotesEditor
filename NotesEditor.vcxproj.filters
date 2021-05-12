@@ -230,5 +230,17 @@
     <ClInclude Include="LUdecomposition.hpp">
       <Filter>ヘッダー ファイル\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="NotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="LongNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
