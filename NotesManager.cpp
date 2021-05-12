@@ -17,16 +17,9 @@ void NotesManager::ChangeNotesTypeLong() noexcept {
 void NotesManager::ChangeNotesTypeSlide() noexcept {
 	type = SLIDE_NOTES;
 }
-void NotesManager::CreateNotes(std::vector<GameObject*>& objList,float& x, float& y) noexcept {
-	ShortNotes* notes = new ShortNotes(x,y);
-	objList.push_back((GameObject*)notes);
-	//Notes* notes = new Notes();
-	//notesList.push_back(notes);
-	//objList.push_back((GameObject*)notes);
-}
 
 //ÉmÅ[Écê∂ê¨
-Notes NotesManager::CreateNotes(float& x, float& y) noexcept {
+Notes* NotesManager::CreateNotes(float& x, float& y) noexcept {
 	//ÉmÅ[Écê∂ê¨
 	NotesCreator* creator = nullptr;
 
@@ -38,8 +31,10 @@ Notes NotesManager::CreateNotes(float& x, float& y) noexcept {
 			break;
 		case LONG_NOTES:
 			creator = new LongNotesCreator();
+			break;
 		case SLIDE_NOTES:
 			creator = new SlideNotesCreator();
+			break;
 		default:
 			creator = new ShortNotesCreator();
 			break;

@@ -215,7 +215,9 @@ void Editor::PutNotes() noexcept {
 	//ノーツの設置位置を決定
 	barManager.DecidePutPos(putPosX, putPosY);
 	//設置
-	notesManager.CreateNotes(objList,putPosX, putPosY);
+	GameObject* notes = notesManager.CreateNotes(putPosX, putPosY);
+	//オブジェクトリストに追加
+	objList.push_back(notes);
 }
 
 void Editor::DeleteObj() noexcept {

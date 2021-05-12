@@ -129,6 +129,15 @@
     <ClCompile Include="LUdecomposition.cpp">
       <Filter>ソース ファイル\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="ShortNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="LongNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mouse.hpp">

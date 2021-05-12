@@ -9,5 +9,6 @@ private:
 public:
 	ShortNotes(float& x, float& y) noexcept;
 	~ShortNotes() noexcept;
+	void Update() noexcept override;
 	void Draw() noexcept override;
 };

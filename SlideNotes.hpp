@@ -5,7 +5,7 @@ class SlideNotes : public Notes{
 private:
 	std::vector<Notes*> notes;
 public:
-	SlideNotes() noexcept;
+	SlideNotes(float& x, float& y) noexcept;
 	~SlideNotes() noexcept;
 	void Draw() noexcept override;
 };

@@ -15,6 +15,9 @@ ShortNotes::ShortNotes(float& x, float& y) noexcept{
 ShortNotes::~ShortNotes() noexcept {
 
 }
+void ShortNotes::Update() noexcept {
+
+}
 void ShortNotes::Draw() noexcept {
 	DrawBox(position.x - width / 2, position.y - height / 2,
 		position.x + width / 2, position.y + height / 2,

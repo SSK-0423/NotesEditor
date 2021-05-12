@@ -168,6 +168,7 @@
     <ClCompile Include="ISceneChanger.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="LongNotes.cpp" />
+    <ClCompile Include="LongNotesCreator.cpp" />
     <ClCompile Include="LUdecomposition.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -177,7 +178,9 @@
     <ClCompile Include="OpenFileExplorer.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ShortNotes.cpp" />
+    <ClCompile Include="ShortNotesCreator.cpp" />
     <ClCompile Include="SlideNotes.cpp" />
+    <ClCompile Include="SlideNotesCreator.cpp" />
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
