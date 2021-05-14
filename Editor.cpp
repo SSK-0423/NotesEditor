@@ -12,10 +12,10 @@ Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0),
 	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
 	backgroungHandle = LoadGraph("image/îwåi.jpg");
 	laneHandle = LoadGraph("image/Lane.png");
-
 	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
 	text.SetHandle(musicInfoHandle);
 	text.SetColor(0, 0, 0);
+	notesManager.SetBarManager(barManager);
 	InitBarManager();
 	InitButton();
 }

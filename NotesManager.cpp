@@ -8,6 +8,18 @@
 //staticïœêîé¿ëÃâª
 NOTESTYPE NotesManager::type;
 
+NotesManager::NotesManager() noexcept {
+	barManager = nullptr;
+}
+
+NotesManager::NotesManager(BarManager& barManager) noexcept {
+	this->barManager = &barManager;
+}
+
+void NotesManager::SetBarManager(BarManager& barManager) noexcept {
+	this->barManager = &barManager;
+}
+
 void NotesManager::ChangeNotesTypeShort() noexcept {
 	type = SHORT_NOTES;
 }
@@ -16,6 +28,10 @@ void NotesManager::ChangeNotesTypeLong() noexcept {
 }
 void NotesManager::ChangeNotesTypeSlide() noexcept {
 	type = SLIDE_NOTES;
+}
+
+void NotesManager::Update() noexcept {
+	
 }
 
 //ÉmÅ[Écê∂ê¨
@@ -30,7 +46,7 @@ Notes* NotesManager::CreateNotes(float& x, float& y) noexcept {
 			creator = new ShortNotesCreator();
 			break;
 		case LONG_NOTES:
-			creator = new LongNotesCreator();
+			creator = new LongNotesCreator(*barManager);
 			break;
 		case SLIDE_NOTES:
 			creator = new SlideNotesCreator();

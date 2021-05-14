@@ -4,17 +4,14 @@
 //クラス変数実体化
 unsigned int LongNotes::color = GetColor(255,0,0);
 
-LongNotes::LongNotes(float& x, float& y) noexcept {
-	startNotes = nullptr;
+LongNotes::LongNotes(ShortNotes& start) noexcept {
+	startNotes = &start;
 	endNotes = nullptr;
 	width = 20;
 	height = 20;
-	position.x = x;
-	position.y = y;
-	collisionPos.x = x;
-	collisionPos.y = y;
 }
-LongNotes::LongNotes(Notes& start, Notes& end) noexcept {
+
+LongNotes::LongNotes(ShortNotes& start, ShortNotes& end) noexcept {
 	startNotes = &start;
 	endNotes = &end;
 }
@@ -24,14 +21,26 @@ LongNotes::~LongNotes() noexcept {
 	delete[] endNotes;
 }
 
+void LongNotes::AddEndNotes(ShortNotes& end) noexcept {
+	endNotes = &end;
+}
+
+void LongNotes::SetObjSize(int w, int h) noexcept {
+	width = w;
+	height = h;
+}
+
 void LongNotes::Draw() noexcept {
-	////始点描画
-	//startNotes->Draw();
-	////終点描画
-	//endNotes->Draw();
-	////始点と終点を線で繋ぐ
-	//DrawLine(startNotes->position.x, startNotes->position.y, endNotes->position.x, endNotes->position.y,color, 30);
-	DrawBox(position.x - width / 2, position.y - height / 2,
+
+	//始点描画
+	startNotes->Draw();
+	//終点描画
+	endNotes->Draw();
+	//始点と終点を線で繋ぐ
+	DrawLine(startNotes->position.x, startNotes->position.y, endNotes->position.x, endNotes->position.y,color, 30);
+	
+	/*DrawBox(position.x - width / 2, position.y - height / 2,
 		position.x + width / 2, position.y + height / 2,
-		color, true);
+		color, true);*/
+
 }
