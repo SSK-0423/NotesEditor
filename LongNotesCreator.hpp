@@ -1,10 +1,17 @@
 #pragma once
 #include "NotesCreator.hpp"
 #include "BarManager.hpp"
+#include "ShortNotes.hpp"
+#include "LongNotes.hpp"
+
 class LongNotesCreator : public NotesCreator {
 private:
-	BarManager* barManager;
+	static bool isStart;
+	ShortNotes* startNotes;
+	ShortNotes* endNotes;
+
 public:
-	LongNotesCreator(BarManager& barManager) noexcept;
+	LongNotesCreator() noexcept;
 	Notes* CreateNotes(float& x, float& y) noexcept;
+	//void CreateNotes(float& x, float& y) noexcept;
 };

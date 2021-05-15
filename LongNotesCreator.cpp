@@ -1,38 +1,53 @@
 #include "LongNotesCreator.hpp"
-#include "LongNotes.hpp"
-#include "Mouse.hpp"
-#include <math.h>
-LongNotesCreator::LongNotesCreator(BarManager& barManager) noexcept {
-	this->barManager = &barManager;
+
+//クラス変数実体化
+bool LongNotesCreator::isStart = true;
+
+LongNotesCreator::LongNotesCreator() noexcept {
+	startNotes = nullptr;
+	endNotes = nullptr;
 }
 
 //ロングノーツの生成
+//void LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
+//
+//	if (isStart) {
+//		startNotes = new ShortNotes(x, y);
+//		longNotes->SetStartNotes(*startNotes);
+//	}
+//	else {
+//		endNotes = new ShortNotes(x, y);
+//		longNotes->SetEndNotes(*endNotes);
+//	}
+//}
+
 Notes* LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
-	//始点ノーツ生成
-	ShortNotes* start = new ShortNotes(x, y);
-	//始点を追加してロングノーツ生成
-	LongNotes* longNotes = new LongNotes((ShortNotes&)*start);
-	//終端ノーツを設置したかどうか
-	bool isPut = false;
-	//終端ノーツを設置するまでループ
-	while (!isPut) {
-		Mouse::Instance()->Update();
-		if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) == 1) {
-			int x, y;
-			GetMousePoint(&x, &y);
-			if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
-				float putPosX, putPosY;
-				//ノーツの設置位置を決定
-				barManager->DecidePutPos(putPosX, putPosY);
-				if (putPosX != start->position.x) {
-					putPosX = start->position.x;
-				}
-				ShortNotes* end = new ShortNotes(putPosX,putPosY);
-				longNotes->AddEndNotes(*end);
-				longNotes->SetObjSize(30, (int)fabs(start->position.y - end->position.y));
-				isPut = true;
-			}
-		}
+
+	//始点ノーツ
+	if (isStart) {
+		//始点ノーツ生成
+		startNotes = new ShortNotes(x, y);
+
+		//終点ノーツフラグ
+		isStart = false;
+		
+		return nullptr;
 	}
-	return longNotes;
+	//終点ノーツ
+	else {
+		//終点ノーツ生成
+		endNotes = new ShortNotes(startNotes->position.x, y);
+		
+		//ロングノーツ生成
+		LongNotes* longNotes = new LongNotes(*startNotes);
+		//終点ノーツセット
+		longNotes->SetEndNotes(*endNotes);
+		
+		//始点ノーツフラグ
+		isStart = true;
+		
+		return longNotes;
+	}
+	//Notes* notes = new ShortNotes(x, y);
+	//return notes;
 }

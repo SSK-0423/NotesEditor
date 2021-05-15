@@ -15,7 +15,7 @@ Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0),
 	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
 	text.SetHandle(musicInfoHandle);
 	text.SetColor(0, 0, 0);
-	notesManager.SetBarManager(barManager);
+	notesManager.SetObjList(objList);
 	InitBarManager();
 	InitButton();
 }
@@ -62,6 +62,7 @@ void Editor::Draw() noexcept {
 	camera.Draw();
 	barManager.Draw();
 	DebugDraw();
+	notesManager.Draw();
 }
 
 void Editor::DrawButton() noexcept {
@@ -214,10 +215,11 @@ void Editor::PutNotes() noexcept {
 	float putPosX, putPosY;
 	//ノーツの設置位置を決定
 	barManager.DecidePutPos(putPosX, putPosY);
+	notesManager.CreateNotes(putPosX, putPosY);
 	//設置
-	GameObject* notes = notesManager.CreateNotes(putPosX, putPosY);
+	//GameObject* notes = notesManager.CreateNotes(putPosX, putPosY);
 	//オブジェクトリストに追加
-	objList.push_back(notes);
+	//objList.push_back(notes);
 }
 
 void Editor::DeleteObj() noexcept {

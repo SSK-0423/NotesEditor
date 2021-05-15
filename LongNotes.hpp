@@ -15,7 +15,9 @@ public:
 	LongNotes(ShortNotes& start) noexcept;
 	LongNotes(ShortNotes& start, ShortNotes& end) noexcept;
 	~LongNotes() noexcept;
-	void AddEndNotes(ShortNotes& end) noexcept;
+	void SetStartNotes(ShortNotes& start) noexcept;
+	void SetEndNotes(ShortNotes& end) noexcept;
 	void SetObjSize(int w, int h) noexcept;
+	void Update() noexcept override;
 	void Draw() noexcept override;
 };

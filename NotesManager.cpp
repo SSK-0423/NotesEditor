@@ -4,20 +4,13 @@
 #include "ShortNotesCreator.hpp"
 #include "LongNotesCreator.hpp"
 #include "SlideNotesCreator.hpp"
-
+#include "DxLib.h"
 //static•Ï”ŽÀ‘Ì‰»
 NOTESTYPE NotesManager::type;
 
+
 NotesManager::NotesManager() noexcept {
-	barManager = nullptr;
-}
-
-NotesManager::NotesManager(BarManager& barManager) noexcept {
-	this->barManager = &barManager;
-}
-
-void NotesManager::SetBarManager(BarManager& barManager) noexcept {
-	this->barManager = &barManager;
+	objList = nullptr;
 }
 
 void NotesManager::ChangeNotesTypeShort() noexcept {
@@ -30,12 +23,19 @@ void NotesManager::ChangeNotesTypeSlide() noexcept {
 	type = SLIDE_NOTES;
 }
 
+void NotesManager::SetObjList(std::vector<GameObject*>& objList) noexcept {
+	this->objList = &objList;
+}
 void NotesManager::Update() noexcept {
 	
 }
 
+void NotesManager::Draw() noexcept {
+	DrawFormatString(800, 700, GetColor(0, 255, 0), "NotesType:%d", type);
+}
+
 //ƒm[ƒc¶¬
-Notes* NotesManager::CreateNotes(float& x, float& y) noexcept {
+void NotesManager::CreateNotes(float& x, float& y) noexcept {
 	//ƒm[ƒc¶¬
 	NotesCreator* creator = nullptr;
 
@@ -43,18 +43,25 @@ Notes* NotesManager::CreateNotes(float& x, float& y) noexcept {
 	switch (type)
 	{
 		case SHORT_NOTES:
-			creator = new ShortNotesCreator();
+			//creator = new ShortNotesCreator();
+			creator = &shortNotesCreator;
 			break;
 		case LONG_NOTES:
-			creator = new LongNotesCreator(*barManager);
+			//creator = new LongNotesCreator();
+			creator = &longNotesCreator;
 			break;
 		case SLIDE_NOTES:
-			creator = new SlideNotesCreator();
+			//creator = new SlideNotesCreator();
+			creator = &slideNotesCreator;
 			break;
 		default:
-			creator = new ShortNotesCreator();
+			//creator = new ShortNotesCreator();
+			creator = &shortNotesCreator;
 			break;
 	}
 
-	return creator->CreateNotes(x,y);
+	Notes* notes = creator->CreateNotes(x, y);
+	if (notes != nullptr) {
+		objList->push_back(notes);
+	}
 }

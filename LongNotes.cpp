@@ -1,14 +1,15 @@
 #include "LongNotes.hpp"
 #include "DxLib.h"
+#include <math.h>
 
 //クラス変数実体化
-unsigned int LongNotes::color = GetColor(255,0,0);
+unsigned int LongNotes::color = GetColor(0,255,0);
 
 LongNotes::LongNotes(ShortNotes& start) noexcept {
 	startNotes = &start;
 	endNotes = nullptr;
-	width = 20;
-	height = 20;
+	width = 0;
+	height = 0;
 }
 
 LongNotes::LongNotes(ShortNotes& start, ShortNotes& end) noexcept {
@@ -21,13 +22,30 @@ LongNotes::~LongNotes() noexcept {
 	delete[] endNotes;
 }
 
-void LongNotes::AddEndNotes(ShortNotes& end) noexcept {
+void LongNotes::SetStartNotes(ShortNotes& start) noexcept {
+	startNotes = &start;
+}
+
+void LongNotes::SetEndNotes(ShortNotes& end) noexcept {
 	endNotes = &end;
+	//positionの設定
+	position.x = startNotes->position.x;
+	collisionPos.x = startNotes->position.x;
+	position.y = (startNotes->position.y + endNotes->position.y) / 2;
+	collisionPos.y = (startNotes->position.y + endNotes->position.y) / 2;
+	//サイズの設定
+	width = 20;
+	height = fabs(fabs(endNotes->position.y) - fabs(startNotes->position.y));
 }
 
 void LongNotes::SetObjSize(int w, int h) noexcept {
 	width = w;
 	height = h;
+}
+
+void LongNotes::Update() noexcept {
+	startNotes->SetPosition(position.x,position.y + height/2);
+	endNotes->SetPosition(position.x,position.y - height/2);
 }
 
 void LongNotes::Draw() noexcept {
@@ -37,10 +55,9 @@ void LongNotes::Draw() noexcept {
 	//終点描画
 	endNotes->Draw();
 	//始点と終点を線で繋ぐ
-	DrawLine(startNotes->position.x, startNotes->position.y, endNotes->position.x, endNotes->position.y,color, 30);
+	DrawLine(startNotes->position.x, startNotes->position.y, endNotes->position.x, endNotes->position.y,color, 20);
 	
 	/*DrawBox(position.x - width / 2, position.y - height / 2,
 		position.x + width / 2, position.y + height / 2,
 		color, true);*/
-
 }
