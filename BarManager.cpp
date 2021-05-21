@@ -30,7 +30,7 @@ void BarManager::SetHandle() noexcept {
 
 void BarManager::MakeBar(std::vector<GameObject*>& vec, int num) noexcept {
 	//小節線オブジェクトの生成
-	for (int i = 0; i < num + 2; i++) {
+	for (int i = 0; i < num; i++) {
 		Bar* bar = new Bar(barHandle[0],i);
 		bars.push_back(bar);
 		vec.push_back((GameObject*)bar);

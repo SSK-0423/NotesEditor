@@ -8,19 +8,6 @@ LongNotesCreator::LongNotesCreator() noexcept {
 	endNotes = nullptr;
 }
 
-//ロングノーツの生成
-//void LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
-//
-//	if (isStart) {
-//		startNotes = new ShortNotes(x, y);
-//		longNotes->SetStartNotes(*startNotes);
-//	}
-//	else {
-//		endNotes = new ShortNotes(x, y);
-//		longNotes->SetEndNotes(*endNotes);
-//	}
-//}
-
 Notes* LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
 
 	//始点ノーツ
@@ -35,6 +22,10 @@ Notes* LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
 	}
 	//終点ノーツ
 	else {
+		//終点ノーツの位置が始点ノーツより前だったらnullを返す
+		if (y > startNotes->position.y) {
+			return nullptr;
+		}
 		//終点ノーツ生成
 		endNotes = new ShortNotes(startNotes->position.x, y);
 		

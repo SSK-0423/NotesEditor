@@ -1,6 +1,7 @@
 #include "SlideNotes.hpp"
 #include "DxLib.h"
 SlideNotes::SlideNotes(float& x, float& y) noexcept {
+	timing = 0;
 	width = 20;
 	height = 20;
 	position.x = x;

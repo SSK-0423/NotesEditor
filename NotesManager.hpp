@@ -22,6 +22,7 @@ private:
 	ShortNotesCreator shortNotesCreator;
 	LongNotesCreator longNotesCreator;
 	SlideNotesCreator slideNotesCreator;
+	bool IsExist(float& x, float& y) noexcept;
 
 public:
 	NotesManager() noexcept;
@@ -32,4 +33,5 @@ public:
 	void Draw() noexcept;
 	void SetObjList(std::vector<GameObject*>& objList) noexcept;
 	void CreateNotes(float& x, float& y) noexcept;
+	void DeleteObj() noexcept;
 };

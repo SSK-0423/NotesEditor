@@ -3,8 +3,9 @@
 
 class ShortNotes : public Notes {
 protected:
-	static int clapHandle;
+	//static int clapHandle;
 private:
+	int clapHandle;
 	void PlayClap() noexcept;
 public:
 	ShortNotes(float& x, float& y) noexcept;

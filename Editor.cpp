@@ -10,7 +10,7 @@
 
 Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0), camera(objList) {
 	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
-	backgroungHandle = LoadGraph("image/背景.jpg");
+	//backgroungHandle = LoadGraph("image/背景.jpg");
 	laneHandle = LoadGraph("image/Lane.png");
 	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
 	text.SetHandle(musicInfoHandle);
@@ -28,7 +28,7 @@ void Editor::MakeBar() noexcept {
 	//小節数の計算
 	//ループまでの間にも小節線を描画するために+2をする
 	int bar_num = music.GetTotalTime() / 1000 * music.GetBPM() / (60 * music.GetBeat()) + 2;
-	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * bar_num);
+	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * bar_num + WINDOW_SIZE_HEIGHT/2);
 	camera.SetMaxPosition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
 
 	barManager.MakeBar(objList, bar_num);
@@ -55,7 +55,7 @@ void Editor::Update() noexcept {
 
 //描画
 void Editor::Draw() noexcept {
-	DrawGraph(0, 0, backgroungHandle, true);
+	//DrawGraph(0, 0, backgroungHandle, true);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
 	DrawButton();
 	text.Draw();
@@ -215,16 +215,14 @@ void Editor::PutNotes() noexcept {
 	float putPosX, putPosY;
 	//ノーツの設置位置を決定
 	barManager.DecidePutPos(putPosX, putPosY);
+	//ノーツ生成
 	notesManager.CreateNotes(putPosX, putPosY);
-	//設置
-	//GameObject* notes = notesManager.CreateNotes(putPosX, putPosY);
-	//オブジェクトリストに追加
-	//objList.push_back(notes);
 }
 
 void Editor::DeleteObj() noexcept {
 	camera.DeleteObj();
 	barManager.DeleteObj();
+	notesManager.DeleteObj();
 	for (auto i : objList) {
 		delete[] i;
 		objList.clear();

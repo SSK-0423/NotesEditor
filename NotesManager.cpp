@@ -31,37 +31,50 @@ void NotesManager::Update() noexcept {
 }
 
 void NotesManager::Draw() noexcept {
-	DrawFormatString(800, 700, GetColor(0, 255, 0), "NotesType:%d", type);
+	DrawFormatString(800, 350, GetColor(0, 255, 0), "NotesType:%d", type);
+	DrawFormatString(800, 400, GetColor(0, 255, 0), "ƒm[ƒc”:%d", notesList.size());
 }
 
 //ƒm[ƒc¶¬
 void NotesManager::CreateNotes(float& x, float& y) noexcept {
-	//ƒm[ƒc¶¬
-	NotesCreator* creator = nullptr;
+	
+	if (IsExist(x, y)) {
+		//ƒm[ƒc¶¬
+		NotesCreator* creator = nullptr;
 
-	//¶¬‚·‚éƒm[ƒc
-	switch (type)
-	{
-		case SHORT_NOTES:
-			//creator = new ShortNotesCreator();
-			creator = &shortNotesCreator;
-			break;
-		case LONG_NOTES:
-			//creator = new LongNotesCreator();
-			creator = &longNotesCreator;
-			break;
-		case SLIDE_NOTES:
-			//creator = new SlideNotesCreator();
-			creator = &slideNotesCreator;
-			break;
-		default:
-			//creator = new ShortNotesCreator();
-			creator = &shortNotesCreator;
-			break;
-	}
+		//¶¬‚·‚éƒm[ƒc
+		switch (type)
+		{
+			case SHORT_NOTES:
+				creator = &shortNotesCreator;
+				break;
+			case LONG_NOTES:
+				creator = &longNotesCreator;
+				break;
+			case SLIDE_NOTES:
+				creator = &slideNotesCreator;
+				break;
+			default:
+				creator = &shortNotesCreator;
+				break;
+		}
 
-	Notes* notes = creator->CreateNotes(x, y);
-	if (notes != nullptr) {
-		objList->push_back(notes);
+		Notes* notes = creator->CreateNotes(x, y);
+		if (notes != nullptr) {
+			notesList.push_back(notes);
+			objList->push_back(notes);
+		}
 	}
+}
+
+bool NotesManager::IsExist(float& x, float& y) noexcept {
+	for (auto notes : notesList) {
+		if (notes->collisionPos.x == x && notes->collisionPos.y == y) {
+			return false;
+		}
+	}
+	return true;
+}
+void NotesManager::DeleteObj() noexcept {
+	notesList.clear();
 }
