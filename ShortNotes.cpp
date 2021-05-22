@@ -18,6 +18,7 @@ ShortNotes::ShortNotes(float& x, float& y) noexcept{
 ShortNotes::~ShortNotes() noexcept {
 
 }
+
 void ShortNotes::Update() noexcept {
 	if (fabs(position.y - WINDOW_SIZE_HEIGHT) <= 5) {
 		PlaySoundMem(clapHandle,DX_PLAYTYPE_BACK);

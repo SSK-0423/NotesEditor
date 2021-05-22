@@ -37,8 +37,8 @@ public:
 	void DeleteObj() noexcept;
 
 	//移動限界
-	void SetMinPosition(float x, float y) noexcept;
-	void SetMaxPosition(float x, float y) noexcept;
+	void SetMinposition(float x, float y) noexcept;
+	void SetMaxposition(float x, float y) noexcept;
 
 	//オブジェクトがカメラ内に入ったかどうかを判定
 	bool Collision(GameObject& obj) const noexcept;

@@ -153,12 +153,12 @@ void Camera2D::DebugDraw() noexcept {
 		GetColor(255, 255, 255), false);
 }
 
-void Camera2D::SetMinPosition(float x, float y) noexcept {
+void Camera2D::SetMinposition(float x, float y) noexcept {
 	minLimitPos.x = x;
 	minLimitPos.y = y;
 }
 
-void Camera2D::SetMaxPosition(float x, float y) noexcept {
+void Camera2D::SetMaxposition(float x, float y) noexcept {
 	maxLimitPos.x = x;
 	maxLimitPos.y = y;
 }

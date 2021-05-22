@@ -5,6 +5,7 @@
 #include "LongNotesCreator.hpp"
 #include "SlideNotesCreator.hpp"
 #include "DxLib.h"
+#include <algorithm>
 
 #define CREATE 0
 
@@ -90,6 +91,15 @@ void NotesManager::CreateNotes(float& x, float& y) noexcept {
 				break;
 			}
 			creator->CreateNotes(x, y, *objList);
+		}
+	}
+}
+
+void NotesManager::DeleteNotes(float& x, float& y) noexcept {
+	for (auto notes : notesList) {
+		if (notes->position.x == x && notes->position.y == y) {
+			auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
+			notesList.erase(deleteNotes);
 		}
 	}
 }

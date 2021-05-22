@@ -16,9 +16,9 @@ public:
 	GameObject() noexcept;
 	~GameObject() noexcept;
 
-	// オブジェクトの座標
+	// オブジェクトの描画座標
 	Vector2D position;
-	// オブジェクトの初期位置(当たり判定に使用)
+	// オブジェクトの座標
 	Vector2D collisionPos;
 
 	// 画像の設定

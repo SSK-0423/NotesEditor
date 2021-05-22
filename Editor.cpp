@@ -28,8 +28,8 @@ void Editor::MakeBar() noexcept {
 	//小節数の計算
 	//ループまでの間にも小節線を描画するために+2をする
 	int bar_num = music.GetTotalTime() / 1000 * music.GetBPM() / (60 * music.GetBeat()) + 2;
-	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * (bar_num - 1) + WINDOW_SIZE_HEIGHT / 2);
-	camera.SetMaxPosition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
+	camera.SetMinposition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * (bar_num - 1) + WINDOW_SIZE_HEIGHT / 2);
+	camera.SetMaxposition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
 
 	barManager.MakeBar(objList, bar_num);
 }
@@ -200,6 +200,13 @@ void Editor::KeyInput() noexcept {
 			PutNotes();
 		}
 	}
+	if (Mouse::Instance()->GetPressingCount(Mouse::RIGHT_CLICK) == 1) {
+		int x, y;
+		GetMousePoint(&x, &y);
+		if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
+			DeleteNotes();
+		}
+	}
 }
 
 void Editor::CalcFrameMove() noexcept {
@@ -217,6 +224,14 @@ void Editor::PutNotes() noexcept {
 	barManager.DecidePutPos(putPosX, putPosY);
 	//ノーツ生成
 	notesManager.CreateNotes(putPosX, putPosY);
+}
+
+void Editor::DeleteNotes() noexcept {
+	float deletePosX, deletePosY;
+	//ノーツの設置位置を決定
+	barManager.DecidePutPos(deletePosX, deletePosY);
+	//ノーツ生成
+	notesManager.DeleteNotes(deletePosX, deletePosY);
 }
 
 void Editor::DeleteObj() noexcept {

@@ -85,6 +85,8 @@ private:
 	void CalcFrameMove() noexcept;
 	//ノーツの設置
 	void PutNotes() noexcept;
+	//ノーツの削除
+	void DeleteNotes() noexcept;
 	//オブジェクトの破棄
 	void DeleteObj() noexcept;
 
