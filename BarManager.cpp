@@ -28,12 +28,11 @@ void BarManager::SetHandle() noexcept {
 	barHandle.push_back(bar32Handle);
 }
 
-void BarManager::MakeBar(std::vector<GameObject*>& vec, int num) noexcept {
+void BarManager::MakeBar(int num) noexcept {
 	//小節線オブジェクトの生成
 	for (int i = 0; i < num; i++) {
 		Bar* bar = new Bar(barHandle[0],i);
 		bars.push_back(bar);
-		vec.push_back((GameObject*)bar);
 	}
 }
 
@@ -75,6 +74,9 @@ void BarManager::Draw() noexcept {
 }
 
 void BarManager::DeleteObj() noexcept {
+	for (auto bar : bars) {
+		delete[] bar;
+	}
 	bars.clear();
 }
 
@@ -93,11 +95,14 @@ void BarManager::BarsCollision(float& posX, float& posY) noexcept {
 		bar->Collision(posX, posY);
 	}
 }
-
+// ノーツタイプ取得
 BARTYPE BarManager::GetBarType() noexcept {
 	return type;
 }
-
+// barsの参照を返す
+std::vector<GameObject*>* BarManager::GetListRef() noexcept {
+	return &bars;
+}
 void BarManager::DecidePutPos(float& posX, float& posY) noexcept {
 	BarsCollision(posX, posY);
 }

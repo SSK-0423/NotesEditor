@@ -52,7 +52,7 @@ private:
 	NotesManager notesManager;
 
 	//エディター内の全てのオブジェクト
-	std::vector<GameObject*> objList;
+	std::vector<std::vector<GameObject*>*> objList;
 
 	// 小節線の描画
 	// 楽曲のBPMと再生時間から小節数を算出して描画
@@ -80,7 +80,7 @@ private:
 	//キー入力管理
 	void KeyInput() noexcept;
 	//デバッグ用テキストなどの描画
-	void DebugDraw() noexcept;
+	void DebugDraw() ;
 	//自動スクロール時の移動幅計算
 	void CalcFrameMove() noexcept;
 	//ノーツの設置
@@ -96,5 +96,4 @@ public:
 	void Finalize()  noexcept override;
 	void Update()  noexcept override;
 	void Draw()  noexcept override;
-	void AddObject(GameObject& obj) noexcept;
 };

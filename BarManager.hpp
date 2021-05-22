@@ -34,7 +34,7 @@ public:
 	~BarManager() noexcept;
 
 	//Barオブジェクトの生成
-	void MakeBar(std::vector<GameObject*>& vec, int num) noexcept;
+	void MakeBar(int num) noexcept;
 
 	//画像変更 1/1
 	void ChangeHandle() noexcept;
@@ -52,6 +52,6 @@ public:
 
 	void Update() noexcept;
 	void Draw() noexcept;
-
+	std::vector<GameObject*>* GetListRef() noexcept;
 	void DeleteObj() noexcept;
 };

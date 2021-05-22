@@ -8,7 +8,7 @@
 class Camera2D : public GameObject, PlayableObj {
 private:
 	// 描画対象オブジェクトのポインタ
-	std::vector<GameObject*>* objList;
+	std::vector<std::vector<GameObject*>*>* objList; // objList[0] = objList objList->size() = 2 objList[0].size() = 2
 	// カメラ内の描画可能オブジェクトのポインタ
 	std::vector<GameObject*> drawList;
 
@@ -24,7 +24,7 @@ private:
 	void PosLimit() noexcept override;
 
 public:
-	Camera2D(std::vector<GameObject*>& vec) noexcept;
+	Camera2D(std::vector<std::vector<GameObject*>*>& vec) noexcept;
 	~Camera2D() noexcept;
 
 	//更新

@@ -9,13 +9,15 @@
 #include <Windows.h>
 
 Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0), camera(objList) {
+	//objList.resize(2);	// 0:bar 1:notes
+	objList.push_back(barManager.GetListRef());
+	objList.push_back(notesManager.GetListRef());
 	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
 	//backgroungHandle = LoadGraph("image/”wŒi.jpg");
 	laneHandle = LoadGraph("image/Lane.png");
 	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
 	text.SetHandle(musicInfoHandle);
 	text.SetColor(0, 0, 0);
-	notesManager.SetObjList(objList);
 	InitBarManager();
 	InitButton();
 }
@@ -24,14 +26,14 @@ Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0),
 void Editor::MakeBar() noexcept {
 	camera.DeleteObj();
 	barManager.DeleteObj();
+	notesManager.DeleteObj();
 
 	//¬ß”‚ÌŒvŽZ
 	//ƒ‹[ƒv‚Ü‚Å‚ÌŠÔ‚É‚à¬ßü‚ð•`‰æ‚·‚é‚½‚ß‚É+2‚ð‚·‚é
 	int bar_num = music.GetTotalTime() / 1000 * music.GetBPM() / (60 * music.GetBeat()) + 2;
 	camera.SetMinposition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * (bar_num - 1) + WINDOW_SIZE_HEIGHT / 2);
 	camera.SetMaxposition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
-
-	barManager.MakeBar(objList, bar_num);
+	barManager.MakeBar(bar_num);
 }
 
 void Editor::Initialize() noexcept {}
@@ -163,13 +165,15 @@ void Editor::InitBarManager() noexcept {
 }
 
 
-void Editor::DebugDraw() noexcept {
+void Editor::DebugDraw() {
 	int bar_num = (music.GetTotalTime() / 1000) * music.GetBPM() / (60 * music.GetBeat());
 	DrawFormatString(800, 50, GetColor(0, 255, 0), "%dƒtƒŒ[ƒ€", count);
 	DrawFormatString(800, 100, GetColor(0, 255, 0), "Œo‰ßŽžŠÔ:%f", music.GetElapsedTime() / 1000.0f);
 	char buff[MAX_PATH];
 	GetCurrentDirectory(MAX_PATH, buff);
 	DrawFormatString(0, 740, GetColor(0, 255, 0), "%s", buff);
+	DrawFormatString(800, 700, GetColor(0, 255, 0), "objList[0].size:%d", objList[0]->size());
+	DrawFormatString(800, 725, GetColor(0, 255, 0), "objList[1].size:%d", objList[1]->size());
 }
 
 void Editor::InitTextBox() noexcept {
@@ -200,7 +204,23 @@ void Editor::KeyInput() noexcept {
 			PutNotes();
 		}
 	}
+	if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) != 0 &&
+		Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) % 15 == 0) {
+		int x, y;
+		GetMousePoint(&x, &y);
+		if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
+			PutNotes();
+		}
+	}
 	if (Mouse::Instance()->GetPressingCount(Mouse::RIGHT_CLICK) == 1) {
+		int x, y;
+		GetMousePoint(&x, &y);
+		if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
+			DeleteNotes();
+		}
+	}
+	if (Mouse::Instance()->GetPressingCount(Mouse::RIGHT_CLICK) != 0 &&
+		Mouse::Instance()->GetPressingCount(Mouse::RIGHT_CLICK) % 15 == 0) {
 		int x, y;
 		GetMousePoint(&x, &y);
 		if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
@@ -212,10 +232,6 @@ void Editor::KeyInput() noexcept {
 void Editor::CalcFrameMove() noexcept {
 	// 1¬ß‚Ìc• / ((60 * beat * speed / bpm)  * 60) = 1ƒtƒŒ[ƒ€‚ÌˆÚ“®•
 	frame_move = WINDOW_SIZE_HEIGHT / (music.GetBeat() * (60 / music.GetBPM()) * 60);
-}
-
-void Editor::AddObject(GameObject& obj) noexcept {
-	objList.push_back(&obj);
 }
 
 void Editor::PutNotes() noexcept {
@@ -235,11 +251,11 @@ void Editor::DeleteNotes() noexcept {
 }
 
 void Editor::DeleteObj() noexcept {
-	camera.DeleteObj();
-	barManager.DeleteObj();
-	notesManager.DeleteObj();
-	for (auto i : objList) {
-		delete[] i;
-		objList.clear();
+	for (auto list : objList) {
+		for (auto obj : *list) {
+			delete[] obj;
+			objList[0]->clear();
+			objList[1]->clear();
+		}
 	}
 }

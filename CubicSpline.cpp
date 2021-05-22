@@ -38,7 +38,7 @@ void CubicSpline::cubicSpline(vector<vector<double>> points, int n){
 	delete[] u_array;
 }
 
-//h‚ÌŒvZZ
+//h‚ÌŒvZ
 void CubicSpline::calc_h() {
 	for (int i = 0; i < N; i++) {
 		h_array.push_back(coord[i + 1][0] - coord[i][0]);

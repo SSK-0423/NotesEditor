@@ -6,7 +6,7 @@
 #define CAMERA_SIZE_WIDTH WINDOW_SIZE_WIDTH / 2
 #define CAMERA_SIZE_HEIGHT WINDOW_SIZE_HEIGHT / 2
 
-Camera2D::Camera2D(std::vector<GameObject*>& vec) noexcept : objList(&vec){
+Camera2D::Camera2D(std::vector<std::vector<GameObject*>*>& vec) noexcept : objList(&vec){
 	position.x = WINDOW_SIZE_WIDTH / 2;
 	position.y = WINDOW_SIZE_HEIGHT / 2;
 	width = CAMERA_SIZE_WIDTH;
@@ -40,10 +40,13 @@ void Camera2D::Draw() noexcept {
 
 //描画オブジェクトリストを更新
 void Camera2D::UpdateDrawList() noexcept {
-	for (auto obj : *objList) {
-		//カメラに入っているか判定して描画リストに追加
-		if (Collision(*obj)) {
-			drawList.push_back(obj);
+	for (auto list : *objList) {
+		//DrawFormatString(700, 225, GetColor(0, 255, 0), "size:%d",list->size());
+		for(auto obj: *list){
+			//カメラに入っているか判定して描画リストに追加
+			if (Collision(*obj)) {
+				drawList.push_back(obj);
+			}
 		}
 	}
 }
@@ -70,7 +73,6 @@ bool Camera2D::Collision(GameObject& obj) const noexcept {
 }
 
 void Camera2D::DeleteObj() noexcept {
-	objList->clear();
 	drawList.clear();
 }
 
@@ -142,7 +144,9 @@ void Camera2D::DebugDraw() noexcept {
 	unsigned int c = GetColor(0, 255, 0);
 	// カメラの座標表示
 	DrawFormatString(800, 0, GetColor(0, 255, 0), "x:%f y:%f", position.x, position.y);
-	DrawFormatString(800, 150, GetColor(0, 255, 0), "オブジェクト数:%d", objList->size());
+	DrawFormatString(800, 125, GetColor(0, 255, 0), "objListサイズ:%d", objList->size());
+	DrawFormatString(800, 150, GetColor(0, 255, 0), "小節オブジェクト数:%d", objList[0][0]->size());
+	DrawFormatString(800, 175, GetColor(0, 255, 0), "ノーツオブジェクト数:%d", objList[0][1]->size());
 	DrawFormatString(800, 250, GetColor(0, 255, 0), "カメラの上端座標:%f",position.y - height/2);
 	DrawFormatString(800, 300, GetColor(0, 255, 0), "カメラの下端座標:%f",position.y + height/2);
 
