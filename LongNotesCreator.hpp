@@ -13,4 +13,6 @@ private:
 public:
 	LongNotesCreator() noexcept;
 	Notes* CreateNotes(float& x, float& y) noexcept;
+	void CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept;
+
 };

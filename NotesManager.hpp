@@ -14,15 +14,15 @@ typedef enum NOTESTYPE {
 };
 
 //ノーツ管理クラス
-class NotesManager{
+class NotesManager {
 private:
-	static NOTESTYPE type;
-	std::vector<Notes*> notesList;
-	std::vector<GameObject*>* objList;
-	ShortNotesCreator shortNotesCreator;
-	LongNotesCreator longNotesCreator;
-	SlideNotesCreator slideNotesCreator;
-	bool IsExist(float& x, float& y) noexcept;
+	static NOTESTYPE type;						//ノーツタイプ
+	std::vector<Notes*> notesList;				//ノーツリスト
+	std::vector<GameObject*>* objList;			//カメラ描画対象オブジェクトリスト
+	ShortNotesCreator shortNotesCreator;		//ショートノーツ作成クラス
+	LongNotesCreator longNotesCreator;			//ロングノーツ作成クラス
+	SlideNotesCreator slideNotesCreator;		//スライドノーツ作成クラス
+	bool IsExist(float& x, float& y) noexcept;	//ノーツの二重配置検知
 
 public:
 	NotesManager() noexcept;

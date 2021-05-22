@@ -86,7 +86,7 @@ void Camera2D::InCameraObjUpdate() noexcept {
 void Camera2D::InCameraObjDraw() noexcept {
 	for (auto obj : drawList)
 	{
-		obj->position.y = obj->collisionPos.y - (this->position.y - collisionPos.y);
+		obj->position.y = obj->collisionPos.y - (this->position.y - this->collisionPos.y);
 		obj->Draw();
 	}
 	drawList.clear();
@@ -114,10 +114,10 @@ void Camera2D::Controll() noexcept {
 	}
 
 	//長押しで連続スクロール
-	if (Key[KEY_INPUT_PGDN] != 0 && Key[KEY_INPUT_PGDN] % 15 == 0) {
+	if (Key[KEY_INPUT_PGDN] != 0 && Key[KEY_INPUT_PGDN] % 5 == 0) {
 		position.y += WINDOW_SIZE_HEIGHT;
 	}
-	if (Key[KEY_INPUT_PGUP] != 0 && Key[KEY_INPUT_PGUP] % 15 == 0) {
+	if (Key[KEY_INPUT_PGUP] != 0 && Key[KEY_INPUT_PGUP] % 5 == 0) {
 		position.y -= WINDOW_SIZE_HEIGHT;
 	}
 

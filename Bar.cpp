@@ -44,9 +44,9 @@ void Bar::Draw() noexcept {
 void Bar::Collision(float& posX, float& posY) noexcept {
 	int x, y;
 	GetMousePoint(&x, &y);
-	DrawFormatString(800, 400, GetColor(0, 255, 0), "“–‚½‚è”»’èÀs");
+	//DrawFormatString(800, 400, GetColor(0, 255, 0), "“–‚½‚è”»’èÀs");
 	if (CollisionBar(x, y)) {
-		DrawFormatString(800, 450, GetColor(0, 255, 0), "%d¬ß–Ú", barNum + 1);
+		//DrawFormatString(800, 450, GetColor(0, 255, 0), "%d¬ß–Ú", barNum + 1);
 		posX = CollisionLane(x);
 		posY = CollisionLine(y);
 	}

@@ -27,7 +27,7 @@ void ShortNotes::Draw() noexcept {
 	DrawBox(position.x - width / 2, position.y - height / 2,
 		position.x + width / 2, position.y + height / 2,
 		GetColor(0, 255, 0), true);
-	DrawFormatString(800, 500, GetColor(0, 255, 0), "X:%f Y:%f", position.x, position.y);
+	//DrawFormatString(800, 500, GetColor(0, 255, 0), "X:%f Y:%f", position.x, position.y);
 }
 
 //ハンドクラップ再生

@@ -28,7 +28,7 @@ void Editor::MakeBar() noexcept {
 	//è¨êﬂêîÇÃåvéZ
 	//ÉãÅ[ÉvÇ‹Ç≈ÇÃä‘Ç…Ç‡è¨êﬂê¸Çï`âÊÇ∑ÇÈÇΩÇﬂÇ…+2ÇÇ∑ÇÈ
 	int bar_num = music.GetTotalTime() / 1000 * music.GetBPM() / (60 * music.GetBeat()) + 2;
-	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * bar_num + WINDOW_SIZE_HEIGHT/2);
+	camera.SetMinPosition(WINDOW_SIZE_WIDTH / 2, -WINDOW_SIZE_HEIGHT * (bar_num - 1) + WINDOW_SIZE_HEIGHT / 2);
 	camera.SetMaxPosition(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2);
 
 	barManager.MakeBar(objList, bar_num);
