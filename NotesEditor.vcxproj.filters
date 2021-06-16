@@ -57,198 +57,201 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="KeyInput.cpp">
-      <Filter>ソース ファイル\Game\Input</Filter>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>ソース ファイル\Game\Input</Filter>
+    <ClCompile Include="src\TextBox.cpp">
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Bar.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="BarManager.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="Editor.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
+    <ClCompile Include="src\GameObject.cpp">
       <Filter>ソース ファイル\Game\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>ソース ファイル\Game\Object\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="TextBox.cpp">
-      <Filter>ソース ファイル\Game\Object\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseScene.cpp">
+    <ClCompile Include="src\BaseScene.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
-    <ClCompile Include="Camera2D.cpp">
+    <ClCompile Include="src\Camera2D.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
-    <ClCompile Include="ISceneChanger.cpp">
+    <ClCompile Include="src\ISceneChanger.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
-    <ClCompile Include="Music.cpp">
+    <ClCompile Include="src\Music.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
-    <ClCompile Include="OpenFileExplorer.cpp">
+    <ClCompile Include="src\OpenFileExplorer.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
+    <ClCompile Include="src\SceneManager.cpp">
       <Filter>ソース ファイル\Game\System/Interface</Filter>
     </ClCompile>
-    <ClCompile Include="NotesManager.cpp">
+    <ClCompile Include="src\Bar.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
-    <ClCompile Include="LongNotes.cpp">
+    <ClCompile Include="src\BarManager.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
-    <ClCompile Include="Notes.cpp">
+    <ClCompile Include="src\Editor.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
-    <ClCompile Include="SlideNotes.cpp">
+    <ClCompile Include="src\LongNotes.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
-    <ClCompile Include="ShortNotes.cpp">
+    <ClCompile Include="src\LongNotesCreator.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
-    <ClCompile Include="CubicSpline.cpp">
+    <ClCompile Include="src\main.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Notes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotesManager.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShortNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlideNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlideNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShortNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CubicSpline.cpp">
       <Filter>ソース ファイル\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="EquationsSolver.cpp">
+    <ClCompile Include="src\EquationsSolver.cpp">
       <Filter>ソース ファイル\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="GaussElimination.cpp">
+    <ClCompile Include="src\GaussElimination.cpp">
       <Filter>ソース ファイル\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="LUdecomposition.cpp">
+    <ClCompile Include="src\LUdecomposition.cpp">
       <Filter>ソース ファイル\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="ShortNotesCreator.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
+    <ClCompile Include="src\KeyInput.cpp">
+      <Filter>ソース ファイル\Game\Input</Filter>
     </ClCompile>
-    <ClCompile Include="LongNotesCreator.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
-    </ClCompile>
-    <ClCompile Include="SlideNotesCreator.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
+    <ClCompile Include="src\Mouse.cpp">
+      <Filter>ソース ファイル\Game\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Mouse.hpp">
+    <ClInclude Include="src\KeyInput.hpp">
       <Filter>ヘッダー ファイル\Game\Input</Filter>
     </ClInclude>
-    <ClInclude Include="KeyInput.hpp">
+    <ClInclude Include="src\Mouse.hpp">
       <Filter>ヘッダー ファイル\Game\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Button.hpp">
+    <ClInclude Include="src\Button.hpp">
       <Filter>ヘッダー ファイル\Game\Object\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Canvas.hpp">
+    <ClInclude Include="src\Canvas.hpp">
       <Filter>ヘッダー ファイル\Game\Object\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="TextBox.hpp">
+    <ClInclude Include="src\TextBox.hpp">
       <Filter>ヘッダー ファイル\Game\Object\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.hpp">
+    <ClInclude Include="src\GameObject.hpp">
       <Filter>ヘッダー ファイル\Game\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Bar.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="BarManager.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="Editor.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="LongNotes.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="Notes.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="SlideNotes.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.hpp">
+    <ClInclude Include="src\BaseScene.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="BaseScene.hpp">
+    <ClInclude Include="src\Camera2D.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="ISceneChanger.hpp">
+    <ClInclude Include="src\Delegate.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="FPS.hpp">
+    <ClInclude Include="src\FPS.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="PlayableObj.hpp">
+    <ClInclude Include="src\ISceneChanger.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Singleton.hpp">
+    <ClInclude Include="src\Music.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Delegate.hpp">
+    <ClInclude Include="src\OpenFileExplorer.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="OpenFileExplorer.hpp">
+    <ClInclude Include="src\picojson.h">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Music.hpp">
+    <ClInclude Include="src\PlayableObj.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Task.hpp">
+    <ClInclude Include="src\SceneManager.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Camera2D.hpp">
+    <ClInclude Include="src\Singleton.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="UIManager.hpp">
+    <ClInclude Include="src\Task.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2D.hpp">
+    <ClInclude Include="src\UIManager.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="WindowSize.hpp">
+    <ClInclude Include="src\Vector2D.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="picojson.h">
+    <ClInclude Include="src\WindowSize.hpp">
       <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
     </ClInclude>
-    <ClInclude Include="NotesManager.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="ShortNotes.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="CubicSpline.hpp">
+    <ClInclude Include="src\CubicSpline.hpp">
       <Filter>ヘッダー ファイル\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="EquationsSolver.hpp">
+    <ClInclude Include="src\EquationsSolver.hpp">
       <Filter>ヘッダー ファイル\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="GaussElimination.hpp">
+    <ClInclude Include="src\GaussElimination.hpp">
       <Filter>ヘッダー ファイル\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="LUdecomposition.hpp">
+    <ClInclude Include="src\LUdecomposition.hpp">
       <Filter>ヘッダー ファイル\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="NotesCreator.hpp">
+    <ClInclude Include="src\Bar.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
-    <ClInclude Include="ShortNotesCreator.hpp">
+    <ClInclude Include="src\BarManager.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
-    <ClInclude Include="LongNotesCreator.hpp">
+    <ClInclude Include="src\Editor.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
-    <ClInclude Include="SlideNotesCreator.hpp">
+    <ClInclude Include="src\LongNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Notes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShortNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShortNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlideNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlideNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Structure.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
   </ItemGroup>
