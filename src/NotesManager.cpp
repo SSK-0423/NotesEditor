@@ -19,15 +19,17 @@ NotesManager::NotesManager() noexcept {
 	//objList = nullptr;
 }
 
+//	ショートノーツに変更
 void NotesManager::ChangeNotesTypeShort() noexcept {
 	type = SHORT_NOTES;
 	color = GetColor(0, 255, 0);
 }
+//	ロングノーツに変更
 void NotesManager::ChangeNotesTypeLong() noexcept {
 	type = LONG_NOTES;
 	color = GetColor(0, 128, 255);
 }
-
+//	スライドノーツに変更
 void NotesManager::ChangeNotesTypeSlide() noexcept {
 	type = SLIDE_NOTES;
 	color = GetColor(255, 128, 0);
