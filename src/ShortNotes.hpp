@@ -6,10 +6,13 @@ protected:
 	//static int clapHandle;
 private:
 	int clapHandle;
+	unsigned int color;
 	void PlayClap() noexcept;
+	
 public:
 	ShortNotes(float& x, float& y) noexcept;
 	~ShortNotes() noexcept;
 	void Update() noexcept override;
 	void Draw() noexcept override;
+	void SetColor(unsigned int c);
 };

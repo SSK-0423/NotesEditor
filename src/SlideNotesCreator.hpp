@@ -10,6 +10,8 @@ private:
 public:
 	SlideNotesCreator() noexcept;
 	Notes* CreateNotes(float& x, float& y) noexcept;
+	void CreateNotes(std::vector<GameObject*>& objList) noexcept;
 	void CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept;
 	void IsEnd() noexcept;
+	void Cancel(std::vector<GameObject*>& objList) noexcept;
 };

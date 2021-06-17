@@ -18,7 +18,7 @@ class NotesManager {
 private:
 	static NOTESTYPE type;						//ノーツタイプ
 	std::vector<GameObject*> notesList;				//ノーツリスト
-	//std::vector<GameObject*>* objList;			//カメラ描画対象オブジェクトリスト
+	unsigned int color;
 	ShortNotesCreator shortNotesCreator;		//ショートノーツ作成クラス
 	LongNotesCreator longNotesCreator;			//ロングノーツ作成クラス
 	SlideNotesCreator slideNotesCreator;		//スライドノーツ作成クラス
@@ -34,6 +34,6 @@ public:
 	void SetObjList(std::vector<GameObject*>& objList) noexcept;
 	std::vector<GameObject*>* GetListRef() noexcept;
 	void CreateNotes(float& x, float& y) noexcept;
-	void DeleteNotes(float& x, float& y) noexcept;
+	void DeleteNotes(int& x, int& y) noexcept;
 	void DeleteObj() noexcept;
 };

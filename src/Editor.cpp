@@ -52,6 +52,7 @@ void Editor::Update() noexcept {
 	UpdateButton();
 	InitTextBox();
 	barManager.Update();
+	notesManager.Update();
 	camera.Update();
 }
 
@@ -197,7 +198,7 @@ void Editor::KeyInput() noexcept {
 		DeleteObj();
 	}
 	Mouse::Instance()->Update();
-	if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) == 1) {
+	if (Mouse::Instance()->GetPressingCount(Mouse::LEFT_CLICK) == 1 || Key[KEY_INPUT_RETURN] == 1) {
 		int x, y;
 		GetMousePoint(&x, &y);
 		if (x >= 1024 / 2 - 1024 / 4 && x <= 1024 / 2 + 1024 / 4) {
@@ -245,9 +246,10 @@ void Editor::PutNotes() noexcept {
 }
 
 void Editor::DeleteNotes() noexcept {
-	float deletePosX, deletePosY;
-	//ノーツの設置位置を決定
-	barManager.DecidePutPos(deletePosX, deletePosY);
+	int deletePosX, deletePosY;
+	GetMousePoint(&deletePosX, &deletePosY);
+	////ノーツの設置位置を決定
+	//barManager.DecidePutPos(deletePosX, deletePosY);
 	//ノーツ削除
 	notesManager.DeleteNotes(deletePosX, deletePosY);
 }

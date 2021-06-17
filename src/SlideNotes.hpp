@@ -11,8 +11,11 @@ private:
 	vector<float> dx_;					//描画座標リスト
 	vector<float> dy_;					//描画座標リスト
 	void InitCubicSpline() noexcept;
+	int CalcWidth() noexcept;
+	int CalcColPosX() noexcept;
+
 public:
-	SlideNotes(float& x, float& y, std::vector<ShortNotes*> list) noexcept;
+	SlideNotes(std::vector<ShortNotes*> list) noexcept;
 	~SlideNotes() noexcept;
 	void Update() noexcept override;
 	void Draw() noexcept override;
