@@ -31,7 +31,6 @@ public:
 	void ChangeNotesTypeSlide() noexcept;
 	void Update() noexcept;
 	void Draw() noexcept;
-	void SetObjList(std::vector<GameObject*>& objList) noexcept;
 	std::vector<GameObject*>* GetListRef() noexcept;
 	void CreateNotes(float& x, float& y) noexcept;
 	void DeleteNotes(int& x, int& y) noexcept;
