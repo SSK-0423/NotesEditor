@@ -15,4 +15,6 @@ public:
 	Notes* CreateNotes(float& x, float& y) noexcept;
 	void CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept;
 	void Cancel(std::vector<GameObject*>& objList) noexcept;
+	void DeleteNotes(GameObject& notes) noexcept;
+
 };
