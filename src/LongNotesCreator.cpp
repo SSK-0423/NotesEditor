@@ -19,7 +19,6 @@ Notes* LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
 		//終点ノーツフラグ
 		isStart = false;
 
-
 		return nullptr;
 	}
 	//終点ノーツ
@@ -84,4 +83,10 @@ void LongNotesCreator::Cancel(std::vector<GameObject*>& objList) noexcept
 		isStart = true;
 		delete[] startNotes;
 	}
+}
+
+void LongNotesCreator::DeleteNotes(GameObject& notes) noexcept
+{
+	isStart = true;
+	delete[] startNotes;
 }
