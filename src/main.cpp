@@ -7,7 +7,7 @@
 #define NOTES_SIZE_WIDTH 79
 #define NOTES_SIZE_HEIGHT 15
 
-
+// a
 //ÉQÅ[ÉÄÉãÅ[Év
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
