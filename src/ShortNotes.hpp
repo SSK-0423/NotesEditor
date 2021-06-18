@@ -15,4 +15,5 @@ public:
 	void Update() noexcept override;
 	void Draw() noexcept override;
 	void SetColor(unsigned int c);
+	unsigned int GetNotesColor();
 };

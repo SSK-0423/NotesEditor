@@ -42,6 +42,10 @@ void ShortNotes::SetColor(unsigned int c)
 	color = c;
 }
 
+unsigned int ShortNotes::GetNotesColor() {
+	return color;
+}
+
 //ハンドクラップ再生
 void ShortNotes::PlayClap() noexcept {
 	PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);

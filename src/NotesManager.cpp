@@ -48,6 +48,7 @@ void NotesManager::Draw() noexcept {
 	DrawBox(x - 10, y - 10, x + 10, y + 10, color, true);
 	DrawFormatString(800, 350, GetColor(0, 255, 0), "NotesType:%d", type);
 	DrawFormatString(800, 400, GetColor(0, 255, 0), "ノーツ数:%d", notesList.size());
+	slideNotesCreator.Draw();
 }
 
 std::vector<GameObject*>* NotesManager::GetListRef() noexcept {
@@ -93,8 +94,18 @@ void NotesManager::DeleteNotes(int& x, int& y) noexcept {
 			notes->position.y - notes->GetObjHeight() / 2 <= y && notes->position.y + notes->GetObjHeight() / 2 >= y) {
 			auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
 			notesList.erase(deleteNotes);
-			int clapHandle = LoadSoundMem("sounds/clap.ogg");
-			PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
+
+			//スライドノーツの中間ノーツ削除
+			if (dynamic_cast<ShortNotes*>(notes) != nullptr) {
+				if (dynamic_cast<ShortNotes*>(notes)->GetNotesColor() == GetColor(255, 128, 0)) {
+					slideNotesCreator.DeleteNotes(*notes);
+				}
+				if (dynamic_cast<ShortNotes*>(notes)->GetNotesColor() == GetColor(0, 128, 255)) {
+					longNotesCreator.DeleteNotes(*notes);
+				}
+				int clapHandle = LoadSoundMem("sounds/clap.ogg");
+				PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
+			}
 		}
 	}
 }
