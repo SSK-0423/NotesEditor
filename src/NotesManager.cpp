@@ -35,10 +35,6 @@ void NotesManager::ChangeNotesTypeSlide() noexcept {
 	color = GetColor(255, 128, 0);
 }
 
-void NotesManager::SetObjList(std::vector<GameObject*>& objList) noexcept {
-	objList = notesList;
-}
-
 void NotesManager::Update() noexcept {
 	if (Key[KEY_INPUT_RETURN] == 1) {
 		slideNotesCreator.IsEnd();
