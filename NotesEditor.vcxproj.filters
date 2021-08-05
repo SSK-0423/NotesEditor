@@ -55,6 +55,9 @@
     <Filter Include="ソース ファイル\Tools">
       <UniqueIdentifier>{51239324-5513-47fe-bc21-aa5e62e96f38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Game\Component">
+      <UniqueIdentifier>{fbe563c2-e377-40ee-a388-45e7493591b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Button.cpp">
@@ -137,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="src\Mouse.cpp">
       <Filter>ソース ファイル\Game\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Canvas.cpp">
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +259,42 @@
     </ClInclude>
     <ClInclude Include="src\Structure.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.hpp">
+      <Filter>ヘッダー ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object.hpp">
+      <Filter>ヘッダー ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GUI.hpp">
+      <Filter>ヘッダー ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ComponentSystem.hpp">
+      <Filter>ヘッダー ファイル\Game\System/Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transform.hpp">
+      <Filter>ヘッダー ファイル\Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AudioSource.hpp">
+      <Filter>ヘッダー ファイル\Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.hpp">
+      <Filter>ヘッダー ファイル\Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component.hpp">
+      <Filter>ヘッダー ファイル\Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PrimitiveObject.hpp">
+      <Filter>ヘッダー ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Circle.hpp">
+      <Filter>ヘッダー ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Triangle.hpp">
+      <Filter>ヘッダー ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Square.hpp">
+      <Filter>ヘッダー ファイル\Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

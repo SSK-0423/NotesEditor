@@ -60,6 +60,7 @@ void Editor::Update() noexcept {
 void Editor::Draw() noexcept {
 	//DrawGraph(0, 0, backgroungHandle, true);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
+	//canvas.Draw();
 	DrawButton();
 	text.Draw();
 	camera.Draw();
@@ -142,11 +143,11 @@ void Editor::SetClickEventFunc() noexcept {
 	//DelegateBase<void(void)>* saveJson = Delegate<Music, void(void)>::createDelegator(&music, &Music::saveJson);
 
 	//小節線変更
-	DelegateBase<void(void)>* change_bar = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle);
-	DelegateBase<void(void)>* change_bar4 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle4);
-	DelegateBase<void(void)>* change_bar8 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle8);
-	DelegateBase<void(void)>* change_bar16 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle16);
-	DelegateBase<void(void)>* change_bar32 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle32);
+	DelegateBase<void(void)>* changeBar = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle);
+	DelegateBase<void(void)>* changeBar4 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle4);
+	DelegateBase<void(void)>* changeBar8 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle8);
+	DelegateBase<void(void)>* changeBar16 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle16);
+	DelegateBase<void(void)>* changeBar32 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle32);
 
 	//押下時の関数セット
 	button[BUTTON_SHORT].SetEventFunction(changeNotesTypeShort);
@@ -155,11 +156,11 @@ void Editor::SetClickEventFunc() noexcept {
 	button[BUTTON_PLAY].SetEventFunction(playMusic);
 	button[BUTTON_RESTART].SetEventFunction(restartMusic);
 	button[BUTTON_LOADMUSIC].SetEventFunction(loadMusic);
-	button[BUTTON_CHANGEBAR].SetEventFunction(change_bar);
-	button[BUTTON_CHANGEBAR4].SetEventFunction(change_bar4);
-	button[BUTTON_CHANGEBAR8].SetEventFunction(change_bar8);
-	button[BUTTON_CHANGEBAR16].SetEventFunction(change_bar16);
-	button[BUTTON_CHANGEBAR32].SetEventFunction(change_bar32);
+	button[BUTTON_CHANGEBAR].SetEventFunction(changeBar);
+	button[BUTTON_CHANGEBAR4].SetEventFunction(changeBar4);
+	button[BUTTON_CHANGEBAR8].SetEventFunction(changeBar8);
+	button[BUTTON_CHANGEBAR16].SetEventFunction(changeBar16);
+	button[BUTTON_CHANGEBAR32].SetEventFunction(changeBar32);
 }
 
 void Editor::InitBarManager() noexcept {

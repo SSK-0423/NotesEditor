@@ -5,6 +5,7 @@
 #include "Vector2D.hpp"
 #include "GameObject.hpp"
 
+
 class Button : public GameObject{
 private:
 	int count;							// ボタンが押された回数（押された場合にボタンを切り替える際に使用）

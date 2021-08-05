@@ -32,3 +32,11 @@ int GameObject::GetObjHeight() noexcept {
 int GameObject::GetObjWidth() noexcept {
 	return width;
 }
+
+//GameObject::GameObject() noexcept {
+//	componentList.push_back(&transform);
+//}
+//
+//GameObject::~GameObject() noexcept{}
+//void GameObject::Update() noexcept{}
+//void GameObject::Draw() noexcept{}

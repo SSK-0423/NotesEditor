@@ -16,9 +16,9 @@ LongNotes::LongNotes(ShortNotes& start, ShortNotes& end) noexcept {
 	startNotes = &start;
 	endNotes = &end;
 	//position‚Ìİ’è
-	position.x = startNotes->collisionPos.x;
+	position.x = startNotes->position.x;
 	collisionPos.x = startNotes->collisionPos.x;
-	position.y = (startNotes->collisionPos.y + endNotes->collisionPos.y) / 2;
+	position.y = (startNotes->position.y + endNotes->position.y) / 2;
 	collisionPos.y = (startNotes->collisionPos.y + endNotes->collisionPos.y) / 2;
 	//ƒTƒCƒY‚Ìİ’è
 	width = 80;

@@ -1,14 +1,15 @@
 #pragma once
-#include "GameObject.hpp"
 #include "DxLib.h"
+#include "GUI.hpp"
 #include <vector>
 
-class Canvas : public GameObject{
+class Canvas : public Object{
 private:
-	std::vector<GameObject> Gui;
-	//std::vector<GUI> gui;
+	std::vector<GUI*> UI;
 public:
+	Canvas() noexcept;
+	~Canvas() noexcept;
 	void Update() noexcept;
 	void Draw() noexcept;
-	void AddUIObj(GameObject* obj) noexcept;
+	void AddUI(GUI& obj) noexcept;
 };

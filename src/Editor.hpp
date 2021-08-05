@@ -5,6 +5,7 @@
 #include "TextBox.hpp"
 #include "BarManager.hpp"
 #include "NotesManager.hpp"
+#include "Canvas.hpp"
 #include <vector>
 
 #define BUTTON_SIZE_WIDTH 126
@@ -50,7 +51,7 @@ private:
 	Camera2D camera;
 	BarManager barManager;
 	NotesManager notesManager;
-
+	Canvas canvas;
 	//エディター内の全てのオブジェクト
 	std::vector<std::vector<GameObject*>*> objList;
 

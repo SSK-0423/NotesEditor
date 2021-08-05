@@ -53,12 +53,12 @@ void Camera2D::UpdateDrawList() noexcept {
 
 //カメラに枠に入ったか判定
 bool Camera2D::Collision(GameObject& obj) const noexcept {
-	Vector2D distance;	//距離の格納
+	Vector2D<float> distance;	//距離の格納
 	//中心座標の距離
 	distance.x = fabsf(this->position.x - obj.collisionPos.x);
 	distance.y = fabsf(this->position.y - obj.collisionPos.y);
 
-	Vector2D sizeSum;	//サイズの格納
+	Vector2D<float> sizeSum;	//サイズの格納
 	//サイズ計算
 	sizeSum.x = (this->width + obj.GetObjWidth()) / 2.0f;
 	sizeSum.y = (this->height + obj.GetObjHeight()) / 2.0f;

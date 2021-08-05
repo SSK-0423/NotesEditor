@@ -1,8 +1,7 @@
 #pragma once
-#include "Task.hpp"
-#include "Vector2D.hpp"
-
-class GameObject : public Task{
+#include "Game.hpp"
+#include "Object.hpp"
+class GameObject : public Object{
 protected:
 
 	// 画像ハンドル
@@ -17,9 +16,9 @@ public:
 	~GameObject() noexcept;
 
 	// オブジェクトの描画座標
-	Vector2D position;
+	Position<float> position;
 	// オブジェクトの座標
-	Vector2D collisionPos;
+	Position<float> collisionPos;
 
 	// 画像の設定
 	void SetHandle(int handle) noexcept;
@@ -33,3 +32,18 @@ public:
 	virtual void Update() noexcept;
 	virtual void Draw() noexcept;
 };
+
+//class GameObject : public Object {
+//protected:
+//	Transform transform;
+//public:
+//	GameObject();
+//	~GameObject();
+////	virtual void Update() noexcept;
+////	virtual void Draw() noexcept;
+//};
+//
+//int main() {
+//	GameObject obj;
+//	obj.GetComponent<Transform>().
+//}

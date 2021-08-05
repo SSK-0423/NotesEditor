@@ -5,8 +5,8 @@
 class PlayableObj {
 protected:
 	//オブジェクトの移動限界
-	Vector2D minLimitPos;	//下限(左上)
-	Vector2D maxLimitPos;	//上限(右上)
+	Vector2D<float> minLimitPos;	//下限(左上)
+	Vector2D<float> maxLimitPos;	//上限(右上)
 private:
 	//キーボード、マウス操作の管理
 	virtual void Controll() = 0;

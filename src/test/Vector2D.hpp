@@ -1,10 +1,9 @@
-#pragma once
-//int,float,double‚Ì‚İ‘Î‰
-//‘Î‰‚·‚éŒ^‚ğ‘‚â‚µ‚½‚¢ê‡‚ÍˆÈ‰º‚É’Ç‹L
+//int,float,doubleã®ã¿å¯¾å¿œ
+//å¯¾å¿œã™ã‚‹å‹ã‚’å¢—ã‚„ã—ãŸã„å ´åˆã¯ä»¥ä¸‹ã«è¿½è¨˜
 template<class ...T>
 struct Vector2D;
 
-/*  ˆÈ‰º“Áê‰»  */
+/*  ä»¥ä¸‹ç‰¹æ®ŠåŒ–  */
 template<>
 struct Vector2D<int>
 {
