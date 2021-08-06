@@ -123,7 +123,7 @@ bool NotesManager::IsExist(float& x, float& y) noexcept {
 //	ƒm[ƒc‚Ì‘Síœ
 void NotesManager::DeleteObj() noexcept {
 	for (auto notes : notesList) {
-		delete[] notes;
+		delete notes;
 	}
 	notesList.clear();
 }

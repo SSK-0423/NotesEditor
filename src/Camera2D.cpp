@@ -74,6 +74,7 @@ bool Camera2D::Collision(GameObject& obj) const noexcept {
 
 void Camera2D::DeleteObj() noexcept {
 	drawList.clear();
+	drawList.shrink_to_fit();
 }
 
 //カメラ内オブジェクトの更新処理
@@ -121,12 +122,6 @@ void Camera2D::Controll() noexcept {
 	}
 	if (Key[KEY_INPUT_PGUP] != 0 && Key[KEY_INPUT_PGUP] % 5 == 0) {
 		position.y -= WINDOW_SIZE_HEIGHT;
-	}
-
-	//objListの初期化・GameObjectのdelete
-	if (CheckHitKey(KEY_INPUT_D) != 0) {
-		//GameObjectのメモリ開放
-		DeleteObj();
 	}
 }
 

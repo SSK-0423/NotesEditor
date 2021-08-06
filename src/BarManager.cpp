@@ -65,7 +65,6 @@ void BarManager::ChangeBarHandle(int handle) noexcept {
 }
 
 void BarManager::Update() noexcept {
-	KeyInput();
 }
 
 //
@@ -75,17 +74,10 @@ void BarManager::Draw() noexcept {
 
 void BarManager::DeleteObj() noexcept {
 	for (auto bar : bars) {
-		delete[] bar;
+		delete bar;
 	}
 	bars.clear();
-}
-
-//キー入力関連
-void BarManager::KeyInput() noexcept {
-	
-	if (CheckHitKey(KEY_INPUT_D) != 0) {
-		DeleteObj();
-	}
+	bars.shrink_to_fit();
 }
 
 //小節の当たり判定実行
@@ -95,16 +87,17 @@ void BarManager::BarsCollision(float& posX, float& posY) noexcept {
 		bar->Collision(posX, posY);
 	}
 }
+
 // ノーツタイプ取得
 BARTYPE BarManager::GetBarType() noexcept {
 	return type;
 }
+
 // barsの参照を返す
 std::vector<GameObject*>* BarManager::GetListRef() noexcept {
 	return &bars;
 }
+
 void BarManager::DecidePutPos(float& posX, float& posY) noexcept {
 	BarsCollision(posX, posY);
 }
-
-//

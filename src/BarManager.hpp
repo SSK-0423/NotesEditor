@@ -24,11 +24,9 @@ private:
 	void ChangeBarHandle(int handle) noexcept;
 	//画像ハンドルのセット
 	void SetHandle() noexcept;
-	//キー入力管理
-	void KeyInput() noexcept;
-
 	//小節線の当たり判定実行
 	void BarsCollision(float& posX, float& posY) noexcept;
+
 public:
 	BarManager() noexcept;
 	~BarManager() noexcept;

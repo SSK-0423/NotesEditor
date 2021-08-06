@@ -257,10 +257,8 @@ void Editor::DeleteNotes() noexcept {
 
 void Editor::DeleteObj() noexcept {
 	for (auto list : objList) {
-		for (auto obj : *list) {
-			delete[] obj;
-			objList[0]->clear();
-			objList[1]->clear();
-		}
+		list->clear();
+		list->shrink_to_fit();
 	}
+	camera.DeleteObj();
 }
