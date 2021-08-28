@@ -144,6 +144,12 @@
     <ClCompile Include="src\Canvas.cpp">
       <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="src\EditScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorCanvas.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\KeyInput.hpp">
@@ -295,6 +301,12 @@
     </ClInclude>
     <ClInclude Include="src\Square.hpp">
       <Filter>ヘッダー ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditScene.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorCanvas.hpp">
+      <Filter>ヘッダー ファイル\Game\Object\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

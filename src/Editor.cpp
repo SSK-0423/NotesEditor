@@ -69,12 +69,14 @@ void Editor::Draw() noexcept {
 	notesManager.Draw();
 }
 
+// TODO:Canvasクラスに担当させる
 void Editor::DrawButton() noexcept {
 	for (int i = 0; i < BUTTON_NUM; i++) {
 		button[i].Draw();
 	}
 }
 
+// TODO:Canvasクラスに担当させる
 void Editor::UpdateButton() noexcept {
 	//Buttonのアップデート
 	for (int i = 0; i < BUTTON_NUM; i++) {
@@ -82,6 +84,7 @@ void Editor::UpdateButton() noexcept {
 	}
 }
 
+// TODO:Canvasクラスに担当させる
 //ボタンの初期化
 void Editor::InitButton() noexcept {
 	button = new Button[BUTTON_NUM];
@@ -91,6 +94,7 @@ void Editor::InitButton() noexcept {
 	SetClickEventFunc();
 }
 
+// TODO:Canvasクラスに担当させる
 //ボタンの画像セット
 void Editor::SetButtonImage() noexcept {
 	button[BUTTON_SHORT].SetImageHandle("image/SHORT.png");
@@ -108,6 +112,8 @@ void Editor::SetButtonImage() noexcept {
 	button[BUTTON_LOAD].SetImageHandle("image/LOAD.png");
 	button[BUTTON_SAVE].SetImageHandle("image/SAVE.png");
 }
+
+// TODO:Canvasクラスに担当させる
 //ボタンの位置セット
 void Editor::SetButtonPos() noexcept {
 	button[BUTTON_SHORT].SetButtonInfo(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y, BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT);
@@ -125,6 +131,7 @@ void Editor::SetButtonPos() noexcept {
 	button[BUTTON_SAVE].SetButtonInfo(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 8, BUTTON_SIZE_WIDTH * 2, BUTTON_SIZE2_HEIGHT);
 }
 
+// TODO:Canvasクラスに担当させる
 //ボタンのイベント関数セット
 void Editor::SetClickEventFunc() noexcept {
 	//設置するノーツの変更
@@ -178,6 +185,7 @@ void Editor::DebugDraw() {
 	DrawFormatString(800, 725, GetColor(0, 255, 0), "objList[1].size:%d", objList[1]->size());
 }
 
+// TODO:Textクラスに担当させる
 void Editor::InitTextBox() noexcept {
 	//曲名とBPMの
 	std::string str = music.GetName();
@@ -187,12 +195,14 @@ void Editor::InitTextBox() noexcept {
 	text.SetText(str);
 }
 
+// Cameraクラスに担当させる
 void Editor::ScrollCamera() noexcept {
 	//曲が再生されたら自動スクロール開始
 	if (music.IsPlay()) {
 		camera.SetPosition(WINDOW_SIZE_WIDTH / 2, -frame_move * music.GetElapsedTime() / 1000.0f * 60.0f + WINDOW_SIZE_HEIGHT / 2);
 	}
 }
+
 
 void Editor::KeyInput() noexcept {
 	if (Key[KEY_INPUT_D] == 1) {

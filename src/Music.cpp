@@ -1,15 +1,10 @@
 #include "DxLib.h"
 #include "Music.hpp"
 #include "OpenFileExplorer.hpp"
-Music::Music() {
-	musicHandle = -1;
-	//musicHandle = LoadSoundMem("sounds\\Memory of Heaven.wav");
-	bpm = 120;
-	beat = 4;
-	isMusicLoad = false;
-	isPlay = false;
-	name = "No Data";
+
+Music::Music() : musicHandle(-1), name("No Data"), bpm(120), beat(4), isMusicLoad(false), isPlay(false) {
 }
+
 void Music::SetMusic(const int& handle) noexcept {
 	musicHandle = handle;//this->Handle = 0;
 }
@@ -55,7 +50,7 @@ void Music::RestartMusic() noexcept {
 	if (CheckSoundMem(musicHandle)) {
 		StopSoundMem(musicHandle);
 	}
-		PlaySoundMem(musicHandle, DX_PLAYTYPE_LOOP, true);
+	PlaySoundMem(musicHandle, DX_PLAYTYPE_LOOP, true);
 }
 
 int Music::GetTotalTime() noexcept
@@ -71,7 +66,7 @@ float Music::GetElapsedTime() noexcept
 		return 0.0f;
 }
 
-std::string Music::GetName() noexcept{
+std::string Music::GetName() noexcept {
 	return name;
 }
 
@@ -79,15 +74,15 @@ float Music::GetBPM() noexcept {
 	return bpm;
 }
 
-int Music::GetBeat() noexcept{
+int Music::GetBeat() noexcept {
 	return beat;
 }
 
-bool Music::IsMusicLoad() noexcept{
+bool Music::IsMusicLoad() noexcept {
 	return isMusicLoad;
 }
 
-bool Music::IsPlay() noexcept{
+bool Music::IsPlay() noexcept {
 	return isPlay;
 }
 

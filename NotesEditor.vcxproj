@@ -163,6 +163,8 @@
     <ClCompile Include="src\Canvas.cpp" />
     <ClCompile Include="src\CubicSpline.cpp" />
     <ClCompile Include="src\Editor.cpp" />
+    <ClCompile Include="src\EditorCanvas.cpp" />
+    <ClCompile Include="src\EditScene.cpp" />
     <ClCompile Include="src\EquationsSolver.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GaussElimination.cpp" />
@@ -198,6 +200,8 @@
     <ClInclude Include="src\CubicSpline.hpp" />
     <ClInclude Include="src\Delegate.hpp" />
     <ClInclude Include="src\Editor.hpp" />
+    <ClInclude Include="src\EditorCanvas.hpp" />
+    <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\EquationsSolver.hpp" />
     <ClInclude Include="src\FPS.hpp" />
     <ClInclude Include="src\Game.hpp" />

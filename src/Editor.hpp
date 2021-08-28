@@ -5,6 +5,7 @@
 #include "TextBox.hpp"
 #include "BarManager.hpp"
 #include "NotesManager.hpp"
+#include "EditorCanvas.hpp"
 #include <vector>
 
 #define BUTTON_SIZE_WIDTH 126

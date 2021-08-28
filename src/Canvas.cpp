@@ -1,8 +1,7 @@
 #include "Canvas.hpp"
-#include "ComponentSystem.hpp"
+
 Canvas::Canvas() noexcept
 {
-
 }
 
 Canvas::~Canvas() noexcept
@@ -11,18 +10,18 @@ Canvas::~Canvas() noexcept
 
 void Canvas::Update() noexcept
 {
-	for (auto obj : UI) {
+	for (auto obj : UIObj) {
 		obj->Update();
 	}
 }
 void Canvas::Draw() noexcept
 {
-	for (auto obj : UI) {
+	for (auto obj : UIObj) {
 		obj->Draw();
 	}
 }
 
-void Canvas::AddUI(GUI& obj) noexcept
+void Canvas::AddGUIObj(GUI& obj) noexcept
 {
-	UI.push_back(&obj);
+	UIObj.push_back(&obj);
 }
