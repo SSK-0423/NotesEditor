@@ -49,6 +49,7 @@ void Button::Draw() noexcept {
 	DrawImageBox();
 }
 
+// イベント関数の設定
 void Button::SetEventFunction(DelegateBase<void(void)>* dg) noexcept
 {
 	myDg = dg;
@@ -87,6 +88,7 @@ bool Button::IsOnMouse()
 	return false;	
 }
 
+// 左クリックされたか
 bool Button::IsMouseLeftClick()
 {
 	if (Mouse::Instance()->IsLeftClick()) {
@@ -95,15 +97,18 @@ bool Button::IsMouseLeftClick()
 	return false;
 }
 
+// 非クリック時の処理
 void Button::NotClick() {
 	sub = 0;
 	fill = false;
 }
 
+// クリック回数カウント
 void Button::ClickCount() {
 	count++;
 }
 
+// イベント関数実行
 void Button::RunEvent()
 {
 	// 関数が設定されてないなら実行しない
@@ -130,6 +135,7 @@ void Button::DrawImageBox()
 			handle[count % handle.size()], true); //グラフィックハンドル、透過処理
 }
 
+// ボタンサイズ変更
 void Button::ChangeButtonSize()
 {
 	sub = SIZEDIFF;

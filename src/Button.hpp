@@ -12,46 +12,56 @@ const int SIZEDIFF = 2;
 
 class Button : public GameObject {
 private:
-	int count;							// ボタンが押された回数（押された場合にボタンを切り替える際に使用）
+	// ボタンが押された回数（押された場合にボタンを切り替える際に使用）
+	int count;
 
-	Color buttonColor;					//ボタンの色
+	//ボタンの色
+	Color buttonColor;
 
-	std::vector<int> handle;			// ボタンの画像ハンドル
+	// ボタンの画像ハンドル
+	std::vector<int> handle;
 
-	int sub;							// ボタンが押された際にどれだけ大きさを変えるか
+	// ボタンが押された際にどれだけ大きさを変えるか
+	int sub;
 
-	bool fill;							// ボタンを埋めるか
+	// ボタンを埋めるか
+	bool fill;
 
-	DelegateBase<void(void)>* myDg;		// デリゲート
+	// デリゲート
+	DelegateBase<void(void)>* myDg;
 
-	void OnClick() noexcept;			//ボタンが押されたら
+	// ボタンが押されたら
+	void OnClick() noexcept;
 
-	bool IsClick() noexcept;			//マウスクリックのチェック
-	
+	// マウスクリックのチェック
+	bool IsClick() noexcept;
+
 	// マウスがボタンの上にいるかチェック
-	bool IsOnMouse();					
+	bool IsOnMouse();
 	// 左クリックされたか
 	bool IsMouseLeftClick();
-	// 
+	// 非クリック時の処理
 	void NotClick();
-
+	// クリック回数カウント
 	void ClickCount();
-
+	// イベント関数実行
 	void RunEvent();
-
+	// 画像未設定時のボックス描画
 	void DrawDefaultBox();
-
+	// 画像設定ボックス描画
 	void DrawImageBox();
-
+	// ボタンサイズ変更
 	void ChangeButtonSize();
 public:
-	Button() noexcept;							//コンストラクタ
+	Button() noexcept;
 
-	~Button() noexcept;							//デストラクタ
+	~Button() noexcept;
 
-	void Update() noexcept;						//更新
+	//更新
+	void Update() noexcept;
 
-	void Draw() noexcept;						//ボタンの描画
+	//ボタンの描画
+	void Draw() noexcept;
 
 	void SetButtonInfo(const int x, const int y, const int w, const int h, const unsigned int color = GetColor(255, 255, 255), const bool f = false) noexcept;//描画用情報の設定
 
