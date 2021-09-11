@@ -9,17 +9,6 @@
 #include <Windows.h>
 
 Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0), camera(objList) {
-	//objList.resize(2);	// 0:bar 1:notes
-	objList.push_back(barManager.GetListRef());
-	objList.push_back(notesManager.GetListRef());
-	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
-	//backgroungHandle = LoadGraph("image/îwåi.jpg");
-	laneHandle = LoadGraph("image/Lane.png");
-	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
-	text.SetHandle(musicInfoHandle);
-	text.SetColor(0, 0, 0);
-	InitBarManager();
-	InitButton();
 }
 
 // è¨êﬂêîÉIÉuÉWÉFÉNÉgÇÃê∂ê¨
@@ -36,7 +25,19 @@ void Editor::MakeBar() noexcept {
 	barManager.MakeBar(bar_num);
 }
 
-void Editor::Initialize() noexcept {}
+void Editor::Initialize() noexcept {
+	//objList.resize(2);	// 0:bar 1:notes
+	objList.push_back(barManager.GetListRef());
+	objList.push_back(notesManager.GetListRef());
+	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
+	//backgroungHandle = LoadGraph("image/îwåi.jpg");
+	laneHandle = LoadGraph("image/Lane.png");
+	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
+	text.SetHandle(musicInfoHandle);
+	text.SetColor(0, 0, 0);
+	InitBarManager();
+	InitButton();
+}
 void Editor::Finalize() noexcept {}
 
 void Editor::Update() noexcept {

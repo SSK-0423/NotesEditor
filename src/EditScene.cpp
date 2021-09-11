@@ -2,7 +2,6 @@
 
 EditScene::EditScene(ISceneChanger* changer) : BaseScene(changer),camera(objList)
 {
-	Initialize();
 }
 
 void EditScene::Initialize() noexcept

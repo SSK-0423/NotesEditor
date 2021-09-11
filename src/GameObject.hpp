@@ -1,7 +1,8 @@
 #pragma once
 #include "Game.hpp"
 #include "Object.hpp"
-class GameObject : public Object{
+
+class GameObject{
 protected:
 
 	// ‰æ‘œƒnƒ“ƒhƒ‹

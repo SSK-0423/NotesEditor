@@ -13,6 +13,10 @@ public:
 	bool Update();	//更新
 	int GetPressingCount(int keyCode);//keyCodeのキーが押されているフレーム数を取得
 	int GetReleasingCount(int keyCode);//keyCodeのキーが離されているフレーム数を取得
+	bool IsLeftClick();
+	bool IsRightClick();
+	bool IsLeftClickRelease();
+	bool IsRightClickRelease();
 	int GetX() { return x; }
 	int GetY() { return y; }
 	Mouse* Get() { return this; }
@@ -21,6 +25,9 @@ private:
 	int x, y;
 	int buttonPressingCount[KEY_NUM];//押されカウンタ
 	int buttonReleasingCount[KEY_NUM];//離されカウンタ
+
+	bool isLeftClicked;
+	bool isRightClicked;
 
 	bool IsAvailableCode(int keyCode);//keyCodeが有効なキー番号か問う
 

@@ -1,9 +1,7 @@
 #pragma once
 
 typedef enum {
-	eScene_Menu,
-	eScene_Game,
-	eScene_Config,
+	eScene_Edit,
 
 	eScene_None,
 } eScene;

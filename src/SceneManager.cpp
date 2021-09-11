@@ -6,6 +6,7 @@ SceneManager::SceneManager() :
 	mNextScene(eScene_None) //次のシーン管理変数
 {
 	mScene = (BaseScene*) new Editor(this);
+	mScene->Initialize();
 }
 
 //初期化
@@ -24,7 +25,7 @@ void SceneManager::Update() {
 		mScene->Finalize();//現在のシーンの終了処理を実行
 		delete mScene;
 		switch (mNextScene) {       //シーンによって処理を分岐
-		case eScene_Menu:        //次の画面がメニューなら
+		case eScene_Edit:        //次の画面がメニューなら
 			mScene = (BaseScene*) new Editor(this); //メニュー画面のインスタンスを生成する
 			break;//以下略
 		}

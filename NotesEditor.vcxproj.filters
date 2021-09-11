@@ -309,4 +309,7 @@
       <Filter>ヘッダー ファイル\Game\Object\GUI</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>
