@@ -4,15 +4,17 @@
 #include <vector>
 #include "Vector2D.hpp"
 #include "GameObject.hpp"
+#include "Game.hpp"
 
 // ボタンが押されている間のサイズ縮小幅
 const int SIZEDIFF = 2;
+
 
 class Button : public GameObject {
 private:
 	int count;							// ボタンが押された回数（押された場合にボタンを切り替える際に使用）
 
-	unsigned int buttonColor;			//ボタンの色
+	Color buttonColor;					//ボタンの色
 
 	std::vector<int> handle;			// ボタンの画像ハンドル
 
@@ -26,10 +28,11 @@ private:
 
 	bool IsClick() noexcept;			//マウスクリックのチェック
 	
-	bool IsOnMouse();
-
+	// マウスがボタンの上にいるかチェック
+	bool IsOnMouse();					
+	// 左クリックされたか
 	bool IsMouseLeftClick();
-
+	// 
 	void NotClick();
 
 	void ClickCount();

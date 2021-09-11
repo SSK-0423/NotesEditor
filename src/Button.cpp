@@ -1,7 +1,6 @@
 #include "Button.hpp"
 #include "Mouse.hpp"
 
-
 // コンストラクタ
 Button::Button() noexcept : count(0),fill(false), sub(SIZEDIFF){
 	position.x = position.y = 0;
@@ -16,6 +15,8 @@ Button::~Button() noexcept {
 }
 
 void Button::Update() noexcept {
+
+	Mouse::Instance()->Update();
 
 	if (IsOnMouse() && Mouse::Instance()->IsLeftClickRelease()) 
 		OnClick();
@@ -88,7 +89,6 @@ bool Button::IsOnMouse()
 
 bool Button::IsMouseLeftClick()
 {
-	Mouse::Instance()->Update();
 	if (Mouse::Instance()->IsLeftClick()) {
 		return true;
 	}
