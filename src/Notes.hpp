@@ -8,6 +8,6 @@ public:
 	//virtual void Put() noexcept {}
 	float GetTiming() noexcept;
 	int GetLane() noexcept;
-	virtual void Draw() noexcept;
-	virtual void Update() noexcept;
+	virtual void Draw() = 0;
+	virtual void Update() = 0;
 };

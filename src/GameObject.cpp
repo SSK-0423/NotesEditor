@@ -11,11 +11,6 @@ GameObject::GameObject() noexcept : imageHandle(-1), width(0),height(0) {
 GameObject::~GameObject() noexcept {
 }
 
-void GameObject::Update() noexcept {
-}
-
-void GameObject::Draw() noexcept {
-}
 void GameObject::SetHandle(int handle) noexcept {
 	imageHandle = handle;
 }
@@ -32,11 +27,3 @@ int GameObject::GetObjHeight() noexcept {
 int GameObject::GetObjWidth() noexcept {
 	return width;
 }
-
-//GameObject::GameObject() noexcept {
-//	componentList.push_back(&transform);
-//}
-//
-//GameObject::~GameObject() noexcept{}
-//void GameObject::Update() noexcept{}
-//void GameObject::Draw() noexcept{}

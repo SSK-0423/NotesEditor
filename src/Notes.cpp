@@ -8,9 +8,3 @@ float Notes::GetTiming() noexcept {
 int Notes::GetLane() noexcept {
 	return lane;
 }
-
-void Notes::Draw() noexcept {
-}
-
-void Notes::Update() noexcept {
-}

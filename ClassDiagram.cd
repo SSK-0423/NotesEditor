@@ -10,7 +10,7 @@
   <Class Name="Mouse">
     <Position X="1" Y="15" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAQABEAAAAAAAADEQAAAAAAAAAAAIAAAYAFgAAAAAAE=</HashCode>
+      <HashCode>RCQABEEAAAAQAADEQAAAAAAAAAAAIAAAYAFgAAAAIAE=</HashCode>
       <FileName>src\Mouse.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="Button">
     <Position X="16.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IERABAAAAAAAAgAQBAAAACACgAAAAAAAAAgCCAEIAAA=</HashCode>
+      <HashCode>QERABAAAEAAAAgAQBgAACCCCgAAIAAAAAgpCAAEIAAA=</HashCode>
       <FileName>src\Button.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -177,13 +177,6 @@
   </Class>
   <Class Name="null_parse_context" Collapsed="true">
     <Position X="29" Y="2.5" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="null_parse_context::dummy_str" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>src\picojson.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>CAQAAIABAAAAAAAAAAIAAAAQIAAAAA4AAEEgACAAAAA=</HashCode>
       <FileName>src\picojson.h</FileName>
@@ -308,13 +301,6 @@
       <FileName>src\NotesManager.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShortNotes">
-    <Position X="12" Y="11.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAQAgAAAAAAAAAAgACAAACAAIhAAAAAAAA=</HashCode>
-      <FileName>src\ShortNotes.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ShortNotesCreator">
     <Position X="5.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
@@ -325,7 +311,7 @@
   <Class Name="SlideNotes">
     <Position X="7.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEQAAAAAAgCAAgAAIAAIAAAAAIAAAAAAUgAIAAAABAg=</HashCode>
+      <HashCode>AEQAAAAAAgCAAgAAAIAIAAAAgIAAAAAAUgAIAAAABAg=</HashCode>
       <FileName>src\SlideNotes.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -352,21 +338,16 @@
   </Class>
   <Class Name="picojson::value" Collapsed="true">
     <Position X="27.25" Y="3.5" Width="1.5" />
-    <NestedTypes>
-      <Typedef Name="picojson::value::array" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>src\picojson.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Typedef Name="picojson::value::object" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>src\picojson.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AFgAAAAAACAgAAAAAAYCYABAAAAAACAAQAEgAAAAAAA=</HashCode>
       <FileName>src\picojson.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortNotes">
+    <Position X="12" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAgAAAAAAAAAAgACAAACQAIhEQAAAAgA=</HashCode>
+      <FileName>src\ShortNotes.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Size2D&lt;int&gt;" Collapsed="true">

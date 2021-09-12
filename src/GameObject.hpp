@@ -6,7 +6,7 @@ class GameObject{
 protected:
 
 	// 画像ハンドル
-	int imageHandle;
+	Image imageHandle;
 
 	// オブジェクトの高さ、幅
 	int width;
@@ -30,21 +30,6 @@ public:
 	// 高さの取得
 	int GetObjHeight() noexcept;
 
-	virtual void Update() noexcept;
-	virtual void Draw() noexcept;
+	virtual void Update() = 0;
+	virtual void Draw() = 0;
 };
-
-//class GameObject : public Object {
-//protected:
-//	Transform transform;
-//public:
-//	GameObject();
-//	~GameObject();
-////	virtual void Update() noexcept;
-////	virtual void Draw() noexcept;
-//};
-//
-//int main() {
-//	GameObject obj;
-//	obj.GetComponent<Transform>().
-//}

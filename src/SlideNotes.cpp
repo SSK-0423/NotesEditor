@@ -1,5 +1,6 @@
 #include "SlideNotes.hpp"
 #include "DxLib.h"
+#include "Game.hpp"
 #include <math.h>
 
 #define DRAWMODE 1;
@@ -15,7 +16,6 @@ SlideNotes::SlideNotes(std::vector<ShortNotes*> list) noexcept {
 	position.y = (notesList[0]->collisionPos.y + notesList.back()->collisionPos.y) / 2;
 	collisionPos.y = (notesList[0]->collisionPos.y + notesList.back()->collisionPos.y) / 2;
 
-	InitCubicSpline();
 	SetPoint();
 }
 
@@ -43,19 +43,13 @@ void SlideNotes::SetNotesList(std::vector<ShortNotes*> list) noexcept
 {
 	std::copy(list.begin(), list.end(), notesList.begin());
 
-	InitCubicSpline();
 	SetPoint();
-}
-
-void SlideNotes::InitCubicSpline() noexcept
-{
-
 }
 
 // x-yをy-xに変換したので、dx_ = dy_ dy = dx_
 void SlideNotes::DrawCurve() noexcept {
-	unsigned int slideColor = GetColor(255, 255, 0);
-	unsigned int StartEndColor = GetColor(255, 192, 0);
+	Color slideColor = GetColor(255, 255, 0);
+	Color StartEndColor = GetColor(255, 192, 0);
 	for (int i = 1; i < dx_.size() - 1; i++) {
 #if DRAWMODE
 		DrawBoxAA(dy_[i] + 40, position.y + (dx_[i] - dx_[0] + height / 2) + 1,
@@ -103,76 +97,84 @@ void SlideNotes::DrawCurve() noexcept {
 }
 
 void SlideNotes::SetPoint() noexcept {
-	//点の座標格納リスト
+	// 点の座標格納リスト
 	std::vector<vector<double>> p_;
 	p_.resize(notesList.size());
-	//色
-	unsigned int color = GetColor(0, 0, 255);
+	// 色
+	Color color = GetColor(0, 0, 255);
 
-	//中間点の座標を代入
+	// 中間点の座標を代入
 	// y-xの関数なのでxとyを逆にする
 	for (int i = 0; i < notesList.size(); i++) {
 		p_[i].push_back(notesList[i]->collisionPos.y);
 		p_[i].push_back(notesList[i]->collisionPos.x);
 	}
 
-	//スプライン補間
-	cubicSpline.cubicSpline(p_, p_.size());
-
-	//各点間の補間点数
-	int split = 100;
-	for (int i = 0; i < p_.size() - 1; i++) {
-		split = fabs(p_[i + 1][0] - p_[i][0]) / 96 * 100;
-		//2点間の距離を補間点数で割る
-		float step = fabs(p_[i + 1][0] - p_[i][0]) / split;
-		//dx_,dy_に補間座標を代入
-		for (int j = 0; j < split + 1; j++) {
-			//x座標(y座標)代入
-			dx_.push_back(p_[i][0] - step * j);
-			//y座標(x座標)を補間関数を用いて計算
-			dy_.push_back(cubicSpline.interpolation(p_[i][0] - step * j, true));
-			//dy_.push_back(cubicSpline.interpolation(step * j, true) - cubicSpline.interpolation(step * 0,true));
-		}
-	}
-
+	SetInterpolationPoint(p_);
 }
 
 //width計算
 int SlideNotes::CalcWidth() noexcept {
-	int max = -INF;
-	int min = INF;
-
-	for (auto notes : notesList) {
-		//最大値
-		if (notes->collisionPos.x > max) {
-			max = notes->collisionPos.x;
-		}
-		//最小値
-		if (notes->collisionPos.x < min) {
-			min = notes->collisionPos.x;
-		}
-	}
-	if (max == min) {
-		return 100;
-	}
+	int max = GetMaxColPosX();
+	int min = GetMinColPosX();
+	if (max == min)
+		return ShortNotes::SHORTNOTESWIDTH;
 	return abs(max - min);
 }
 
 //CollisionPosXを求める
 int SlideNotes::CalcColPosX() noexcept {
-	int max = -INF;
-	int min = INF;
+	int max = GetMaxColPosX();
+	int min = GetMinColPosX();
+	return (max + min) / 2;
+}
 
+int SlideNotes::GetMaxColPosX()
+{
+	int max = -INF;
 	for (auto notes : notesList) {
 		//最大値
 		if (notes->collisionPos.x > max) {
 			max = notes->collisionPos.x;
 		}
+	}
+	return max;
+}
+
+int SlideNotes::GetMinColPosX()
+{
+	int min = INF;
+	for (auto notes : notesList) {
 		//最小値
 		if (notes->collisionPos.x < min) {
 			min = notes->collisionPos.x;
 		}
 	}
+	return min;
+}
 
-	return (max + min) / 2;
+void SlideNotes::SetInterpolationPoint(std::vector<vector<double>>& p_)
+{
+	//スプライン補間
+	cubicSpline.cubicSpline(p_, p_.size());
+	//各点間の補間点数
+	int splitNum = 100;
+	for (int i = 0; i < p_.size() - 1; i++) {
+		CalcInterpolationPoint(p_, splitNum, i);
+	}
+}
+
+void SlideNotes::CalcInterpolationPoint(std::vector<vector<double>>& p_, int splitNum, int i)
+{
+	splitNum = fabs(p_[i + 1][0] - p_[i][0]) / 96 * 100;
+	//2点間の距離を補間点数で割る
+	float step = fabs(p_[i + 1][0] - p_[i][0]) / splitNum;
+	//dx_,dy_に補間座標を代入
+	for (int j = 0; j < splitNum + 1; j++) {
+		//x座標(y座標)代入
+		dx_.push_back(p_[i][0] - step * (float)j);
+		//y座標(x座標)を補間関数を用いて計算
+		dy_.push_back(cubicSpline.interpolation(p_[i][0] - step * (float)j, true));
+		//dy_.push_back(cubicSpline.interpolation(step * j, true) - cubicSpline.interpolation(step * 0,true));
+	}
 }

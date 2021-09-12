@@ -74,7 +74,7 @@ bool Mouse::IsRightClick()
 	}
 	return false;
 }
-
+//左クリックから指が離されたら
 bool Mouse::IsLeftClickRelease()
 {
 	if (isLeftClicked && !IsLeftClick()) {
@@ -83,7 +83,7 @@ bool Mouse::IsLeftClickRelease()
 	}
 	return false;
 }
-
+//右クリックから指が離されたら
 bool Mouse::IsRightClickRelease()
 {
 	if (isRightClicked && !IsRightClick()) {

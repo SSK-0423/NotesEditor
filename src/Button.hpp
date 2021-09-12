@@ -14,28 +14,20 @@ class Button : public GameObject {
 private:
 	// ボタンが押された回数（押された場合にボタンを切り替える際に使用）
 	int count;
-
 	//ボタンの色
 	Color buttonColor;
-
 	// ボタンの画像ハンドル
 	std::vector<int> handle;
-
 	// ボタンが押された際にどれだけ大きさを変えるか
 	int sub;
-
 	// ボタンを埋めるか
 	bool fill;
-
 	// デリゲート
 	DelegateBase<void(void)>* myDg;
-
 	// ボタンが押されたら
 	void OnClick() noexcept;
-
 	// マウスクリックのチェック
 	bool IsClick() noexcept;
-
 	// マウスがボタンの上にいるかチェック
 	bool IsOnMouse();
 	// 左クリックされたか
@@ -52,6 +44,7 @@ private:
 	void DrawImageBox();
 	// ボタンサイズ変更
 	void ChangeButtonSize();
+
 public:
 	Button() noexcept;
 

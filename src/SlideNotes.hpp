@@ -1,19 +1,25 @@
 #pragma once
-#include "Notes.hpp"
 #include "ShortNotes.hpp"
-#include <vector>
 #include "CubicSpline.hpp"
+#include <vector>
 
 class SlideNotes : public Notes {
 private:
-	CubicSpline cubicSpline;			//3次スプライン補間クラス
-	std::vector<ShortNotes*> notesList;		//ノーツリスト
-	vector<float> dx_;					//描画座標リスト
-	vector<float> dy_;					//描画座標リスト
-	void InitCubicSpline() noexcept;
+	// 3次スプライン補間クラス
+	CubicSpline cubicSpline;			
+	// ノーツリスト
+	std::vector<ShortNotes*> notesList;	
+	// 描画座標リスト
+	vector<float> dx_;					
+	// 描画座標リスト
+	vector<float> dy_;
+	// 
 	int CalcWidth() noexcept;
 	int CalcColPosX() noexcept;
-
+	int GetMaxColPosX();
+	int GetMinColPosX();
+	void SetInterpolationPoint(std::vector<vector<double>>& p_);
+	void CalcInterpolationPoint(std::vector<vector<double>>& p_,int splitNum, int index);
 public:
 	SlideNotes(std::vector<ShortNotes*> list) noexcept;
 	~SlideNotes() noexcept;
