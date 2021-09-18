@@ -8,6 +8,7 @@ namespace Game {
 
 		class Keyboard : public Singleton<Keyboard>, public InputDevice{
 			friend Singleton<Keyboard>;
+
 		private:
 			Keyboard() : InputDevice(KEY_NUM), keyPressingCount(), keyReleasingCount(),keyPressed() {}
 	

@@ -37,7 +37,7 @@ namespace Game {
 
 		bool Mouse::IsReleaseKey(KeyCode keyCode) const
 		{
-			if (GetReleasingCount(keyCode) != 0 && buttonPressed[keyCode])
+			if (GetPressingCount(keyCode) == 0 && buttonPressed[keyCode])
 			{
 				buttonPressed[keyCode] = false;
 				return true;

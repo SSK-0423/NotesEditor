@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	{
 		sceneManager.Update();
 		sceneManager.Draw();
-		sceneManager.Input(*Game::Input::InputDeviceContainer::Instance());
+		sceneManager.Input(Game::Input::InputDeviceContainer::Instance());
 		fps.Update();
 		fps.Draw();
 	}

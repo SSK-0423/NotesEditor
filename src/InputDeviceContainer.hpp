@@ -14,12 +14,12 @@ namespace Game {
 			// キーボードのインスタンス取得
 			Keyboard& GetKeyboard() const
 			{
-				return *Keyboard::Instance();
+				return Keyboard::Instance();
 			}
 			// マウスのインスタンス取得
 			Mouse& GetMouse() const
 			{
-				return *Mouse::Instance();
+				return Mouse::Instance();
 			}
 		};
 	}

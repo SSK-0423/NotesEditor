@@ -58,7 +58,7 @@ namespace Game {
 
 		bool Keyboard::IsReleaseKey(KeyCode keyCode) const
 		{
-			if (GetReleasingCount(keyCode) != 0 && keyPressed[keyCode])
+			if (GetPressingCount(keyCode) == 0 && keyPressed[keyCode])
 			{
 				keyPressed[keyCode] = false;
 				return true;
