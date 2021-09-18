@@ -1,21 +1,44 @@
 #pragma once
 #include "Game.hpp"
-#include "DxLib.h"
 
-class Transform : public Component {
+class Transform{
 private:
-	Position<float> position;
-	Size2D<int> size;
+	// 座標
+	Position2D<float> position;
+	// サイズ
+	Size2D<float> size;
 public:
-	Transform() {};
-	~Transform() {};
-	Position<float> GetPosition() {
+	Position2D<float> GetPosition() const
+	{
 		return position;
 	}
-	Size2D<int> GetSize() {
+	float GetPosX() const
+	{
+		return position.x;
+	}
+	float GetPosY() const
+	{
+		return position.y;
+	}
+
+	Size2D<float> GetSize() const
+	{
 		return size;
 	}
-	void SetPosition(const float& x, const float& y) {
+	float GetWidth() const
+	{
+		return size.width;
+	}
+	float GetHeight() const
+	{
+		return size.height;
+	}
 
+	void SetPosition(Position2D<float> pos) 
+	{
+		position = pos;
+	}
+	void SetSize(Size2D<float> s) {
+		size = s;
 	}
 };

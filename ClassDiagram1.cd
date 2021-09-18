@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fps" Collapsed="true">
+    <Position X="16.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAABAAgAAAQAAQAAAAAABAAABAQAAA=</HashCode>
+      <FileName>src\FPS.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EditScene" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\EditScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="17.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAIAAAAAABA=</HashCode>
+      <FileName>src\Texture.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;_T&gt;" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAQAAgAAAAAAA=</HashCode>
+      <FileName>src\Singleton.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseScene" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAgAAAAAAAAAAEAAAAAAEAAAAABAAAAA=</HashCode>
+      <FileName>src\BaseScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IScene" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ISceneChanger" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAACAAAEAAAAAAAgQ=</HashCode>
+      <FileName>src\SceneManager.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mouse">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQABEAAACACABCEQAAAAAAAAAAAIAAAAAAAAAFAYAE=</HashCode>
+      <FileName>src\Mouse.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="SCENE" Collapsed="true">
+    <Position X="1.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="__unnamed_enum_0189_1" Collapsed="true">
+    <Position X="1.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACAAAA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

@@ -1,20 +1,28 @@
 #pragma once
 #include "ISceneChanger.hpp"
 #include "BaseScene.hpp"
+#include "InputDeviceContainer.hpp"
 
-class SceneManager : public ISceneChanger, Task {
-private:
-	BaseScene* mScene;	//シーン管理変数
-	eScene mNextScene; // 次のシーン管理変数
+namespace Game {
 
-public:
-	SceneManager();
-	void Initialize() override;
-	void Finalize() override;
-	void Update() override;
-	void Draw() override;
+	namespace System {
 
-	// ISceneChangerインターフェイス
-	// 引数 nextScene にシーンを変更する
-	void ChangeScene(eScene NextScene) override;
-};
+		class SceneManager : public ISceneChanger{
+		private:
+			//シーン管理変数
+			BaseScene* nowScene;	
+			// 次のシーン管理変数
+			SCENE nextScene;		
+
+		public:
+			SceneManager();
+			void Update();
+			void Draw();
+			void Input(const Input::InputDeviceContainer& inputDeviceContainer);
+
+			// ISceneChangerインターフェイス
+			// 引数 nextScene にシーンを変更する
+			void ChangeScene(SCENE NextScene) override;
+		};
+	}
+}

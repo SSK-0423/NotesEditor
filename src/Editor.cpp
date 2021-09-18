@@ -5,6 +5,7 @@
 #include "DxLib.h"
 #include "Mouse.hpp"
 #include "KeyInput.hpp"
+#include "Texture.hpp"
 #include <string>
 #include <Windows.h>
 
@@ -32,12 +33,12 @@ void Editor::Initialize() noexcept {
 	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
 	//backgroungHandle = LoadGraph("image/背景.jpg");
 	laneHandle = LoadGraph("image/Lane.png");
-	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
-	text.SetHandle(musicInfoHandle);
+	text.GetTexture().LoadTexture("image/MUSIC_NAME_BPM.png");
 	text.SetColor(0, 0, 0);
 	InitBarManager();
 	InitButton();
 }
+
 void Editor::Finalize() noexcept {}
 
 void Editor::Update() noexcept {
@@ -190,17 +191,19 @@ void Editor::DebugDraw() {
 void Editor::InitTextBox() noexcept {
 	//曲名とBPMの
 	std::string str = music.GetName();
-	text.SetText(str);
+	text.AddText(str);
 	str = "BPM:";
 	str += std::to_string((int)music.GetBPM());
-	text.SetText(str);
+	text.AddText(str);
 }
 
 // Cameraクラスに担当させる
-void Editor::ScrollCamera() noexcept {
+void Editor::ScrollCamera() noexcept 
+{
 	//曲が再生されたら自動スクロール開始
-	if (music.IsPlay()) {
-		camera.SetPosition(WINDOW_SIZE_WIDTH / 2, -frame_move * music.GetElapsedTime() / 1000.0f * 60.0f + WINDOW_SIZE_HEIGHT / 2);
+	if (music.IsPlay()) 
+	{
+		//camera.SetPosition(WINDOW_SIZE_WIDTH / 2, -frame_move * music.GetElapsedTime() / 1000.0f * 60.0f + WINDOW_SIZE_HEIGHT / 2);
 	}
 }
 

@@ -2,41 +2,52 @@
 #pragma once
 #include "Object.hpp"
 #include "ComponentSystem.hpp"
+#include "Vector2.hpp"
 
-template<class ...T>
+// ウィンドウサイズ
+//struct WindowSize 
+//{
+//	static const int WINDOW_SIZE_WIDTH;
+//	static const int WINDOW_SIZE_HEIGHT;
+//};
+
+template<class T>
 struct Size2D;
 
 template<>
-struct Size2D<int> {
+struct Size2D<int>
+{
 	int width;
 	int height;
+	Size2D() : width(0),height(0)
+	{
+	}
+	Size2D(int w, int h) : width(w), height(h)
+	{
+	}
 };
 
 template<>
-struct Size2D<float> {
-	int width;
-	int height;
+struct Size2D<float>
+{
+	float width;
+	float height;
+	Size2D() : width(0), height(0)
+	{
+	}
+	Size2D(float w, float h) : width(w), height(h)
+	{
+	}
 };
 
-template <class ...T>
-struct Position;
-/* 以下特殊化 */
-template<>
-struct Position<int> {
-	int x;
-	int y;
-};
+template<class T>
+using Position2D = Vector2<T>;
 
-template<>
-struct Position<float>{
-	float x;
-	float y;
-};
-
-//  色
-typedef unsigned int Color;
-//  画像
-typedef int Image;
-//  オーディオ
-typedef int Audio;
-
+// 色
+using Color = unsigned int;
+// 画像
+using Image = int;
+// オーディオ
+using Audio = int;
+// フォント
+using Font = int;

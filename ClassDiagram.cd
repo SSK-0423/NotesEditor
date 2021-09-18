@@ -24,14 +24,14 @@
   <Class Name="GameObject">
     <Position X="8.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQACAAAAAAAAgQATAAAIAAACAAAAgAAAAAAAAIAABA=</HashCode>
+      <HashCode>ABQAAAAAAAAAAgAAAABAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
       <FileName>src\GameObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GUI" Collapsed="true">
     <Position X="29" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAQAIAAIAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\GUI.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,7 +87,7 @@
   <Class Name="TextBox">
     <Position X="3" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAIAAAAAIAAgAABIAAAAAAAAAAAACIAAgABAAAAAA=</HashCode>
+      <HashCode>AAQAIAACAAIAAgABBAAAAAAAAAAAAgCIAAgABAAAAAA=</HashCode>
       <FileName>src\TextBox.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,7 +101,7 @@
   <Class Name="Camera2D">
     <Position X="4.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAAAAQAIEAAwEAgAAAAAAAAEAAACAQCAACAAAIAAA=</HashCode>
+      <HashCode>iAQAACAUAIEACwEEgABAAAAAEEAAACAQAAACIAAAAAA=</HashCode>
       <FileName>src\Camera2D.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -182,11 +182,11 @@
       <FileName>src\picojson.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PlayableObj">
+  <Class Name="IPlayable">
     <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAACAQAEAAABAACAAAAAAAAAA=</HashCode>
-      <FileName>src\PlayableObj.hpp</FileName>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAQAEAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IPlayable.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SceneManager">
@@ -225,23 +225,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Component">
-    <Position X="17.25" Y="0.5" Width="1.5" />
+    <Position X="18" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>src\Component.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sprite">
+  <Class Name="Texture">
     <Position X="14" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAEQAAAAQAAQAAAAAAIAAAI=</HashCode>
-      <FileName>src\Sprite.hpp</FileName>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAIAAAAAABA=</HashCode>
+      <FileName>src\Texture.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Transform">
     <Position X="23" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAACAAIAAIAQAAAAAAgAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAACAAAACAAIAIIABAAAAAAgAAAAAAAEAAYAA=</HashCode>
       <FileName>src\Transform.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -311,7 +311,7 @@
   <Class Name="SlideNotes">
     <Position X="7.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEQAAAAAAgCAAgAAAIAIAAAAgIAAAAAAUgAIAAAABAg=</HashCode>
+      <HashCode>AEQAAAACAgCAAgABAIAIAAAAgIAAAAAQUgAKAAAARAg=</HashCode>
       <FileName>src\SlideNotes.hpp</FileName>
     </TypeIdentifier>
   </Class>
@@ -350,34 +350,6 @@
       <FileName>src\ShortNotes.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="Size2D&lt;int&gt;" Collapsed="true">
-    <Position X="29" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Size2D&lt;float&gt;" Collapsed="true">
-    <Position X="30.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Position&lt;int&gt;" Collapsed="true">
-    <Position X="30.75" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Position&lt;float&gt;" Collapsed="true">
-    <Position X="25.5" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
   <Struct Name="serialize_str_char&lt;Iter&gt;" Collapsed="true">
     <Position X="27.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
@@ -390,27 +362,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Vector2D&lt;int&gt;" Collapsed="true">
-    <Position X="25.5" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>src\Vector2D.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Vector2D&lt;float&gt;" Collapsed="true">
-    <Position X="27.25" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>src\Vector2D.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Vector2D&lt;double&gt;" Collapsed="true">
-    <Position X="29" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>src\Vector2D.hpp</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="NotesData" Collapsed="true">
@@ -427,27 +378,6 @@
       <FileName>src\picojson.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Typedef Name="Color" Collapsed="true">
-    <Position X="29" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Typedef Name="Image" Collapsed="true">
-    <Position X="30.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Typedef Name="Audio" Collapsed="true">
-    <Position X="27.25" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Game.hpp</FileName>
-    </TypeIdentifier>
-  </Typedef>
   <Typedef Name="eScene" Collapsed="true">
     <Position X="20.75" Y="10" Width="1.5" />
     <TypeIdentifier>
@@ -483,13 +413,6 @@
       <FileName>src\BarManager.hpp</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BUTTON" Collapsed="true">
-    <Position X="30.75" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gACAwEBEAAAAQAIAAQQICAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>src\Editor.hpp</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Enum Name="NOTESTYPE" Collapsed="true">
     <Position X="25.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
@@ -509,6 +432,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\picojson.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BUTTON" Collapsed="true">
+    <Position X="30.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACAwEBEAAAAQAIAAQQICAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>src\Editor.hpp</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Yu Gothic UI" Size="9" />

@@ -1,42 +1,62 @@
 #include "TextBox.hpp"
 #include "DxLib.h"
 
-TextBox::TextBox() noexcept {
-	position.x = BOX_SIZE_WIDTH / 2 + 8;
-	position.y = BOX_SIZE_HEIGHT / 2 + 8;
-	width = BOX_SIZE_WIDTH;
-	height = BOX_SIZE_HEIGHT;
-	fontHandle = CreateFontToHandle("default", 25, 1, DX_FONTTYPE_ANTIALIASING);
-	imageHandle = -1;
-	color = GetColor(255, 255, 255);
-}
-TextBox::~TextBox() noexcept {
-
-}
-void TextBox::Update() noexcept {
-
-}
-
-void TextBox::Draw() noexcept {
-	DrawModiGraph(
-		position.x - width / 2, position.y - height / 2, //左上座標
-		position.x + width / 2, position.y - height / 2, //右上座標
-		position.x + width / 2, position.y + height / 2, //右下座標
-		position.x - width / 2, position.y + height / 2, //左下座標
-		imageHandle, true); //グラフィックハンドル、透過処理
-	DrawFormatString(0, 100, color, "%d", text.size());
-	for (int i = 0; i < text.size(); i++) {
-		DrawFormatStringToHandle(position.x - GetDrawStringWidthToHandle(text[i].c_str(), text[i].size(), fontHandle) / 2, position.y - height / 2 + height / text.size() * (i+1) - 37.5, color, fontHandle, text[i].c_str());
+void TextBox::DrawStrings()
+{
+	Position2D<float> textBoxPos = transform.GetPosition();
+	Size2D<float> textBoxSize = transform.GetSize();
+	for (int i = 0; i < text.size(); i++) 
+	{
+		DrawFormatStringToHandle(textBoxPos.x - 
+			GetDrawStringWidthToHandle(text[i].c_str(), text[i].size(), fontHandle) / 2.f, textBoxPos.y - textBoxSize.height / 2 + textBoxSize.height / text.size() * (i+1) - 37.5, 
+			color, fontHandle, text[i].c_str());
 	}
 	text.clear();
 }
-void TextBox::SetText(std::string str) noexcept {
+
+TextBox::TextBox() noexcept
+{
+	this->transform.SetPosition({ BOX_SIZE_WIDTH / 2.f + 8,BOX_SIZE_HEIGHT / 2.f + 8 });
+	this->transform.SetSize({ BOX_SIZE_WIDTH * 1.f,BOX_SIZE_HEIGHT * 1.f });
+	fontHandle = CreateFontToHandle("default", 25, 1, DX_FONTTYPE_ANTIALIASING);
+	color = GetColor(255, 255, 255);
+	texture = new Texture(this->transform);
+}
+
+TextBox::~TextBox() noexcept 
+{
+
+}
+void TextBox::Update() noexcept 
+{
+
+}
+
+void TextBox::Draw() noexcept 
+{
+	texture->Draw();
+	DrawStrings();
+	DrawFormatString(0, 100, color, "%d", text.size());
+}
+
+// テキスト追加
+void TextBox::AddText(std::string str) noexcept 
+{
 	std::string s = str;
 	text.push_back(str);
 }
-void TextBox::SetColor(int r, int g, int b) noexcept {
+// 色セット
+void TextBox::SetColor(int r, int g, int b) noexcept 
+{
 	color = GetColor(r, g, b);
 }
-void TextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype) noexcept {
+// フォントハンドルの生成
+void TextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype) noexcept 
+{
 	fontHandle = CreateFontToHandle(name, size, thick, fonttype);
+}
+
+const Texture& TextBox::GetTexture()
+{
+	return *texture;
 }

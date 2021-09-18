@@ -1,15 +1,12 @@
 #pragma once
 #include "Game.hpp"
+#include "Transform.hpp"
 
 class GUI {
 protected:
-	// 画像ハンドル
-	Image imageHandle;
-	// オブジェクトの高さ、幅
-	Size2D<int> size;
+	Transform transform;
+
 public:
-	Position<float> position;
-	void SetImageHandle(const char& fileName) noexcept;
-	virtual void Draw() {}
-	virtual void Update() {}
+	virtual void Draw() = 0;
+	virtual void Update() = 0;
 };

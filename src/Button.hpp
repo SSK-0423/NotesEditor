@@ -1,16 +1,14 @@
 #pragma once
 #include "DxLib.h"
 #include "Delegate.hpp"
-#include <vector>
-#include "Vector2D.hpp"
-#include "GameObject.hpp"
 #include "Game.hpp"
+#include "GUI.hpp"
+#include <vector>
 
 // ボタンが押されている間のサイズ縮小幅
 const int SIZEDIFF = 2;
 
-
-class Button : public GameObject {
+class Button : public GUI {
 private:
 	// ボタンが押された回数（押された場合にボタンを切り替える際に使用）
 	int count;
@@ -50,10 +48,8 @@ public:
 
 	~Button() noexcept;
 
-	//更新
 	void Update() noexcept;
 
-	//ボタンの描画
 	void Draw() noexcept;
 
 	void SetButtonInfo(const int x, const int y, const int w, const int h, const unsigned int color = GetColor(255, 255, 255), const bool f = false) noexcept;//描画用情報の設定

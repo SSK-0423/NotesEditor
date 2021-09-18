@@ -1,27 +1,26 @@
 #include "EditScene.hpp"
 
-EditScene::EditScene(ISceneChanger* changer) : BaseScene(changer),camera(objList)
+namespace NotesEditor
 {
-}
+	EditScene::EditScene(Game::System::ISceneChanger* changer) : BaseScene(changer)
+	{
+	}
 
-void EditScene::Initialize() noexcept
-{
-	editorCanvas.Initialize();
-}
+	void EditScene::Update()
+	{
+		//camera.Update();
+		//editorCanvas.Update();
+		//barManager.Update();
+		//notesManager.Update();
+	}
 
-void EditScene::Finalize() noexcept
-{
-}
+	void EditScene::Draw()
+	{
 
-void EditScene::Update() noexcept
-{
-	camera.Update();
-	editorCanvas.Update();
-	barManager.Update();
-	notesManager.Update();
-}
+	}
 
-void EditScene::Draw() noexcept
-{
+	void NotesEditor::EditScene::Input(const Game::Input::InputDeviceContainer& inputDeviceContainer)
+	{
+	}
 
 }

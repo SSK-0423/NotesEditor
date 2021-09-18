@@ -1,7 +1,6 @@
 #pragma once
 #include "Notes.hpp"
 
-
 class ShortNotes : public Notes {
 private:
 	Audio clapHandle;
@@ -12,7 +11,9 @@ private:
 	// デバッグ用の描画
 	void DebugDraw();
 public:
+	// ノーツの横幅
 	static const int SHORTNOTESWIDTH;
+	// ノーツの縦幅
 	static const int SHORTNOTESHEIGHT;
 	
 	ShortNotes(float& x, float& y) noexcept;

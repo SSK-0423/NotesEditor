@@ -1,35 +1,41 @@
 #pragma once
 #include "Game.hpp"
-#include "Object.hpp"
+#include "Transform.hpp"
 
 class GameObject{
 protected:
 
-	// 画像ハンドル
-	Image imageHandle;
-
-	// オブジェクトの高さ、幅
-	int width;
-	int height;
+	// オブジェクトの位置・サイズ
+	Transform transform;
 
 public:
 	GameObject() noexcept;
 	~GameObject() noexcept;
 
-	// オブジェクトの描画座標
-	Position<float> position;
-	// オブジェクトの座標
-	Position<float> collisionPos;
+	const Transform& GetTransform() const
+	{
+		return transform;
+	}
 
-	// 画像の設定
-	void SetHandle(int handle) noexcept;
-	// 位置の設定・更新
-	void SetPosition(float x, float y) noexcept;
-	// 幅の取得
-	int GetObjWidth() noexcept;
-	// 高さの取得
-	int GetObjHeight() noexcept;
+	Transform& GetTransform() 
+	{
+		return transform;
+	}
 
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 };
+
+/*
+	なぜTransformを作ったか
+	・クラスにTransformを持たせるだけで、位置・サイズというパラメータとそのgetter/setterを実現することができるから
+	・いちいち書く必要がなくなって楽
+
+	Transformのgetterをポインタではなく値を返すようにすると
+	・Transformをコンポジットするクラスに位置やサイズのgetter/setterを書く必要が出てくる
+	・Transformを作った理由に反する
+
+	ポインタを返す際の問題点
+	・座標を取得したいだけの場合でも、座標・サイズの変更が可能になってしまう
+	　例：Camera2D::Collision
+*/

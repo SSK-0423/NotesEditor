@@ -1,4 +1,12 @@
 #include "ISceneChanger.hpp"
 
-ISceneChanger::~ISceneChanger(){
+namespace Game
+{
+
+	namespace System
+	{
+
+		ISceneChanger::~ISceneChanger() {
+		}
+	}
 }

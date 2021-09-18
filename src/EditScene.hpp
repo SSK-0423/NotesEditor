@@ -1,24 +1,22 @@
 #pragma once
 #include "BaseScene.hpp"
-#include "GameObject.hpp"
-#include "EditorCanvas.hpp"
-#include "BarManager.hpp"
-#include "NotesManager.hpp"
-#include "Camera2D.hpp"
+#include "Texture.hpp"
 
-class EditScene : public BaseScene{
-private:
-	// EditorCamera editorCamera
-	EditorCanvas editorCanvas;
-	Camera2D camera;
-	BarManager barManager;
-	NotesManager notesManager;
-	std::vector<std::vector<GameObject*>*> objList;
+namespace NotesEditor {
 
-public:
-	EditScene(ISceneChanger* changer);
-	void Initialize() noexcept override;
-	void Finalize() noexcept override;
-	void Update() noexcept override;
-	void Draw() noexcept override;
-};
+	class EditScene : public Game::BaseScene{
+	private:
+		//EditorCamera editorCamera
+		//EditorCanvas editorCanvas;
+		//Camera2D camera;
+		//BarManager barManager;
+		//NotesManager notesManager;
+		//std::vector<std::vector<GameObject*>*> objList;
+
+	public:
+		EditScene(Game::System::ISceneChanger* changer);
+		void Update() override;
+		void Draw() override;
+		void Input(const Game::Input::InputDeviceContainer& inputDeviceContainer) override;
+	};
+}

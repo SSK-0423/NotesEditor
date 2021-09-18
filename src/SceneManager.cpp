@@ -1,47 +1,57 @@
 #include "DxLib.h"
 #include "SceneManager.hpp"
-#include "Editor.hpp"
+#include "EditScene.hpp"
 
-SceneManager::SceneManager() :
-	mNextScene(eScene_None) //次のシーン管理変数
-{
-	mScene = (BaseScene*) new Editor(this);
-	mScene->Initialize();
-}
+namespace Game {
 
-//初期化
-void SceneManager::Initialize() {
-	mScene->Initialize();
-}
+	namespace System {
 
-//終了処理
-void SceneManager::Finalize() {
-	mScene->Finalize();
-}
-
-//更新
-void SceneManager::Update() {
-	if (mNextScene != eScene_None) {    //次のシーンがセットされていたら
-		mScene->Finalize();//現在のシーンの終了処理を実行
-		delete mScene;
-		switch (mNextScene) {       //シーンによって処理を分岐
-		case eScene_Edit:        //次の画面がメニューなら
-			mScene = (BaseScene*) new Editor(this); //メニュー画面のインスタンスを生成する
-			break;//以下略
+		SceneManager::SceneManager() : nextScene(SCENE_NONE) //次のシーン管理変数
+		{
+			nowScene = (BaseScene*) new NotesEditor::EditScene(this);
 		}
-		mNextScene = eScene_None;    //次のシーン情報をクリア
-		mScene->Initialize();    //シーンを初期化
+
+		//更新
+		void SceneManager::Update() {
+			//次のシーンがセットされていたら
+			if (nextScene != SCENE_NONE) 
+			{    
+				//現在のシーンの終了処理を実行
+				//nowScene->Finalize();
+				delete nowScene;
+
+				//シーンによって処理を分岐
+				switch (nextScene) 
+				{       
+					//次の画面がエディット
+					case SCENE_EDIT:        
+						//エディット画面のインスタンス生成
+						nowScene = (BaseScene*) new NotesEditor::EditScene(this); 
+						break;
+				}
+				nextScene = SCENE_NONE;    //次のシーン情報をクリア
+				//nowScene->Initialize();    //シーンを初期化
+			}
+
+			nowScene->Update(); //シーンの更新
+		}
+
+		//描画
+		void SceneManager::Draw() 
+		{
+			nowScene->Draw(); //シーンの描画
+		}
+
+		void SceneManager::Input(const Input::InputDeviceContainer& inputDeviceContainer)
+		{
+			nowScene->Input(inputDeviceContainer);
+		}
+
+		// 引数 nextScene にシーンを変更する
+		void SceneManager::ChangeScene(SCENE nextScene)
+		{
+			//次のシーンをセットする
+			this->nextScene = nextScene;    
+		}
 	}
-
-	mScene->Update(); //シーンの更新
-}
-
-//描画
-void SceneManager::Draw() {
-	mScene->Draw(); //シーンの描画
-}
-
-// 引数 nextScene にシーンを変更する
-void SceneManager::ChangeScene(eScene NextScene) {
-	mNextScene = NextScene;    //次のシーンをセットする
 }
