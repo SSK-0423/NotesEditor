@@ -28,6 +28,8 @@ namespace Game {
 			mutable bool buttonPressed[KEY_NUM];
 			// カウンタ更新
 			void UpdateCounter() const;
+			void UpdatePressingCounter(KeyCode keyCode) const;
+			void UpdateReleasingCounter(KeyCode keyCode) const;
 
 		public:
 			static constexpr int LEFT_CLICK = 0;

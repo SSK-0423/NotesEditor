@@ -3,6 +3,9 @@
 #include "BaseScene.hpp"
 #include "InputDeviceContainer.hpp"
 
+/*
+	各シーンの実行とシーン遷移を担うクラス
+*/
 namespace Game {
 
 	namespace System {

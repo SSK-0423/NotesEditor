@@ -1,16 +1,35 @@
 #pragma once
 #include "DxLib.h"
-#include "GUI.hpp"
+#include "ICanvas.hpp"
 #include <vector>
 
-class Canvas{
-private:
-	std::vector<GUI*> UIObj;
-public:
-	Canvas() noexcept;
-	~Canvas() noexcept;
-	virtual void Initialize() = 0;
-	void Update() noexcept;
-	void Draw() noexcept;
-	void AddGUIObj(GUI& obj) noexcept;
-};
+/*
+	シーンの全GUIの更新・描画・入力関連処理を実行するクラス
+*/
+
+namespace Game
+{
+
+	namespace Object
+	{
+
+		namespace UI
+		{
+			class GUI;
+
+			class Canvas : public ICanvas{
+			protected:
+				std::vector<GUI*> guiList;
+
+			public:
+				Canvas() noexcept;
+				virtual ~Canvas() noexcept;
+				virtual void Init() override;
+				virtual void Update() override;
+				virtual void Draw() override;
+				virtual void Input(const Input::InputDeviceContainer&) override;
+				void AddGUIObj(GUI& obj);
+			};
+		}
+	}
+}

@@ -43,6 +43,9 @@ struct Size2D<float>
 template<class T>
 using Position2D = Vector2<T>;
 
+template<class T>
+using Rotation2D = Vector2<T>;
+
 // F
 using Color = unsigned int;
 // ‰æ‘œ

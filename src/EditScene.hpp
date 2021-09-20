@@ -1,11 +1,15 @@
 #pragma once
 #include "BaseScene.hpp"
 #include "Texture.hpp"
+#include "EditorSceneCanvas.hpp"
 
-namespace NotesEditor {
+namespace NotesEditor 
+{
 
 	class EditScene : public Game::BaseScene{
 	private:
+		EditorSceneCanvas editorSceneCanvas;
+
 		//EditorCamera editorCamera
 		//EditorCanvas editorCanvas;
 		//Camera2D camera;

@@ -155,23 +155,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\BaseScene.cpp" />
+    <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\Canvas.cpp" />
+    <ClCompile Include="src\EditorSceneCanvas.cpp" />
     <ClCompile Include="src\EditScene.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputDevice.cpp" />
     <ClCompile Include="src\ISceneChanger.cpp" />
     <ClCompile Include="src\Keyboard.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mouse.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\TextureButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseScene.hpp" />
+    <ClInclude Include="src\Button.hpp" />
+    <ClInclude Include="src\Canvas.hpp" />
+    <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\FPS.hpp" />
+    <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\GameObject.hpp" />
+    <ClInclude Include="src\GUI.hpp" />
+    <ClInclude Include="src\ICanvas.hpp" />
     <ClInclude Include="src\IInputDevice.hpp" />
     <ClInclude Include="src\InputDevice.hpp" />
     <ClInclude Include="src\InputDeviceContainer.hpp" />
@@ -179,9 +188,18 @@
     <ClInclude Include="src\ISceneChanger.hpp" />
     <ClInclude Include="src\Keyboard.hpp" />
     <ClInclude Include="src\Mouse.hpp" />
+    <ClInclude Include="src\Position.hpp" />
+    <ClInclude Include="src\Rotation.hpp" />
     <ClInclude Include="src\SceneManager.hpp" />
     <ClInclude Include="src\Singleton.hpp" />
+    <ClInclude Include="src\Size.hpp" />
+    <ClInclude Include="src\TestObject.h" />
     <ClInclude Include="src\Texture.hpp" />
+    <ClInclude Include="src\TextureButton.hpp" />
+    <ClInclude Include="src\Transform.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

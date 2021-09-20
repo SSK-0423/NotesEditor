@@ -1,444 +1,192 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="EditScene">
-    <Position X="18.75" Y="19.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAQAAAAAAiAAAwAABAAAAgAAAAAAgAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\EditScene.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Mouse">
-    <Position X="1" Y="15" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>RCQABEEAAAAQAADEQAAAAAAAAAAAIAAAYAFgAAAAIAE=</HashCode>
-      <FileName>src\Mouse.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Circle">
-    <Position X="16.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Circle.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GameObject">
-    <Position X="8.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABQAAAAAAAAAAgAAAABAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>src\GameObject.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GUI" Collapsed="true">
-    <Position X="29" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\GUI.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Object">
-    <Position X="8.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAIAgAAAAAABAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
-      <FileName>src\Object.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="PrimitiveObject">
-    <Position X="18.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\PrimitiveObject.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Square">
-    <Position X="18.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Square.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Triangle">
-    <Position X="20.75" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Triangle.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Button">
-    <Position X="16.5" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QERABAAAEAAAAgAQBgAACCCCgAAIAAAAAgpCAAEIAAA=</HashCode>
-      <FileName>src\Button.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Canvas">
-    <Position X="7" Y="16.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAABAAwAAAAYAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
-      <FileName>src\Canvas.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EditorCanvas">
-    <Position X="7" Y="19.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQACAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>src\EditorCanvas.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TextBox">
-    <Position X="3" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAIAACAAIAAgABBAAAAAAAAAAAAgCIAAgABAAAAAA=</HashCode>
-      <FileName>src\TextBox.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BaseScene">
-    <Position X="19.75" Y="16" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAgAAAwAAAAAAAAAAAAAggAAACAAAABAAAAA=</HashCode>
-      <FileName>src\BaseScene.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Camera2D">
-    <Position X="4.5" Y="12.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>iAQAACAUAIEACwEEgABAAAAAEEAAACAQAAACIAAAAAA=</HashCode>
-      <FileName>src\Camera2D.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DelegateBase&lt;K(U...)&gt;">
-    <Position X="10" Y="15.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
-      <FileName>src\Delegate.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Delegate&lt;T, K(U...)&gt;">
-    <Position X="10" Y="17.75" Width="1.5" />
-    <NestedTypes>
-      <Typedef Name="Delegate&lt;T, K(U...)&gt;::EventFunc" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>src\Delegate.hpp</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-    </NestedTypes>
-    <TypeIdentifier>
-      <HashCode>AAAAAUAAAAAAAAAAEAQAAAAAAAAAAAAEAAAAAAAAEAA=</HashCode>
-      <FileName>src\Delegate.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Fps" Collapsed="true">
-    <Position X="27.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAABgAIAAAAAAAQAAQAAAAAAAAAAJAQAAA=</HashCode>
-      <FileName>src\FPS.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ISceneChanger">
-    <Position X="14.5" Y="14" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>src\ISceneChanger.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Music" Collapsed="true">
-    <Position X="25.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABEgAAARAAAAECAIEAECCAAEACAQAAALAAAABCA=</HashCode>
-      <FileName>src\Music.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="OpenFileExplorer" Collapsed="true">
-    <Position X="30.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAACgCAAAACAAAAAAAAAAABAAAAAEAAAAgAAAA=</HashCode>
-      <FileName>src\OpenFileExplorer.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="input&lt;Iter&gt;" Collapsed="true">
-    <Position X="30.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAGAAAAEgQAABAAAAAAACAAAAAAAABAAAAAAgAAAIAI=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="deny_parse_context" Collapsed="true">
-    <Position X="30.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAQAAIABAAAAAAAAAAIAAAAQAAAAAAIAAEEAACAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="default_parse_context" Collapsed="true">
-    <Position X="29" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAQAAIABAAAAgAAAAAIAAAAQIAgAAAYAAEEgACAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="null_parse_context" Collapsed="true">
-    <Position X="29" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAQAAIABAAAAAAAAAAIAAAAQIAAAAA4AAEEgACAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IPlayable">
-    <Position X="0.5" Y="9" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAQAEAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\IPlayable.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SceneManager">
-    <Position X="15.5" Y="16" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAwAAAAAAAAABAAAAgAAAAAAAACAAAgQ=</HashCode>
-      <FileName>src\SceneManager.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Singleton&lt;_T&gt;">
-    <Position X="1" Y="12.5" Width="1.5" />
+  <Class Name="Singleton&lt;_T&gt;" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAQAAgAAAAAAA=</HashCode>
       <FileName>src\Singleton.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Task">
-    <Position X="17.5" Y="13.5" Width="1.5" />
+  <Class Name="Rotation" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAwAAAAQAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\Task.hpp</FileName>
+      <HashCode>QAAEAAAAAAAAAIAAAAAAAAAAEAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>src\Rotation.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UIManager" Collapsed="true">
-    <Position X="25.5" Y="3.5" Width="1.5" />
+  <Class Name="Size" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\UIManager.hpp</FileName>
+      <HashCode>AAAAAAAAAAEAgAQAQAAIAABAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>src\Size.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AudioSource">
-    <Position X="11.75" Y="3" Width="1.5" />
+  <Class Name="TestObject" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\AudioSource.hpp</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\TestObject.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Component">
-    <Position X="18" Y="0.5" Width="1.5" />
+  <Class Name="Game::Fps" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
-      <FileName>src\Component.hpp</FileName>
+      <HashCode>AAQAAAAAAAAAAgAABAAgAAAQAAQAAAAAABAAABAQAAA=</HashCode>
+      <FileName>src\FPS.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Texture">
-    <Position X="14" Y="3" Width="1.5" />
+  <Class Name="Game::BaseScene" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAgAAAAAAAAAAEAAAAAAEAAACABAAAAA=</HashCode>
+      <FileName>src\BaseScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::IScene" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\IScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotesEditor::EditScene" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>src\EditScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotesEditor::EditorSceneCanvas" Collapsed="true">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>src\EditorSceneCanvas.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::Input::InputDeviceContainer" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>src\InputDeviceContainer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::Input::IInputDevice" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAECAAAACABACAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IInputDevice.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::Input::InputDevice" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAAIA=</HashCode>
+      <FileName>src\InputDevice.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::Input::Keyboard" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAAECAAAADAhQAAAAAAAAAAAAAIAAAQEABAAAAAAA=</HashCode>
+      <FileName>src\Keyboard.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::Input::Mouse" Collapsed="true">
+    <Position X="1.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABECAACADABCEQAAAAAAAAAAAIAAAQAABAAEAYAE=</HashCode>
+      <FileName>src\Mouse.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game::Component::Texture" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAIAAAAAABA=</HashCode>
       <FileName>src\Texture.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Transform">
-    <Position X="23" Y="3" Width="1.5" />
+  <Class Name="Game::Component::Transform" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAACAAIAIIABAAAAAAgAAAAAAAEAAYAA=</HashCode>
+      <HashCode>AAAAAAAAACCAAACAAICAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Transform.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bar">
-    <Position X="14.25" Y="8" Width="1.5" />
+  <Class Name="Game::Component::Position" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACQAQAAAAMgIBgAAAAgAAABAEAAAAAAQAAAABAEAAAA=</HashCode>
-      <FileName>src\Bar.hpp</FileName>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAEwAAAYAA=</HashCode>
+      <FileName>src\Position.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BarManager" Collapsed="true">
-    <Position X="25.5" Y="0.5" Width="1.5" />
+  <Class Name="Game::Object::UI::Canvas" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQQACACBAAAYAgAAgAQIgAAAgCABAQAABgAAIAAAAAI=</HashCode>
-      <FileName>src\BarManager.hpp</FileName>
+      <HashCode>AAQAAAAAAABAAgAAAAaAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\Canvas.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Editor">
-    <Position X="21" Y="19.75" Width="1.5" />
+  <Class Name="Game::Object::UI::GUI" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAABAAjAJgxgBxBCAAEAAAAIAgQA4AIAABABAEAA=</HashCode>
-      <FileName>src\Editor.hpp</FileName>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\GUI.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LongNotes">
-    <Position X="9.75" Y="11.25" Width="1.5" />
+  <Class Name="Game::Object::UI::ICanvas" Collapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACQAAAIAAAAAAgAAAAAAAAAAAAAEAAKAQEAgAAAAAAA=</HashCode>
-      <FileName>src\LongNotes.hpp</FileName>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\ICanvas.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LongNotesCreator">
-    <Position X="3.5" Y="2.25" Width="1.5" />
+  <Class Name="Game::Object::GameObject::GameObject" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAQAIAAAAAAACAAAAgAAAEAACAAAAAAAAAAAA=</HashCode>
-      <FileName>src\LongNotesCreator.hpp</FileName>
+      <HashCode>ABQAAAAAAAAAAgAAAABAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>src\GameObject.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Notes">
-    <Position X="9.75" Y="8" Width="1.5" />
+  <Class Name="Game::System::ISceneChanger" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAQAAAAAAQAAAgAAAAAAAAAAAAAAAABAAAAAAAEAAAA=</HashCode>
-      <FileName>src\Notes.hpp</FileName>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NotesCreator">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+  <Class Name="Game::System::SceneManager" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\NotesCreator.hpp</FileName>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAACAAAEAAAAAAAgQ=</HashCode>
+      <FileName>src\SceneManager.hpp</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NotesManager" Collapsed="true">
-    <Position X="27.25" Y="2.5" Width="1.5" />
+  <Struct Name="Size2D&lt;int&gt;" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQIAAAAACKEAgABiACACAAAAAABABCAAAAAIAAAAEA=</HashCode>
-      <FileName>src\NotesManager.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortNotesCreator">
-    <Position X="5.75" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\ShortNotesCreator.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SlideNotes">
-    <Position X="7.5" Y="11.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEQAAAACAgCAAgABAIAIAAAAgIAAAAAQUgAKAAAARAg=</HashCode>
-      <FileName>src\SlideNotes.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SlideNotesCreator">
-    <Position X="1.25" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>CAAAAAAAQAIAAgAAAACAEAAAABAAAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>src\SlideNotesCreator.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CubicSpline" Collapsed="true">
-    <Position X="27.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAIAQAAAAAERAABAAAAAAAAIIBBAAAA=</HashCode>
-      <FileName>src\CubicSpline.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EquationsSolver" Collapsed="true">
-    <Position X="25.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>src\EquationsSolver.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="picojson::value" Collapsed="true">
-    <Position X="27.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AFgAAAAAACAgAAAAAAYCYABAAAAAACAAQAEgAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ShortNotes">
-    <Position X="12" Y="11.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAQAgAAAAAAAAAAgACAAACQAIhEQAAAAgA=</HashCode>
-      <FileName>src\ShortNotes.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Struct Name="serialize_str_char&lt;Iter&gt;" Collapsed="true">
-    <Position X="27.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAQACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game.hpp</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="last_error_t&lt;T&gt;" Collapsed="true">
-    <Position X="25.5" Y="4.75" Width="1.5" />
+  <Struct Name="Size2D&lt;float&gt;" Collapsed="true">
+    <Position X="12.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAQAQACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game.hpp</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="NotesData" Collapsed="true">
-    <Position X="27.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAEAAAA=</HashCode>
-      <FileName>src\Structure.hpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="picojson::null" Collapsed="true">
-    <Position X="29" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Typedef Name="eScene" Collapsed="true">
-    <Position X="20.75" Y="10" Width="1.5" />
+  <Typedef Name="SCENE" Collapsed="true">
+    <Position X="8.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\ISceneChanger.hpp</FileName>
     </TypeIdentifier>
   </Typedef>
-  <Typedef Name="picojson::array" Collapsed="true">
-    <Position X="25.5" Y="9.75" Width="1.5" />
+  <Enum Name="__unnamed_enum_0019_1" Collapsed="true">
+    <Position X="8.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Typedef Name="picojson::object" Collapsed="true">
-    <Position X="25.5" Y="10.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Enum Name="__unnamed_enum_0022_1">
-    <Position X="20.75" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACAAAA=</HashCode>
       <FileName>src\ISceneChanger.hpp</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="BARTYPE" Collapsed="true">
-    <Position X="29" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACBAAgAAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAQAAAA=</HashCode>
-      <FileName>src\BarManager.hpp</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="NOTESTYPE" Collapsed="true">
-    <Position X="25.5" Y="8.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAGAAAAAAAA=</HashCode>
-      <FileName>src\NotesManager.hpp</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="picojson::__unnamed_enum_0038_1" Collapsed="true">
-    <Position X="25.5" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AACAAIAAgAAAAAAAgAAAABAEAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="picojson::__unnamed_enum_0038_2" Collapsed="true">
-    <Position X="27.25" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>src\picojson.h</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="BUTTON" Collapsed="true">
-    <Position X="30.75" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gACAwEBEAAAAQAIAAQQICAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>src\Editor.hpp</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Yu Gothic UI" Size="9" />

@@ -47,36 +47,42 @@ namespace Game {
 
 		void Mouse::UpdateCounter() const
 		{
-			int nowButtonState = GetMouseInput();
+			KeyCode nowButtonState = GetMouseInput();
 
-			for (int i = 0; i < KEY_NUM; i++) 
+			for (KeyCode keyCode = 0; keyCode < KEY_NUM; keyCode++) 
 			{
 				// i番のボタンが押されていたら
-				if ((nowButtonState >> i) & 1) 
-				{            
-					// 離されカウンタが0より大きければ
-					if (buttonReleasingCount[i] > 0) 
-					{
-						// 0に戻す
-						buttonReleasingCount[i] = 0;   
-					}
-					// 押されカウンタを増やす
-					buttonPressingCount[i]++;          
-					buttonPressed[i] = true;
-				}
+				if ((nowButtonState >> keyCode) & 1)
+					UpdatePressingCounter(keyCode);
 				// i番のキーが離されていたら
-				else 
-				{                             
-					// 押されカウンタが0より大きければ
-					if (buttonPressingCount[i] > 0) 
-					{ 
-						// 0に戻す
-						buttonPressingCount[i] = 0;    
-					}
-					// 離されカウンタを増やす
-					buttonReleasingCount[i]++;         
-				}
+				else
+					UpdateReleasingCounter(keyCode);
 			}
+		}
+
+		void Mouse::UpdatePressingCounter(KeyCode keyCode) const
+		{
+			// 離されカウンタが0より大きければ
+			if (buttonReleasingCount[keyCode] > 0)
+			{
+				// 0に戻す
+				buttonReleasingCount[keyCode] = 0;
+			}
+			// 押されカウンタを増やす
+			buttonPressingCount[keyCode]++;
+			buttonPressed[keyCode] = true;
+		}
+
+		void Mouse::UpdateReleasingCounter(KeyCode keyCode) const
+		{
+			// 押されカウンタが0より大きければ
+			if (buttonPressingCount[keyCode] > 0) 
+			{ 
+				// 0に戻す
+				buttonPressingCount[keyCode] = 0;
+			}
+			// 離されカウンタを増やす
+			buttonReleasingCount[keyCode]++;
 		}
 	}
 }

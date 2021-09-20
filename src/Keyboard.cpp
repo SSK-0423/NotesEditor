@@ -12,22 +12,40 @@ namespace Game {
 			// 全てのキーの入力状態を得る
 			GetHitKeyStateAll(tmpKey);
 
-			for (int i = 0; i < 256; i++)
+			for (KeyCode keyCode = 0; keyCode < KEY_NUM; keyCode++)
 			{
 				// i番のキーコードに対応するキーが押されていたら
-				if (tmpKey[i] != 0)
-				{
-					// 加算
-					keyPressingCount[i]++;
-					keyPressed[i] = true;
-				}
+				if (tmpKey[keyCode] != 0)
+					UpdatePressingCounter(keyCode);
 				// 押されていなければ
 				else
-				{
-					// 0にする
-					keyPressingCount[i] = 0;
-				}
+					UpdateReleasingCounter(keyCode);
 			}
+		}
+
+		void Keyboard::UpdatePressingCounter(KeyCode keyCode) const
+		{
+			// 離されカウンタが0より大きければ
+			if (keyReleasingCount[keyCode] > 0)
+			{
+				// 0に戻す
+				keyReleasingCount[keyCode] = 0;
+			}
+			// 加算
+			keyPressingCount[keyCode]++;
+			keyPressed[keyCode] = true;
+		}
+
+		void Keyboard::UpdateReleasingCounter(KeyCode keyCode) const
+		{
+			// 押されカウンタが0より大きければ
+			if (keyPressingCount[keyCode] > 0)
+			{
+				// 0に戻す
+				keyPressingCount[keyCode] = 0;
+			}
+			// 離されカウンタを増やす
+			keyReleasingCount[keyCode]++;
 		}
 
 		void Keyboard::ReadInput() const

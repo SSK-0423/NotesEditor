@@ -2,11 +2,22 @@
 #include "Game.hpp"
 #include "Transform.hpp"
 
-class GUI {
-protected:
-	Transform transform;
+namespace Game
+{
+	
+	namespace Object 
+	{
 
-public:
-	virtual void Draw() = 0;
-	virtual void Update() = 0;
-};
+		namespace UI
+		{
+			class GUI {
+			protected:
+				Component::Transform transform;
+
+			public:
+				virtual void Draw() = 0;
+				virtual void Update() = 0;
+			};
+		}
+	}
+}

@@ -2,29 +2,40 @@
 #include "Game.hpp"
 #include "Transform.hpp"
 
-class GameObject{
-protected:
+namespace Game
+{
 
-	// オブジェクトの位置・サイズ
-	Transform transform;
-
-public:
-	GameObject() noexcept;
-	~GameObject() noexcept;
-
-	const Transform& GetTransform() const
+	namespace Object
 	{
-		return transform;
-	}
+		
+		namespace GameObject
+		{
 
-	Transform& GetTransform() 
-	{
-		return transform;
-	}
+			class GameObject {
+			protected:
+				// オブジェクトの位置・サイズ
+				Component::Transform transform;
 
-	virtual void Update() = 0;
-	virtual void Draw() = 0;
-};
+			public:
+				GameObject() noexcept;
+				~GameObject() noexcept;
+
+				const Component::Transform& GetTransform() const
+				{
+					return transform;
+				}
+
+				Component::Transform& GetTransform()
+				{
+					return transform;
+				}
+
+				virtual void Update() = 0;
+				virtual void Draw() = 0;
+			};
+		}
+	}
+}
 
 /*
 	なぜTransformを作ったか

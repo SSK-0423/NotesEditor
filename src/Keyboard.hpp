@@ -22,6 +22,8 @@ namespace Game {
 			mutable bool keyPressed[KEY_NUM];
 			// カウンタ更新
 			void UpdateCounter() const;
+			void UpdatePressingCounter(KeyCode keyCode) const;
+			void UpdateReleasingCounter(KeyCode keyCode) const;
 		public:
 			void ReadInput() const override;
 			int GetPressingCount(KeyCode keyCode) const override;

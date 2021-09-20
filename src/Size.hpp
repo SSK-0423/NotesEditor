@@ -1,0 +1,25 @@
+#pragma once
+class Size {
+private:
+	float width;
+	float height;
+
+public:
+	Size() : width(1.f), height(1.f) {}
+	Size(float w, float h) : width(w), height(h) {}
+	
+	float GetWidth() { return width; }
+	float GetHeight() { return height; }
+
+	void Scaling(float x, float y) 
+	{
+		width *= x;
+		height *= y;
+	}
+
+	void SetSize(float w, float h) 
+	{
+		width = w;
+		height = h;
+	}
+};
