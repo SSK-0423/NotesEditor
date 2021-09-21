@@ -19,6 +19,7 @@ namespace Game
 			Size size;
 
 		public:
+			Transform(){}
 			Position GetPosition() const
 			{
 				return position;

@@ -3,6 +3,7 @@
 #include "Game.hpp"
 #include "Singleton.hpp"
 #include "InputDevice.hpp"
+#include "Position.hpp"
 
 namespace Game {
 
@@ -18,7 +19,7 @@ namespace Game {
 			static constexpr int KEY_NUM = 8;
 
 			// マウスポインタの座標
-			mutable Position2D<int> mousePos;
+			mutable Game::Component::Position mousePos;
 
 			// 押されカウンタ
 			mutable int buttonPressingCount[KEY_NUM];
@@ -47,11 +48,11 @@ namespace Game {
 			bool IsReleaseKey(KeyCode keyCoce) const override;
 
 			// マウスポインタの座標取得
-			Position2D<int> GetPosition() const { return mousePos; }
+			Game::Component::Position GetPosition() const { return mousePos; }
 			// マウスポインタのX座標取得
-			int GetPosX() const { return mousePos.x; }
+			int GetPosX() const { return mousePos.GetPosX(); }
 			// マウスポインタのY座標取得
-			int GetPosY() const { return mousePos.y; }
+			int GetPosY() const { return mousePos.GetPosY(); }
 		};
 	}
 }

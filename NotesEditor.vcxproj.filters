@@ -31,9 +31,6 @@
     <Filter Include="ヘッダー ファイル\Game">
       <UniqueIdentifier>{52321279-388d-44f7-8f00-5d946961b8e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Game\NotesEditor">
-      <UniqueIdentifier>{2e974b63-3aeb-4cba-9641-10ff2f2c1899}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Game\Input">
       <UniqueIdentifier>{827a3b83-55ec-4732-a6fb-8ad169213bea}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,18 @@
     </Filter>
     <Filter Include="ソース ファイル\Component">
       <UniqueIdentifier>{58d69a34-33cf-4cb8-b334-7363d7c2cded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Collision">
+      <UniqueIdentifier>{a39f8e20-062d-47c1-b465-f9ba1fa36158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Game\Component\Collision">
+      <UniqueIdentifier>{6f9a2d53-6f72-4c1d-8fcd-03b30fcc56e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Game\Objects\Polygon">
+      <UniqueIdentifier>{d2ac2e8f-cdee-455f-b89c-0ab10bf62e44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor">
+      <UniqueIdentifier>{2e974b63-3aeb-4cba-9641-10ff2f2c1899}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +106,15 @@
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
     <ClCompile Include="src\TextureButton.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PointAndPolygon.cpp">
+      <Filter>ソース ファイル\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureButtonRectangle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Polygon.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,7 +168,7 @@
       <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\EditScene.hpp">
-      <Filter>ヘッダー ファイル\Game\NotesEditor</Filter>
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
     <ClInclude Include="src\FPS.hpp">
       <Filter>ヘッダー ファイル\Game</Filter>
@@ -159,7 +177,7 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\EditorSceneCanvas.hpp">
-      <Filter>ヘッダー ファイル\Game\NotesEditor</Filter>
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
     <ClInclude Include="src\Position.hpp">
       <Filter>ヘッダー ファイル\Game\Component</Filter>
@@ -178,6 +196,27 @@
     </ClInclude>
     <ClInclude Include="src\TextureButton.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PointAndPolygonImpl.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PointAndPolygon.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PointAndRectangle.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rectangle.hpp">
+      <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureButtonRect.hpp">
+      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Point.hpp">
+      <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polygon.hpp">
+      <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

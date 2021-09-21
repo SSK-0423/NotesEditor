@@ -166,9 +166,12 @@
     <ClCompile Include="src\Keyboard.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mouse.cpp" />
+    <ClCompile Include="src\PointAndPolygon.cpp" />
+    <ClCompile Include="src\Polygon.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\TextureButton.cpp" />
+    <ClCompile Include="src\TextureButtonRectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseScene.hpp" />
@@ -188,7 +191,13 @@
     <ClInclude Include="src\ISceneChanger.hpp" />
     <ClInclude Include="src\Keyboard.hpp" />
     <ClInclude Include="src\Mouse.hpp" />
+    <ClInclude Include="src\Point.hpp" />
+    <ClInclude Include="src\PointAndPolygon.hpp" />
+    <ClInclude Include="src\PointAndPolygonImpl.hpp" />
+    <ClInclude Include="src\PointAndRectangle.hpp" />
+    <ClInclude Include="src\Polygon.hpp" />
     <ClInclude Include="src\Position.hpp" />
+    <ClInclude Include="src\Rectangle.hpp" />
     <ClInclude Include="src\Rotation.hpp" />
     <ClInclude Include="src\SceneManager.hpp" />
     <ClInclude Include="src\Singleton.hpp" />
@@ -196,6 +205,7 @@
     <ClInclude Include="src\TestObject.h" />
     <ClInclude Include="src\Texture.hpp" />
     <ClInclude Include="src\TextureButton.hpp" />
+    <ClInclude Include="src\TextureButtonRect.hpp" />
     <ClInclude Include="src\Transform.hpp" />
   </ItemGroup>
   <ItemGroup>
