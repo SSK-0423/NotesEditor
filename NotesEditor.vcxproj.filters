@@ -64,6 +64,12 @@
     <Filter Include="ヘッダー ファイル\NotesEditor">
       <UniqueIdentifier>{2e974b63-3aeb-4cba-9641-10ff2f2c1899}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Object\Polygon">
+      <UniqueIdentifier>{c636a7ff-999a-4aa3-b798-1b44723a03da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Game\Component\Collider">
+      <UniqueIdentifier>{1a61dc66-d37e-434f-8ecd-19cd566a58d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -105,17 +111,20 @@
     <ClCompile Include="src\Texture.cpp">
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureButton.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\PointAndPolygon.cpp">
       <Filter>ソース ファイル\Component\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureButtonRectangle.cpp">
+    <ClCompile Include="src\Polygon.cpp">
+      <Filter>ソース ファイル\Object\Polygon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureButton.cpp">
+      <Filter>ソース ファイル\Object\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PointInPolygon.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\Polygon.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="src\TextureButtonRect.cpp">
+      <Filter>ソース ファイル\Object\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,8 +227,17 @@
     <ClInclude Include="src\Polygon.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
     </ClInclude>
+    <ClInclude Include="src\PointInPolygon.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collider.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="src\BoxCollider.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
+    </None>
   </ItemGroup>
 </Project>

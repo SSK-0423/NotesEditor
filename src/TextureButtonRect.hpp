@@ -8,8 +8,6 @@ namespace Game
 		namespace UI 
 		{
 			class TextureButtonRect : public TextureButton{
-			private:
-				 
 			public:
 				TextureButtonRect(const char* filePath);
 				~TextureButtonRect();

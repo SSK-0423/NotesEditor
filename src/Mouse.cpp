@@ -8,7 +8,7 @@ namespace Game {
 		//更新
 		void Mouse::ReadInput() const 
 		{
-			GetMousePoint(&mousePos.x, &mousePos.y);
+			GetMousePosition();
 			UpdateCounter();
 		}
 
@@ -83,6 +83,12 @@ namespace Game {
 			}
 			// 離されカウンタを増やす
 			buttonReleasingCount[keyCode]++;
+		}
+		void Mouse::GetMousePosition() const
+		{
+			int x, y;
+			GetMousePoint(&x,&y);
+			mousePos.SetPosition(static_cast<float>(x), static_cast<float>(y));
 		}
 	}
 }

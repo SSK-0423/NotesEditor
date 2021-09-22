@@ -167,16 +167,18 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mouse.cpp" />
     <ClCompile Include="src\PointAndPolygon.cpp" />
+    <ClCompile Include="src\PointInPolygon.cpp" />
     <ClCompile Include="src\Polygon.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\TextureButton.cpp" />
-    <ClCompile Include="src\TextureButtonRectangle.cpp" />
+    <ClCompile Include="src\TextureButtonRect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseScene.hpp" />
     <ClInclude Include="src\Button.hpp" />
     <ClInclude Include="src\Canvas.hpp" />
+    <ClInclude Include="src\Collider.hpp" />
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\FPS.hpp" />
@@ -195,6 +197,7 @@
     <ClInclude Include="src\PointAndPolygon.hpp" />
     <ClInclude Include="src\PointAndPolygonImpl.hpp" />
     <ClInclude Include="src\PointAndRectangle.hpp" />
+    <ClInclude Include="src\PointInPolygon.hpp" />
     <ClInclude Include="src\Polygon.hpp" />
     <ClInclude Include="src\Position.hpp" />
     <ClInclude Include="src\Rectangle.hpp" />
@@ -210,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="src\BoxCollider.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

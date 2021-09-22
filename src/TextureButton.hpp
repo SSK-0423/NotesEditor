@@ -14,7 +14,15 @@ namespace Game
 	{
 		class Transform;
 		class Texture;
-		class Collider;
+		
+		namespace Collider 
+		{
+			class Collider;
+		}
+		namespace Collision 
+		{
+			class PointInPolygon;
+		}
 	}
 
 	namespace Object 
@@ -22,10 +30,11 @@ namespace Game
 		namespace UI 
 		{
 			class TextureButton {
-			private:
+			protected:
 				Component::Transform* transform;
 				Component::Texture* texture;
-				Component::Collider* collider;
+				Component::Collider::Collider* collider;
+
 			public:
 				TextureButton(const char* filePath);
 				virtual ~TextureButton();

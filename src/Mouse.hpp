@@ -31,7 +31,7 @@ namespace Game {
 			void UpdateCounter() const;
 			void UpdatePressingCounter(KeyCode keyCode) const;
 			void UpdateReleasingCounter(KeyCode keyCode) const;
-
+			void GetMousePosition() const;
 		public:
 			static constexpr int LEFT_CLICK = 0;
 			static constexpr int RIGHT_CLICK = 1;
