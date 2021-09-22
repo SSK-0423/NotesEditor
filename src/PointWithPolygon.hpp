@@ -7,21 +7,21 @@ namespace Game
 		namespace Polygon 
 		{
 			class Point;
+			class Polygon;
 		}
 	}
 
 	namespace Component
 	{
-		namespace Collider 
+		namespace Collider
 		{
-			class Collider;
+			class ICollider;
 		}
-
 		namespace Collision
 		{
-			class PointInPolygon {
+			class PointWithPolygon {
 			public:
-				bool Collision(const Object::Polygon::Point& point, const Collider::Collider& collider);
+				bool Collision(const Object::Polygon::Point& point, const Collider::ICollider& collider);
 			};
 		}
 	}

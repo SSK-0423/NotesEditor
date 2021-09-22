@@ -17,11 +17,11 @@ namespace Game
 		
 		namespace Collider 
 		{
-			class Collider;
+			class ICollider;
 		}
 		namespace Collision 
 		{
-			class PointInPolygon;
+			class PointWithPolygon;
 		}
 	}
 
@@ -33,7 +33,7 @@ namespace Game
 			protected:
 				Component::Transform* transform;
 				Component::Texture* texture;
-				Component::Collider::Collider* collider;
+				Component::Collider::ICollider* collider;
 
 			public:
 				TextureButton(const char* filePath);

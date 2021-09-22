@@ -1,21 +1,37 @@
 #pragma once
 #include <vector>
-#include "Point.hpp"
+
+/*
+	多角形クラス
+*/
 
 namespace Game
 {
+	using Color = int;
+
 	namespace Object
 	{
 		namespace Polygon
 		{
+			struct Point;
 			class Polygon {
 			private:
-				std::vector<Point> points;
+				// ポリゴンの各頂点
+				std::vector<Point*> vertex;
+				// 色
+				Color color;
+
 			public:
 				Polygon();
 				~Polygon();
+				// 描画
 				void Draw();
-				void AddPoint(const Point& point);
+				// 頂点追加
+				void AddPoint(float x, float y);
+				// 色変更
+				void ChangedColor(int r, int g, int b);
+				// 頂点リスト取得
+				std::vector<Point> GetVertexList() const;
 			};
 		}
 	}

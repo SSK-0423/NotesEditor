@@ -156,8 +156,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseScene.cpp" />
+    <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Canvas.cpp" />
+    <ClCompile Include="src\CrossingNumberAlgorithm.cpp" />
     <ClCompile Include="src\EditorSceneCanvas.cpp" />
     <ClCompile Include="src\EditScene.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
@@ -167,7 +169,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mouse.cpp" />
     <ClCompile Include="src\PointAndPolygon.cpp" />
-    <ClCompile Include="src\PointInPolygon.cpp" />
+    <ClCompile Include="src\PointWithPolygon.cpp" />
     <ClCompile Include="src\Polygon.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Texture.cpp" />
@@ -179,6 +181,7 @@
     <ClInclude Include="src\Button.hpp" />
     <ClInclude Include="src\Canvas.hpp" />
     <ClInclude Include="src\Collider.hpp" />
+    <ClInclude Include="src\CrossingNumberAlgorithm.hpp" />
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\FPS.hpp" />
@@ -186,6 +189,7 @@
     <ClInclude Include="src\GameObject.hpp" />
     <ClInclude Include="src\GUI.hpp" />
     <ClInclude Include="src\ICanvas.hpp" />
+    <ClInclude Include="src\ICollider.hpp" />
     <ClInclude Include="src\IInputDevice.hpp" />
     <ClInclude Include="src\InputDevice.hpp" />
     <ClInclude Include="src\InputDeviceContainer.hpp" />
@@ -197,7 +201,7 @@
     <ClInclude Include="src\PointAndPolygon.hpp" />
     <ClInclude Include="src\PointAndPolygonImpl.hpp" />
     <ClInclude Include="src\PointAndRectangle.hpp" />
-    <ClInclude Include="src\PointInPolygon.hpp" />
+    <ClInclude Include="src\PointWithPolygon.hpp" />
     <ClInclude Include="src\Polygon.hpp" />
     <ClInclude Include="src\Position.hpp" />
     <ClInclude Include="src\Rectangle.hpp" />

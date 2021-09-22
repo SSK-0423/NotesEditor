@@ -1,8 +1,9 @@
 #include "TextureButtonRect.hpp"
 #include "InputDeviceContainer.hpp"
-#include "PointInPolygon.hpp"
+#include "PointWithPolygon.hpp"
 #include "Point.hpp"
 #include "Collider.hpp"
+#include "Polygon.hpp"
 
 Game::Object::UI::TextureButtonRect::TextureButtonRect(const char* filePath) : TextureButton(filePath)
 {
@@ -23,13 +24,13 @@ void Game::Object::UI::TextureButtonRect::Input(const Game::Input::InputDeviceCo
 	// マウス座標を示すPointオブジェクト作成
 	Polygon::Point mousePoint(mousePos.GetPosX(), mousePos.GetPosY());
 	// 点とポリゴンの当たり判定を担当するクラスのインスタンス
-	Component::Collision::PointInPolygon collision;
-	// 当たり判定
+	Component::Collision::PointWithPolygon collision;
+	// マウスポインタがボタン上にあるか
 	bool isCollision = collision.Collision(mousePoint, *collider);
-	// クリック判定
-	bool isLeftClick = inputDeviceContainer.GetMouse().IsPressKey(Input::Mouse::LEFT_CLICK);
-	
-	if (isCollision & isLeftClick) 
+	// クリックし終わったか判定
+	bool isReleaseLeft = inputDeviceContainer.GetMouse().IsPressKey(Input::Mouse::LEFT_CLICK);
+	// 
+	if (isCollision & isReleaseLeft) 
 	{
 		/* コールバック関数実行 */
 	}

@@ -120,11 +120,17 @@
     <ClCompile Include="src\TextureButton.cpp">
       <Filter>ソース ファイル\Object\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="src\PointInPolygon.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\TextureButtonRect.cpp">
       <Filter>ソース ファイル\Object\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CrossingNumberAlgorithm.cpp">
+      <Filter>ソース ファイル\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BoxCollider.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PointWithPolygon.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,10 +233,16 @@
     <ClInclude Include="src\Polygon.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
     </ClInclude>
-    <ClInclude Include="src\PointInPolygon.hpp">
+    <ClInclude Include="src\Collider.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrossingNumberAlgorithm.hpp">
       <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="src\Collider.hpp">
+    <ClInclude Include="src\PointWithPolygon.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ICollider.hpp">
       <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
     </ClInclude>
   </ItemGroup>

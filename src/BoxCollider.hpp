@@ -1,23 +1,23 @@
 #pragma once
+#include "ICollider.hpp"
+
 namespace Game
 {
-	namespace Object
-	{
-		namespace Polygon
-		{
-			class Rectangle;
-		}
-	}
+
 	namespace Component
 	{
+
 		namespace Collider
 		{
-			class BoxCollider {
+			class BoxCollider : public ICollider{
 			private:
 				Object::Polygon::Rectangle* rect;
+
 			public:
 				BoxCollider();
 				~BoxCollider();
+				void Draw();
+				COLLIDERTYPE GetColliderType();
 			};
 		}
 	}
