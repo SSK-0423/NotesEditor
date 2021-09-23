@@ -1,17 +1,15 @@
 #pragma once
 namespace Game
 {
+	namespace Object
+	{
+		namespace Polygon 
+		{
+			class Polygon;
+		}
+	}
 	namespace Component
 	{
-		namespace Object
-		{
-			namespace Polygon 
-			{
-				class Polygon;
-				class Rectangle;
-				class Point;
-			}
-		}
 		namespace Collider
 		{
 			enum class COLLIDERTYPE

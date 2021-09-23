@@ -167,6 +167,7 @@
     <ClCompile Include="src\ISceneChanger.cpp" />
     <ClCompile Include="src\Keyboard.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\Mouse.cpp" />
     <ClCompile Include="src\PointAndPolygon.cpp" />
     <ClCompile Include="src\PointWithPolygon.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="src\IScene.hpp" />
     <ClInclude Include="src\ISceneChanger.hpp" />
     <ClInclude Include="src\Keyboard.hpp" />
+    <ClInclude Include="src\Matrix.hpp" />
     <ClInclude Include="src\Mouse.hpp" />
     <ClInclude Include="src\Point.hpp" />
     <ClInclude Include="src\PointAndPolygon.hpp" />
@@ -204,7 +206,6 @@
     <ClInclude Include="src\PointWithPolygon.hpp" />
     <ClInclude Include="src\Polygon.hpp" />
     <ClInclude Include="src\Position.hpp" />
-    <ClInclude Include="src\Rectangle.hpp" />
     <ClInclude Include="src\Rotation.hpp" />
     <ClInclude Include="src\SceneManager.hpp" />
     <ClInclude Include="src\Singleton.hpp" />
@@ -217,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="src\BoxCollider.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,11 +1,9 @@
 #include "PointWithPolygon.hpp"
-#include "Polygon.hpp"
-#include "CrossingNumberAlgorithm.hpp"
 #include "ICollider.hpp"
-#include "Point.hpp"
+#include "CrossingNumberAlgorithm.hpp"
+#include "Polygon.hpp"
 
-bool Game::Component::Collision::PointWithPolygon::Collision(const Object::Polygon::Point& point, const Component::Collider::ICollider& collider)
+bool Game::Component::Collision::PointWithPolygon::Collision(const Object::Polygon::Point& point, const Collider::ICollider& collider)
 {
-	CrossingNumberAlgorithm collision;
-	return collision.Collision(point,collider.GetPolygon());
+	return collision.Collision(point, collider.GetPolygon());
 }

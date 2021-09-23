@@ -1,4 +1,6 @@
 #pragma once
+#include "CrossingNumberAlgorithm.hpp"
+
 namespace Game
 {
 	namespace Object 
@@ -6,8 +8,7 @@ namespace Game
 
 		namespace Polygon 
 		{
-			class Point;
-			class Polygon;
+			struct Point;
 		}
 	}
 
@@ -20,6 +21,8 @@ namespace Game
 		namespace Collision
 		{
 			class PointWithPolygon {
+			private:
+				CrossingNumberAlgorithm collision;
 			public:
 				bool Collision(const Object::Polygon::Point& point, const Collider::ICollider& collider);
 			};

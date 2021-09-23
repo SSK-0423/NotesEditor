@@ -8,10 +8,10 @@ Game::Object::Polygon::Polygon::Polygon() : color(GetColor(255, 255, 255))
 
 Game::Object::Polygon::Polygon::~Polygon()
 {
-	for (const auto& p : vertex) {
+	for (auto& p : vertex) 
+	{
 		delete p;
 	}
-
 }
 
 void Game::Object::Polygon::Polygon::Draw()
@@ -43,4 +43,8 @@ std::vector<Game::Object::Polygon::Point> Game::Object::Polygon::Polygon::GetVer
 	}
 	
 	return points;
+}
+
+void Game::Object::Polygon::Polygon::Init()
+{
 }

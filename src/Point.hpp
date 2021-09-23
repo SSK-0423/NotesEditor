@@ -13,6 +13,7 @@ namespace Game
 				Point() : x(0.f), y(0.f) {}
 				Point(float x, float y) : x(x), y(y) {}
 
+				// ‰ÁZ
 				Point operator+(const Point& p) const
 				{
 					Point point;
@@ -20,6 +21,16 @@ namespace Game
 					point.y = this->y + p.y;
 					return point;
 				}
+				
+				// ‰ÁZ‘ã“ü
+				Point& operator+=(const Point& p)
+				{
+					this->x += p.x;
+					this->y += p.y;
+					return *this;
+				}
+				
+				// Œ¸Z
 				Point operator-(const Point& p) const
 				{
 					Point point;
@@ -28,6 +39,14 @@ namespace Game
 					return point;
 				}
 				
+				// Œ¸Z‘ã“ü
+				Point& operator-=(const Point& p)
+				{
+					this->x -= p.x;
+					this->y -= p.y;
+					return *this;
+				}
+
 				// ’è””{
 				friend Point operator*(float num, const Point& p)
 				{

@@ -70,6 +70,12 @@
     <Filter Include="ヘッダー ファイル\Game\Component\Collider">
       <UniqueIdentifier>{1a61dc66-d37e-434f-8ecd-19cd566a58d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Math">
+      <UniqueIdentifier>{071007eb-63af-4bd0-9f48-182a8adcee14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Math">
+      <UniqueIdentifier>{17e4bfb7-0d93-46cb-8e5d-f7f35be82ac4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -131,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="src\PointWithPolygon.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Matrix.cpp">
+      <Filter>ソース ファイル\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,9 +230,6 @@
     <ClInclude Include="src\PointAndRectangle.hpp">
       <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rectangle.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
-    </ClInclude>
     <ClInclude Include="src\TextureButtonRect.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
     </ClInclude>
@@ -245,11 +251,15 @@
     <ClInclude Include="src\ICollider.hpp">
       <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
     </ClInclude>
+    <ClInclude Include="src\Matrix.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="src\BoxCollider.hpp">
       <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
     </None>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

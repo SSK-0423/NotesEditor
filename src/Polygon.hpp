@@ -14,6 +14,7 @@ namespace Game
 		namespace Polygon
 		{
 			struct Point;
+
 			class Polygon {
 			private:
 				// ポリゴンの各頂点
@@ -32,6 +33,8 @@ namespace Game
 				void ChangedColor(int r, int g, int b);
 				// 頂点リスト取得
 				std::vector<Point> GetVertexList() const;
+				// 
+				void Init();
 			};
 		}
 	}
