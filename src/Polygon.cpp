@@ -45,6 +45,12 @@ std::vector<Game::Object::Polygon::Point> Game::Object::Polygon::Polygon::GetVer
 	return points;
 }
 
-void Game::Object::Polygon::Polygon::Init()
+void Game::Object::Polygon::Polygon::ResetVertex()
 {
+	for (auto& p : vertex)
+	{
+		delete p;
+	}
+	vertex.clear();
+	vertex.shrink_to_fit();
 }

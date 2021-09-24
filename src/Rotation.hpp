@@ -1,23 +1,30 @@
 #pragma once
-class Rotation {
-private:
-	float angle;
-
-public:
-	Rotation() : angle(0.f) {}
-	Rotation(float angle) : angle(angle) {}
-
-	float GetAngle()
+namespace Game
+{
+	namespace Component
 	{
-		return angle;
-	}
-	void Rotate(float angle)
-	{
-		this->angle += angle;
-	}
+		using Degree = float;
+		class Rotation {
+		private:
+			float angle;
 
-	void SetAngle(float angle)
-	{
-		this->angle = angle;
+		public:
+			Rotation() : angle(0.f) {}
+			Rotation(Degree angle) : angle(angle) {}
+
+			float GetAngle()
+			{
+				return angle;
+			}
+			void Rotate(Degree angle)
+			{
+				this->angle += angle;
+			}
+
+			void SetAngle(Degree angle)
+			{
+				this->angle = angle;
+			}
+		};
 	}
-};
+}

@@ -19,18 +19,42 @@ namespace Game
 			Size size;
 
 		public:
-			Transform(){}
+			Transform() {}
 			Position GetPosition() const
 			{
 				return position;
+			}
+			void Translate(float x, float y)
+			{
+				position.Translate(x, y);
+			}
+			void SetPosition(float x, float y)
+			{
+				position.SetPosition(x, y);
 			}
 			Rotation GetRotation() const
 			{
 				return rotation;
 			}
+			void Rotate(Degree angle)
+			{
+				rotation.Rotate(angle);
+			}
+			void SetAngle(Degree angle)
+			{
+				rotation.SetAngle(angle);
+			}
 			Size GetSize() const
 			{
 				return size;
+			}
+			void Scalling(float x, float y)
+			{
+				size.Scaling(x, y);
+			}
+			void SetSize(float w, float h)
+			{
+				size.SetSize(w, h);
 			}
 		};
 	}

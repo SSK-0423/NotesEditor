@@ -34,7 +34,7 @@ namespace Game
 				// ’¸“_ƒŠƒXƒgæ“¾
 				std::vector<Point> GetVertexList() const;
 				// 
-				void Init();
+				void ResetVertex();
 			};
 		}
 	}

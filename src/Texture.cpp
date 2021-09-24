@@ -1,6 +1,15 @@
 #include "Texture.hpp"
 #include "Transform.hpp"
 #include "DxLib.h"
+#include <cmath>
+
+Game::Component::Texture::Texture(const Transform& transform, const char* path) : imageHandle(-1), parentTransform(transform)
+{
+	imageHandle = LoadGraph(path);
+
+	// 画像サイズ取得
+	GetGraphSizeF(imageHandle, &imgWidth, &imgHeight);
+}
 
 void Game::Component::Texture::Draw()
 {
@@ -13,22 +22,24 @@ void Game::Component::Texture::Draw()
 
 	float x = pos.GetPosX();
 	float y = pos.GetPosY();
-	float angle = rot.GetAngle();
+	// 度数からラジアンへ変換
+	float angle = acosf(-1.f) / 180.f * rot.GetAngle();
+
 	float width = size.GetWidth();
 	float height = size.GetHeight();
 
-	// 画像サイズ取得
-	float imgWidth;
-	float imgHeight;
-
-	GetGraphSizeF(imageHandle, &imgWidth, &imgHeight);
-
-	DrawRotaGraph3F(x, y, width / 2, height / 2,
-					width / imgWidth, height / imgHeight,
-					angle, imageHandle, false, false);
+	DrawRotaGraph3F(x, y, imgWidth / 2.f, imgHeight / 2.f,
+		width / imgWidth, height / imgHeight,
+		angle, imageHandle, false, false);
 }
 
 void Game::Component::Texture::LoadTexture(const char* path) const
 {
 	imageHandle = LoadGraph(path);
+}
+
+void Game::Component::Texture::GetTextureSize(float& w, float& h) const
+{
+	w = imgWidth;
+	h = imgHeight;
 }

@@ -88,12 +88,6 @@ namespace Game
 				{
 					return sqrtf(AbsNoSquare());
 				}
-
-				void SetPoint(float x, float y) 
-				{
-					this->x = x;
-					this->y = y;
-				}
 			};
 		}
 	}

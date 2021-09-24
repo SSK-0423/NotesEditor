@@ -22,7 +22,7 @@ namespace Game
 		{
 			class PointWithPolygon {
 			private:
-				CrossingNumberAlgorithm collision;
+				static CrossingNumberAlgorithm collision;
 			public:
 				bool Collision(const Object::Polygon::Point& point, const Collider::ICollider& collider);
 			};

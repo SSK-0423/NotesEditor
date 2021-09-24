@@ -1,7 +1,6 @@
 #include "TextureButton.hpp"
 #include "Transform.hpp"
 #include "Texture.hpp"
-#include "PointAndPolygon.hpp"
 #include "InputDeviceContainer.hpp"
 
 Game::Object::UI::TextureButton::TextureButton(const char* filePath)

@@ -1,12 +1,5 @@
 #include "Matrix.hpp"
 
-Math::Matrix::Matrix() : row(1), col(1)
-{
-	myMatrix.resize(1);
-	myMatrix[0].resize(1);
-	myMatrix[0][0] = 0;
-}
-
 Math::Matrix::Matrix(int r, int c) : row(r), col(c)
 {
 	Resize(r, c);

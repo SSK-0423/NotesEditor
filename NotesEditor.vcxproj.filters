@@ -13,21 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\Input">
-      <UniqueIdentifier>{6eaecaeb-733e-4b29-9ea9-4fc0ec32fce6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Scene">
-      <UniqueIdentifier>{f48271ae-f435-48c3-9722-a5f1319fac0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object">
-      <UniqueIdentifier>{ae800a33-459d-48c0-880a-b767441b0007}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\GUI">
-      <UniqueIdentifier>{b2c41c1e-0b36-48cc-b7c6-db1e5f32a9fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\GameObject">
-      <UniqueIdentifier>{20a8b7ba-cc70-4f18-adb3-dcf11402ca22}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Game">
       <UniqueIdentifier>{52321279-388d-44f7-8f00-5d946961b8e9}</UniqueIdentifier>
     </Filter>
@@ -49,23 +34,11 @@
     <Filter Include="ヘッダー ファイル\Game\Scene">
       <UniqueIdentifier>{f254e7ef-609a-4c6f-8acb-29580dc26395}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Component">
-      <UniqueIdentifier>{58d69a34-33cf-4cb8-b334-7363d7c2cded}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Component\Collision">
-      <UniqueIdentifier>{a39f8e20-062d-47c1-b465-f9ba1fa36158}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Component\Collision">
-      <UniqueIdentifier>{6f9a2d53-6f72-4c1d-8fcd-03b30fcc56e7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Game\Objects\Polygon">
       <UniqueIdentifier>{d2ac2e8f-cdee-455f-b89c-0ab10bf62e44}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\NotesEditor">
       <UniqueIdentifier>{2e974b63-3aeb-4cba-9641-10ff2f2c1899}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Polygon">
-      <UniqueIdentifier>{c636a7ff-999a-4aa3-b798-1b44723a03da}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\Game\Component\Collider">
       <UniqueIdentifier>{1a61dc66-d37e-434f-8ecd-19cd566a58d5}</UniqueIdentifier>
@@ -76,70 +49,106 @@
     <Filter Include="ソース ファイル\Math">
       <UniqueIdentifier>{17e4bfb7-0d93-46cb-8e5d-f7f35be82ac4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Game\Component\Collision">
+      <UniqueIdentifier>{6f9a2d53-6f72-4c1d-8fcd-03b30fcc56e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor">
+      <UniqueIdentifier>{50b82be8-e115-4761-baa5-883325bd198d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game">
+      <UniqueIdentifier>{aa2fd7a1-7b0f-4ac6-bd39-a01bac9a9f5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Input">
+      <UniqueIdentifier>{6eaecaeb-733e-4b29-9ea9-4fc0ec32fce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Component">
+      <UniqueIdentifier>{58d69a34-33cf-4cb8-b334-7363d7c2cded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Component\Collision">
+      <UniqueIdentifier>{a39f8e20-062d-47c1-b465-f9ba1fa36158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Component\Collider">
+      <UniqueIdentifier>{23d68bd8-cee9-4cc1-8960-8d822141972c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Object">
+      <UniqueIdentifier>{ae800a33-459d-48c0-880a-b767441b0007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Object\GUI">
+      <UniqueIdentifier>{b2c41c1e-0b36-48cc-b7c6-db1e5f32a9fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Object\GameObject">
+      <UniqueIdentifier>{20a8b7ba-cc70-4f18-adb3-dcf11402ca22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Object\Polygon">
+      <UniqueIdentifier>{c636a7ff-999a-4aa3-b798-1b44723a03da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Scene">
+      <UniqueIdentifier>{f48271ae-f435-48c3-9722-a5f1319fac0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\EditScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\BaseScene.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
+      <Filter>ソース ファイル\Game\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\ISceneChanger.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
+      <Filter>ソース ファイル\Game\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\SceneManager.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
+      <Filter>ソース ファイル\Game\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Keyboard.cpp">
-      <Filter>ソース ファイル\Input</Filter>
+      <Filter>ソース ファイル\Game\Input</Filter>
     </ClCompile>
     <ClCompile Include="src\Mouse.cpp">
-      <Filter>ソース ファイル\Input</Filter>
+      <Filter>ソース ファイル\Game\Input</Filter>
     </ClCompile>
     <ClCompile Include="src\InputDevice.cpp">
-      <Filter>ソース ファイル\Input</Filter>
+      <Filter>ソース ファイル\Game\Input</Filter>
     </ClCompile>
     <ClCompile Include="src\GameObject.cpp">
-      <Filter>ソース ファイル\Object\GameObject</Filter>
+      <Filter>ソース ファイル\Game\Object\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="src\Canvas.cpp">
-      <Filter>ソース ファイル\Object\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EditorSceneCanvas.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Button.cpp">
-      <Filter>ソース ファイル\Object\GUI</Filter>
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Texture.cpp">
-      <Filter>ソース ファイル\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PointAndPolygon.cpp">
-      <Filter>ソース ファイル\Component\Collision</Filter>
+      <Filter>ソース ファイル\Game\Component</Filter>
     </ClCompile>
     <ClCompile Include="src\Polygon.cpp">
-      <Filter>ソース ファイル\Object\Polygon</Filter>
+      <Filter>ソース ファイル\Game\Object\Polygon</Filter>
     </ClCompile>
     <ClCompile Include="src\TextureButton.cpp">
-      <Filter>ソース ファイル\Object\GUI</Filter>
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\TextureButtonRect.cpp">
-      <Filter>ソース ファイル\Object\GUI</Filter>
+      <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\CrossingNumberAlgorithm.cpp">
-      <Filter>ソース ファイル\Component\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BoxCollider.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PointWithPolygon.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game\Component\Collision</Filter>
     </ClCompile>
     <ClCompile Include="src\Matrix.cpp">
       <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PointWithPolygon.cpp">
+      <Filter>ソース ファイル\Game\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BoxCollider.cpp">
+      <Filter>ソース ファイル\Game\Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rotator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorSceneCanvas.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditScene.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,15 +230,6 @@
     <ClInclude Include="src\TextureButton.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="src\PointAndPolygonImpl.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PointAndPolygon.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PointAndRectangle.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="src\TextureButtonRect.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
     </ClInclude>
@@ -253,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="src\Matrix.hpp">
       <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rotator.hpp">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

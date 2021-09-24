@@ -24,9 +24,9 @@ namespace Game
 			void Translate(float x, float y) 
 			{
 				posX += x;
-				posX += y;
+				posY += y;
 			}
-
+			// 座標セット
 			void SetPosition(float x, float y)
 			{
 				posX = x;

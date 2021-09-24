@@ -3,33 +3,60 @@
 #include "Point.hpp"
 #include "Transform.hpp"
 #include "Matrix.hpp"
-#include <cmath>
+#include "Rotator.hpp"
 
 void Game::Component::Collider::BoxCollider::UpdatePolygon()
 {
-	// 親オブジェクトの位置
-	Position parentPos = parentTransform.GetPosition();
-	// 親オブジェクトのサイズ
-	Size parentSize = parentTransform.GetSize();
-	// 親オブジェクトの角度
-	Rotation parentRot = parentTransform.GetRotation();
+	// ポリゴンの頂点初期化
+	rect->ResetVertex();
+
+	// 中心座標
+	float posX, posY;
+	// 高さ
+	float width, height;
+	// 角度
+	float angle;
+
+	posX = parentTransform.GetPosition().GetPosX();
+	posY = parentTransform.GetPosition().GetPosY();
+	width = parentTransform.GetSize().GetWidth();
+	height = parentTransform.GetSize().GetHeight();
+	angle = parentTransform.GetRotation().GetAngle();
 
 	// boxの頂点(左上から反時計回り)
-	Object::Polygon::Point p1(parentPos.GetPosX() - parentSize.GetWidth() / 2.f, parentPos.GetPosY() - parentSize.GetHeight() / 2.f);
-	Object::Polygon::Point p2(parentPos.GetPosX() - parentSize.GetWidth() / 2.f, parentPos.GetPosY() + parentSize.GetHeight() / 2.f);
-	Object::Polygon::Point p3(parentPos.GetPosX() + parentSize.GetWidth() / 2.f, parentPos.GetPosY() + parentSize.GetHeight() / 2.f);
-	Object::Polygon::Point p4(parentPos.GetPosX() + parentSize.GetWidth() / 2.f, parentPos.GetPosY() - parentSize.GetHeight() / 2.f);
+	Object::Polygon::Point p1(posX - width / 2.f, posY - height / 2.f);
+	Object::Polygon::Point p2(posX - width / 2.f, posY + height / 2.f);
+	Object::Polygon::Point p3(posX + width / 2.f, posY + height / 2.f);
+	Object::Polygon::Point p4(posX + width / 2.f, posY - height / 2.f);
 
-	// 回転行列
-	Math::Matrix rotMat(2, 2);
-	rotMat.SetValue({
+	// 回転処理
+	// 回転移動を行うクラス
+	Rotator rotator;
 
-		cosf(parentRot.GetAngle()), -sinf(parentRot.GetAngle()),
-		sinf(parentRot.GetAngle()), cosf(parentRot.GetAngle())
-		});
-
-	// 回転
-
+	// 回転後の位置
+	Math::Matrix rotated(2, 1);
+	
+	// 回転対象の点
+	Math::Matrix colVec(2, 1);
+	colVec.SetValue({ p1.x,p1.y });
+	rotated = rotator.Rotate(colVec, angle);
+	// 頂点として登録
+	rect->AddPoint(rotated.myMatrix[0][0],rotated.myMatrix[1][0]);
+	
+	colVec.SetValue({ p2.x,p2.y });
+	rotated = rotator.Rotate(colVec, angle);
+	// 頂点として登録
+	rect->AddPoint(rotated.myMatrix[0][0], rotated.myMatrix[1][0]);
+	
+	colVec.SetValue({ p3.x,p3.y });
+	rotated = rotator.Rotate(colVec, angle);
+	// 頂点として登録
+	rect->AddPoint(rotated.myMatrix[0][0], rotated.myMatrix[1][0]);
+	
+	colVec.SetValue({ p4.x,p4.y });
+	rotated = rotator.Rotate(colVec, angle);
+	// 頂点として登録
+	rect->AddPoint(rotated.myMatrix[0][0], rotated.myMatrix[1][0]);
 }
 
 Game::Component::Collider::BoxCollider::BoxCollider(const Component::Transform& transform) : parentTransform(transform)
