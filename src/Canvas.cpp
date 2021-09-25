@@ -29,10 +29,6 @@ namespace Game
 			{
 			}
 
-			void Canvas::Input(const Input::InputDeviceContainer&)
-			{
-			}
-
 			void Canvas::AddGUIObj(GUI& obj)
 			{
 				guiList.push_back(&obj);

@@ -3,7 +3,7 @@
 
 namespace NotesEditor
 {
-	EditScene::EditScene(Game::System::ISceneChanger* changer) : BaseScene(changer)
+	EditScene::EditScene(Game::Scene::ISceneChanger* changer) : BaseScene(changer)
 	{
 		editorSceneCanvas.Init();
 	}
@@ -22,9 +22,4 @@ namespace NotesEditor
 		editorSceneCanvas.Draw();
 	}
 
-	void NotesEditor::EditScene::Input(const Game::Input::InputDeviceContainer& inputDeviceContainer)
-	{
-		// 
-		editorSceneCanvas.Input(inputDeviceContainer);
-	}
 }

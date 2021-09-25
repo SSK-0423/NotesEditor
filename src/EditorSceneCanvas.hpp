@@ -20,6 +20,5 @@ namespace NotesEditor
 		void Init();
 		void Update();
 		void Draw();
-		void Input(const Game::Input::InputDeviceContainer&);
 	};
 }

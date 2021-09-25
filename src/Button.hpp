@@ -1,7 +1,7 @@
 #pragma once
 #include "DxLib.h"
 #include "Delegate.hpp"
-#include "Game.hpp"
+#include "GameSymbol.hpp"
 #include "GUI.hpp"
 #include <vector>
 

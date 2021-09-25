@@ -14,14 +14,18 @@ namespace Game {
 	namespace Input {
 
 		class InputDeviceContainer : public Singleton<InputDeviceContainer> {
+			friend Singleton<InputDeviceContainer>;
+		private:
+			InputDeviceContainer() {}
+		
 		public:
 			// キーボードのインスタンス取得
-			Keyboard& GetKeyboard() const
+			const Keyboard& GetKeyboard() const
 			{
 				return Keyboard::Instance();
 			}
 			// マウスのインスタンス取得
-			Mouse& GetMouse() const
+			const Mouse& GetMouse() const
 			{
 				return Mouse::Instance();
 			}

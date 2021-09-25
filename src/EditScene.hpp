@@ -6,7 +6,7 @@
 namespace NotesEditor 
 {
 
-	class EditScene : public Game::BaseScene{
+	class EditScene : public Game::Scene::BaseScene{
 	private:
 		EditorSceneCanvas editorSceneCanvas;
 
@@ -18,9 +18,8 @@ namespace NotesEditor
 		//std::vector<std::vector<GameObject*>*> objList;
 
 	public:
-		EditScene(Game::System::ISceneChanger* changer);
+		EditScene(Game::Scene::ISceneChanger* changer);
 		void Update() override;
 		void Draw() override;
-		void Input(const Game::Input::InputDeviceContainer& inputDeviceContainer) override;
 	};
 }

@@ -8,7 +8,7 @@ typedef enum
 
 namespace Game {
 
-	namespace System {
+	namespace Scene {
 
 		//シーンを変更するためのインターフェイスクラス
 		class ISceneChanger{

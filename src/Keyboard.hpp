@@ -3,15 +3,15 @@
 #include "InputDevice.hpp"
 
 namespace Game {
-	
+
 	namespace Input {
 
-		class Keyboard : public Singleton<Keyboard>, public InputDevice{
+		class Keyboard : public Singleton<Keyboard>, public InputDevice {
 			friend Singleton<Keyboard>;
 
 		private:
-			Keyboard() : InputDevice(KEY_NUM), keyPressingCount(), keyReleasingCount(),keyPressed() {}
-	
+			Keyboard() : InputDevice(KEY_NUM), keyPressingCount(), keyReleasingCount(), keyPressed() {}
+
 			// キーの総数
 			static constexpr int KEY_NUM = 256;
 			// 押されカウンタ
@@ -25,7 +25,7 @@ namespace Game {
 			void UpdatePressingCounter(KeyCode keyCode) const;
 			void UpdateReleasingCounter(KeyCode keyCode) const;
 		public:
-			void ReadInput() const override;
+			void ReadInput() override;
 			int GetPressingCount(KeyCode keyCode) const override;
 			int GetReleasingCount(KeyCode keyCode) const override;
 			bool IsPressKey(KeyCode keyCode) const override;

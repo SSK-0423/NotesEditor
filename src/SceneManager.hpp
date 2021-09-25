@@ -8,7 +8,7 @@
 */
 namespace Game {
 
-	namespace System {
+	namespace Scene {
 
 		class SceneManager : public ISceneChanger{
 		private:
@@ -21,7 +21,6 @@ namespace Game {
 			SceneManager();
 			void Update();
 			void Draw();
-			void Input(const Input::InputDeviceContainer& inputDeviceContainer);
 
 			// ISceneChangerインターフェイス
 			// 引数 nextScene にシーンを変更する

@@ -27,7 +27,6 @@ namespace Game
 				virtual void Init() override;
 				virtual void Update() override;
 				virtual void Draw() override;
-				virtual void Input(const Input::InputDeviceContainer&) override;
 				void AddGUIObj(GUI& obj);
 			};
 		}

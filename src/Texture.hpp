@@ -1,5 +1,5 @@
 #pragma once
-#include "Game.hpp"
+#include "GameSymbol.hpp"
 namespace Game
 {
 	using Image = int;

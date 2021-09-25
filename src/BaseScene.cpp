@@ -1,10 +1,8 @@
 #include "BaseScene.hpp"
+#include "ISceneChanger.hpp"
 #include "DxLib.h"
 
-namespace Game
+Game::Scene::BaseScene::BaseScene(ISceneChanger* changer)
 {
-	BaseScene::BaseScene(System::ISceneChanger* changer)
-	{
-		sceneChanger = changer;
-	}
+	sceneChanger = changer;
 }

@@ -8,7 +8,7 @@ namespace Game {
 		class IInputDevice {
 		public:
 			virtual ~IInputDevice() {}
-			virtual void ReadInput() const = 0;
+			virtual void ReadInput() = 0;
 			virtual int GetPressingCount(KeyCode keyCode) const = 0 ;
 			virtual int GetReleasingCount(KeyCode keyCode) const = 0;
 			virtual bool IsPressKey(KeyCode keyCode) const = 0;
