@@ -3,7 +3,6 @@
 #include "Mouse.hpp"
 #include "Keyboard.hpp"
 #include "DxLib.h"
-#include "InputDeviceContainer.hpp"
 
 Game::Game::Game()
 {
@@ -37,12 +36,12 @@ void Game::Game::Input()
 	Input::Keyboard::Instance().ReadInput();
 }
 
-void Game::Game::Draw()
+void Game::Game::Update()
 {
 	sceneManager.Update();
 }
 
-void Game::Game::Update()
+void Game::Game::Draw()
 {
 	sceneManager.Draw();
 }
