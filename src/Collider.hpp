@@ -9,8 +9,8 @@ namespace Game
 			private:
 				
 			public:
-				Collider();
-				virtual ~Collider();
+				Collider() {}
+				virtual ~Collider() = 0;
 			};
 		}
 	}

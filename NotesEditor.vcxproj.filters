@@ -151,7 +151,7 @@
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
     <ClCompile Include="src\ISceneChanger.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,9 +221,6 @@
     <ClInclude Include="src\Size.hpp">
       <Filter>ヘッダー ファイル\Game\Component</Filter>
     </ClInclude>
-    <ClInclude Include="src\TestObject.h">
-      <Filter>ヘッダー ファイル\Game\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="src\Button.hpp">
       <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
     </ClInclude>
@@ -261,6 +258,12 @@
       <Filter>ヘッダー ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="src\GameSymbol.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ICollision.hpp">
+      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TestObject.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

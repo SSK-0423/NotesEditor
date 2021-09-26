@@ -179,6 +179,7 @@
     <ClCompile Include="src\TextureButtonRect.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ICollision.hpp" />
     <ClInclude Include="src\BaseScene.hpp" />
     <ClInclude Include="src\Button.hpp" />
     <ClInclude Include="src\Canvas.hpp" />

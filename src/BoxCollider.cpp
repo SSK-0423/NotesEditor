@@ -23,40 +23,49 @@ void Game::Component::Collider::BoxCollider::UpdatePolygon()
 	height = parentTransform.GetSize().GetHeight();
 	angle = parentTransform.GetRotation().GetAngle();
 
-	// box‚Ì’¸“_(¶ã‚©‚ç”½ŽžŒv‰ñ‚è)
-	Object::Polygon::Point p1(posX - width / 2.f, posY - height / 2.f);
-	Object::Polygon::Point p2(posX - width / 2.f, posY + height / 2.f);
-	Object::Polygon::Point p3(posX + width / 2.f, posY + height / 2.f);
-	Object::Polygon::Point p4(posX + width / 2.f, posY - height / 2.f);
+	Object::Polygon::Point p1(-width / 2.f, -height / 2.f);
+	Object::Polygon::Point p2(-width / 2.f, height / 2.f);
+	Object::Polygon::Point p3(width / 2.f, height / 2.f);
+	Object::Polygon::Point p4(width / 2.f, -height / 2.f);
 
 	// ‰ñ“]ˆ—
 	// ‰ñ“]ˆÚ“®‚ðs‚¤ƒNƒ‰ƒX
 	Rotator rotator;
 
 	// ‰ñ“]Œã‚ÌˆÊ’u
-	Math::Matrix rotated(2, 1);
-	
+	Math::Matrix rotatedP1(2, 1);
+	Math::Matrix rotatedP2(2, 1);
+	Math::Matrix rotatedP3(2, 1);
+	Math::Matrix rotatedP4(2, 1);
+
 	// ‰ñ“]‘ÎÛ‚Ì“_
 	Math::Matrix colVec(2, 1);
 	colVec.SetValue({ p1.x,p1.y });
-	rotated = rotator.Rotate(colVec, angle);
-	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotated.myMatrix[0][0],rotated.myMatrix[1][0]);
-	
+	rotatedP1 = rotator.Rotate(colVec, angle);
 	colVec.SetValue({ p2.x,p2.y });
-	rotated = rotator.Rotate(colVec, angle);
-	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotated.myMatrix[0][0], rotated.myMatrix[1][0]);
-	
+	rotatedP2 = rotator.Rotate(colVec, angle);
 	colVec.SetValue({ p3.x,p3.y });
-	rotated = rotator.Rotate(colVec, angle);
-	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotated.myMatrix[0][0], rotated.myMatrix[1][0]);
-	
+	rotatedP3 = rotator.Rotate(colVec, angle);
 	colVec.SetValue({ p4.x,p4.y });
-	rotated = rotator.Rotate(colVec, angle);
+	rotatedP4 = rotator.Rotate(colVec, angle);
+
+	// •½sˆÚ“®
+	// TODO:ƒAƒtƒBƒ“•ÏŠ·‚ÌŽÀ‘•‚µ‚½•û‚ª‚æ‚¢‚©‚à
+	Math::Matrix translator(2, 1);
+	translator.SetValue({posX, posY});
+	rotatedP1 += translator;
+	rotatedP2 += translator;
+	rotatedP3 += translator;
+	rotatedP4 += translator;
+
 	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotated.myMatrix[0][0], rotated.myMatrix[1][0]);
+	rect->AddPoint(rotatedP1.myMatrix[0][0], rotatedP1.myMatrix[1][0]);
+	// ’¸“_‚Æ‚µ‚Ä“o˜^
+	rect->AddPoint(rotatedP2.myMatrix[0][0], rotatedP2.myMatrix[1][0]);
+	// ’¸“_‚Æ‚µ‚Ä“o˜^
+	rect->AddPoint(rotatedP3.myMatrix[0][0], rotatedP3.myMatrix[1][0]);
+	// ’¸“_‚Æ‚µ‚Ä“o˜^
+	rect->AddPoint(rotatedP4.myMatrix[0][0], rotatedP4.myMatrix[1][0]);
 }
 
 Game::Component::Collider::BoxCollider::BoxCollider(const Component::Transform& transform) : parentTransform(transform)
@@ -67,7 +76,7 @@ Game::Component::Collider::BoxCollider::BoxCollider(const Component::Transform& 
 
 Game::Component::Collider::BoxCollider::~BoxCollider()
 {
-	delete rect;
+	//delete rect;
 }
 
 void Game::Component::Collider::BoxCollider::Draw()
@@ -77,6 +86,7 @@ void Game::Component::Collider::BoxCollider::Draw()
 
 void Game::Component::Collider::BoxCollider::Update()
 {
+	UpdatePolygon();
 }
 
 Game::Object::Polygon::Polygon Game::Component::Collider::BoxCollider::GetPolygon() const

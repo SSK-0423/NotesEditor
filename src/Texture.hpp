@@ -3,7 +3,7 @@
 namespace Game
 {
 	using Image = int;
-
+	using Degree = float;
 	namespace Component
 	{
 		class Transform;
@@ -15,12 +15,20 @@ namespace Game
 			// 親オブジェクトのTransform
 			const Transform& parentTransform;
 
-			float imgWidth;
-			float imgHeight;
+			// 位置
+			float posX, posY;
+			// 角度
+			Degree angle;
+			// サイズ
+			float sizeWidth, sizeHeight;
+			// 画像サイズ
+			float imgWidth, imgHeight;
 
 		public:
 			Texture(const Transform& transform, const char* path);
 
+			// テクスチャの位置・サイズ・角度更新
+			void Update();
 			// テクスチャ描画
 			void Draw();
 

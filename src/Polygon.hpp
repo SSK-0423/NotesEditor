@@ -24,6 +24,9 @@ namespace Game
 
 			public:
 				Polygon();
+				// コピーコンストラクタ
+				Polygon(const Polygon& polygon);
+
 				~Polygon();
 				// 描画
 				void Draw();

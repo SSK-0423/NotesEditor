@@ -6,12 +6,24 @@ Game::Object::Polygon::Polygon::Polygon() : color(GetColor(255, 255, 255))
 {
 }
 
+Game::Object::Polygon::Polygon::Polygon(const Polygon& polygon) : color(GetColor(255,255,255))
+{
+	// vectorに値をコピー
+	for (Point* p : polygon.vertex)
+	{
+		// pの値を使ってPointを作成し、それを自分のvertexに追加
+		this->vertex.push_back(new Point(p->x,p->y));
+	}
+}
+
 Game::Object::Polygon::Polygon::~Polygon()
 {
 	for (auto& p : vertex) 
 	{
 		delete p;
 	}
+	vertex.clear();
+	vertex.shrink_to_fit();
 }
 
 void Game::Object::Polygon::Polygon::Draw()
@@ -38,7 +50,7 @@ std::vector<Game::Object::Polygon::Point> Game::Object::Polygon::Polygon::GetVer
 	std::vector<Point> points;
 
 	for (auto p : vertex)
-	{
+	{ 
 		points.push_back(*p);
 	}
 	
