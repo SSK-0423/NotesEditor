@@ -1,16 +1,13 @@
 #include "InputDevice.hpp"
 
-namespace Game {
+namespace Input {
 
-	namespace Input {
-
-		bool InputDevice::IsAvailableCode(KeyCode keyCode) const
+	bool InputDevice::IsAvailableCode(KeyCode keyCode) const
+	{
+		if (0 <= keyCode && keyCode < KEY_NUM)
 		{
-			if (0 <= keyCode && keyCode < KEY_NUM)
-			{
-				return true;
-			}
-			return false;
+			return true;
 		}
+		return false;
 	}
 }

@@ -9,10 +9,10 @@
 
 class TestObject {
 private:
-	Game::Component::Transform transform;
-	Game::Component::Texture texture;
-	Game::Component::Collider::BoxCollider collider;
-	Game::Component::Collision::PointWithPolygon collision;
+	Component::Transform transform;
+	Component::Texture texture;
+	Component::Collider::BoxCollider collider;
+	Component::Collision::PointWithPolygon collision;
 
 public:
 	// èâä˙âª
@@ -28,17 +28,17 @@ public:
 	// çXêV
 	void Update()
 	{
-		if (Game::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_Q))
+		if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_Q))
 			transform.Rotate(1.f);
-		if (Game::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_E))
+		if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_E))
 			transform.Rotate(-1.f);
-		if (Game::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_W))
+		if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_W))
 			transform.Translate(0.f,-1.f);
-		if (Game::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_S))
+		if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_S))
 			transform.Translate(0.f,1.f);
-		if (Game::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_A))
+		if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_A))
 			transform.Translate(-1.f,0.f);
-		if (Game::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_D))
+		if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_D))
 			transform.Translate(1.f,0.f);
 
 		texture.Update();
@@ -46,10 +46,10 @@ public:
 		collider.Update();
 		
 		float x, y;
-		x = Game::Input::InputDeviceContainer::Instance().GetMouse().GetPosX();
-		y = Game::Input::InputDeviceContainer::Instance().GetMouse().GetPosY();
+		x = Input::InputDeviceContainer::Instance().GetMouse().GetPosX();
+		y = Input::InputDeviceContainer::Instance().GetMouse().GetPosY();
 
-		Game::Object::Polygon::Point mousePos(x,y);
+		PolygonObject::Point mousePos(x,y);
 		if (collision.Collision(mousePos, collider))
 			DrawFormatString(300, 0, GetColor(0, 255, 0), "ìñÇΩÇ¡ÇΩ");
 	}
@@ -60,7 +60,7 @@ public:
 		collider.Draw();
 	}
 	// TransforméÊìæ
-	Game::Component::Transform& GetTransform() 
+	Component::Transform& GetTransform() 
 	{
 		return transform;
 	}

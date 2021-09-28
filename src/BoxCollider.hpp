@@ -5,39 +5,33 @@
 	四角形のヒットボックス
 */
 
-namespace Game
+namespace PolygonObject
 {
-	namespace Object
+	class Polygon;
+}
+
+namespace Component
+{
+	class Transform;
+
+	namespace Collider
 	{
-		namespace Polygon
-		{
-			class Polygon;
-		}
-	}
+		class BoxCollider : public ICollider {
+		private:
+			// 当たり判定枠となるポリゴン
+			PolygonObject::Polygon* rect;
+			// 親のTransform
+			const Transform& parentTransform;
 
-	namespace Component
-	{
-		class Transform;
-
-		namespace Collider
-		{
-			class BoxCollider : public ICollider{
-			private:
-				// 当たり判定枠となるポリゴン
-				Object::Polygon::Polygon* rect;
-				// 親のTransform
-				const Component::Transform& parentTransform;
-
-				void UpdatePolygon();
-			public:
-				BoxCollider(const Component::Transform& transform);
-				~BoxCollider();
-				void Draw();
-				void Update();
-				Object::Polygon::Polygon GetPolygon() const;
-				COLLIDERTYPE GetColliderType() const;
-			};
-		}
+			void UpdatePolygon();
+		public:
+			BoxCollider(const Transform& transform);
+			~BoxCollider();
+			void Draw();
+			void Update();
+			Polygon::Polygon GetPolygon() const;
+			COLLIDERTYPE GetColliderType() const;
+		};
 	}
 }
 

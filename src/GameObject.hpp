@@ -2,39 +2,31 @@
 #include "GameSymbol.hpp"
 #include "Transform.hpp"
 
-namespace Game
+namespace GameObject
 {
 
-	namespace Object
-	{
-		
-		namespace GameObject
+	class GameObject {
+	protected:
+		// オブジェクトの位置・サイズ
+		Component::Transform transform;
+
+	public:
+		GameObject() noexcept;
+		~GameObject() noexcept;
+
+		const Component::Transform& GetTransform() const
 		{
-
-			class GameObject {
-			protected:
-				// オブジェクトの位置・サイズ
-				Component::Transform transform;
-
-			public:
-				GameObject() noexcept;
-				~GameObject() noexcept;
-
-				const Component::Transform& GetTransform() const
-				{
-					return transform;
-				}
-
-				Component::Transform& GetTransform()
-				{
-					return transform;
-				}
-
-				virtual void Update() = 0;
-				virtual void Draw() = 0;
-			};
+			return transform;
 		}
-	}
+
+		Component::Transform& GetTransform()
+		{
+			return transform;
+		}
+
+		virtual void Update() = 0;
+		virtual void Draw() = 0;
+	};
 }
 
 /*

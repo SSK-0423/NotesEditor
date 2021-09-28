@@ -2,22 +2,14 @@
 #include "GameSymbol.hpp"
 #include "Transform.hpp"
 
-namespace Game
+namespace UI
 {
-	
-	namespace Object 
-	{
+	class GUI {
+	protected:
+		Component::Transform transform;
 
-		namespace UI
-		{
-			class GUI {
-			protected:
-				Component::Transform transform;
-
-			public:
-				virtual void Draw() = 0;
-				virtual void Update() = 0;
-			};
-		}
-	}
+	public:
+		virtual void Draw() = 0;
+		virtual void Update() = 0;
+	};
 }

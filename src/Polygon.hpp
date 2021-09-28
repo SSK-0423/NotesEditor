@@ -5,40 +5,34 @@
 	多角形クラス
 */
 
-namespace Game
+using Color = int;
+
+namespace PolygonObject
 {
-	using Color = int;
+	struct Point;
 
-	namespace Object
-	{
-		namespace Polygon
-		{
-			struct Point;
+	class Polygon {
+	private:
+		// ポリゴンの各頂点
+		std::vector<Point*> vertex;
+		// 色
+		Color color;
 
-			class Polygon {
-			private:
-				// ポリゴンの各頂点
-				std::vector<Point*> vertex;
-				// 色
-				Color color;
+	public:
+		Polygon();
+		// コピーコンストラクタ
+		Polygon(const Polygon& polygon);
 
-			public:
-				Polygon();
-				// コピーコンストラクタ
-				Polygon(const Polygon& polygon);
-
-				~Polygon();
-				// 描画
-				void Draw();
-				// 頂点追加
-				void AddPoint(float x, float y);
-				// 色変更
-				void ChangedColor(int r, int g, int b);
-				// 頂点リスト取得
-				std::vector<Point> GetVertexList() const;
-				// 
-				void ResetVertex();
-			};
-		}
-	}
+		~Polygon();
+		// 描画
+		void Draw();
+		// 頂点追加
+		void AddPoint(float x, float y);
+		// 色変更
+		void ChangedColor(int r, int g, int b);
+		// 頂点リスト取得
+		std::vector<Point> GetVertexList() const;
+		// 
+		void ResetVertex();
+	};
 }

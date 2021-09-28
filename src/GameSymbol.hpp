@@ -54,3 +54,5 @@ using Image = int;
 using Audio = int;
 // ƒtƒHƒ“ƒg
 using Font = int;
+//
+using Degree = float;

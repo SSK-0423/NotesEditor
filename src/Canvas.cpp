@@ -1,38 +1,30 @@
 #include "Canvas.hpp"
 
-namespace Game
+
+namespace UI
 {
-	
-	namespace Object
+	Canvas::Canvas() noexcept
 	{
+	}
 
-		namespace UI
-		{
-			
-			Canvas::Canvas() noexcept
-			{
-			}
+	Canvas::~Canvas() noexcept
+	{
+	}
 
-			Canvas::~Canvas() noexcept
-			{
-			}
+	void Canvas::Init()
+	{
+	}
 
-			void Canvas::Init()
-			{
-			}
+	void Canvas::Update()
+	{
+	}
 
-			void Canvas::Update()
-			{
-			}
+	void Canvas::Draw()
+	{
+	}
 
-			void Canvas::Draw()
-			{
-			}
-
-			void Canvas::AddGUIObj(GUI& obj)
-			{
-				guiList.push_back(&obj);
-			}
-		}
+	void Canvas::AddGUIObj(GUI& obj)
+	{
+		guiList.push_back(&obj);
 	}
 }

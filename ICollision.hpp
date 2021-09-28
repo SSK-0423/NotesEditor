@@ -1,5 +1,11 @@
 #pragma once
-class ICollision {
-public:
-	virtual bool Collision() = 0;
-};
+namespace Component 
+{
+	namespace Collision 
+	{
+		class ICollision {
+		public:
+			virtual bool Collision() = 0;
+		};
+	}
+}

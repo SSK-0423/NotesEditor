@@ -3,11 +3,11 @@
 #include "Keyboard.hpp"
 #include "DxLib.h"
 
-Game::Game::Game()
+Game::Game()
 {
 }
 
-void Game::Game::MainLoop()
+void Game::MainLoop()
 {
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
@@ -24,18 +24,18 @@ void Game::Game::MainLoop()
 	}
 }
 
-void Game::Game::Input()
+void Game::Input()
 {
 	Input::Mouse::Instance().ReadInput();
 	Input::Keyboard::Instance().ReadInput();
 }
 
-void Game::Game::Update()
+void Game::Update()
 {
 	sceneManager.Update();
 }
 
-void Game::Game::Draw()
+void Game::Draw()
 {
 	sceneManager.Draw();
 }

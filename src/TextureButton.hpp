@@ -1,46 +1,45 @@
 #pragma once
+#include "Button.hpp"
 
 /*
 	テクスチャを持つボタンクラス
 */
 
-namespace Game 
+namespace Input
 {
-	namespace Input 
-	{
-		class InputDeviceContainer;
-	}
-	namespace Component 
-	{
-		class Transform;
-		class Texture;
-		
-		namespace Collider 
-		{
-			class ICollider;
-		}
-		namespace Collision 
-		{
-			class PointWithPolygon;
-		}
-	}
+	class InputDeviceContainer;
+}
 
-	namespace Object 
-	{
-		namespace UI 
-		{
-			class TextureButton {
-			protected:
-				Component::Transform* transform;
-				Component::Texture* texture;
-				Component::Collider::ICollider* collider;
+namespace Component
+{
+	class Transform;
+	class Texture;
 
-			public:
-				TextureButton(const char* filePath);
-				virtual ~TextureButton();
-				virtual void Draw() = 0;
-				virtual void Input(const Game::Input::InputDeviceContainer& inputDeviceContainer) = 0;
-			};
-		}
+	namespace Collider
+	{
+		enum class COLLIDERTYPE;
+		class ICollider;
 	}
+	namespace Collision
+	{
+		class PointWithPolygon;
+	}
+}
+
+namespace UI
+{
+	class TextureButton : Button {
+	protected:
+		Component::Transform* transform;
+		Component::Texture* texture;
+		// ヒットボックス
+		Component::Collider::ICollider* collider;
+		// マウスポインタとポリゴンとの判定
+		Component::Collision::PointWithPolygon* collision;
+	public:
+		TextureButton(const char* filePath, Component::Collider::COLLIDERTYPE type);
+		virtual ~TextureButton();
+		void Update();
+		void Draw();
+	};
 }

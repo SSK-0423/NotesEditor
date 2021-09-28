@@ -1,32 +1,25 @@
 #pragma once
 #include "CrossingNumberAlgorithm.hpp"
 
-namespace Game
+namespace PolygonObject
 {
-	namespace Object 
-	{
+	struct Point;
+}
 
-		namespace Polygon 
-		{
-			struct Point;
-		}
+namespace Component
+{
+	namespace Collider
+	{
+		class ICollider;
 	}
-
-	namespace Component
+	namespace Collision
 	{
-		namespace Collider
-		{
-			class ICollider;
-		}
-		namespace Collision
-		{
-			class PointWithPolygon {
-			private:
-				CrossingNumberAlgorithm collision;
-			public:
-				PointWithPolygon();
-				bool Collision(const Object::Polygon::Point& point, const Collider::ICollider& collider);
-			};
-		}
+		class PointWithPolygon {
+		private:
+			CrossingNumberAlgorithm collision;
+		public:
+			PointWithPolygon();
+			bool Collision(const PolygonObject::Point& point, const Collider::ICollider& collider);
+		};
 	}
 }

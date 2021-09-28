@@ -5,7 +5,7 @@
 #include "Matrix.hpp"
 #include "Rotator.hpp"
 
-void Game::Component::Collider::BoxCollider::UpdatePolygon()
+void Component::Collider::BoxCollider::UpdatePolygon()
 {
 	// ƒ|ƒŠƒSƒ“‚Ì’¸“_‰Šú‰»
 	rect->ResetVertex();
@@ -23,10 +23,10 @@ void Game::Component::Collider::BoxCollider::UpdatePolygon()
 	height = parentTransform.GetSize().GetHeight();
 	angle = parentTransform.GetRotation().GetAngle();
 
-	Object::Polygon::Point p1(-width / 2.f, -height / 2.f);
-	Object::Polygon::Point p2(-width / 2.f, height / 2.f);
-	Object::Polygon::Point p3(width / 2.f, height / 2.f);
-	Object::Polygon::Point p4(width / 2.f, -height / 2.f);
+	Polygon::Point p1(-width / 2.f, -height / 2.f);
+	Polygon::Point p2(-width / 2.f, height / 2.f);
+	Polygon::Point p3(width / 2.f, height / 2.f);
+	Polygon::Point p4(width / 2.f, -height / 2.f);
 
 	// ‰ñ“]ˆ—
 	// ‰ñ“]ˆÚ“®‚ðs‚¤ƒNƒ‰ƒX
@@ -68,33 +68,33 @@ void Game::Component::Collider::BoxCollider::UpdatePolygon()
 	rect->AddPoint(rotatedP4.myMatrix[0][0], rotatedP4.myMatrix[1][0]);
 }
 
-Game::Component::Collider::BoxCollider::BoxCollider(const Component::Transform& transform) : parentTransform(transform)
+Component::Collider::BoxCollider::BoxCollider(const Component::Transform& transform) : parentTransform(transform)
 {
-	rect = new Object::Polygon::Polygon();
+	rect = new Polygon::Polygon();
 	UpdatePolygon();
 }
 
-Game::Component::Collider::BoxCollider::~BoxCollider()
+Component::Collider::BoxCollider::~BoxCollider()
 {
 	//delete rect;
 }
 
-void Game::Component::Collider::BoxCollider::Draw()
+void Component::Collider::BoxCollider::Draw()
 {
 	rect->Draw();
 }
 
-void Game::Component::Collider::BoxCollider::Update()
+void Component::Collider::BoxCollider::Update()
 {
 	UpdatePolygon();
 }
 
-Game::Object::Polygon::Polygon Game::Component::Collider::BoxCollider::GetPolygon() const
+Polygon::Polygon Component::Collider::BoxCollider::GetPolygon() const
 {
 	return *rect;
 }
 
-Game::Component::Collider::COLLIDERTYPE Game::Component::Collider::BoxCollider::GetColliderType() const
+Component::Collider::COLLIDERTYPE Component::Collider::BoxCollider::GetColliderType() const
 {
 	return COLLIDERTYPE::COLLIDERTYPE_BOX;
 }

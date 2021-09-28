@@ -16,41 +16,14 @@
     <Filter Include="ヘッダー ファイル\Game">
       <UniqueIdentifier>{52321279-388d-44f7-8f00-5d946961b8e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Input">
-      <UniqueIdentifier>{827a3b83-55ec-4732-a6fb-8ad169213bea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Component">
-      <UniqueIdentifier>{310220c2-e33e-45ef-afa7-46bd0583fb3c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Objects">
-      <UniqueIdentifier>{3afe9336-d0dd-4c38-b1a2-bb41820702cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Objects\GUI">
-      <UniqueIdentifier>{a81fac7b-4753-44a8-b38d-24b60478f789}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Objects\GameObject">
-      <UniqueIdentifier>{00ff35a5-aaf1-490c-ad6d-93bbcb557ddd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Scene">
-      <UniqueIdentifier>{f254e7ef-609a-4c6f-8acb-29580dc26395}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Objects\Polygon">
-      <UniqueIdentifier>{d2ac2e8f-cdee-455f-b89c-0ab10bf62e44}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\NotesEditor">
       <UniqueIdentifier>{2e974b63-3aeb-4cba-9641-10ff2f2c1899}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Component\Collider">
-      <UniqueIdentifier>{1a61dc66-d37e-434f-8ecd-19cd566a58d5}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\Math">
       <UniqueIdentifier>{071007eb-63af-4bd0-9f48-182a8adcee14}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Math">
       <UniqueIdentifier>{17e4bfb7-0d93-46cb-8e5d-f7f35be82ac4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Game\Component\Collision">
-      <UniqueIdentifier>{6f9a2d53-6f72-4c1d-8fcd-03b30fcc56e7}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\NotesEditor">
       <UniqueIdentifier>{50b82be8-e115-4761-baa5-883325bd198d}</UniqueIdentifier>
@@ -84,6 +57,33 @@
     </Filter>
     <Filter Include="ソース ファイル\Game\Scene">
       <UniqueIdentifier>{f48271ae-f435-48c3-9722-a5f1319fac0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component">
+      <UniqueIdentifier>{310220c2-e33e-45ef-afa7-46bd0583fb3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Collider">
+      <UniqueIdentifier>{1a61dc66-d37e-434f-8ecd-19cd566a58d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Collision">
+      <UniqueIdentifier>{6f9a2d53-6f72-4c1d-8fcd-03b30fcc56e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Input">
+      <UniqueIdentifier>{827a3b83-55ec-4732-a6fb-8ad169213bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Objects">
+      <UniqueIdentifier>{3afe9336-d0dd-4c38-b1a2-bb41820702cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene">
+      <UniqueIdentifier>{f254e7ef-609a-4c6f-8acb-29580dc26395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GUI">
+      <UniqueIdentifier>{a81fac7b-4753-44a8-b38d-24b60478f789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject">
+      <UniqueIdentifier>{00ff35a5-aaf1-490c-ad6d-93bbcb557ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Polygon">
+      <UniqueIdentifier>{d2ac2e8f-cdee-455f-b89c-0ab10bf62e44}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +123,6 @@
     <ClCompile Include="src\TextureButton.cpp">
       <Filter>ソース ファイル\Game\Object\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureButtonRect.cpp">
-      <Filter>ソース ファイル\Game\Object\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="src\CrossingNumberAlgorithm.cpp">
       <Filter>ソース ファイル\Game\Component\Collision</Filter>
     </ClCompile>
@@ -153,55 +150,58 @@
     <ClCompile Include="src\ISceneChanger.cpp">
       <Filter>ソース ファイル\Game\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\ColliderCreator.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Singleton.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\BaseScene.hpp">
-      <Filter>ヘッダー ファイル\Game\Scene</Filter>
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\IScene.hpp">
-      <Filter>ヘッダー ファイル\Game\Scene</Filter>
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\ISceneChanger.hpp">
-      <Filter>ヘッダー ファイル\Game\Scene</Filter>
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\SceneManager.hpp">
-      <Filter>ヘッダー ファイル\Game\Scene</Filter>
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Mouse.hpp">
-      <Filter>ヘッダー ファイル\Game\Input</Filter>
+      <Filter>ヘッダー ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\Keyboard.hpp">
-      <Filter>ヘッダー ファイル\Game\Input</Filter>
+      <Filter>ヘッダー ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\IInputDevice.hpp">
-      <Filter>ヘッダー ファイル\Game\Input</Filter>
+      <Filter>ヘッダー ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\InputDevice.hpp">
-      <Filter>ヘッダー ファイル\Game\Input</Filter>
+      <Filter>ヘッダー ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\InputDeviceContainer.hpp">
-      <Filter>ヘッダー ファイル\Game\Input</Filter>
+      <Filter>ヘッダー ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\Transform.hpp">
-      <Filter>ヘッダー ファイル\Game\Component</Filter>
+      <Filter>ヘッダー ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\Texture.hpp">
-      <Filter>ヘッダー ファイル\Game\Component</Filter>
+      <Filter>ヘッダー ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\GUI.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+      <Filter>ヘッダー ファイル\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObject.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GameObject</Filter>
+      <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="src\Canvas.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+      <Filter>ヘッダー ファイル\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\ICanvas.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+      <Filter>ヘッダー ファイル\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\EditScene.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
@@ -213,40 +213,34 @@
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
     <ClInclude Include="src\Position.hpp">
-      <Filter>ヘッダー ファイル\Game\Component</Filter>
+      <Filter>ヘッダー ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\Rotation.hpp">
-      <Filter>ヘッダー ファイル\Game\Component</Filter>
+      <Filter>ヘッダー ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\Size.hpp">
-      <Filter>ヘッダー ファイル\Game\Component</Filter>
+      <Filter>ヘッダー ファイル\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\Button.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+      <Filter>ヘッダー ファイル\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\TextureButton.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TextureButtonRect.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\GUI</Filter>
+      <Filter>ヘッダー ファイル\GUI</Filter>
     </ClInclude>
     <ClInclude Include="src\Point.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
+      <Filter>ヘッダー ファイル\Polygon</Filter>
     </ClInclude>
     <ClInclude Include="src\Polygon.hpp">
-      <Filter>ヘッダー ファイル\Game\Objects\Polygon</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Collider.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
+      <Filter>ヘッダー ファイル\Polygon</Filter>
     </ClInclude>
     <ClInclude Include="src\CrossingNumberAlgorithm.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+      <Filter>ヘッダー ファイル\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\PointWithPolygon.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+      <Filter>ヘッダー ファイル\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\ICollider.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
+      <Filter>ヘッダー ファイル\Component\Collider</Filter>
     </ClInclude>
     <ClInclude Include="src\Matrix.hpp">
       <Filter>ヘッダー ファイル\Math</Filter>
@@ -261,16 +255,19 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ICollision.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collision</Filter>
+      <Filter>ヘッダー ファイル\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\TestObject.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ColliderCreator.hpp">
+      <Filter>ヘッダー ファイル\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="src\BoxCollider.hpp">
-      <Filter>ヘッダー ファイル\Game\Component\Collider</Filter>
+      <Filter>ヘッダー ファイル\Component\Collider</Filter>
     </None>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>

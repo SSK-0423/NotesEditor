@@ -1,5 +1,5 @@
 #include "ISceneChanger.hpp"
 
-Game::Scene::ISceneChanger::~ISceneChanger()
+ISceneChanger::~ISceneChanger()
 {
 }

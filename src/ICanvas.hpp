@@ -1,23 +1,15 @@
 #pragma once
 
-namespace Game
+namespace Input
 {
-	namespace Input
-	{
-		class InputDeviceContainer;
-	}
+	class InputDeviceContainer;
+}
 
-	namespace Object
-	{
-
-		namespace UI
-		{
-			class ICanvas {
-			public:
-				virtual void Init() = 0;
-				virtual void Update() = 0;
-				virtual void Draw() = 0;
-			};
-		}
-	}
+namespace UI
+{
+	class ICanvas {
+	public:
+		virtual void Update() = 0;
+		virtual void Draw() = 0;
+	};
 }

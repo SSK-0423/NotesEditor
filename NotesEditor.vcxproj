@@ -159,6 +159,7 @@
     <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Canvas.cpp" />
+    <ClCompile Include="src\ColliderCreator.cpp" />
     <ClCompile Include="src\CrossingNumberAlgorithm.cpp" />
     <ClCompile Include="src\EditorSceneCanvas.cpp" />
     <ClCompile Include="src\EditScene.cpp" />
@@ -176,14 +177,13 @@
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\TextureButton.cpp" />
-    <ClCompile Include="src\TextureButtonRect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ICollision.hpp" />
     <ClInclude Include="src\BaseScene.hpp" />
     <ClInclude Include="src\Button.hpp" />
     <ClInclude Include="src\Canvas.hpp" />
-    <ClInclude Include="src\Collider.hpp" />
+    <ClInclude Include="src\ColliderCreator.hpp" />
     <ClInclude Include="src\CrossingNumberAlgorithm.hpp" />
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
@@ -214,7 +214,6 @@
     <ClInclude Include="src\TestObject.h" />
     <ClInclude Include="src\Texture.hpp" />
     <ClInclude Include="src\TextureButton.hpp" />
-    <ClInclude Include="src\TextureButtonRect.hpp" />
     <ClInclude Include="src\Transform.hpp" />
   </ItemGroup>
   <ItemGroup>

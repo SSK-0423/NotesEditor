@@ -4,13 +4,13 @@
 #include "Polygon.hpp"
 
 // staticïœêîé¿ëÃâª
-//Game::Component::Collision::CrossingNumberAlgorithm Game::Component::Collision::PointWithPolygon::collision;
+//Component::Collision::CrossingNumberAlgorithm Component::Collision::PointWithPolygon::collision;
 
-Game::Component::Collision::PointWithPolygon::PointWithPolygon()
+Component::Collision::PointWithPolygon::PointWithPolygon()
 {
 }
 
-bool Game::Component::Collision::PointWithPolygon::Collision(const Object::Polygon::Point& point, const Collider::ICollider& collider)
+bool Component::Collision::PointWithPolygon::Collision(const PolygonObject::Point& point, const Collider::ICollider& collider)
 {
 	return collision.Collision(point, collider.GetPolygon());
 }

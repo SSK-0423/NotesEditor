@@ -1,21 +1,9 @@
 #include "GameObject.hpp"
-#include "DxLib.h"
 
-namespace Game
+GameObject::GameObject::GameObject() noexcept
 {
-	namespace Object
-	{
-		
-		namespace GameObject
-		{
+}
 
-			GameObject::GameObject() noexcept
-			{
-			}
-
-			GameObject::~GameObject() noexcept
-			{
-			}
-		}
-	}
+GameObject::GameObject::~GameObject() noexcept
+{
 }

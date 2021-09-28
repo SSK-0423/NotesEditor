@@ -7,28 +7,19 @@
 	シーンの全GUIの更新・描画・入力関連処理を実行するクラス
 */
 
-namespace Game
+namespace UI
 {
+	class GUI;
 
-	namespace Object
-	{
+	class Canvas : public ICanvas {
+	protected:
+		std::vector<GUI*> guiList;
 
-		namespace UI
-		{
-			class GUI;
-
-			class Canvas : public ICanvas{
-			protected:
-				std::vector<GUI*> guiList;
-
-			public:
-				Canvas() noexcept;
-				virtual ~Canvas() noexcept;
-				virtual void Init() override;
-				virtual void Update() override;
-				virtual void Draw() override;
-				void AddGUIObj(GUI& obj);
-			};
-		}
-	}
+	public:
+		Canvas() noexcept;
+		virtual ~Canvas() noexcept;
+		virtual void Update() override;
+		virtual void Draw() override;
+		void AddGUIObj(GUI& obj);
+	};
 }
