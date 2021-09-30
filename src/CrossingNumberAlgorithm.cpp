@@ -3,10 +3,10 @@
 #include "Polygon.hpp"
 
 // 点と多角形の内外判定アルゴリズム
-bool Component::Collision::CrossingNumberAlgorithm::Collision(const PolygonObject::Point& target, const PolygonObject::Polygon& polygon)
+bool Engine::Collision::CrossingNumberAlgorithm::Collision(const PrimitiveObj::Point& target, const PrimitiveObj::Polygon& polygon)
 {
 	// ポリゴンの頂点配列取得
-	std::vector<PolygonObject::Point> vertex = polygon.GetVertexList();
+	std::vector<PrimitiveObj::Point> vertex = polygon.GetVertexList();
 	// 末尾に始点を追加
 	vertex.push_back(vertex[0]);
 	// 辺と点からX方向に水平に飛ばしたRayとの交差回数

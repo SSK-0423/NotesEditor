@@ -22,7 +22,11 @@ namespace Engine
 			float sizeWidth, sizeHeight;
 			// 画像サイズ
 			float imgWidth, imgHeight;
-
+			// スケール
+			float scaleWidth, scaleHeight;
+			// 描画時のスケール
+			double drawScaleWidth, drawScaleHeight;
+			
 		public:
 			Texture(const Transform& transform, const char* path);
 

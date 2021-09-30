@@ -1,17 +1,17 @@
 #pragma once
-namespace PolygonObject
+namespace Engine
 {
-	class Polygon;
-	struct Point;
-}
-namespace Component
-{
+	namespace PrimitiveObj
+	{
+		class Polygon;
+		struct Point;
+	}
 	namespace Collision
 	{
 		class CrossingNumberAlgorithm {
 		private:
 		public:
-			bool Collision(const PolygonObject::Point& point, const PolygonObject::Polygon& polygon);
+			bool Collision(const PrimitiveObj::Point& point, const PrimitiveObj::Polygon& polygon);
 		};
 	}
 }

@@ -17,17 +17,16 @@ namespace Engine
 
 		class BoxCollider : public ICollider {
 		private:
-			// 当たり判定枠となるポリゴン
-			PrimitiveObj::Polygon* rect;
-			// 親のTransform
+			// ヒットボックス
+			PrimitiveObj::Polygon* rectHitBox;
 			const Transform& parentTransform;
-
+			
 			void UpdatePolygon();
 		public:
 			BoxCollider(const Transform& transform);
 			~BoxCollider();
-			void Draw();
 			void Update();
+			void Draw();
 			PrimitiveObj::Polygon GetPolygon() const;
 			COLLIDERTYPE GetColliderType() const;
 		};

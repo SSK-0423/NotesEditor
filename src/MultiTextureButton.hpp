@@ -1,10 +1,6 @@
 #pragma once
 #include "Button.hpp"
 
-/*
-	テクスチャを持つボタンクラス
-*/
-
 namespace Engine
 {
 	namespace Input
@@ -27,7 +23,7 @@ namespace Engine
 
 	namespace UI
 	{
-		class TextureButton : public Button {
+		class MultiTextureButton : public Button{
 		private:
 			Components::Texture* texture;
 			Components::ICollider* collider;
@@ -35,10 +31,11 @@ namespace Engine
 			Collision::PointWithPolygon* collision;
 			void RunEventFunc();
 		public:
-			TextureButton(const char* filePath, Components::COLLIDERTYPE type);
-			virtual ~TextureButton();
+			MultiTextureButton(const char* filePath, Components::COLLIDERTYPE type);
+			virtual ~MultiTextureButton();
 			void Update();
 			void Draw();
+
 		};
 	}
 }

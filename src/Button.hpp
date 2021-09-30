@@ -1,21 +1,30 @@
 #pragma once
 #include "DxLib.h"
 #include "GUI.hpp"
+#include "Delegate.hpp"
 
-// ボタンが押されている間のサイズ縮小幅
-const int SIZEDIFF = 2;
+const float CLICKEDSIZE = 0.98f;
 
 /*
 	Buttonクラス
 */
 
-namespace UI
+namespace Engine
 {
-	class Button : public GUI {
-	private:
+	namespace UI
+	{
+		class Button : public GUI {
+		protected:
+			// ボタンクリック時に呼び出される関数
+			DelegateBase<void(void)>* eventFunc;
 
-	public:
-		virtual void Update() = 0;
-		virtual void Draw() = 0;
-	};
+		public:
+			virtual void Update() = 0;
+			virtual void Draw() = 0;
+			void SetEventFunc(DelegateBase<void(void)>* func)
+			{
+				eventFunc = func;
+			}
+		};
+	}
 }

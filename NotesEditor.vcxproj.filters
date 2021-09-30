@@ -61,6 +61,12 @@
     <Filter Include="ヘッダー ファイル\Engine\PrimitiveObj">
       <UniqueIdentifier>{09afdd19-83d8-43e6-abc2-e43936eee5dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Math">
+      <UniqueIdentifier>{ed3b8c62-bccc-44ba-91d1-c06cf2e83529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Math">
+      <UniqueIdentifier>{6b237552-df02-45c8-8b22-d405804907f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -104,6 +110,51 @@
     </ClCompile>
     <ClCompile Include="src\Polygon.cpp">
       <Filter>ソース ファイル\Engine\PrimitiveObj</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Matrix.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rotator.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CrossingNumberAlgorithm.cpp">
+      <Filter>ソース ファイル\Engine\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PointWithPolygon.cpp">
+      <Filter>ソース ファイル\Engine\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureButton.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColliderCreator.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CubicSpline.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Music.cpp">
+      <Filter>ソース ファイル\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenFileExplorer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EquationsSolver.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GaussElimination.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LUdecomposition.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureTextBox.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MultiTextureButton.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +236,60 @@
     </ClInclude>
     <ClInclude Include="src\Polygon.hpp">
       <Filter>ヘッダー ファイル\Engine\PrimitiveObj</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Matrix.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rotator.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrossingNumberAlgorithm.hpp">
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PointWithPolygon.hpp">
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Button.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureButton.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ColliderCreator.hpp">
+      <Filter>ヘッダー ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scale.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Delegate.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CubicSpline.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Music.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenFileExplorer.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GUI.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationsSolver.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GaussElimination.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LUdecomposition.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureTextBox.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MultiTextureButton.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

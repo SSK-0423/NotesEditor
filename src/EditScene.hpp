@@ -8,7 +8,7 @@ namespace NotesEditor
 	class EditScene : public Engine::Scene::BaseScene{
 	private:
 		EditorSceneCanvas editorSceneCanvas;
-
+		int laneHandle;
 		//EditorCamera editorCamera
 		//EditorCanvas editorCanvas;
 		//Camera2D camera;

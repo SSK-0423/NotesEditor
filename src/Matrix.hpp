@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-//#include <initializer_list>
+#include <initializer_list>
 
 namespace Math
 {
@@ -15,7 +15,6 @@ namespace Math
 		// s—ñ
 		std::vector<std::vector<float>> myMatrix;
 
-		Matrix();
 		Matrix(int r, int c);
 
 		// ‰ÁZ

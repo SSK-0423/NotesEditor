@@ -5,7 +5,7 @@
 	‘½ŠpŒ`ƒNƒ‰ƒX
 */
 
-using Color = int;
+using Color = unsigned int;
 
 namespace Engine
 {

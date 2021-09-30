@@ -1,14 +1,15 @@
 #pragma once
 #include "CrossingNumberAlgorithm.hpp"
 
-namespace PolygonObject
-{
-	struct Point;
-}
 
-namespace Component
+namespace Engine
 {
-	namespace Collider
+	namespace PrimitiveObj
+	{
+		struct Point;
+	}
+
+	namespace Components
 	{
 		class ICollider;
 	}
@@ -19,7 +20,7 @@ namespace Component
 			CrossingNumberAlgorithm collision;
 		public:
 			PointWithPolygon();
-			bool Collision(const PolygonObject::Point& point, const Collider::ICollider& collider);
+			bool Collision(float x, float y, const Components::ICollider& collider);
 		};
 	}
 }

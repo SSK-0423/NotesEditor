@@ -2,6 +2,7 @@
 #include "Position.hpp"
 #include "Rotation.hpp"
 #include "Size.hpp"
+
 /*
 	座標・サイズ・回転を統括管理するクラス
 */
@@ -19,6 +20,8 @@ namespace Engine
 
 		public:
 			Transform() {}
+
+			// 座標
 			Position GetPosition() const
 			{
 				return position;
@@ -31,6 +34,8 @@ namespace Engine
 			{
 				position.SetPosition(x, y);
 			}
+
+			// 回転
 			Rotation GetRotation() const
 			{
 				return rotation;
@@ -43,17 +48,19 @@ namespace Engine
 			{
 				rotation.SetAngle(angle);
 			}
+
+			// サイズ
 			Size GetSize() const
 			{
 				return size;
 			}
-			void Scalling(float x, float y)
-			{
-				size.Scaling(x, y);
-			}
 			void SetSize(float w, float h)
 			{
 				size.SetSize(w, h);
+			}
+			void Scaling(float w, float h)
+			{
+				size.Scaling(w, h);
 			}
 		};
 	}

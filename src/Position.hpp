@@ -6,7 +6,8 @@
 
 namespace Engine
 {
-	namespace Components {
+	namespace Components 
+	{
 
 		class Position {
 		private:

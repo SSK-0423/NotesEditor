@@ -8,7 +8,7 @@
 void Engine::Components::BoxCollider::UpdatePolygon()
 {
 	// ƒ|ƒŠƒSƒ“‚Ì’¸“_‰Šú‰»
-	rect->ResetVertex();
+	rectHitBox->ResetVertex();
 
 	// ’†SÀ•W
 	float posX, posY;
@@ -19,14 +19,14 @@ void Engine::Components::BoxCollider::UpdatePolygon()
 
 	posX = parentTransform.GetPosition().GetPosX();
 	posY = parentTransform.GetPosition().GetPosY();
-	width = parentTransform.GetSize().GetWidth();
-	height = parentTransform.GetSize().GetHeight();
+	width = parentTransform.GetSize().GetWidth() * parentTransform.GetSize().GetScaleWidth();
+	height = parentTransform.GetSize().GetHeight() * parentTransform.GetSize().GetScaleHeight();
 	angle = parentTransform.GetRotation().GetAngle();
 
-	Polygon::Point p1(-width / 2.f, -height / 2.f);
-	Polygon::Point p2(-width / 2.f, height / 2.f);
-	Polygon::Point p3(width / 2.f, height / 2.f);
-	Polygon::Point p4(width / 2.f, -height / 2.f);
+	PrimitiveObj::Point p1(-width / 2.f, -height / 2.f);
+	PrimitiveObj::Point p2(-width / 2.f, height / 2.f);
+	PrimitiveObj::Point p3(width / 2.f, height / 2.f);
+	PrimitiveObj::Point p4(width / 2.f, -height / 2.f);
 
 	// ‰ñ“]ˆ—
 	// ‰ñ“]ˆÚ“®‚ðs‚¤ƒNƒ‰ƒX
@@ -59,29 +59,29 @@ void Engine::Components::BoxCollider::UpdatePolygon()
 	rotatedP4 += translator;
 
 	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotatedP1.myMatrix[0][0], rotatedP1.myMatrix[1][0]);
+	rectHitBox->AddPoint(rotatedP1.myMatrix[0][0], rotatedP1.myMatrix[1][0]);
 	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotatedP2.myMatrix[0][0], rotatedP2.myMatrix[1][0]);
+	rectHitBox->AddPoint(rotatedP2.myMatrix[0][0], rotatedP2.myMatrix[1][0]);
 	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotatedP3.myMatrix[0][0], rotatedP3.myMatrix[1][0]);
+	rectHitBox->AddPoint(rotatedP3.myMatrix[0][0], rotatedP3.myMatrix[1][0]);
 	// ’¸“_‚Æ‚µ‚Ä“o˜^
-	rect->AddPoint(rotatedP4.myMatrix[0][0], rotatedP4.myMatrix[1][0]);
+	rectHitBox->AddPoint(rotatedP4.myMatrix[0][0], rotatedP4.myMatrix[1][0]);
 }
 
 Engine::Components::BoxCollider::BoxCollider(const Components::Transform& transform) : parentTransform(transform)
 {
-	rect = new PrimitiveObj::Polygon();
+	rectHitBox = new PrimitiveObj::Polygon();
 	UpdatePolygon();
 }
 
 Engine::Components::BoxCollider::~BoxCollider()
 {
-	//delete rect;
+	delete rectHitBox;
 }
 
 void Engine::Components::BoxCollider::Draw()
 {
-	rect->Draw();
+	rectHitBox->Draw();
 }
 
 void Engine::Components::BoxCollider::Update()
@@ -89,9 +89,9 @@ void Engine::Components::BoxCollider::Update()
 	UpdatePolygon();
 }
 
-PrimitiveObj::Polygon Engine::Components::BoxCollider::GetPolygon() const
+Engine::PrimitiveObj::Polygon Engine::Components::BoxCollider::GetPolygon() const
 {
-	return *rect;
+	return *rectHitBox;
 }
 
 Engine::Components::COLLIDERTYPE Engine::Components::BoxCollider::GetColliderType() const

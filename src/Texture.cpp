@@ -17,13 +17,23 @@ void Engine::Components::Texture::Update()
 	Rotation rot = parentTransform.GetRotation();
 	Size size = parentTransform.GetSize();
 
+	// 座標取得
 	posX = pos.GetPosX();
 	posY = pos.GetPosY();
+
 	// 度数からラジアンへ変換
 	angle = acosf(-1.f) / 180.f * rot.GetAngle();
 
 	sizeWidth = size.GetWidth();
 	sizeHeight = size.GetHeight();
+
+	// スケール取得
+	scaleWidth = size.GetScaleWidth();
+	scaleHeight = size.GetScaleHeight();
+
+	// 描画時のスケール計算
+	drawScaleWidth = static_cast<double>(sizeWidth / imgWidth) * scaleWidth;
+	drawScaleHeight = static_cast<double>(sizeHeight / imgHeight) * scaleHeight;
 }
 
 void Engine::Components::Texture::Draw()
@@ -32,8 +42,7 @@ void Engine::Components::Texture::Draw()
 	if (imageHandle == -1) return;
 
 	DrawRotaGraph3F(posX, posY, imgWidth / 2.f, imgHeight / 2.f,
-		sizeWidth / imgWidth, sizeHeight / imgHeight,
-		angle, imageHandle, false, false);
+		drawScaleWidth, drawScaleHeight, angle, imageHandle, true, false);
 }
 
 void Engine::Components::Texture::LoadTexture(const char* path) const
