@@ -4,16 +4,12 @@
 #include "TestObject.h"
 #include <vector>
 
-namespace Input
-{
-	class InputDeviceContainer;
-}
 namespace NotesEditor
 {
-	class EditorSceneCanvas : public UI::Canvas
+	class EditorSceneCanvas : public Engine::UI::Canvas
 	{
 	private:
-		std::vector<UI::GUI> guiList;
+		std::vector<Engine::UI::GUI> guiList;
 		TestObject obj;
 	public:
 		EditorSceneCanvas();

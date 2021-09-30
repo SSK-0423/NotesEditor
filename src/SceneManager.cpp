@@ -1,12 +1,12 @@
 #include "SceneManager.hpp"
 #include "EditScene.hpp"
 
-SceneManager::SceneManager() : nextScene(SCENE_NONE)
+Engine::Scene::SceneManager::SceneManager() : nextScene(SCENE_NONE)
 {
 	nowScene = (BaseScene*) new NotesEditor::EditScene(this);
 }
 
-void SceneManager::Update()
+void Engine::Scene::SceneManager::Update()
 {
 	//次のシーンがセットされていたら
 	if (nextScene != SCENE_NONE) 
@@ -31,12 +31,12 @@ void SceneManager::Update()
 	nowScene->Update(); //シーンの更新
 }
 
-void SceneManager::Draw()
+void Engine::Scene::SceneManager::Draw()
 {
 	nowScene->Draw();
 }
 
-void SceneManager::ChangeScene(SCENE NextScene)
+void Engine::Scene::SceneManager::ChangeScene(SCENE NextScene)
 {
 	this->nextScene = nextScene;
 }

@@ -1,27 +1,30 @@
 #pragma once
-namespace Component
+namespace Engine
 {
-	using Degree = float;
-	class Rotation {
-	private:
-		float angle;
+	namespace Components
+	{
+		using Degree = float;
+		class Rotation {
+		private:
+			float angle;
 
-	public:
-		Rotation() : angle(0.f) {}
-		Rotation(Degree angle) : angle(angle) {}
+		public:
+			Rotation() : angle(0.f) {}
+			Rotation(Degree angle) : angle(angle) {}
 
-		float GetAngle()
-		{
-			return angle;
-		}
-		void Rotate(Degree angle)
-		{
-			this->angle += angle;
-		}
+			float GetAngle()
+			{
+				return angle;
+			}
+			void Rotate(Degree angle)
+			{
+				this->angle += angle;
+			}
 
-		void SetAngle(Degree angle)
-		{
-			this->angle = angle;
-		}
-	};
+			void SetAngle(Degree angle)
+			{
+				this->angle = angle;
+			}
+		};
+	}
 }

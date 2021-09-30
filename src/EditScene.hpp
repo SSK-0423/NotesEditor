@@ -1,12 +1,11 @@
 #pragma once
 #include "BaseScene.hpp"
-#include "Texture.hpp"
 #include "EditorSceneCanvas.hpp"
 
 namespace NotesEditor 
 {
 
-	class EditScene : public Scene::BaseScene{
+	class EditScene : public Engine::Scene::BaseScene{
 	private:
 		EditorSceneCanvas editorSceneCanvas;
 
@@ -18,7 +17,7 @@ namespace NotesEditor
 		//std::vector<std::vector<GameObject*>*> objList;
 
 	public:
-		EditScene(Scene::ISceneChanger* changer);
+		EditScene(Engine::Scene::ISceneChanger* changer);
 		void Update() override;
 		void Draw() override;
 	};

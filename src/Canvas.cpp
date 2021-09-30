@@ -1,30 +1,23 @@
 #include "Canvas.hpp"
 
 
-namespace UI
+Engine::UI::Canvas::Canvas() noexcept
 {
-	Canvas::Canvas() noexcept
-	{
-	}
+}
 
-	Canvas::~Canvas() noexcept
-	{
-	}
+Engine::UI::Canvas::~Canvas() noexcept
+{
+}
 
-	void Canvas::Init()
-	{
-	}
+void Engine::UI::Canvas::Update()
+{
+}
 
-	void Canvas::Update()
-	{
-	}
+void Engine::UI::Canvas::Draw()
+{
+}
 
-	void Canvas::Draw()
-	{
-	}
-
-	void Canvas::AddGUIObj(GUI& obj)
-	{
-		guiList.push_back(&obj);
-	}
+void Engine::UI::Canvas::AddGUIObj(GUI& obj)
+{
+	guiList.push_back(&obj);
 }

@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "Application.hpp"
 #include "WindowSize.hpp"
 #include "DxLib.h"
 
@@ -9,7 +9,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	SetGraphMode(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, 16);
 	ChangeWindowMode(true), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
 	SetAlwaysRunFlag(true);
-	Game game;
+	Application game;
 	game.MainLoop();
 	DxLib_End();
 	return 0;

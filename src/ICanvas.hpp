@@ -5,11 +5,14 @@ namespace Input
 	class InputDeviceContainer;
 }
 
-namespace UI
+namespace Engine
 {
-	class ICanvas {
-	public:
-		virtual void Update() = 0;
-		virtual void Draw() = 0;
-	};
+	namespace UI
+	{
+		class ICanvas {
+		public:
+			virtual void Update() = 0;
+			virtual void Draw() = 0;
+		};
+	}
 }

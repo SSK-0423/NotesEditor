@@ -3,7 +3,7 @@
 
 namespace NotesEditor
 {
-	EditScene::EditScene(ISceneChanger* changer) : BaseScene(changer)
+	EditScene::EditScene(Engine::Scene::ISceneChanger* changer) : BaseScene(changer)
 	{
 		editorSceneCanvas.Init();
 	}

@@ -2,31 +2,35 @@
 #include "Singleton.hpp"
 #include "InputDevice.hpp"
 
-namespace Input {
+namespace Engine
+{
+	namespace Input {
 
-	class Keyboard : public Singleton<Keyboard>, public InputDevice {
-		friend Singleton<Keyboard>;
+		class Keyboard : public Singleton<Keyboard>, public InputDevice {
+			friend Singleton<Keyboard>;
 
-	private:
-		Keyboard() : InputDevice(KEY_NUM), keyPressingCount(), keyReleasingCount(), keyPressed() {}
+		private:
+			Keyboard() : InputDevice(KEY_NUM), keyPressingCount(), keyReleasingCount(), keyPressed() {}
 
-		// キーの総数
-		static constexpr int KEY_NUM = 256;
-		// 押されカウンタ
-		mutable int keyPressingCount[KEY_NUM];
-		// 離されカウンタ
-		mutable int keyReleasingCount[KEY_NUM];
-		// 押されたかどうか
-		mutable bool keyPressed[KEY_NUM];
-		// カウンタ更新
-		void UpdateCounter() const;
-		void UpdatePressingCounter(KeyCode keyCode) const;
-		void UpdateReleasingCounter(KeyCode keyCode) const;
-	public:
-		void ReadInput() override;
-		int GetPressingCount(KeyCode keyCode) const override;
-		int GetReleasingCount(KeyCode keyCode) const override;
-		bool IsPressKey(KeyCode keyCode) const override;
-		bool IsReleaseKey(KeyCode keyCode) const override;
-	};
+			// キーの総数
+			static constexpr int KEY_NUM = 256;
+			// 押されカウンタ
+			mutable int keyPressingCount[KEY_NUM];
+			// 離されカウンタ
+			mutable int keyReleasingCount[KEY_NUM];
+			// 押されたかどうか
+			mutable bool keyPressed[KEY_NUM];
+			// カウンタ更新
+			void UpdateCounter() const;
+			void UpdatePressingCounter(KeyCode keyCode) const;
+			void UpdateReleasingCounter(KeyCode keyCode) const;
+		public:
+			void ReadInput() override;
+			int GetPressingCount(KeyCode keyCode) const override;
+			int GetReleasingCount(KeyCode keyCode) const override;
+			bool IsPressKey(KeyCode keyCode) const override;
+			bool IsReleaseKey(KeyCode keyCode) const override;
+		};
+	}
+
 }

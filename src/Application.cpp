@@ -1,13 +1,13 @@
-#include "Game.hpp"
+#include "Application.hpp"
 #include "Mouse.hpp"
 #include "Keyboard.hpp"
 #include "DxLib.h"
 
-Game::Game()
+Application::Application()
 {
 }
 
-void Game::MainLoop()
+void Application::MainLoop()
 {
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
@@ -24,18 +24,18 @@ void Game::MainLoop()
 	}
 }
 
-void Game::Input()
+void Application::Input()
 {
-	Input::Mouse::Instance().ReadInput();
-	Input::Keyboard::Instance().ReadInput();
+	Engine::Input::Mouse::Instance().ReadInput();
+	Engine::Input::Keyboard::Instance().ReadInput();
 }
 
-void Game::Update()
+void Application::Update()
 {
 	sceneManager.Update();
 }
 
-void Game::Draw()
+void Application::Draw()
 {
 	sceneManager.Draw();
 }

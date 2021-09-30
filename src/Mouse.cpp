@@ -1,7 +1,7 @@
 #include <DxLib.h>
 #include "Mouse.hpp"
 
-void Input::Mouse::UpdateCounter()
+void Engine::Input::Mouse::UpdateCounter()
 {
 	KeyCode nowButtonState = GetMouseInput();
 
@@ -16,7 +16,7 @@ void Input::Mouse::UpdateCounter()
 	}
 }
 
-void Input::Mouse::UpdatePressingCounter(KeyCode keyCode) const
+void Engine::Input::Mouse::UpdatePressingCounter(KeyCode keyCode) const
 {			
 	// 離されカウンタが0より大きければ
 	if (buttonReleasingCount[keyCode] > 0)
@@ -29,7 +29,7 @@ void Input::Mouse::UpdatePressingCounter(KeyCode keyCode) const
 	buttonPressed[keyCode] = true;
 }
 
-void Input::Mouse::UpdateReleasingCounter(KeyCode keyCode) const
+void Engine::Input::Mouse::UpdateReleasingCounter(KeyCode keyCode) const
 {			
 	// 押されカウンタが0より大きければ
 	if (buttonPressingCount[keyCode] > 0)
@@ -41,41 +41,41 @@ void Input::Mouse::UpdateReleasingCounter(KeyCode keyCode) const
 	buttonReleasingCount[keyCode]++;
 }
 
-void Input::Mouse::GetMousePosition() const
+void Engine::Input::Mouse::GetMousePosition() const
 {
 	int x, y;
 	GetMousePoint(&x, &y);
 	mousePos.SetPosition(static_cast<float>(x), static_cast<float>(y));
 }
 
-void Input::Mouse::ReadInput()
+void Engine::Input::Mouse::ReadInput()
 {
 	GetMousePosition();
 	UpdateCounter();
 }
 
-int Input::Mouse::GetPressingCount(KeyCode keyCode) const
+int Engine::Input::Mouse::GetPressingCount(KeyCode keyCode) const
 {
 	if (IsAvailableCode(keyCode))
 		return buttonPressingCount[keyCode];
 	return -1;
 }
 
-int Input::Mouse::GetReleasingCount(KeyCode keyCode) const
+int Engine::Input::Mouse::GetReleasingCount(KeyCode keyCode) const
 {
 	if (IsAvailableCode(keyCode))
 		return buttonReleasingCount[keyCode];
 	return -1;
 }
 
-bool Input::Mouse::IsPressKey(KeyCode keyCode) const
+bool Engine::Input::Mouse::IsPressKey(KeyCode keyCode) const
 {
 	if (GetPressingCount(keyCode) == 1)
 		return true;
 	return false;
 }
 
-bool Input::Mouse::IsReleaseKey(KeyCode keyCode) const
+bool Engine::Input::Mouse::IsReleaseKey(KeyCode keyCode) const
 {
 	if (GetPressingCount(keyCode) == 0 && buttonPressed[keyCode])
 	{

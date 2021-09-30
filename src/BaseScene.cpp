@@ -2,7 +2,7 @@
 #include "ISceneChanger.hpp"
 #include "DxLib.h"
 
-BaseScene::BaseScene(ISceneChanger* changer)
+Engine::Scene::BaseScene::BaseScene(ISceneChanger* changer)
 {
 	sceneChanger = changer;
 }

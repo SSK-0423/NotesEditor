@@ -5,7 +5,7 @@
 #include "Matrix.hpp"
 #include "Rotator.hpp"
 
-void Component::Collider::BoxCollider::UpdatePolygon()
+void Engine::Components::BoxCollider::UpdatePolygon()
 {
 	// ƒ|ƒŠƒSƒ“‚Ì’¸“_‰Šú‰»
 	rect->ResetVertex();
@@ -68,33 +68,33 @@ void Component::Collider::BoxCollider::UpdatePolygon()
 	rect->AddPoint(rotatedP4.myMatrix[0][0], rotatedP4.myMatrix[1][0]);
 }
 
-Component::Collider::BoxCollider::BoxCollider(const Component::Transform& transform) : parentTransform(transform)
+Engine::Components::BoxCollider::BoxCollider(const Components::Transform& transform) : parentTransform(transform)
 {
-	rect = new Polygon::Polygon();
+	rect = new PrimitiveObj::Polygon();
 	UpdatePolygon();
 }
 
-Component::Collider::BoxCollider::~BoxCollider()
+Engine::Components::BoxCollider::~BoxCollider()
 {
 	//delete rect;
 }
 
-void Component::Collider::BoxCollider::Draw()
+void Engine::Components::BoxCollider::Draw()
 {
 	rect->Draw();
 }
 
-void Component::Collider::BoxCollider::Update()
+void Engine::Components::BoxCollider::Update()
 {
 	UpdatePolygon();
 }
 
-Polygon::Polygon Component::Collider::BoxCollider::GetPolygon() const
+PrimitiveObj::Polygon Engine::Components::BoxCollider::GetPolygon() const
 {
 	return *rect;
 }
 
-Component::Collider::COLLIDERTYPE Component::Collider::BoxCollider::GetColliderType() const
+Engine::Components::COLLIDERTYPE Engine::Components::BoxCollider::GetColliderType() const
 {
 	return COLLIDERTYPE::COLLIDERTYPE_BOX;
 }

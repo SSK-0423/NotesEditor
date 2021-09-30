@@ -3,7 +3,7 @@
 #include "DxLib.h"
 #include <cmath>
 
-Component::Texture::Texture(const Transform& transform, const char* path) : imageHandle(-1), parentTransform(transform)
+Engine::Components::Texture::Texture(const Transform& transform, const char* path) : imageHandle(-1), parentTransform(transform)
 {
 	imageHandle = LoadGraph(path);
 
@@ -11,7 +11,7 @@ Component::Texture::Texture(const Transform& transform, const char* path) : imag
 	GetGraphSizeF(imageHandle, &imgWidth, &imgHeight);
 }
 
-void Component::Texture::Update()
+void Engine::Components::Texture::Update()
 {
 	Position pos = parentTransform.GetPosition();
 	Rotation rot = parentTransform.GetRotation();
@@ -26,7 +26,7 @@ void Component::Texture::Update()
 	sizeHeight = size.GetHeight();
 }
 
-void Component::Texture::Draw()
+void Engine::Components::Texture::Draw()
 {
 	// ‰æ‘œ‚ªƒZƒbƒg‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í•`‰æ‚µ‚È‚¢
 	if (imageHandle == -1) return;
@@ -36,12 +36,12 @@ void Component::Texture::Draw()
 		angle, imageHandle, false, false);
 }
 
-void Component::Texture::LoadTexture(const char* path) const
+void Engine::Components::Texture::LoadTexture(const char* path) const
 {
 	imageHandle = LoadGraph(path);
 }
 
-void Component::Texture::GetTextureSize(float& w, float& h) const
+void Engine::Components::Texture::GetTextureSize(float& w, float& h) const
 {
 	w = imgWidth;
 	h = imgHeight;

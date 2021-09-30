@@ -3,11 +3,11 @@
 #include "Point.hpp"
 #include "DxLib.h"
 
-PolygonObject::Polygon::Polygon() : color(GetColor(255, 255, 255))
+Engine::PrimitiveObj::Polygon::Polygon() : color(GetColor(255, 255, 255))
 {
 }
 
-PolygonObject::Polygon::Polygon(const Polygon& polygon) : color(GetColor(255,255,255))
+Engine::PrimitiveObj::Polygon::Polygon(const Polygon& polygon) : color(GetColor(255,255,255))
 {
 	// vectorに値をコピー
 	for (Point* p : polygon.vertex)
@@ -17,7 +17,7 @@ PolygonObject::Polygon::Polygon(const Polygon& polygon) : color(GetColor(255,255
 	}
 }
 
-PolygonObject::Polygon::~Polygon()
+Engine::PrimitiveObj::Polygon::~Polygon()
 {
 	for (auto& p : vertex) 
 	{
@@ -27,7 +27,7 @@ PolygonObject::Polygon::~Polygon()
 	vertex.shrink_to_fit();
 }
 
-void PolygonObject::Polygon::Draw()
+void Engine::PrimitiveObj::Polygon::Draw()
 {
 	for (size_t i = 0; i < vertex.size() - 1; i++)
 		DrawLineAA(vertex[i]->x, vertex[i]->y, vertex[i + 1]->x, vertex[i + 1]->y,color, 1.f);
@@ -36,17 +36,17 @@ void PolygonObject::Polygon::Draw()
 	DrawLineAA(vertex[vertex.size() - 1]->x, vertex[vertex.size() - 1]->y, vertex[0]->x, vertex[0]->y, color, 1.f);
 }
 
-void PolygonObject::Polygon::AddPoint(float x, float y)
+void Engine::PrimitiveObj::Polygon::AddPoint(float x, float y)
 {
 	vertex.push_back(new Point(x, y));
 }
 
-void PolygonObject::Polygon::ChangedColor(int r, int g, int b)
+void Engine::PrimitiveObj::Polygon::ChangedColor(int r, int g, int b)
 {
 	color = GetColor(r, g, b);
 }
 
-std::vector<PolygonObject::Point> PolygonObject::Polygon::GetVertexList() const
+std::vector<Engine::PrimitiveObj::Point> Engine::PrimitiveObj::Polygon::GetVertexList() const
 {
 	std::vector<Point> points;
 
@@ -58,7 +58,7 @@ std::vector<PolygonObject::Point> PolygonObject::Polygon::GetVertexList() const
 	return points;
 }
 
-void PolygonObject::Polygon::ResetVertex()
+void Engine::PrimitiveObj::Polygon::ResetVertex()
 {
 	for (auto& p : vertex)
 	{

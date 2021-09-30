@@ -6,13 +6,17 @@ typedef enum
 	SCENE_NONE
 } SCENE;
 
-namespace Scene {
+namespace Engine
+{
+	namespace Scene {
 
-	//シーンを変更するためのインターフェイスクラス
-	class ISceneChanger {
-	public:
-		virtual ~ISceneChanger() = 0;
-		//指定シーンに変更する
-		virtual void ChangeScene(SCENE NextScene) = 0;
-	};
+		//シーンを変更するためのインターフェイスクラス
+		class ISceneChanger {
+		public:
+			virtual ~ISceneChanger() = 0;
+			//指定シーンに変更する
+			virtual void ChangeScene(SCENE NextScene) = 0;
+		};
+	}
+
 }

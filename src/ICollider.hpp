@@ -3,9 +3,10 @@ namespace PolygonObject
 {
 	class Polygon;
 }
-namespace Component
+
+namespace Engine
 {
-	namespace Collider
+	namespace Components
 	{
 		enum class COLLIDERTYPE
 		{
