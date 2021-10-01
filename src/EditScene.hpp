@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseScene.hpp"
 #include "EditorSceneCanvas.hpp"
+#include "NotesEditorMusic.hpp"
 
 namespace NotesEditor 
 {

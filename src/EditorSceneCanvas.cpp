@@ -5,6 +5,7 @@
 #include "TextureButton.hpp"
 #include "TextureTextBox.hpp"
 #include "Music.hpp"
+#include "NotesEditorMusic.hpp"
 #include "DxLib.h"
 
 const int BUTTON_SIZE_WIDTH = 126;
@@ -39,14 +40,18 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	//buttonList[BUTTON::BUTTON_SHORT]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_LONG]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_SLIDE]->SetEventFunc();
-	buttonList[BUTTON::BUTTON_PLAY]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::PlayMusic));
-	buttonList[BUTTON::BUTTON_RESTART]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::RestartMusic));
+	//buttonList[BUTTON::BUTTON_PLAY]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::PlayMusic));
+	buttonList[BUTTON::BUTTON_PLAY]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic, void(void)>::createDelegator(&NotesEditor::NotesEditorMusic::Instance(), &NotesEditor::NotesEditorMusic::PlayStopMusic));
+	//buttonList[BUTTON::BUTTON_RESTART]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::RestartMusic));
+	buttonList[BUTTON::BUTTON_RESTART]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic, void(void)>::createDelegator(&NotesEditor::NotesEditorMusic::Instance(), &NotesEditor::NotesEditorMusic::ReplayMusic));
 	//buttonList[BUTTON::BUTTON_CHANGEBAR]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR4]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR8]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR16]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR32]->SetEventFunc();
-	buttonList[BUTTON::BUTTON_LOADMUSIC]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance() , &Music::LoadMusic));
+	//buttonList[BUTTON::BUTTON_LOADMUSIC]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::LoadMusic));
+	buttonList[BUTTON::BUTTON_LOADMUSIC]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic, 
+		void(void)>::createDelegator(&NotesEditor::NotesEditorMusic::Instance() , &NotesEditor::NotesEditorMusic::LoadMusic));
 	//buttonList[BUTTON::BUTTON_LOAD]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_SAVE]->SetEventFunc();
 

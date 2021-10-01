@@ -8,6 +8,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	//ウィンドウモード、初期化、裏画面設定
 	SetGraphMode(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, 16);
 	ChangeWindowMode(true), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
+	SetDrawMode(DX_DRAWMODE_BILINEAR);
 	SetAlwaysRunFlag(true);
 	Application game;
 	game.MainLoop();

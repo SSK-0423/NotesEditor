@@ -33,16 +33,13 @@ void Engine::Components::Music::LoadMusic(){
 
 // ‹È‚ÌÄ¶E’â~
 void Engine::Components::Music::PlayMusic(){
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "MusicƒNƒ‰ƒX‚ÌŠÖ”");
 	if (!CheckSoundMem(musicHandle)) {
 		PlaySoundMem(musicHandle, DX_PLAYTYPE_LOOP, false);
 		isPlay = true;
+		return;
 	}
-	else {
-		StopSoundMem(musicHandle);
-		isPlay = false;
-	}
-	//isPlay = true;
+	StopSoundMem(musicHandle);
+	isPlay = false;
 }
 
 void Engine::Components::Music::RestartMusic(){

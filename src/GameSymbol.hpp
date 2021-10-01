@@ -46,6 +46,12 @@ using Position2D = Vector2<T>;
 template<class T>
 using Rotation2D = Vector2<T>;
 
+enum RESULT
+{
+	RESULT_SUCCEED = 0,
+	RESULT_ERROR = -1
+};
+
 // êF
 using Color = unsigned int;
 // âÊëú

@@ -23,7 +23,7 @@ Engine::UI::TextureButton::TextureButton(const char* filePath, Components::COLLI
 
 	// Collider生成
 	collider = Engine::ColliderCreator::Instance().CreateCollider(type, *transform);
-	
+
 	eventFunc = nullptr;
 
 	// Transformをテクスチャのサイズに合わせる
@@ -52,21 +52,31 @@ void Engine::UI::TextureButton::Update()
 	float x, y;
 	x = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPosX();
 	y = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPosY();
-	
+
 	// マウスポインタがボタンの上にあるか
 	bool isOnButton = collision->Collision(x, y, *collider);
-	// 左クリックされたか
-	bool isClick = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPressingCount(Engine::Input::Mouse::LEFT_CLICK);
 
-	// ボタンクリック時の処理
-	if (isOnButton && isClick)
+	//// ボタンクリック時の処理
+	if (isOnButton)
 	{
-		// ボタンサイズ変更
-		transform->Scaling(CLICKEDSIZE,CLICKEDSIZE);
-		// イベント実行
-		RunEventFunc();
+		// 左クリックされているか
+		bool isClicking = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPressingCount(Engine::Input::Mouse::LEFT_CLICK);
+		// 左クリックが離されたか
+		bool isRelease = Engine::Input::InputDeviceContainer::Instance().GetMouse().IsReleaseKey(Engine::Input::Mouse::LEFT_CLICK);
 
-		return;
+		if (isRelease)
+		{
+			// イベント実行
+			RunEventFunc();
+		}
+
+		if (isClicking)
+		{
+			// ボタンサイズ変更
+			transform->Scaling(CLICKEDSIZE, CLICKEDSIZE);
+			return;
+
+		}
 	}
 
 	// ボタンを元の大きさに戻す

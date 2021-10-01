@@ -1,7 +1,20 @@
 #pragma once
-#include "Component.hpp"
+#include "GameSymbol.hpp"
 
-class AudioSource : Component{
-private:
-public:
-};
+namespace Engine
+{
+	namespace Components
+	{
+		class AudioSource {
+		private:
+			Audio audioHandle;
+		public:
+			AudioSource();
+			AudioSource(const char* filePath);
+			int PlayAudio();
+			int StopAudio();
+			int ReplayAudio();
+			int LoadAudio(const char* filePath);
+		};
+	}
+}
