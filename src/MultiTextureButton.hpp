@@ -1,5 +1,6 @@
 #pragma once
 #include "Button.hpp"
+#include <vector>
 
 namespace Engine
 {
@@ -25,7 +26,7 @@ namespace Engine
 	{
 		class MultiTextureButton : public Button{
 		private:
-			Components::Texture* texture;
+			std::vector<Components::Texture*> texture;
 			Components::ICollider* collider;
 			// マウスポインタとポリゴンとの判定
 			Collision::PointWithPolygon* collision;
@@ -33,6 +34,7 @@ namespace Engine
 		public:
 			MultiTextureButton(const char* filePath, Components::COLLIDERTYPE type);
 			virtual ~MultiTextureButton();
+			void AddTexture(const char* filePath);
 			void Update();
 			void Draw();
 

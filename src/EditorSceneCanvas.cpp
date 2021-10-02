@@ -3,6 +3,7 @@
 #include "Transform.hpp"
 #include "ICollider.hpp"
 #include "TextureButton.hpp"
+#include "MusicInfoTextBox.hpp"
 #include "TextureTextBox.hpp"
 #include "Music.hpp"
 #include "NotesEditorMusic.hpp"
@@ -11,6 +12,8 @@
 const int BUTTON_SIZE_WIDTH = 126;
 const int BUTTON_SIZE_HEIGHT = 66;
 const int BUTTON_SIZE_HEIGHT2 = 66;
+const int BOX_SIZE_WIDTH = 252;
+const int BOX_SIZE_HEIGHT = 122;
 const int ADD = 10;
 const int BUTTON_POS_Y = BUTTON_SIZE_HEIGHT * 2 + ADD * 5;
 
@@ -40,18 +43,17 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	//buttonList[BUTTON::BUTTON_SHORT]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_LONG]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_SLIDE]->SetEventFunc();
-	//buttonList[BUTTON::BUTTON_PLAY]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::PlayMusic));
-	buttonList[BUTTON::BUTTON_PLAY]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic, void(void)>::createDelegator(&NotesEditor::NotesEditorMusic::Instance(), &NotesEditor::NotesEditorMusic::PlayStopMusic));
-	//buttonList[BUTTON::BUTTON_RESTART]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::RestartMusic));
-	buttonList[BUTTON::BUTTON_RESTART]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic, void(void)>::createDelegator(&NotesEditor::NotesEditorMusic::Instance(), &NotesEditor::NotesEditorMusic::ReplayMusic));
+	buttonList[BUTTON::BUTTON_PLAY]->SetEventFunc(Delegate<NotesEditorMusic,
+		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayStopMusic));
+	buttonList[BUTTON::BUTTON_RESTART]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic,
+		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::ReplayMusic));
 	//buttonList[BUTTON::BUTTON_CHANGEBAR]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR4]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR8]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR16]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_CHANGEBAR32]->SetEventFunc();
-	//buttonList[BUTTON::BUTTON_LOADMUSIC]->SetEventFunc(Delegate<Engine::Components::Music, void(void)>::createDelegator(&Engine::Components::Music::Instance(), &Music::LoadMusic));
-	buttonList[BUTTON::BUTTON_LOADMUSIC]->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic, 
-		void(void)>::createDelegator(&NotesEditor::NotesEditorMusic::Instance() , &NotesEditor::NotesEditorMusic::LoadMusic));
+	buttonList[BUTTON::BUTTON_LOADMUSIC]->SetEventFunc(Delegate<NotesEditorMusic,
+		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::LoadMusic));
 	//buttonList[BUTTON::BUTTON_LOAD]->SetEventFunc();
 	//buttonList[BUTTON::BUTTON_SAVE]->SetEventFunc();
 
@@ -93,20 +95,21 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 
 void NotesEditor::EditorSceneCanvas::InitTextBox()
 {
-	TextureTextBox* viewMusicInfo = new TextureTextBox("image/MUSIC_NAME_BPM.png");
-	guiList.push_back(viewMusicInfo);
-	//viewMusicInfo->GetTransform().Scaling(0.65f, 1.f);
-	viewMusicInfo->GetTransform().SetPosition(132.f, 70.f);
+	MusicInfoTextBox* musicDataText = new MusicInfoTextBox("image/MUSIC_NAME_BPM.png");
+	guiList.push_back(musicDataText);
 }
 
 NotesEditor::EditorSceneCanvas::EditorSceneCanvas()
 {
-	x = 1.f;
-	y = 1.f;
 }
 
 NotesEditor::EditorSceneCanvas::~EditorSceneCanvas()
 {
+	for (auto& gui : guiList)
+		delete gui;
+
+	guiList.clear();
+	guiList.shrink_to_fit();
 }
 
 void NotesEditor::EditorSceneCanvas::Init()
@@ -117,31 +120,6 @@ void NotesEditor::EditorSceneCanvas::Init()
 
 void NotesEditor::EditorSceneCanvas::Update()
 {
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_W))
-		guiList[0]->GetTransform().Translate(0.f, -1.f);
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_S))
-		guiList[0]->GetTransform().Translate(0.f, 1.f);
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_A))
-		guiList[0]->GetTransform().Translate(-1.f, 0.f);
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_D))
-		guiList[0]->GetTransform().Translate(1.f, 0.f);
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_Q))
-		x += 0.01f;
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_E))
-		x -= 0.01f;
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_Z))
-		y += 0.01f;
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_X))
-		y -= 0.01f;
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_R))
-	{
-		x += 0.01f; y += 0.01f;
-	}
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_F))
-	{
-		x -= 0.01f; y -= 0.01f;
-	}
-
 	for (auto& gui : guiList)
 	{
 		gui->Update();

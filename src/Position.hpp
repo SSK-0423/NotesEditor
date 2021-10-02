@@ -10,27 +10,24 @@ namespace Engine
 	{
 
 		class Position {
-		private:
-			float posX;
-			float posY;
 		public:
-			Position() :posX(0), posY(0) {}
-			Position(float x, float y) :posX(x), posY(y) {}
-
-			float GetPosX() const { return posX; }
-			float GetPosY() const { return posY; }
+			float x;
+			float y;
+			
+			Position() :x(0), y(0) {}
+			Position(float x, float y) :x(x), y(y) {}
 
 			// 移動
 			void Translate(float x, float y)
 			{
-				posX += x;
-				posY += y;
+				this->x += x;
+				this->y += y;
 			}
 			// 座標セット
 			void SetPosition(float x, float y)
 			{
-				posX = x;
-				posY = y;
+				this->x = x;
+				this->y = y;
 			}
 		};
 	}

@@ -27,13 +27,18 @@ namespace Engine
 
 	namespace UI
 	{
+		class ButtonImpl;
+
 		class TextureButton : public Button {
 		private:
 			Components::Texture* texture;
 			Components::ICollider* collider;
 			// マウスポインタとポリゴンとの判定
 			Collision::PointWithPolygon* collision;
+			ButtonImpl* impl;
 			void RunEventFunc();
+			bool IsOnButton();
+			void CheckClick();
 		public:
 			TextureButton(const char* filePath, Components::COLLIDERTYPE type);
 			virtual ~TextureButton();

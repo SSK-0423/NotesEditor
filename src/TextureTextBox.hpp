@@ -4,8 +4,6 @@
 #include "Texture.hpp"
 #include <string>
 #include <vector>
-#define BOX_SIZE_WIDTH 252
-#define BOX_SIZE_HEIGHT 122
 
 namespace Engine
 {
@@ -35,6 +33,7 @@ namespace Engine
 			void AddText(std::string str);
 			void SetColor(int r, int g, int b);
 			void CreateFontHandle(const char* name, int size, int thick, int fonttype);
+			void ResetText();
 		};
 	}
 }

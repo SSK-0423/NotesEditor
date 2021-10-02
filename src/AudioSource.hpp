@@ -14,6 +14,8 @@ namespace Engine
 			int PlayAudio();
 			int StopAudio();
 			int ReplayAudio();
+			int GetTotalTime();
+			float GetElapsedTime();
 			int LoadAudio(const char* filePath);
 		};
 	}

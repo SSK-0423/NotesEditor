@@ -18,12 +18,8 @@ namespace Engine
 			float posX, posY;
 			// 角度
 			Degree angle;
-			// サイズ
-			float sizeWidth, sizeHeight;
 			// 画像サイズ
 			float imgWidth, imgHeight;
-			// スケール
-			float scaleWidth, scaleHeight;
 			// 描画時のスケール
 			double drawScaleWidth, drawScaleHeight;
 			

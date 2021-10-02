@@ -50,9 +50,9 @@ namespace Engine
 			// マウスポインタの座標取得
 			Components::Position GetPosition() const { return mousePos; }
 			// マウスポインタのX座標取得
-			float GetPosX() const { return mousePos.GetPosX(); }
+			float GetPosX() const { return mousePos.x; }
 			// マウスポインタのY座標取得
-			float GetPosY() const { return mousePos.GetPosY(); }
+			float GetPosY() const { return mousePos.y; }
 		};
 	}
 }

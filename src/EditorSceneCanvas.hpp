@@ -27,7 +27,6 @@ namespace NotesEditor
 	private:
 		void InitButton();
 		void InitTextBox();
-		float x, y;
 
 	public:
 		EditorSceneCanvas();

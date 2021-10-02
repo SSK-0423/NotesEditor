@@ -12,7 +12,7 @@ Engine::Components::AudioSource::AudioSource(const char* filePath) : audioHandle
 int Engine::Components::AudioSource::PlayAudio()
 {
 	bool isPlaying = CheckSoundMem(audioHandle);
-	if (audioHandle == RESULT::RESULT_ERROR || isPlaying)
+	if (audioHandle == NONE || isPlaying)
 		return RESULT::RESULT_ERROR;
 
 	// 0:ê¨å˜ -1:é∏îs
@@ -37,10 +37,23 @@ int Engine::Components::AudioSource::ReplayAudio()
 	return PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, true);
 }
 
+int Engine::Components::AudioSource::GetTotalTime()
+{
+	return GetSoundTotalTime(audioHandle);
+}
+
+float Engine::Components::AudioSource::GetElapsedTime()
+{
+	if (audioHandle == NONE)
+		return RESULT::RESULT_ERROR;
+	
+	return static_cast<float>(GetSoundCurrentTime(audioHandle));
+}
+
 int Engine::Components::AudioSource::LoadAudio(const char* filePath)
 {
 	audioHandle = LoadSoundMem(filePath);
-	if (audioHandle == RESULT::RESULT_ERROR)
+	if (audioHandle == NONE)
 		return RESULT::RESULT_ERROR;
 
 	return RESULT::RESULT_SUCCEED;

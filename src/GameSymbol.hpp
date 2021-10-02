@@ -52,6 +52,8 @@ enum RESULT
 	RESULT_ERROR = -1
 };
 
+const int NONE = -1;
+
 // F
 using Color = unsigned int;
 // ‰æ‘œ

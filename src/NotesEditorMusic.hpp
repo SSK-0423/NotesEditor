@@ -12,7 +12,6 @@ namespace NotesEditor
 		OpenFileExplorer openFileExplorer;
 		Engine::Components::AudioSource audioSource;
 		
-		std::string str;
 		//jsonファイル
 		picojson::value json;
 		//曲名
@@ -25,6 +24,7 @@ namespace NotesEditor
 		bool isMusicLoaded;
 		bool isPlaying;
 	public:
+		//曲読み込み
 		void LoadMusic();
 		//曲の再生・停止
 		void PlayStopMusic();
@@ -41,11 +41,12 @@ namespace NotesEditor
 		//拍子取得
 		int GetBeat();
 		//曲が読み込まれたかどうかを取得
-		bool IsMusicLoad();
+		bool IsMusicLoaded();
 		//曲が再生中がどうか
 		bool IsPlaying();
-		//フラグ変更
-		void ChangeIsMusicLoaded();
+		//曲の読み込みが完了したことを通知
+		void CompleteMusicLoad();
+		//総再生時間と経過時間表示
 		void MusicTimeDraw();
 	};
 }

@@ -5,17 +5,12 @@ namespace Engine
 	{
 		using Degree = float;
 		class Rotation {
-		private:
-			float angle;
-
 		public:
+			float angle;
+			
 			Rotation() : angle(0.f) {}
 			Rotation(Degree angle) : angle(angle) {}
 
-			float GetAngle()
-			{
-				return angle;
-			}
 			void Rotate(Degree angle)
 			{
 				this->angle += angle;

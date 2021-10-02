@@ -1,12 +1,12 @@
 #include "NotesEditorMusic.hpp"
+#include "GameSymbol.hpp"
 
-NotesEditor::NotesEditorMusic::NotesEditorMusic() : audioSource(), bpm(0.f),beat(0),isMusicLoaded(false),isPlaying(false)
+NotesEditor::NotesEditorMusic::NotesEditorMusic() : musicName("No Data"), audioSource(), bpm(0.f), beat(0), isMusicLoaded(false), isPlaying(false)
 {
-
 }
+
 void NotesEditor::NotesEditorMusic::LoadMusic()
 {
-	DrawFormatString(0, 300, GetColor(0, 255, 0), "NotesEditorMusic::Music");
 	//jsonファイルを読み込む
 	if (openFileExplorer.OpenJsonFile(json) != -1) {
 		//既に読み込んだ曲を削除
@@ -20,8 +20,7 @@ void NotesEditor::NotesEditorMusic::LoadMusic()
 		//ファイルパス読込
 		std::string path = json.get<picojson::object>()["PATH"].get<std::string>();
 		//曲読み込み
-		//musicHandle = LoadSoundMem(path.c_str());
-		if (audioSource.LoadAudio(path.c_str()) == 0) 
+		if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED) 
 		{
 			isMusicLoaded = true;
 		}
@@ -48,41 +47,42 @@ void NotesEditor::NotesEditorMusic::ReplayMusic()
 
 int NotesEditor::NotesEditorMusic::GetTotalTime()
 {
-	return 0;
+	return audioSource.GetTotalTime();
 }
 
 float NotesEditor::NotesEditorMusic::GetElapsedTime()
 {
-	return 0.0f;
+	return audioSource.GetElapsedTime();
 }
 
 std::string NotesEditor::NotesEditorMusic::GetName()
 {
-	return std::string();
+	return musicName;
 }
 
 float NotesEditor::NotesEditorMusic::GetBPM()
 {
-	return 0.0f;
+	return bpm;
 }
 
 int NotesEditor::NotesEditorMusic::GetBeat()
 {
-	return 0;
+	return beat;
 }
 
-bool NotesEditor::NotesEditorMusic::IsMusicLoad()
+bool NotesEditor::NotesEditorMusic::IsMusicLoaded()
 {
-	return false;
+	return isMusicLoaded;
 }
 
 bool NotesEditor::NotesEditorMusic::IsPlaying()
 {
-	return false;
+	return isPlaying;
 }
 
-void NotesEditor::NotesEditorMusic::ChangeIsMusicLoaded()
+void NotesEditor::NotesEditorMusic::CompleteMusicLoad()
 {
+	isMusicLoaded = false;
 }
 
 void NotesEditor::NotesEditorMusic::MusicTimeDraw()

@@ -4,29 +4,28 @@
 
 void Engine::UI::TextureTextBox::DrawStrings()
 {
-	//Position2D<float> textBoxPos = transform.GetPosition();
-	//Size2D<float> textBoxSize = transform.GetSize();
-	transform->GetPosition();
-	transform->GetRotation();
+	Engine::Components::Position pos = transform->GetPosition();
+	Engine::Components::Size size = transform->GetSize();
 
-	//for (int i = 0; i < text.size(); i++) 
-	//{
-	//	DrawFormatStringToHandle(textBoxPos.x - 
-	//		GetDrawStringWidthToHandle(text[i].c_str(), text[i].size(), fontHandle) / 2.f, textBoxPos.y - textBoxSize.height / 2 + textBoxSize.height / text.size() * (i+1) - 37.5, 
-	//		color, fontHandle, text[i].c_str());
-	//}
-	//text.clear();
+	for (size_t i = 0; i < text.size(); i++)
+	{
+		int stringWidth = GetDrawStringWidthToHandle(text[i].c_str(), text[i].size(), fontHandle);
+		//if (stringWidth >= 13 * 19 && i == 0)
+		//{
+		//	DrawFormatString(700, 700, GetColor(0, 255, 0), "文字幅:%d", stringWidth);
+		//	fontHandle = CreateFontToHandle("default", stringWidth / text[i].size(), 1, DX_FONTTYPE_ANTIALIASING);
+		//}
+		DrawFormatStringToHandle(pos.x - stringWidth / 2.f,
+			pos.y - size.height / 2 + size.height / text.size() * (i + 1) - 37.5,
+			color, fontHandle, text[i].c_str());
+	}
 }
 
-Engine::UI::TextureTextBox::TextureTextBox(const char* filePath)
+Engine::UI::TextureTextBox::TextureTextBox(const char* filePath) : color(GetColor(255, 255, 255))
 {
-	transform = new Engine::Components::Transform();
-	//this->transform.SetPosition({ BOX_SIZE_WIDTH / 2.f + 8,BOX_SIZE_HEIGHT / 2.f + 8 });
-	//this->transform.SetSize({ BOX_SIZE_WIDTH * 1.f,BOX_SIZE_HEIGHT * 1.f });
-
 	fontHandle = CreateFontToHandle("default", 25, 1, DX_FONTTYPE_ANTIALIASING);
-	color = GetColor(255, 255, 255);
-	texture = new Engine::Components::Texture(*transform,filePath);
+	transform = new Engine::Components::Transform();
+	texture = new Engine::Components::Texture(*transform, filePath);
 }
 
 Engine::UI::TextureTextBox::~TextureTextBox()
@@ -42,22 +41,25 @@ void Engine::UI::TextureTextBox::Draw()
 {
 	texture->Draw();
 	DrawStrings();
-	DrawFormatString(0, 100, color, "%d", text.size());
 }
 
-// テキスト追加
 void Engine::UI::TextureTextBox::AddText(std::string str)
 {
-	std::string s = str;
 	text.push_back(str);
 }
-// 色セット
+
 void Engine::UI::TextureTextBox::SetColor(int r, int g, int b)
 {
 	color = GetColor(r, g, b);
 }
-// フォントハンドルの生成
+
 void Engine::UI::TextureTextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype)
 {
 	fontHandle = CreateFontToHandle(name, size, thick, fonttype);
+}
+
+void Engine::UI::TextureTextBox::ResetText()
+{
+	text.clear();
+	text.shrink_to_fit();
 }

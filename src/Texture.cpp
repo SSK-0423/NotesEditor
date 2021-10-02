@@ -3,7 +3,9 @@
 #include "DxLib.h"
 #include <cmath>
 
-Engine::Components::Texture::Texture(const Transform& transform, const char* path) : imageHandle(-1), parentTransform(transform)
+Engine::Components::Texture::Texture(const Transform& transform, const char* path)
+	: posX(0.f),posY(0.f),angle(0.f),imgWidth(1.f),imgHeight(1.f),
+	drawScaleWidth(1.f),drawScaleHeight(1.f),imageHandle(-1), parentTransform(transform)
 {
 	imageHandle = LoadGraph(path);
 
@@ -18,18 +20,18 @@ void Engine::Components::Texture::Update()
 	Size size = parentTransform.GetSize();
 
 	// 座標取得
-	posX = pos.GetPosX();
-	posY = pos.GetPosY();
+	posX = pos.x;
+	posY = pos.y;
 
 	// 度数からラジアンへ変換
-	angle = acosf(-1.f) / 180.f * rot.GetAngle();
+	angle = acosf(-1.f) / 180.f * rot.angle;
 
-	sizeWidth = size.GetWidth();
-	sizeHeight = size.GetHeight();
+	float sizeWidth = size.width;
+	float sizeHeight = size.height;
 
 	// スケール取得
-	scaleWidth = size.GetScaleWidth();
-	scaleHeight = size.GetScaleHeight();
+	float scaleWidth = size.scaleWidth;
+	float scaleHeight = size.scaleHeight;
 
 	// 描画時のスケール計算
 	drawScaleWidth = static_cast<double>(sizeWidth / imgWidth) * scaleWidth;

@@ -162,10 +162,14 @@
     <ClCompile Include="src\NotesEditorMusic.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
+    <ClCompile Include="src\MusicInfoTextBox.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.hpp">
@@ -302,6 +306,15 @@
     </ClInclude>
     <ClInclude Include="src\NotesEditorMusic.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameSymbol.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MusicInfoTextBox.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonImpl.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

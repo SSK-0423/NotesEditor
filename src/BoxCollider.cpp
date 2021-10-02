@@ -17,11 +17,11 @@ void Engine::Components::BoxCollider::UpdatePolygon()
 	// Šp“x
 	float angle;
 
-	posX = parentTransform.GetPosition().GetPosX();
-	posY = parentTransform.GetPosition().GetPosY();
-	width = parentTransform.GetSize().GetWidth() * parentTransform.GetSize().GetScaleWidth();
-	height = parentTransform.GetSize().GetHeight() * parentTransform.GetSize().GetScaleHeight();
-	angle = parentTransform.GetRotation().GetAngle();
+	posX = parentTransform.GetPosition().x;
+	posY = parentTransform.GetPosition().y;
+	width = parentTransform.GetSize().width * parentTransform.GetSize().scaleWidth;
+	height = parentTransform.GetSize().height * parentTransform.GetSize().scaleHeight;
+	angle = parentTransform.GetRotation().angle;
 
 	PrimitiveObj::Point p1(-width / 2.f, -height / 2.f);
 	PrimitiveObj::Point p2(-width / 2.f, height / 2.f);
