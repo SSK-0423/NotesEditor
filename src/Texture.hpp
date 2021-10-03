@@ -6,6 +6,9 @@ namespace Engine
 	namespace Components
 	{
 		class Transform;
+		class Position;
+		class Rotation;
+		class Size;
 
 		class Texture {
 		private:

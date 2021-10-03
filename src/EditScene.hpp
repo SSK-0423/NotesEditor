@@ -1,8 +1,14 @@
 #pragma once
 #include "BaseScene.hpp"
 #include "EditorSceneCanvas.hpp"
+#include "Camera2D.hpp"
 #include "NotesEditorMusic.hpp"
+#include "TestObject.h"
 
+namespace Engine
+{
+	class GameObject;
+}
 namespace NotesEditor 
 {
 
@@ -12,11 +18,11 @@ namespace NotesEditor
 		int laneHandle;
 		//EditorCamera editorCamera
 		//EditorCanvas editorCanvas;
-		//Camera2D camera;
+		Engine::Camera2D camera;
 		//BarManager barManager;
 		//NotesManager notesManager;
-		//std::vector<std::vector<GameObject*>*> objList;
-
+		std::vector<std::vector<Engine::GameObject*>*> objList;
+		TestObject obj;
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
 		void Update() override;

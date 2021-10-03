@@ -1,29 +1,37 @@
 #pragma once
 #include "GameSymbol.hpp"
-#include "Transform.hpp"
 
-namespace GameObject
+namespace Engine
 {
+	namespace Components
+	{
+		class Transform;
+		class Position;
+	}
 
 	class GameObject {
 	protected:
 		// オブジェクトの位置・サイズ
-		Component::Transform transform;
+		Components::Transform* transform;
+		// 描画用座標
+		Components::Position* screenPos;
 
 	public:
-		GameObject() noexcept;
-		~GameObject() noexcept;
+		GameObject();
+		virtual ~GameObject();
 
-		const Component::Transform& GetTransform() const
+		const Components::Transform& GetTransform() const
 		{
-			return transform;
+			return *transform;
 		}
 
-		Component::Transform& GetTransform()
+		Components::Transform& GetTransform()
 		{
-			return transform;
+			return *transform;
 		}
-
+		
+		Components::Position GetScreenPos();
+		void UpdateScreenPos(Components::Position& pos);
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 	};

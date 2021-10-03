@@ -1,32 +1,36 @@
 #include "Camera2D.hpp"
 #include "DxLib.h"
-#include "Transform.hpp"
+#include "transform.hpp"
 #include "WindowSize.hpp"
+#include "InputDeviceContainer.hpp"
+#include "TestObject.h"
 #include <math.h>
 
 const float CAMERA_WIDTH = WINDOW_SIZE_WIDTH / 2.f;
 const float CAMERA_HEIGHT = WINDOW_SIZE_HEIGHT / 2.f;
 
-Camera2D::Camera2D(std::vector<std::vector<GameObject*>*>& vec) noexcept : objList(&vec)
+Engine::Camera2D::Camera2D()
 {
-	Position2D<float> initPos;
-	initPos.x = WINDOW_SIZE_WIDTH / 2.f;
-	initPos.y = WINDOW_SIZE_HEIGHT / 2.f;
-	transform.SetPosition(initPos);
+	objList = nullptr;
+	transform = new Components::Transform();
+	transform->SetPosition(WINDOW_SIZE_WIDTH / 2.f, WINDOW_SIZE_HEIGHT / 2.f);
+	transform->SetSize(WINDOW_SIZE_WIDTH / 2.f, WINDOW_SIZE_HEIGHT);
+}
 
-	Size2D<float> initSize;
-	initSize.width = WINDOW_SIZE_WIDTH / 2.f;
-	initSize.height = WINDOW_SIZE_HEIGHT / 2.f;
-	transform.SetSize(initSize);
+Engine::Camera2D::Camera2D(std::vector<std::vector<GameObject*>*>& vec) : objList(&vec)
+{
+	transform = new Components::Transform();
+	transform->SetPosition(WINDOW_SIZE_WIDTH / 2.f, WINDOW_SIZE_HEIGHT / 2.f);
+	transform->SetSize(WINDOW_SIZE_WIDTH / 2.f, WINDOW_SIZE_HEIGHT);
 }
 
 //デストラクタ
-Camera2D::~Camera2D() noexcept 
+Engine::Camera2D::~Camera2D()
 {
 	DeleteObj();
 }
 
-void Camera2D::Update() noexcept 
+void Engine::Camera2D::Update()
 {
 	UpdateOrigin();
 	// カメラ内オブジェクトリストを更新
@@ -39,7 +43,7 @@ void Camera2D::Update() noexcept
 	LimitPos();
 }
 
-void Camera2D::Draw() noexcept 
+void Engine::Camera2D::Draw()
 {
 	//デバッグ用文字列などの描画
 	DebugDraw();
@@ -47,20 +51,16 @@ void Camera2D::Draw() noexcept
 	DrawInCameraObj();
 }
 
-void Camera2D::Input() noexcept
-{
-}
-
 //描画オブジェクトリストを更新
-void Camera2D::UpdateDrawList() noexcept 
+void Engine::Camera2D::UpdateDrawList()
 {
-	for (auto list : *objList) 
+	for (auto list : *objList)
 	{
 		//DrawFormatString(700, 225, GetColor(0, 255, 0), "size:%d",list->size());
-		for (auto obj : *list) 
+		for (auto obj : *list)
 		{
 			//カメラに入っているか判定して描画リストに追加
-			if (Collision(*obj)) 
+			if (Collision(*obj))
 			{
 				drawList.push_back(obj);
 			}
@@ -69,33 +69,30 @@ void Camera2D::UpdateDrawList() noexcept
 }
 
 //カメラに枠に入ったか判定
-bool Camera2D::Collision(const GameObject& obj) noexcept 
+bool Engine::Camera2D::Collision(const GameObject& obj)
 {
 	// ターゲットのTransform
-	const Transform& targetTransform = obj.GetTransform();
+	const Components::Transform& targetTransform = obj.GetTransform();
 	// 距離の格納
 	Vector2<float> distance = CalcDistance(targetTransform);
 	// サイズの合計値格納
-	Vector2<float> sizeSum = SumSize(targetTransform);
+	Components::Size sizeSum = SumSize(targetTransform);
 
 	// 衝突判定
-	if (distance.x <= sizeSum.x && distance.y <= sizeSum.y)
+	if (distance.x <= sizeSum.width && distance.y <= sizeSum.height)
 		return true;
 	return false;
-
-	const int a = 10;
-	int b = a;
 }
 
-Vector2<float> Camera2D::CalcDistance(const Transform& targetTransform)
+Vector2<float> Engine::Camera2D::CalcDistance(const Components::Transform& targetTransform)
 {
 	// 距離の格納
 	Vector2<float> distance;
 	// ターゲットの座標
-	Position2D<float> targetPos = targetTransform.GetPosition();
+	Components::Position targetPos = targetTransform.GetPosition();
 	// カメラの座標
-	Position2D<float> cameraPos = transform.GetPosition();
-	
+	Components::Position cameraPos = targetTransform.GetPosition();
+
 	// 中心座標の距離
 	distance.x = fabsf(cameraPos.x - targetPos.x);
 	distance.y = fabsf(cameraPos.y - targetPos.y);
@@ -103,105 +100,96 @@ Vector2<float> Camera2D::CalcDistance(const Transform& targetTransform)
 	return distance;
 }
 
-Vector2<float> Camera2D::SumSize(const Transform& targetTransform)
+Engine::Components::Size Engine::Camera2D::SumSize(const Components::Transform& targetTransform)
 {
 	// サイズの合計値格納
-	Vector2<float> sizeSum;
-	
+	Components::Size sizeSum;
 	// ターゲットのサイズ
-	Size2D<float> targetSize = targetTransform.GetSize();
+	Components::Size targetSize = targetTransform.GetSize();
 	// カメラのサイズ
-	Size2D<float> cameraSize = transform.GetSize();
+	Components::Size cameraSize = transform->GetSize();
 
 	// サイズ計算
-	sizeSum.x = (cameraSize.width + targetSize.width) / 2.f;
-	sizeSum.y = (cameraSize.height + targetSize.height) / 2.f;
+	sizeSum.width = (cameraSize.width + targetSize.width) / 2.f;
+	sizeSum.height = (cameraSize.height + targetSize.height) / 2.f;
 
 	return sizeSum;
 }
 
-void Camera2D::DeleteObj() noexcept {
+void Engine::Camera2D::DeleteObj() 
+{
 	drawList.clear();
 	drawList.shrink_to_fit();
 }
 
-void Camera2D::UpdateOrigin()
+void Engine::Camera2D::UpdateOrigin()
 {
-	origin.x = transform.GetPosition().x -  WINDOW_SIZE_WIDTH / 2;
-	origin.y = transform.GetPosition().y - WINDOW_SIZE_HEIGHT / 2;
+	origin.x = transform->GetPosition().x - WINDOW_SIZE_WIDTH / 2.f;
+	origin.y = transform->GetPosition().y - WINDOW_SIZE_HEIGHT / 2.f;
 }
 
 //カメラ内オブジェクトの更新処理
-void Camera2D::UpdateInCameraObj() noexcept 
+void Engine::Camera2D::UpdateInCameraObj()
 {
 	//カメラ内オブジェクトのUpdateを実行
-	for (auto obj : drawList) 
+	for (auto obj : drawList)
 	{
 		obj->Update();
 	}
 }
 
 //カメラ内オブジェクトの描画
-void Camera2D::DrawInCameraObj() noexcept 
+void Engine::Camera2D::DrawInCameraObj()
 {
 	for (auto obj : drawList)
 	{
 		//obj->position.y = obj->collisionPos.y - (this->position.y - this->collisionPos.y);
 		// スクリーン座標に変換
-
+		float x = obj->GetTransform().GetPosition().x - origin.x;
+		float y = obj->GetTransform().GetPosition().y - origin.y;
+		Components::Position updatedPos(x, y);
+		obj->UpdateScreenPos(updatedPos);
 		obj->Draw();
 	}
 	drawList.clear();
 }
 
 //キーボード,マウス操作
-void Camera2D::Controll() noexcept 
+void Engine::Camera2D::Controll()
 {
-	gpUpdateKey();
 	// カメラの座標
-	Position2D<float> cameraPos = transform.GetPosition();
+	Components::Position cameraPos = transform->GetPosition();
 
 	//マウスホイールでスクロール
 	cameraPos.y += 10 * GetMouseWheelRotVol();
 
-	//上下矢印キーでスクロール
-	if (Key[KEY_INPUT_DOWN] != 0) 
-	{
-		cameraPos.y += 5;
-	}
-	if (Key[KEY_INPUT_UP] != 0) 
-	{
-		cameraPos.y -= 5;
-	}
+	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_DOWN))
+		cameraPos.y += 5.f;
+	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_UP))
+		cameraPos.y -= 5.f;
 
 	//PgUp PgDnでウィンドウサイズ分スクロール
-	if (Key[KEY_INPUT_PGDN] == 1) 
-	{
+	if (Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_PGDN))
 		cameraPos.y += WINDOW_SIZE_HEIGHT;
-	}
-	if (Key[KEY_INPUT_PGUP] == 1) 
-	{
+	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGUP))
 		cameraPos.y -= WINDOW_SIZE_HEIGHT;
-	}
 
 	//長押しで連続スクロール
-	if (Key[KEY_INPUT_PGDN] != 0 && Key[KEY_INPUT_PGDN] % 5 == 0) 
-	{
+	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGDN)
+		&& Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGDN) % 5 == 0)
 		cameraPos.y += WINDOW_SIZE_HEIGHT;
-	}
-	if (Key[KEY_INPUT_PGUP] != 0 && Key[KEY_INPUT_PGUP] % 5 == 0) 
-	{
+	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGUP)
+		&& Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGUP) % 5 == 0)
 		cameraPos.y -= WINDOW_SIZE_HEIGHT;
-	}
 
 	// 更新後の座標セット
-	transform.SetPosition(cameraPos);
+	transform->SetPosition(cameraPos.x, cameraPos.y);
 }
 
 //移動制限
-void Camera2D::LimitPos() noexcept
+void Engine::Camera2D::LimitPos()
 {
-	Position2D<float> cameraPos = transform.GetPosition();
+	Components::Position cameraPos = transform->GetPosition();
 
 	if (cameraPos.y < minLimitPos.y)
 	{
@@ -213,17 +201,17 @@ void Camera2D::LimitPos() noexcept
 	}
 }
 
-void Camera2D::DebugDraw() noexcept
+void Engine::Camera2D::DebugDraw()
 {
-	Position2D<float> cameraPos = transform.GetPosition();
-	Size2D<float> cameraSize = transform.GetSize();
+	Components::Position cameraPos = transform->GetPosition();
+	Components::Size cameraSize = transform->GetSize();
 
 	Color color = GetColor(0, 255, 0);
 	// カメラの座標表示
 	DrawFormatString(800, 0, color, "x:%f y:%f", cameraPos.x, cameraPos.y);
 	DrawFormatString(800, 125, color, "objListサイズ:%d", objList->size());
-	DrawFormatString(800, 150, color, "小節オブジェクト数:%d", objList[0][0]->size());
-	DrawFormatString(800, 175, color, "ノーツオブジェクト数:%d", objList[0][1]->size());
+	//DrawFormatString(800, 150, color, "小節オブジェクト数:%d", objList[0][0]->size());
+	//DrawFormatString(800, 175, color, "ノーツオブジェクト数:%d", objList[0][1]->size());
 	DrawFormatString(800, 250, color, "カメラの上端座標:%f", cameraPos.y - cameraSize.height / 2.f);
 	DrawFormatString(800, 300, color, "カメラの下端座標:%f", cameraPos.y + cameraSize.height / 2.f);
 
@@ -234,13 +222,13 @@ void Camera2D::DebugDraw() noexcept
 		GetColor(255, 255, 255), false);
 }
 
-void Camera2D::SetMinposition(float x, float y) noexcept
+void Engine::Camera2D::SetMinposition(float x, float y)
 {
 	minLimitPos.x = x;
 	minLimitPos.y = y;
 }
 
-void Camera2D::SetMaxposition(float x, float y) noexcept
+void Engine::Camera2D::SetMaxposition(float x, float y)
 {
 	maxLimitPos.x = x;
 	maxLimitPos.y = y;

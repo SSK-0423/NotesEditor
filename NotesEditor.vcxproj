@@ -160,6 +160,7 @@
     <ClCompile Include="src\BaseScene.cpp" />
     <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\Camera2D.cpp" />
     <ClCompile Include="src\Canvas.cpp" />
     <ClCompile Include="src\ColliderCreator.cpp" />
     <ClCompile Include="src\CrossingNumberAlgorithm.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="src\EditorSceneCanvas.cpp" />
     <ClCompile Include="src\EditScene.cpp" />
     <ClCompile Include="src\EquationsSolver.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GaussElimination.cpp" />
     <ClCompile Include="src\InputDevice.cpp" />
     <ClCompile Include="src\ISceneChanger.cpp" />
@@ -199,6 +201,7 @@
     <ClInclude Include="src\BaseScene.hpp" />
     <ClInclude Include="src\BoxCollider.hpp" />
     <ClInclude Include="src\Button.hpp" />
+    <ClInclude Include="src\Camera2D.hpp" />
     <ClInclude Include="src\Canvas.hpp" />
     <ClInclude Include="src\ColliderCreator.hpp" />
     <ClInclude Include="src\CrossingNumberAlgorithm.hpp" />
@@ -207,6 +210,7 @@
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\EquationsSolver.hpp" />
+    <ClInclude Include="src\GameObject.hpp" />
     <ClInclude Include="src\GameSymbol.hpp" />
     <ClInclude Include="src\GaussElimination.hpp" />
     <ClInclude Include="src\GUI.hpp" />
