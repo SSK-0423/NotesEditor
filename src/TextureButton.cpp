@@ -7,7 +7,6 @@
 #include "Point.hpp"
 #include "ColliderCreator.hpp"
 
-
 Engine::UI::TextureButton::TextureButton(const char* filePath, Components::COLLIDERTYPE type) : Button()
 {
 	transform = new Components::Transform();
@@ -23,7 +22,6 @@ Engine::UI::TextureButton::TextureButton(const char* filePath, Components::COLLI
 	float texWidth, texHeight;
 	texture->GetTextureSize(texWidth, texHeight);
 	transform->SetSize(texWidth, texHeight);
-	transform->SetPosition(100.f, 100.f);
 }
 
 Engine::UI::TextureButton::~TextureButton()
@@ -34,6 +32,11 @@ Engine::UI::TextureButton::~TextureButton()
 	delete collision;
 }
 
+void Engine::UI::TextureButton::SetEventFunc(DelegateBase<void(void)>* func)
+{
+	eventFunc = func;
+}
+
 void Engine::UI::TextureButton::Update()
 {
 	// Textureをオブジェクトの位置・回転・サイズに合わせる
@@ -41,13 +44,36 @@ void Engine::UI::TextureButton::Update()
 	// Colliderをオブジェクトの位置・回転・サイズに合わせる
 	collider->Update();
 
-	CheckClick();
-
+	if (IsClick())
+		RunEventFunc();
 }
 
 void Engine::UI::TextureButton::Draw()
 {
 	texture->Draw();
+}
+
+bool Engine::UI::TextureButton::IsClick()
+{
+	if (IsOnButton())
+	{
+		// 左クリックが離されたか
+		bool isRelease = Engine::Input::InputDeviceContainer::Instance().GetMouse().IsReleaseKey(Engine::Input::Mouse::LEFT_CLICK);
+		if (isRelease)
+		{
+			return true;
+		}
+
+		// 左クリックされているか
+		bool isClicking = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPressingCount(Engine::Input::Mouse::LEFT_CLICK);
+		if (isClicking)
+		{
+			transform->Scaling(CLICKEDSIZE, CLICKEDSIZE);
+			return false;
+		}
+	}
+	transform->Scaling(1.f,1.f);
+	return false;
 }
 
 // イベント実行
@@ -67,31 +93,4 @@ bool Engine::UI::TextureButton::IsOnButton()
 
 	// マウスポインタがボタンの上にあるか
 	return collision->Collision(x, y, *collider);
-}
-
-void Engine::UI::TextureButton::CheckClick()
-{
-	// ボタンクリック時の処理
-	if (IsOnButton())
-	{
-		// 左クリックが離されたか
-		bool isRelease = Engine::Input::InputDeviceContainer::Instance().GetMouse().IsReleaseKey(Engine::Input::Mouse::LEFT_CLICK);
-		if (isRelease)
-		{
-			// イベント実行
-			RunEventFunc();
-		}
-
-		// 左クリックされているか
-		bool isClicking = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPressingCount(Engine::Input::Mouse::LEFT_CLICK);
-		if (isClicking)
-		{
-			// ボタンサイズ変更
-			transform->Scaling(CLICKEDSIZE, CLICKEDSIZE);
-			return;
-		}
-	}
-
-	// ボタンを元の大きさに戻す
-	transform->Scaling(1.0f, 1.0f);
 }

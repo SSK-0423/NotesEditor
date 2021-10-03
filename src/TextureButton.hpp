@@ -1,5 +1,6 @@
 #pragma once
 #include "Button.hpp"
+#include "Delegate.hpp"
 
 /*
 	テクスチャを持つボタンクラス
@@ -31,19 +32,22 @@ namespace Engine
 
 		class TextureButton : public Button {
 		private:
+			// ボタンクリック時に呼び出される関数
+			DelegateBase<void(void)>* eventFunc;
+			
 			Components::Texture* texture;
 			Components::ICollider* collider;
 			// マウスポインタとポリゴンとの判定
 			Collision::PointWithPolygon* collision;
-			ButtonImpl* impl;
 			void RunEventFunc();
 			bool IsOnButton();
-			void CheckClick();
 		public:
 			TextureButton(const char* filePath, Components::COLLIDERTYPE type);
 			virtual ~TextureButton();
+			void SetEventFunc(DelegateBase<void(void)>* func);
 			void Update();
 			void Draw();
+			bool IsClick();
 		};
 	}
 }

@@ -313,8 +313,5 @@
     <ClInclude Include="src\MusicInfoTextBox.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
     </ClInclude>
-    <ClInclude Include="ButtonImpl.hpp">
-      <Filter>ヘッダー ファイル\Engine\UI</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

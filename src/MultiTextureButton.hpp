@@ -12,7 +12,6 @@ namespace Engine
 	namespace Components
 	{
 		class Texture;
-
 		enum class COLLIDERTYPE;
 		class ICollider;
 	}
@@ -24,20 +23,30 @@ namespace Engine
 
 	namespace UI
 	{
-		class MultiTextureButton : public Button{
+		class TextureButton;
+		class MultiTextureButton : public Button {
 		private:
+			// ボタンクリック時に呼び出される関数
+			DelegateBase<void(void)>* eventFunc;
 			std::vector<Components::Texture*> texture;
+
+			std::vector<TextureButton*> textureButtonList;
 			Components::ICollider* collider;
 			// マウスポインタとポリゴンとの判定
 			Collision::PointWithPolygon* collision;
+			// 現在表示中のボタン
+			TextureButton* nowButton;
+			int clickCount;
+
 			void RunEventFunc();
 		public:
-			MultiTextureButton(const char* filePath, Components::COLLIDERTYPE type);
+			MultiTextureButton();
+			MultiTextureButton(std::vector<const char*> filePath,Components::COLLIDERTYPE type);
 			virtual ~MultiTextureButton();
-			void AddTexture(const char* filePath);
+			void AddTextureButton(TextureButton* button);
+			void SetEventFunc(DelegateBase<void(void)>* func);
 			void Update();
 			void Draw();
-
 		};
 	}
 }

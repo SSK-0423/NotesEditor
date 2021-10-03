@@ -39,6 +39,16 @@ void NotesEditor::NotesEditorMusic::PlayStopMusic()
 		isPlaying = true;
 }
 
+void NotesEditor::NotesEditorMusic::PlayMusic()
+{
+	audioSource.PlayAudio();
+}
+
+void NotesEditor::NotesEditorMusic::StopMusic()
+{
+	audioSource.StopAudio();
+}
+
 void NotesEditor::NotesEditorMusic::ReplayMusic()
 {
 	if(audioSource.ReplayAudio() == RESULT::RESULT_SUCCEED)

@@ -28,6 +28,10 @@ namespace NotesEditor
 		void LoadMusic();
 		//‹È‚ÌÄ¶E’â~
 		void PlayStopMusic();
+		//‹È‚ÌÄ¶
+		void PlayMusic();
+		//‹È‚Ì’â~
+		void StopMusic();
 		//‹È‚ğÅ‰‚©‚çÄ¶
 		void ReplayMusic();
 		//‹È‚Ì’·‚³‚ğæ“¾

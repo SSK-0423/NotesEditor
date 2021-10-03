@@ -194,7 +194,6 @@
     <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ButtonImpl.hpp" />
     <ClInclude Include="src\Application.hpp" />
     <ClInclude Include="src\AudioSource.hpp" />
     <ClInclude Include="src\BaseScene.hpp" />
