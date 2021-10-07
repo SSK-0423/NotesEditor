@@ -38,6 +38,7 @@ NotesEditor::Bar::Bar(int barNum) : barNum(barNum)
 	{
 		barLineList.push_back(new BarLine(*this, i));
 	}
+	collider->Update();
 }
 
 NotesEditor::Bar::~Bar()
@@ -60,20 +61,22 @@ void NotesEditor::Bar::Draw()
 	{
 		barLineList[i]->Draw();
 	}
+	DrawBarNum();
 }
 
-void NotesEditor::Bar::Collision(float& x, float& y)
+bool NotesEditor::Bar::Collision(float& x, float& y)
 {
 	bool isOnBar = collision->Collision(x, y, *collider);
 	if (isOnBar)
 	{
-		for (auto line : barLineList)
+		DrawFormatString(700, 100, GetColor(0, 255, 0), "ìñÇΩÇ¡ÇΩ:%dè¨êﬂñ⁄", barNum);
+		for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
 		{
-			line->Collision(x,y);
+			barLineList[i]->Collision(x,y);
 		}
-		return;
+		return true;
 	}
-	return;
+	return false;
 }
 
 void NotesEditor::Bar::ChangeBarType(BARTYPE type)

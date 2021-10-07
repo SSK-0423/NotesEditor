@@ -14,13 +14,15 @@ namespace Engine
 	namespace Components
 	{
 		class Transform;
+		class Position;
 
 		class BoxCollider : public ICollider {
 		private:
 			// ヒットボックス
 			PrimitiveObj::Polygon* rectHitBox;
 			const Transform& parentTransform;
-			
+			const Position* parentScreenPos;
+
 			void UpdatePolygon();
 		public:
 			BoxCollider(const Transform& transform);

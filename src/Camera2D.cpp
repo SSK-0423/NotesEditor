@@ -127,6 +127,11 @@ void Engine::Camera2D::DeleteObj()
 	drawList.shrink_to_fit();
 }
 
+Engine::Components::Position Engine::Camera2D::GetOriginPos()
+{
+	return origin;
+}
+
 void Engine::Camera2D::UpdateOrigin()
 {
 	origin.x = transform->GetPosition().x - WINDOW_SIZE_WIDTH / 2.f;
@@ -212,6 +217,7 @@ void Engine::Camera2D::DebugDraw()
 	Color color = GetColor(0, 255, 0);
 	// カメラの座標表示
 	DrawFormatString(800, 0, color, "x:%f y:%f", cameraPos.x, cameraPos.y);
+	DrawFormatString(700, 25, color, "originX:%f originY:%f", origin.x,origin.y);
 	DrawFormatString(800, 125, color, "objListサイズ:%d", objList.size());
 	DrawFormatString(800, 150, color, "drawListサイズ:%d", drawList.size());
 	////DrawFormatString(800, 150, color, "小節オブジェクト数:%d", objList[0][0]->size());
@@ -220,10 +226,10 @@ void Engine::Camera2D::DebugDraw()
 	//DrawFormatString(800, 300, color, "カメラの下端座標:%f", cameraPos.y + cameraSize.height / 2.f);
 
 	// カメラ枠表示
-	DrawBox(
-		WINDOW_SIZE_WIDTH / 2 - cameraSize.width / 2, WINDOW_SIZE_HEIGHT / 2 - cameraSize.height / 2,
-		WINDOW_SIZE_WIDTH / 2 + cameraSize.width / 2, WINDOW_SIZE_HEIGHT / 2 + cameraSize.height / 2,
-		GetColor(255, 255, 255), false);
+	//DrawBox(
+	//	WINDOW_SIZE_WIDTH / 2 - cameraSize.width / 2, WINDOW_SIZE_HEIGHT / 2 - cameraSize.height / 2,
+	//	WINDOW_SIZE_WIDTH / 2 + cameraSize.width / 2, WINDOW_SIZE_HEIGHT / 2 + cameraSize.height / 2,
+	//	GetColor(255, 255, 255), false);
 }
 
 void Engine::Camera2D::SetMinposition(float x, float y)

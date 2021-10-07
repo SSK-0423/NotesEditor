@@ -19,12 +19,13 @@ void NotesEditor::BarManager::ChangeSize()
 	}
 }
 
-void NotesEditor::BarManager::Collision(float x, float y)
+bool NotesEditor::BarManager::Collision(float x, float y)
 {
 	for (auto bar : barList)
 	{
-
+		bool isCol = bar->Collision(x, y);
 	}
+	return false;
 }
 
 void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objList, int barNum)

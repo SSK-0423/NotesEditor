@@ -26,14 +26,6 @@ void NotesEditor::EditScene::Update()
 		// isMusicLoadedƒtƒ‰ƒO‚ðfalse‚É‚·‚é
 		NotesEditorMusic::Instance().CompleteMusicLoad();
 	}
-
-	Engine::Input::InputDeviceContainer& input = Engine::Input::InputDeviceContainer::Instance();
-	if (input.GetKeyboard().IsPressKey(KEY_INPUT_Q))
-		BarManager::Instance().ChangeSize();
-
-	const Engine::Input::Mouse mouse = Engine::Input::InputDeviceContainer::Instance().GetMouse();
-	if (mouse.IsPressKey(Engine::Input::Mouse::LEFT_CLICK))
-		BarManager::Instance().Collision(mouse.GetPosX(), mouse.GetPosY());
 }
 
 void NotesEditor::EditScene::Draw()
@@ -44,6 +36,15 @@ void NotesEditor::EditScene::Draw()
 	editorSceneCanvas.Draw();
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 	camera.Draw();
+	Input();
+}
+
+void NotesEditor::EditScene::Input()
+{
+	const Engine::Input::Mouse mouse = Engine::Input::InputDeviceContainer::Instance().GetMouse();
+	//DrawFormatString(700,75,GetColor(0,255,0),"MouseX:%f,MouseY:%f",
+	//	mouse.GetPosX() + camera.GetOriginPos().x,mouse.GetPosY() + camera.GetOriginPos().y);
+	BarManager::Instance().Collision(mouse.GetPosX() + camera.GetOriginPos().x, mouse.GetPosY() + camera.GetOriginPos().y);
 }
 
 void NotesEditor::EditScene::OnMusicLoaded()

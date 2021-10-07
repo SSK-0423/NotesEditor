@@ -19,7 +19,7 @@ namespace Engine
 namespace NotesEditor
 {
 	enum class BARTYPE {
-		BAR1 = 0b10000,		// 1/1
+		BAR1 = 0b100000,		// 1/1
 		BAR4 = 0b01000,		// 1/4
 		BAR8 = 0b00100,		// 1/8
 		BAR16 = 0b00010,	// 1/16
@@ -55,7 +55,7 @@ namespace NotesEditor
 		~Bar();
 		void Update();
 		void Draw();
-		void Collision(float& x, float& y);
+		bool Collision(float& x, float& y);
 		static void ChangeBarType(BARTYPE type);
 	};
 }

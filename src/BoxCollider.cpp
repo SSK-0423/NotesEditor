@@ -70,6 +70,7 @@ void Engine::Components::BoxCollider::UpdatePolygon()
 
 Engine::Components::BoxCollider::BoxCollider(const Components::Transform& transform) : parentTransform(transform)
 {
+	parentScreenPos = nullptr;
 	rectHitBox = new PrimitiveObj::Polygon();
 	UpdatePolygon();
 }

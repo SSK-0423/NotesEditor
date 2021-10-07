@@ -25,6 +25,7 @@ namespace NotesEditor
 		//NotesManager notesManager;
 		std::vector<Engine::GameObject*> allObjList;
 
+		void Input();
 		void OnMusicLoaded();
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);

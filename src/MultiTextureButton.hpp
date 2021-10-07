@@ -29,21 +29,16 @@ namespace Engine
 			// ボタンクリック時に呼び出される関数
 			DelegateBase<void(void)>* eventFunc;
 			std::vector<Components::Texture*> texture;
-
-			std::vector<TextureButton*> textureButtonList;
 			Components::ICollider* collider;
+			
 			// マウスポインタとポリゴンとの判定
 			Collision::PointWithPolygon* collision;
-			// 現在表示中のボタン
-			TextureButton* nowButton;
 			int clickCount;
 
 			void RunEventFunc();
 		public:
-			MultiTextureButton();
 			MultiTextureButton(std::vector<const char*> filePath,Components::COLLIDERTYPE type);
 			virtual ~MultiTextureButton();
-			void AddTextureButton(TextureButton* button);
 			void SetEventFunc(DelegateBase<void(void)>* func);
 			void Update();
 			void Draw();

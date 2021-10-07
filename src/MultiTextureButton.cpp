@@ -18,10 +18,6 @@ void Engine::UI::MultiTextureButton::RunEventFunc()
 	(*eventFunc)();
 }
 
-Engine::UI::MultiTextureButton::MultiTextureButton() : clickCount(0)
-{
-	nowButton = nullptr;
-}
 Engine::UI::MultiTextureButton::MultiTextureButton(std::vector<const char*> filePath, Components::COLLIDERTYPE type) : clickCount(0)
 {
 	transform = new Components::Transform();
@@ -50,13 +46,6 @@ Engine::UI::MultiTextureButton::~MultiTextureButton()
 	delete transform;
 	delete collider;
 	delete collision;
-}
-
-void Engine::UI::MultiTextureButton::AddTextureButton(TextureButton* button)
-{
-	if (nowButton == nullptr)
-		nowButton = button;
-	textureButtonList.push_back(button);
 }
 
 void Engine::UI::MultiTextureButton::SetEventFunc(DelegateBase<void(void)>* func)
@@ -99,17 +88,9 @@ void Engine::UI::MultiTextureButton::Update()
 
 	// ƒ{ƒ^ƒ“‚ðŒ³‚Ì‘å‚«‚³‚É–ß‚·
 	transform->Scaling(1.0f, 1.0f);
-
-	//if (nowButton == nullptr)
-	//	return;
-	//textureButtonList[clickCount % textureButtonList.size()]->Update();
 }
 
 void Engine::UI::MultiTextureButton::Draw()
 {
 	texture[clickCount % texture.size()]->Draw();
-	collider->Draw();
-	//if (nowButton == nullptr)
-	//	return;
-	//textureButtonList[clickCount % textureButtonList.size()]->Draw();
 }

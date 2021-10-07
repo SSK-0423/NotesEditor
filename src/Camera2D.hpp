@@ -57,6 +57,8 @@ namespace Engine
 		void Draw();
 		// 描画対象オブジェクトのメモリ開放
 		void DeleteObj();
+		// カメラの原点座標取得
+		Components::Position GetOriginPos();
 		// 移動限界をセット
 		void SetMinposition(float x, float y);
 		void SetMaxposition(float x, float y);

@@ -10,7 +10,8 @@ Color NotesEditor::BarLine::lineColor[4] = {
 	GetColor(255,255,255),	//白
 	GetColor(0,255,255),	//水色
 	GetColor(255,255,0),	//黄色
-	GetColor(255,0,255) };	//ピンク
+	GetColor(255,0,255)		//ピンク
+};	
 
 int NotesEditor::BarLine::lineThickness = 2;
 
@@ -24,7 +25,7 @@ void NotesEditor::BarLine::InitTransform()
 	float x = parentBar.GetTransform().GetPosition().x;
 	float y = parentBar.GetTransform().GetPosition().y + WINDOW_SIZE_HEIGHT / 2.f;
 
-	transform->SetPosition(x, y + step * lineNum);
+	transform->SetPosition(x, y - step * static_cast<float>(lineNum));
 	transform->SetSize(width, height);
 	transform->Scaling(1, 1);
 	collider->Update();
@@ -67,8 +68,7 @@ void NotesEditor::BarLine::Update()
 
 void NotesEditor::BarLine::Draw()
 {
-	
-	float step = WINDOW_SIZE_HEIGHT / 16.f;
+	float step = WINDOW_SIZE_HEIGHT / 32.f;
 	float sx = WINDOW_SIZE_WIDTH / 4.f;
 	float ex = WINDOW_SIZE_WIDTH - WINDOW_SIZE_WIDTH / 4.f;
 	float sy = parentBar.GetScreenPos().y + WINDOW_SIZE_HEIGHT / 2.f;
@@ -80,5 +80,6 @@ void NotesEditor::BarLine::Collision(float x, float y)
 	if (collision->Collision(x, y, *collider))
 	{
 		/* 処理 */
+		DrawFormatString(700, 75, GetColor(0, 255, 0), "当たった:%d",lineNum);
 	}
 }

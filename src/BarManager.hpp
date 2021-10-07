@@ -29,6 +29,6 @@ namespace NotesEditor
 		void ChangeBarType32();
 
 		void ChangeSize();
-		void Collision(float x, float y);
+		bool Collision(float x, float y);
 	};
 }
