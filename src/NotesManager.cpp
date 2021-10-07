@@ -1,48 +1,47 @@
-//#include "NotesManager.hpp"
-//#include "ShortNotes.hpp"
-//#include "NotesCreator.hpp"
-//#include "ShortNotesCreator.hpp"
-//#include "LongNotesCreator.hpp"
-//#include "SlideNotesCreator.hpp"
-//#include "DxLib.h"
-//#include "KeyInput.hpp"
-//#include <algorithm>
-//
-//#define CREATE 0
-//
-////static変数実体化
-//NOTESTYPE NotesManager::type;
-//
-//
-//NotesManager::NotesManager() noexcept {
+#include "NotesManager.hpp"
+#include "ShortNotes.hpp"
+#include "NotesCreator.hpp"
+#include "ShortNotesCreator.hpp"
+#include "LongNotesCreator.hpp"
+#include "SlideNotesCreator.hpp"
+#include "DxLib.h"
+#include "KeyInput.hpp"
+#include <algorithm>
+
+#define CREATE 0
+
+//static変数実体化
+NotesEditor::NOTESTYPE NotesEditor::NotesManager::type;
+
+//NotesEditor::NotesManager::NotesManager() {
 //	color = GetColor(0, 255, 0);
 //	//objList = nullptr;
 //}
 //
 ////	ショートノーツに変更
-//void NotesManager::ChangeNotesTypeShort() noexcept {
+//void NotesEditor::NotesManager::ChangeNotesTypeShort() {
 //	type = SHORT_NOTES;
 //	color = GetColor(0, 255, 0);
 //}
 ////	ロングノーツに変更
-//void NotesManager::ChangeNotesTypeLong() noexcept {
+//void NotesEditor::NotesManager::ChangeNotesTypeLong() {
 //	type = LONG_NOTES;
 //	color = GetColor(0, 128, 255);
 //}
 ////	スライドノーツに変更
-//void NotesManager::ChangeNotesTypeSlide() noexcept {
+//void NotesEditor::NotesManager::ChangeNotesTypeSlide() {
 //	type = SLIDE_NOTES;
 //	color = GetColor(255, 128, 0);
 //}
 //
-//void NotesManager::Update() noexcept {
+//void NotesEditor::NotesManager::Update() {
 //	if (Key[KEY_INPUT_RETURN] == 1) {
 //		slideNotesCreator.IsEnd();
 //		slideNotesCreator.CreateNotes(notesList);
 //	}
 //}
 //
-//void NotesManager::Draw() noexcept {
+//void NotesEditor::NotesManager::Draw() {
 //	int x, y;
 //	GetMousePoint(&x, &y);
 //	DrawBox(x - 10, y - 10, x + 10, y + 10, color, true);
@@ -51,12 +50,12 @@
 //	slideNotesCreator.Draw();
 //}
 //
-//std::vector<GameObject*>* NotesManager::GetListRef() noexcept {
+//std::vector<Engine::GameObject*>* NotesEditor::NotesManager::GetListRef() {
 //	return &notesList;
 //}
 //
 ////ノーツ生成
-//void NotesManager::CreateNotes(float& x, float& y) noexcept {
+//void NotesEditor::NotesManager::CreateNotes(float& x, float& y) {
 //
 //	if (IsExist(x, y)) {
 //		//ノーツ生成
@@ -88,7 +87,7 @@
 //}
 //
 //// ノーツ削除
-//void NotesManager::DeleteNotes(int& x, int& y) noexcept {
+//void NotesEditor::NotesManager::DeleteNotes(int& x, int& y) {
 //	for (auto notes : notesList) {
 //		if (notes->position.x - notes->GetObjWidth() / 2 <= x && notes->position.x + notes->GetObjWidth() / 2 >= x &&
 //			notes->position.y - notes->GetObjHeight() / 2 <= y && notes->position.y + notes->GetObjHeight() / 2 >= y) {
@@ -111,7 +110,7 @@
 //}
 //
 ////	同じ場所にノーツを設置できないようにする
-//bool NotesManager::IsExist(float& x, float& y) noexcept {
+//bool NotesEditor::NotesManager::IsExist(float& x, float& y) {
 //	for (auto notes : notesList) {
 //		if (notes->collisionPos.x == x && notes->collisionPos.y == y) {
 //			return false;
@@ -121,7 +120,7 @@
 //}
 //
 ////	ノーツの全削除
-//void NotesManager::DeleteObj() noexcept {
+//void NotesEditor::NotesManager::DeleteObj() {
 //	for (auto notes : notesList) {
 //		delete notes;
 //	}

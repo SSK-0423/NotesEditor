@@ -1,11 +1,11 @@
 #pragma once
 #include <vector>
-//#include "Notes.hpp"
+#include "Notes.hpp"
 #include "BarManager.hpp"
 #include "NotesCreator.hpp"
-//#include "ShortNotesCreator.hpp"
-//#include "LongNotesCreator.hpp"
-//#include "SlideNotesCreator.hpp"
+#include "ShortNotesCreator.hpp"
+#include "LongNotesCreator.hpp"
+#include "SlideNotesCreator.hpp"
 
 namespace Engine
 {
@@ -30,18 +30,18 @@ namespace NotesEditor
 		//ShortNotesCreator shortNotesCreator;		//ショートノーツ作成クラス
 		//LongNotesCreator longNotesCreator;			//ロングノーツ作成クラス
 		//SlideNotesCreator slideNotesCreator;		//スライドノーツ作成クラス
-		bool IsExist(float& x, float& y) noexcept;	//ノーツの二重配置検知
+		bool IsExist(float& x, float& y);	//ノーツの二重配置検知
 
 	public:
-		NotesManager() noexcept;
-		void ChangeNotesTypeShort() noexcept;
-		void ChangeNotesTypeLong() noexcept;
-		void ChangeNotesTypeSlide() noexcept;
-		void Update() noexcept;
-		void Draw() noexcept;
-		std::vector<Engine::GameObject*>* GetListRef() noexcept;
-		void CreateNotes(float& x, float& y) noexcept;
-		void DeleteNotes(float& x, float& y) noexcept;
-		void DeleteObj() noexcept;
+		NotesManager();
+		void ChangeNotesTypeShort();
+		void ChangeNotesTypeLong();
+		void ChangeNotesTypeSlide();
+		void Update();
+		void Draw();
+		std::vector<Engine::GameObject*>* GetListRef();
+		void CreateNotes(float& x, float& y);
+		void DeleteNotes(float& x, float& y);
+		void DeleteObj();
 	};
 }

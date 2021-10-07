@@ -14,10 +14,10 @@ Font NotesEditor::Bar::fontHandle;
 NotesEditor::BARTYPE NotesEditor::Bar::nowType = NotesEditor::BARTYPE::BAR1;
 const int NotesEditor::Bar::MAXNOTENUM = 32;
 
-//int NotesEditor::Bar::lane[6];
-
 NotesEditor::Bar::Bar(int barNum) : barNum(barNum)
 {
+	BarLine::stepPosY = static_cast<float>(WINDOW_SIZE_HEIGHT) / MAXNOTENUM;
+
 	collider = new Engine::Components::BoxCollider(*transform);
 	collision = new Engine::Collision::PointWithPolygon();
 
@@ -72,7 +72,7 @@ bool NotesEditor::Bar::Collision(float& x, float& y)
 		DrawFormatString(700, 100, GetColor(0, 255, 0), "ìñÇΩÇ¡ÇΩ:%dè¨êﬂñ⁄", barNum);
 		for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
 		{
-			barLineList[i]->Collision(x,y);
+			barLineList[i]->Collision(x, y);
 		}
 		return true;
 	}

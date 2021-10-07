@@ -18,8 +18,8 @@ namespace Engine
 			std::vector<GUI*> guiList;
 
 		public:
-			Canvas() noexcept;
-			virtual ~Canvas() noexcept;
+			Canvas();
+			virtual ~Canvas();
 			virtual void Update() override;
 			virtual void Draw() override;
 			void AddGUIObj(GUI& obj);

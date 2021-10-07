@@ -4,6 +4,7 @@
 #include "Camera2D.hpp"
 #include "NotesEditorMusic.hpp"
 #include "BarManager.hpp"
+#include "LaneManager.hpp"
 #include "TestObject.h"
 #include "NotesManager.hpp"
 #include "Bar.hpp"
@@ -15,7 +16,6 @@ namespace Engine
 }
 namespace NotesEditor
 {
-
 	class EditScene : public Engine::Scene::BaseScene {
 	private:
 		EditorSceneCanvas editorSceneCanvas;
@@ -23,8 +23,9 @@ namespace NotesEditor
 		//EditorCamera editorCamera
 		Engine::Camera2D camera;
 		//NotesManager notesManager;
+		LaneManager& laneManager;
 		std::vector<Engine::GameObject*> allObjList;
-
+		
 		void Input();
 		void OnMusicLoaded();
 	public:

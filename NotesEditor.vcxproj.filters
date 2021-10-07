@@ -73,6 +73,18 @@
     <Filter Include="ヘッダー ファイル\NotesEditor\Bar">
       <UniqueIdentifier>{a29c88f6-efa6-42ee-a404-181bfdf61f54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\Lane">
+      <UniqueIdentifier>{96cc4946-988d-4a8f-9e17-93b5fcc6f445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\Bar">
+      <UniqueIdentifier>{b5eed04d-ef68-4748-b5e3-0b6c15aaea30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\Lane">
+      <UniqueIdentifier>{b6f93bb5-cae5-4f47-a612-6b5c55b80321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\Notes">
+      <UniqueIdentifier>{c3ceb358-7d1d-42ba-a390-924b86374c06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -178,13 +190,22 @@
       <Filter>ソース ファイル\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\Bar.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
+      <Filter>ソース ファイル\NotesEditor\Bar</Filter>
     </ClCompile>
     <ClCompile Include="src\BarManager.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
+      <Filter>ソース ファイル\NotesEditor\Bar</Filter>
     </ClCompile>
     <ClCompile Include="src\BarLine.cpp">
-      <Filter>ソース ファイル\NotesEditor</Filter>
+      <Filter>ソース ファイル\NotesEditor\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Lane.cpp">
+      <Filter>ソース ファイル\NotesEditor\Lane</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LaneManager.cpp">
+      <Filter>ソース ファイル\NotesEditor\Lane</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotesManager.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -351,6 +372,15 @@
     </ClInclude>
     <ClInclude Include="src\BarManager.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Lane.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Lane</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LaneManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Lane</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

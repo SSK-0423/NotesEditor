@@ -176,6 +176,8 @@
     <ClCompile Include="src\InputDevice.cpp" />
     <ClCompile Include="src\ISceneChanger.cpp" />
     <ClCompile Include="src\Keyboard.cpp" />
+    <ClCompile Include="src\Lane.cpp" />
+    <ClCompile Include="src\LaneManager.cpp" />
     <ClCompile Include="src\LUdecomposition.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
@@ -184,6 +186,7 @@
     <ClCompile Include="src\Music.cpp" />
     <ClCompile Include="src\MusicInfoTextBox.cpp" />
     <ClCompile Include="src\NotesEditorMusic.cpp" />
+    <ClCompile Include="src\NotesManager.cpp" />
     <ClCompile Include="src\OpenFileExplorer.cpp" />
     <ClCompile Include="src\PointWithPolygon.cpp" />
     <ClCompile Include="src\Polygon.cpp" />
@@ -229,6 +232,8 @@
     <ClInclude Include="src\IScene.hpp" />
     <ClInclude Include="src\ISceneChanger.hpp" />
     <ClInclude Include="src\Keyboard.hpp" />
+    <ClInclude Include="src\Lane.hpp" />
+    <ClInclude Include="src\LaneManager.hpp" />
     <ClInclude Include="src\LUdecomposition.hpp" />
     <ClInclude Include="src\Matrix.hpp" />
     <ClInclude Include="src\Mouse.hpp" />
@@ -236,6 +241,7 @@
     <ClInclude Include="src\Music.hpp" />
     <ClInclude Include="src\MusicInfoTextBox.hpp" />
     <ClInclude Include="src\NotesEditorMusic.hpp" />
+    <ClInclude Include="src\NotesManager.hpp" />
     <ClInclude Include="src\OpenFileExplorer.hpp" />
     <ClInclude Include="src\Point.hpp" />
     <ClInclude Include="src\PointWithPolygon.hpp" />

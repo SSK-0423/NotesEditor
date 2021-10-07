@@ -3,17 +3,17 @@
 //#include "Mouse.hpp"
 //
 //// コンストラクタ
-//Button::Button() noexcept : count(0),fill(false), sub(SIZEDIFF)
+//Button::Button() : count(0),fill(false), sub(SIZEDIFF)
 //{
 //	buttonColor = GetColor(255, 255, 255);
 //	myDg = nullptr;
 //}
 //
-//Button::~Button() noexcept {
+//Button::~Button() {
 //
 //}
 //
-//void Button::Update() noexcept 
+//void Button::Update() 
 //{
 //	Mouse::Instance()->Update();
 //
@@ -30,7 +30,7 @@
 //}
 //
 ////ボタンの描画情報の設定(座標、幅、高さ、色、塗りつぶし)
-//void Button::SetButtonInfo(const int x, const int y, const int w, const int h, const unsigned int color, const bool f)  noexcept {
+//void Button::SetButtonInfo(const int x, const int y, const int w, const int h, const unsigned int color, const bool f)  {
 //	position.x = x;
 //	position.y = y;
 //	height = h;
@@ -40,7 +40,7 @@
 //}
 //
 ////描画
-//void Button::Draw() noexcept {
+//void Button::Draw() {
 //	if (handle.size() == 0) {
 //		DrawDefaultBox();
 //		return;
@@ -49,18 +49,18 @@
 //}
 //
 //// イベント関数の設定
-//void Button::SetEventFunction(DelegateBase<void(void)>* dg) noexcept
+//void Button::SetEventFunction(DelegateBase<void(void)>* dg)
 //{
 //	myDg = dg;
 //}
 //
 ////クリック時に実行される関数
-//void Button::OnClick()  noexcept {
+//void Button::OnClick()  {
 //	ClickCount();
 //	RunEvent();
 //}
 //
-//bool Button::IsClick()  noexcept {
+//bool Button::IsClick()  {
 //	//ボタン上で左クリックされたら
 //	if (IsOnMouse() && IsMouseLeftClick()) {
 //		return true;
@@ -68,7 +68,7 @@
 //	return false;
 //}
 //
-//void Button::SetImageHandle(const char* file_name) noexcept{
+//void Button::SetImageHandle(const char* file_name){
 //	handle.push_back(LoadGraph(file_name));
 //	SetDrawMode(DX_DRAWMODE_BILINEAR);
 //}

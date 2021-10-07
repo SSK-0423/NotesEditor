@@ -3,10 +3,10 @@
 #include "InputDeviceContainer.hpp"
 #include "DxLib.h"
 
-NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer) : BaseScene(changer), camera(allObjList)
+NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer) : BaseScene(changer), camera(allObjList),laneManager(LaneManager::Instance())
 {
 	editorSceneCanvas.Init();
-	laneHandle = LoadGraph("image/Lane.png");
+	laneHandle = LoadGraph("image/ÉåÅ[Éì02.png");
 	int barHandle = LoadGraph("image/Bar8.png");
 }
 
@@ -17,6 +17,7 @@ void NotesEditor::EditScene::Init()
 void NotesEditor::EditScene::Update()
 {
 	editorSceneCanvas.Update();
+	laneManager.Update();
 	camera.Update();
 
 	// ã»ÇÃì«Ç›çûÇ›Ç™äÆóπÇµÇΩÇÁ
@@ -30,11 +31,12 @@ void NotesEditor::EditScene::Update()
 
 void NotesEditor::EditScene::Draw()
 {
-	//DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
+	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.0, 0, laneHandle, true, false);
 
 	SetDrawMode(DX_DRAWMODE_BILINEAR);
 	editorSceneCanvas.Draw();
 	SetDrawMode(DX_DRAWMODE_NEAREST);
+	laneManager.Draw();
 	camera.Draw();
 	Input();
 }
@@ -42,9 +44,11 @@ void NotesEditor::EditScene::Draw()
 void NotesEditor::EditScene::Input()
 {
 	const Engine::Input::Mouse mouse = Engine::Input::InputDeviceContainer::Instance().GetMouse();
-	//DrawFormatString(700,75,GetColor(0,255,0),"MouseX:%f,MouseY:%f",
-	//	mouse.GetPosX() + camera.GetOriginPos().x,mouse.GetPosY() + camera.GetOriginPos().y);
-	BarManager::Instance().Collision(mouse.GetPosX() + camera.GetOriginPos().x, mouse.GetPosY() + camera.GetOriginPos().y);
+	if (mouse.IsPressKey(Engine::Input::Mouse::LEFT_CLICK))
+	{
+		BarManager::Instance().Collision(mouse.GetPosX() + camera.GetOriginPos().x, mouse.GetPosY() + camera.GetOriginPos().y);
+		laneManager.Collision(mouse.GetPosX(), mouse.GetPosY());
+	}
 }
 
 void NotesEditor::EditScene::OnMusicLoaded()

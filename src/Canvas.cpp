@@ -1,11 +1,11 @@
 #include "Canvas.hpp"
 
 
-Engine::UI::Canvas::Canvas() noexcept
+Engine::UI::Canvas::Canvas()
 {
 }
 
-Engine::UI::Canvas::~Canvas() noexcept
+Engine::UI::Canvas::~Canvas()
 {
 }
 
