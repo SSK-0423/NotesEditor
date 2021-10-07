@@ -22,13 +22,12 @@ private:
 
 public:
 	// 初期化
-	// BoxCollider 1回目のUpdatePolygon
-	TestObject() : texture(*transform, "image/ShortNotes03.png"), collider(*transform)
+	TestObject() : texture(*transform,*screenPos,"image/ShortNotes03.png"), collider(*transform), GameObject()
 	{
 		float width, height;
 		texture.GetTextureSize(width, height);
 		transform->SetSize(width, height);
-		transform->Scaling(10, 10);
+		transform->Scaling(1, 1);
 		transform->SetPosition(500, 500);
 		screenPos->SetPosition(transform->GetPosition().x, transform->GetPosition().y);
 	}
@@ -48,9 +47,9 @@ public:
 		if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_D))
 			transform->Translate(1.f, 0.f);
 
-		//texture.Update();
-		//// vertexのリセット
-		//collider.Update();
+		texture.Update();
+		// vertexのリセット
+		collider.Update();
 
 		float x, y;
 		x = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPosX();
@@ -65,7 +64,8 @@ public:
 	{
 		texture.Draw();
 		collider.Draw();
-		MyDrawBox(*screenPos);
+		//MyDrawBox(*screenPos);
+		DrawFormatString(700, 400, GetColor(0, 255, 0), "screenPosX:%f,screenPosY:%f", screenPos->x, screenPos->y);
 	}
 	// Transform取得
 	Engine::Components::Transform& GetTransform()

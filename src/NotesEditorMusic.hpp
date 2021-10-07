@@ -35,15 +35,15 @@ namespace NotesEditor
 		//‹È‚ğÅ‰‚©‚çÄ¶
 		void ReplayMusic();
 		//‹È‚Ì’·‚³‚ğæ“¾
-		int GetTotalTime();
+		int GetTotalTime() const;
 		//Œ»İ‚ÌÄ¶ˆÊ’u‚ğæ“¾
-		float GetElapsedTime();
+		float GetElapsedTime() const;
 		//‹È–¼æ“¾
-		std::string GetName();
+		std::string GetName() const;
 		//BPMæ“¾
-		float GetBPM();
+		float GetBPM() const;
 		//”qæ“¾
-		int GetBeat();
+		int GetBeat() const;
 		//‹È‚ª“Ç‚İ‚Ü‚ê‚½‚©‚Ç‚¤‚©‚ğæ“¾
 		bool IsMusicLoaded();
 		//‹È‚ªÄ¶’†‚ª‚Ç‚¤‚©

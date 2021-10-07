@@ -36,12 +36,9 @@ Engine::UI::MultiTextureButton::MultiTextureButton(std::vector<const char*> file
 	// Collider生成
 	collider = Engine::ColliderCreator::Instance().CreateCollider(type, *transform);
 
-	// Transformをテクスチャのサイズに合わせる
-	float texWidth, texHeight;
-	texture[0]->GetTextureSize(texWidth, texHeight);
-	transform->SetSize(texWidth, texHeight);
-	transform->SetPosition(100.f, 100.f);
+	collider->Update();
 }
+
 Engine::UI::MultiTextureButton::~MultiTextureButton()
 {
 	for (auto& tex : texture)
@@ -69,9 +66,8 @@ void Engine::UI::MultiTextureButton::SetEventFunc(DelegateBase<void(void)>* func
 
 void Engine::UI::MultiTextureButton::Update()
 {
-	collider->Update();
 	texture[clickCount % texture.size()]->Update();
-
+	collider->Update();
 	// マウスポインタの座標取得
 	float x, y;
 	x = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPosX();
@@ -104,7 +100,6 @@ void Engine::UI::MultiTextureButton::Update()
 	// ボタンを元の大きさに戻す
 	transform->Scaling(1.0f, 1.0f);
 
-
 	//if (nowButton == nullptr)
 	//	return;
 	//textureButtonList[clickCount % textureButtonList.size()]->Update();
@@ -113,6 +108,7 @@ void Engine::UI::MultiTextureButton::Update()
 void Engine::UI::MultiTextureButton::Draw()
 {
 	texture[clickCount % texture.size()]->Draw();
+	collider->Draw();
 	//if (nowButton == nullptr)
 	//	return;
 	//textureButtonList[clickCount % textureButtonList.size()]->Draw();

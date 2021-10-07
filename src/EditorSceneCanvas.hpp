@@ -3,6 +3,14 @@
 #include "GUI.hpp"
 #include <vector>
 
+namespace Engine
+{
+	namespace UI
+	{
+		class Button;
+	}
+}
+
 namespace NotesEditor
 {
 	enum BUTTON {
@@ -22,9 +30,18 @@ namespace NotesEditor
 		BUTTON_NUM			// ボタンの数
 	};
 
+	enum TEXTBOX {
+		TEXTBOX_MUSICINFO,	// 楽曲情報を表示するテキストボックス
+		TEXTBOX_NUM
+	};
+
+	class MusicInfoTextBox;
+
 	class EditorSceneCanvas : public Engine::UI::Canvas
 	{
 	private:
+		std::vector<Engine::UI::Button*> buttonList;
+		MusicInfoTextBox* musicInfoText;
 		void InitButton();
 		void InitTextBox();
 
@@ -34,5 +51,6 @@ namespace NotesEditor
 		void Init();
 		void Update();
 		void Draw();
+		void OnMusicLoaded();
 	};
 }

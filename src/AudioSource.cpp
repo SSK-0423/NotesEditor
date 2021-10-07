@@ -37,12 +37,12 @@ int Engine::Components::AudioSource::ReplayAudio()
 	return PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, true);
 }
 
-int Engine::Components::AudioSource::GetTotalTime()
+int Engine::Components::AudioSource::GetTotalTime() const
 {
 	return GetSoundTotalTime(audioHandle);
 }
 
-float Engine::Components::AudioSource::GetElapsedTime()
+float Engine::Components::AudioSource::GetElapsedTime() const
 {
 	if (audioHandle == NONE)
 		return RESULT::RESULT_ERROR;

@@ -67,6 +67,12 @@
     <Filter Include="ソース ファイル\Math">
       <UniqueIdentifier>{6b237552-df02-45c8-8b22-d405804907f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\Notes">
+      <UniqueIdentifier>{b34be32e-f94b-419a-8a8b-916a671de1a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\Bar">
+      <UniqueIdentifier>{a29c88f6-efa6-42ee-a404-181bfdf61f54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -170,6 +176,15 @@
     </ClCompile>
     <ClCompile Include="src\GameObject.cpp">
       <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bar.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BarManager.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BarLine.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -324,6 +339,18 @@
     </ClInclude>
     <ClInclude Include="src\GameObject.hpp">
       <Filter>ヘッダー ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorCamera.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bar.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BarLine.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BarManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,28 +3,32 @@
 #include "EditorSceneCanvas.hpp"
 #include "Camera2D.hpp"
 #include "NotesEditorMusic.hpp"
+#include "BarManager.hpp"
 #include "TestObject.h"
+#include "NotesManager.hpp"
+#include "Bar.hpp"
+
 
 namespace Engine
 {
 	class GameObject;
 }
-namespace NotesEditor 
+namespace NotesEditor
 {
 
-	class EditScene : public Engine::Scene::BaseScene{
+	class EditScene : public Engine::Scene::BaseScene {
 	private:
 		EditorSceneCanvas editorSceneCanvas;
 		int laneHandle;
 		//EditorCamera editorCamera
-		//EditorCanvas editorCanvas;
 		Engine::Camera2D camera;
-		//BarManager barManager;
 		//NotesManager notesManager;
-		std::vector<std::vector<Engine::GameObject*>*> objList;
-		TestObject obj;
+		std::vector<Engine::GameObject*> allObjList;
+
+		void OnMusicLoaded();
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
+		void Init() override;
 		void Update() override;
 		void Draw() override;
 	};

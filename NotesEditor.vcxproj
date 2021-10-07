@@ -157,6 +157,9 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\AudioSource.cpp" />
+    <ClCompile Include="src\Bar.cpp" />
+    <ClCompile Include="src\BarLine.cpp" />
+    <ClCompile Include="src\BarManager.cpp" />
     <ClCompile Include="src\BaseScene.cpp" />
     <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\Button.cpp" />
@@ -198,6 +201,9 @@
   <ItemGroup>
     <ClInclude Include="src\Application.hpp" />
     <ClInclude Include="src\AudioSource.hpp" />
+    <ClInclude Include="src\Bar.hpp" />
+    <ClInclude Include="src\BarLine.hpp" />
+    <ClInclude Include="src\BarManager.hpp" />
     <ClInclude Include="src\BaseScene.hpp" />
     <ClInclude Include="src\BoxCollider.hpp" />
     <ClInclude Include="src\Button.hpp" />
@@ -207,6 +213,7 @@
     <ClInclude Include="src\CrossingNumberAlgorithm.hpp" />
     <ClInclude Include="src\CubicSpline.hpp" />
     <ClInclude Include="src\Delegate.hpp" />
+    <ClInclude Include="src\EditorCamera.hpp" />
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\EquationsSolver.hpp" />

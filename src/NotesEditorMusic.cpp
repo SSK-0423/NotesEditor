@@ -55,27 +55,27 @@ void NotesEditor::NotesEditorMusic::ReplayMusic()
 		isPlaying = true;
 }
 
-int NotesEditor::NotesEditorMusic::GetTotalTime()
+int NotesEditor::NotesEditorMusic::GetTotalTime() const
 {
 	return audioSource.GetTotalTime();
 }
 
-float NotesEditor::NotesEditorMusic::GetElapsedTime()
+float NotesEditor::NotesEditorMusic::GetElapsedTime() const
 {
 	return audioSource.GetElapsedTime();
 }
 
-std::string NotesEditor::NotesEditorMusic::GetName()
+std::string NotesEditor::NotesEditorMusic::GetName() const
 {
 	return musicName;
 }
 
-float NotesEditor::NotesEditorMusic::GetBPM()
+float NotesEditor::NotesEditorMusic::GetBPM() const
 {
 	return bpm;
 }
 
-int NotesEditor::NotesEditorMusic::GetBeat()
+int NotesEditor::NotesEditorMusic::GetBeat() const
 {
 	return beat;
 }

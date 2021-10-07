@@ -8,6 +8,7 @@
 #include "TextureTextBox.hpp"
 #include "Music.hpp"
 #include "NotesEditorMusic.hpp"
+#include "BarManager.hpp"
 #include "DxLib.h"
 
 const int BUTTON_SIZE_WIDTH = 126;
@@ -23,8 +24,8 @@ using namespace Engine::Components;
 
 void NotesEditor::EditorSceneCanvas::InitButton()
 {
-	std::vector<Button*> buttonList(BUTTON::BUTTON_NUM);
-
+	buttonList.resize(BUTTON::BUTTON_NUM);
+	
 	// ボタン生成
 	// 設置ノーツ選択ボタン
 	TextureButton* shortButton = new TextureButton("image/SHORT.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
@@ -55,12 +56,24 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayMusic));
 	stopButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::StopMusic));
-
 	playStopButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayStopMusic));
-	
 	replayButton->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::ReplayMusic));
+	
+	// 小節線変更
+	changeBarButton->SetEventFunc(Delegate<BarManager,
+		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType));
+	changeBarButton4->SetEventFunc(Delegate<BarManager,
+		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType4));
+	changeBarButton8->SetEventFunc(Delegate<BarManager, 
+		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType8));
+	changeBarButton16->SetEventFunc(Delegate<BarManager, 
+		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType16));
+	changeBarButton32->SetEventFunc(Delegate<BarManager, 
+		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType32));
+	
+	// ロード・セーブ
 	loadMusicButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::LoadMusic));
 
@@ -71,9 +84,7 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 
 	playButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	stopButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
-	/// <summary>
-	/// 
-	/// </summary>
+	
 	playStopButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	replayButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	
@@ -94,9 +105,7 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	
 	playButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
 	stopButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
-	/// <summary>
-	/// 
-	/// </summary>
+	
 	playStopButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
 	replayButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + BUTTON_SIZE_WIDTH + ADD, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
 	
@@ -110,12 +119,7 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	loadButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 7);
 	saveButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 8);
 
-	// 曲の再生・停止ボタン生成
-	//MultiTextureButton* playStopButton = new MultiTextureButton();
-	//playStopButton->AddTextureButton(playButton);
-	//playStopButton->AddTextureButton(stopButton);
-
-	//
+	// buttonListに格納
 	buttonList[BUTTON::BUTTON_SHORT]		= shortButton;
 	buttonList[BUTTON::BUTTON_LONG]			= longButton;
 	buttonList[BUTTON::BUTTON_SLIDE]		= slideButton;
@@ -138,8 +142,8 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 
 void NotesEditor::EditorSceneCanvas::InitTextBox()
 {
-	MusicInfoTextBox* musicDataText = new MusicInfoTextBox("image/MUSIC_NAME_BPM.png");
-	guiList.push_back(musicDataText);
+	musicInfoText = new MusicInfoTextBox("image/MUSIC_NAME_BPM.png");
+	guiList.push_back(musicInfoText);
 }
 
 NotesEditor::EditorSceneCanvas::EditorSceneCanvas()
@@ -175,6 +179,11 @@ void NotesEditor::EditorSceneCanvas::Draw()
 	{
 		gui->Draw();
 	}
+}
+
+void NotesEditor::EditorSceneCanvas::OnMusicLoaded()
+{
+	musicInfoText->UpdateText();
 }
 
 /*

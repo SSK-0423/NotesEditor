@@ -20,18 +20,13 @@ namespace Engine
 		GameObject();
 		virtual ~GameObject();
 
-		const Components::Transform& GetTransform() const
-		{
-			return *transform;
-		}
+		const Components::Transform& GetTransform() const;
+		Components::Transform& GetTransform();
 
-		Components::Transform& GetTransform()
-		{
-			return *transform;
-		}
-		
+		const Components::Position GetScreenPos() const;
 		Components::Position GetScreenPos();
-		void UpdateScreenPos(Components::Position& pos);
+
+		void UpdateScreenPos(Components::Position pos);
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 	};

@@ -20,7 +20,6 @@ namespace Engine
 
 		public:
 			Transform() {}
-
 			// ç¿ïW
 			Position GetPosition() const
 			{

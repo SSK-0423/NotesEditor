@@ -1,36 +1,18 @@
 #pragma once
-#include "GameObject.hpp"
-#include "IPlayable.hpp"
-#include "GameSymbol.hpp"
-#include "Transform.hpp"
-#include "TestObject.h"
-#include <vector>
-
-namespace Engine
+#include "Camera2D.hpp"
+namespace NotesEditor
 {
-	namespace Collider 
-	{
-		class ICollider;
-	}
-	
-	namespace Collision
-	{
-		class RectWithRect;
-	}
-
-	class Camera2D : public GameObject, IPlayable {
+	class EditorCamera : public Engine::Camera2D{
+	private:
 	private:
 		// 描画対象オブジェクトのポインタ
-		std::vector<Engine::GameObject*>& objList;
+		std::vector<std::vector<GameObject*>*>* objList; // objList[0] = objList objList->size() = 2 objList[0].size() = 2
 		// カメラ内の描画可能オブジェクトのポインタ
 		std::vector<GameObject*> drawList;
 		// カメラの原点(左上座標)
-		Components::Position origin;
-		
-		// カメラの原点座標更新
+		//Components::Position origin;
+
 		void UpdateOrigin();
-		// カメラ内オブジェクトリストの更新
-		void UpdateDrawList();
 		// カメラ内オブジェクトの更新処理
 		void UpdateInCameraObj();
 		// カメラ内オブジェクトの描画
@@ -46,20 +28,21 @@ namespace Engine
 		// オブジェクト間の距離を計算
 		Vector2<float> CalcDistance(const Components::Transform& targetTransform);
 		// 2つのオブジェクトのサイズの合計値を計算
-		Components::Size SumSize(const Components::Transform& targetTransform);
+		//Components::Size SumSize(const Components::Transform& targetTransform);
 
-		void AutoScroll();
 	public:
-		Camera2D(std::vector<Engine::GameObject*>& objList);
-		~Camera2D();
+		EditorCamera();
+		EditorCamera(std::vector<std::vector<GameObject*>*>& vec);
+		~EditorCamera();
 
 		void Update();
 		void Draw();
+		// カメラ内オブジェクトリストの更新
+		void UpdateDrawList();
 		// 描画対象オブジェクトのメモリ開放
 		void DeleteObj();
 		// 移動限界をセット
 		void SetMinposition(float x, float y);
 		void SetMaxposition(float x, float y);
-
 	};
 }

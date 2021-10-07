@@ -12,12 +12,27 @@ Engine::GameObject::~GameObject()
 	delete transform;
 }
 
+const Engine::Components::Transform& Engine::GameObject::GetTransform() const
+{
+	return *transform;
+}
+
+Engine::Components::Transform& Engine::GameObject::GetTransform()
+{
+	return *transform;
+}
+
 Engine::Components::Position Engine::GameObject::GetScreenPos()
 {
 	return *screenPos;
 }
 
-void Engine::GameObject::UpdateScreenPos(Components::Position& pos)
+const Engine::Components::Position Engine::GameObject::GetScreenPos() const
 {
-	screenPos = &pos;
+	return *screenPos;
+}
+
+void Engine::GameObject::UpdateScreenPos(Components::Position pos)
+{
+	*screenPos = pos;
 }

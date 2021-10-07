@@ -18,9 +18,6 @@ void NotesEditor::MusicInfoTextBox::UpdateText()
 	str += std::to_string(static_cast<int>(NotesEditorMusic::Instance().GetBPM()));
 	textBox->AddText(str);
 	textBox->SetColor(0, 0, 0);
-
-	// isMusicLoadedÇfalseÇ…
-	NotesEditorMusic::Instance().CompleteMusicLoad();
 }
 
 NotesEditor::MusicInfoTextBox::MusicInfoTextBox(const char* filePath)
@@ -38,12 +35,6 @@ NotesEditor::MusicInfoTextBox::~MusicInfoTextBox()
 void NotesEditor::MusicInfoTextBox::Update()
 {
 	textBox->Update();
-	
-	// ã»Ç™ì«Ç›çûÇ‹ÇÍÇΩÇÁ
-	if (NotesEditorMusic::Instance().IsMusicLoaded())
-	{
-		UpdateText();
-	}
 }
 
 void NotesEditor::MusicInfoTextBox::Draw()

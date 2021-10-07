@@ -25,7 +25,7 @@ void Engine::Scene::SceneManager::Update()
 				break;
 		}
 		nextScene = SCENE_NONE;    //次のシーン情報をクリア
-		//nowScene->Initialize();  //シーンを初期化
+		nowScene->Init();  //シーンを初期化
 	}
 
 	nowScene->Update(); //シーンの更新
