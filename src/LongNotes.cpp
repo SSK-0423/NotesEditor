@@ -5,14 +5,14 @@
 ////クラス変数実体化
 //unsigned int LongNotes::color = GetColor(0, 0, 255);
 //
-//LongNotes::LongNotes(ShortNotes& start) noexcept {
+//LongNotes::LongNotes(ShortNotes& start)  {
 //	startNotes = &start;
 //	endNotes = nullptr;
 //	width = 0;
 //	height = 0;
 //}
 //
-//LongNotes::LongNotes(ShortNotes& start, ShortNotes& end) noexcept {
+//LongNotes::LongNotes(ShortNotes& start, ShortNotes& end)  {
 //	startNotes = &start;
 //	endNotes = &end;
 //	//positionの設定
@@ -25,16 +25,16 @@
 //	height = fabs(endNotes->collisionPos.y - startNotes->collisionPos.y);
 //}
 //
-//LongNotes::~LongNotes() noexcept {
+//LongNotes::~LongNotes()  {
 //	delete[] startNotes;
 //	delete[] endNotes;
 //}
 //
-//void LongNotes::SetStartNotes(ShortNotes& start) noexcept {
+//void LongNotes::SetStartNotes(ShortNotes& start)  {
 //	startNotes = &start;
 //}
 //
-//void LongNotes::SetEndNotes(ShortNotes& end) noexcept {
+//void LongNotes::SetEndNotes(ShortNotes& end)  {
 //	endNotes = &end;
 //	//positionの設定
 //	position.x = startNotes->collisionPos.x;
@@ -46,17 +46,17 @@
 //	height = fabs(fabs(endNotes->position.y) - fabs(startNotes->position.y));
 //}
 //
-//void LongNotes::SetObjSize(int w, int h) noexcept {
+//void LongNotes::SetObjSize(int w, int h)  {
 //	width = w;
 //	height = h;
 //}
 //
-//void LongNotes::Update() noexcept {
+//void LongNotes::Update()  {
 //	startNotes->SetPosition(position.x, position.y + height / 2);
 //	endNotes->SetPosition(position.x, position.y - height / 2);
 //}
 //
-//void LongNotes::Draw() noexcept {
+//void LongNotes::Draw()  {
 //
 //	//始点描画
 //	startNotes->Draw();

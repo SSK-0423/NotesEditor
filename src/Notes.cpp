@@ -1,10 +1,17 @@
 #include "Notes.hpp"
 #include "DxLib.h"
-//ƒNƒ‰ƒX•Ï”À‘Ì‰»
-float Notes::GetTiming() noexcept {
+
+float NotesEditor::Notes::GetTiming()  
+{
 	return timing;
 }
 
-int Notes::GetLane() noexcept {
+int NotesEditor::Notes::GetLane()  
+{
 	return lane;
+}
+
+NotesEditor::NOTESTYPE NotesEditor::Notes::GetNotesType()
+{
+	return type;
 }

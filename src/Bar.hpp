@@ -31,8 +31,6 @@ namespace NotesEditor
 	// 小節線クラス
 	class Bar : public Engine::GameObject {
 	private:
-		// 1小節における音符数の最大値
-		static const int MAXNOTENUM;
 		// 小節線タイプ
 		static BARTYPE nowType;
 
@@ -50,12 +48,14 @@ namespace NotesEditor
 	public:
 		// フォント
 		static Font fontHandle;
+		// 1小節における音符数の最大値
+		static int MAXNOTENUM;
 
-		Bar(int barNum);
+		Bar(int barNum, int lineNum);
 		~Bar();
 		void Update();
 		void Draw();
-		bool Collision(float& x, float& y);
+		float Collision(float x, float y);
 		static void ChangeBarType(BARTYPE type);
 	};
 }

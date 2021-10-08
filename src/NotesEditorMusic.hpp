@@ -37,7 +37,7 @@ namespace NotesEditor
 		//‹È‚Ì’·‚³‚ğæ“¾
 		int GetTotalTime() const;
 		//Œ»İ‚ÌÄ¶ˆÊ’u‚ğæ“¾
-		float GetElapsedTime() const;
+		int GetElapsedTime() const;
 		//‹È–¼æ“¾
 		std::string GetName() const;
 		//BPMæ“¾

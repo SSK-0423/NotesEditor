@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "Singleton.hpp"
 #include "Notes.hpp"
 #include "BarManager.hpp"
 #include "NotesCreator.hpp"
@@ -14,26 +15,24 @@ namespace Engine
 
 namespace NotesEditor
 {
-	typedef enum NOTESTYPE {
-		SHORT_NOTES,		//ショートノーツ
-		LONG_NOTES,			//ロングノーツ
-		SLIDE_NOTES,		//スライドノーツ
-		TYPENUM				//ノーツの種類数
-	};
+	class Notes;
+
+
 
 	//ノーツ管理クラス
-	class NotesManager {
+	class NotesManager : public Singleton<NotesManager> {
+		friend Singleton<NotesManager>;
 	private:
+		NotesManager();
 		static NOTESTYPE type;						//ノーツタイプ
-		std::vector<Engine::GameObject*> notesList;				//ノーツリスト
+		std::vector<Notes*> notesList;				//ノーツリスト
 		unsigned int color;
 		//ShortNotesCreator shortNotesCreator;		//ショートノーツ作成クラス
-		//LongNotesCreator longNotesCreator;			//ロングノーツ作成クラス
+		//LongNotesCreator longNotesCreator;		//ロングノーツ作成クラス
 		//SlideNotesCreator slideNotesCreator;		//スライドノーツ作成クラス
 		bool IsExist(float& x, float& y);	//ノーツの二重配置検知
 
 	public:
-		NotesManager();
 		void ChangeNotesTypeShort();
 		void ChangeNotesTypeLong();
 		void ChangeNotesTypeSlide();

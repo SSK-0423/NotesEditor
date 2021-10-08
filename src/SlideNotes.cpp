@@ -4,13 +4,13 @@
 //
 //#define INF 2000000;
 //
-//SlideNotes::SlideNotes(std::vector<ShortNotes*> list) noexcept 
+//SlideNotes::SlideNotes(std::vector<ShortNotes*> list)  
 //{
 //	notesList = list;
 //	Init();
 //}
 //
-//SlideNotes::~SlideNotes() noexcept 
+//SlideNotes::~SlideNotes()  
 //{
 //	for (auto obj : notesList) 
 //	{
@@ -31,7 +31,7 @@
 //	SetPoint();
 //}
 //
-//void SlideNotes::Update() noexcept 
+//void SlideNotes::Update()  
 //{
 //	for (auto notes : notesList) 
 //	{
@@ -39,14 +39,14 @@
 //	}
 //}
 //
-//void SlideNotes::Draw() noexcept 
+//void SlideNotes::Draw()  
 //{
 //	DrawCurve();
 //	DrawStartEnd();
 //	DebugDraw();
 //}
 //
-//void SlideNotes::SetNotesList(std::vector<ShortNotes*> list) noexcept
+//void SlideNotes::SetNotesList(std::vector<ShortNotes*> list) 
 //{
 //	std::copy(list.begin(), list.end(), notesList.begin());
 //
@@ -54,7 +54,7 @@
 //}
 //
 //
-//void SlideNotes::SetPoint() noexcept 
+//void SlideNotes::SetPoint()  
 //{
 //	// ì_ÇÃç¿ïWäiî[ÉäÉXÉg
 //	std::vector<vector<double>> p_;
@@ -86,7 +86,7 @@
 //}
 //
 //// widthåvéZ
-//int SlideNotes::CalcWidth() noexcept 
+//int SlideNotes::CalcWidth()  
 //{
 //	int max = GetMaxColPosX();
 //	int min = GetMinColPosX();
@@ -96,7 +96,7 @@
 //}
 //
 //// CollisionPosXÇãÅÇﬂÇÈ
-//int SlideNotes::CalcColPosX() noexcept 
+//int SlideNotes::CalcColPosX()  
 //{
 //	int max = GetMaxColPosX();
 //	int min = GetMinColPosX();

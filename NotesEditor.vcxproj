@@ -178,6 +178,8 @@
     <ClCompile Include="src\Keyboard.cpp" />
     <ClCompile Include="src\Lane.cpp" />
     <ClCompile Include="src\LaneManager.cpp" />
+    <ClCompile Include="src\LongNotes.cpp" />
+    <ClCompile Include="src\LongNotesCreator.cpp" />
     <ClCompile Include="src\LUdecomposition.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Matrix.cpp" />
@@ -185,6 +187,7 @@
     <ClCompile Include="src\MultiTextureButton.cpp" />
     <ClCompile Include="src\Music.cpp" />
     <ClCompile Include="src\MusicInfoTextBox.cpp" />
+    <ClCompile Include="src\Notes.cpp" />
     <ClCompile Include="src\NotesEditorMusic.cpp" />
     <ClCompile Include="src\NotesManager.cpp" />
     <ClCompile Include="src\OpenFileExplorer.cpp" />
@@ -192,6 +195,10 @@
     <ClCompile Include="src\Polygon.cpp" />
     <ClCompile Include="src\Rotator.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\ShortNotes.cpp" />
+    <ClCompile Include="src\ShortNotesCreator.cpp" />
+    <ClCompile Include="src\SlideNotes.cpp" />
+    <ClCompile Include="src\SlideNotesCreator.cpp" />
     <ClCompile Include="src\TextureTextBox.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\TextureButton.cpp" />
@@ -234,12 +241,16 @@
     <ClInclude Include="src\Keyboard.hpp" />
     <ClInclude Include="src\Lane.hpp" />
     <ClInclude Include="src\LaneManager.hpp" />
+    <ClInclude Include="src\LongNotes.hpp" />
+    <ClInclude Include="src\LongNotesCreator.hpp" />
     <ClInclude Include="src\LUdecomposition.hpp" />
     <ClInclude Include="src\Matrix.hpp" />
     <ClInclude Include="src\Mouse.hpp" />
     <ClInclude Include="src\MultiTextureButton.hpp" />
     <ClInclude Include="src\Music.hpp" />
     <ClInclude Include="src\MusicInfoTextBox.hpp" />
+    <ClInclude Include="src\Notes.hpp" />
+    <ClInclude Include="src\NotesCreator.hpp" />
     <ClInclude Include="src\NotesEditorMusic.hpp" />
     <ClInclude Include="src\NotesManager.hpp" />
     <ClInclude Include="src\OpenFileExplorer.hpp" />
@@ -251,8 +262,12 @@
     <ClInclude Include="src\Rotator.hpp" />
     <ClInclude Include="src\Scale.hpp" />
     <ClInclude Include="src\SceneManager.hpp" />
+    <ClInclude Include="src\ShortNotes.hpp" />
+    <ClInclude Include="src\ShortNotesCreator.hpp" />
     <ClInclude Include="src\Singleton.hpp" />
     <ClInclude Include="src\Size.hpp" />
+    <ClInclude Include="src\SlideNotes.hpp" />
+    <ClInclude Include="src\SlideNotesCreator.hpp" />
     <ClInclude Include="src\TestObject.h" />
     <ClInclude Include="src\TextureTextBox.hpp" />
     <ClInclude Include="src\Texture.hpp" />

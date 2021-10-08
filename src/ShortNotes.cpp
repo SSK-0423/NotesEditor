@@ -5,69 +5,69 @@
 //
 ////クラス変数実体化
 ////int ShortNotes::clapHandle = LoadSoundMem("sounds/clap.ogg");
-//const int ShortNotes::SHORTNOTESWIDTH = 80;
-//const int ShortNotes::SHORTNOTESHEIGHT = 20;
+//const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
+//const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
 //
-//ShortNotes::ShortNotes(float& x, float& y) noexcept 
+//NotesEditor::ShortNotes::ShortNotes(float& x, float& y) 
 //{
-//	clapHandle = LoadSoundMem("sounds/clap.ogg");
-//	color = GetColor(0, 255, 0);
-//	width = SHORTNOTESWIDTH;
-//	height = SHORTNOTESHEIGHT;
-//	position.x = x;
-//	position.y = y;
-//	collisionPos.x = x;
-//	collisionPos.y = y;
+//	//clapHandle = LoadSoundMem("sounds/clap.ogg");
+//	//color = GetColor(0, 255, 0);
+//	//width = SHORTNOTESWIDTH;
+//	//height = SHORTNOTESHEIGHT;
+//	//position.x = x;
+//	//position.y = y;
+//	//collisionPos.x = x;
+//	//collisionPos.y = y;
 //}
 //
-//ShortNotes::~ShortNotes() noexcept 
+//NotesEditor::ShortNotes::~ShortNotes() 
 //{
 //
 //}
 //
-//void ShortNotes::Update() noexcept 
+//void NotesEditor::ShortNotes::Update() 
 //{
-//	if (fabs(position.y - WINDOW_SIZE_HEIGHT) <= 5) 
-//	{
-//		PlayClap();
-//	}
+//	//if (fabs(position.y - WINDOW_SIZE_HEIGHT) <= 5) 
+//	//{
+//	//	PlayClap();
+//	//}
 //}
 //
-//void ShortNotes::Draw() noexcept 
+//void NotesEditor::ShortNotes::Draw() 
 //{
-//	DrawNotes();
-//	DebugDraw();
+//	//DrawNotes();
+//	//DebugDraw();
 //}
 //
-//void ShortNotes::SetColor(Color c)
+//void NotesEditor::ShortNotes::SetColor(Color c)
 //{
-//	color = c;
+//	//color = c;
 //}
 //
-//Color ShortNotes::GetNotesColor() 
+//Color NotesEditor::ShortNotes::GetNotesColor()
 //{
-//	return color;
+//	//return color;
 //}
 //
 ////ハンドクラップ再生
-//void ShortNotes::PlayClap() noexcept 
+//void NotesEditor::ShortNotes::PlayClap() 
 //{
-//	PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
+//	//PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
 //}
 //
 //// ノーツ描画
-//void ShortNotes::DrawNotes()
+//void NotesEditor::ShortNotes::DrawNotes()
 //{
-//	DrawBox(position.x - width / 2, position.y - height / 2,
-//			position.x + width / 2, position.y + height / 2,
-//			color, true);
+//	//DrawBox(position.x - width / 2, position.y - height / 2,
+//	//		position.x + width / 2, position.y + height / 2,
+//	//		color, true);
 //}
 //
 //// デバッグ用描画
-//void ShortNotes::DebugDraw()
+//void NotesEditor::ShortNotes::DebugDraw()
 //{
 //	// 当たり判定表示
-//	DrawBox(position.x - width / 2, position.y - height / 2, position.x + width / 2, position.y + height / 2, GetColor(255, 0, 0), false);
+//	//DrawBox(position.x - width / 2, position.y - height / 2, position.x + width / 2, position.y + height / 2, GetColor(255, 0, 0), false);
 //	
 //	// 中心座標表示
 //	// DrawCircle(position.x, position.y, 10, GetColor(255, 255, 255), true);

@@ -45,6 +45,6 @@ namespace NotesEditor
 		~BarLine();
 		void Update();
 		void Draw();
-		void Collision(float x, float y);
+		float Collision(float x, float y);
 	};
 }

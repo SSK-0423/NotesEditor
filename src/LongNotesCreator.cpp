@@ -4,12 +4,12 @@
 ////クラス変数実体化
 //bool LongNotesCreator::isStart = true;
 //
-//LongNotesCreator::LongNotesCreator() noexcept {
+//LongNotesCreator::LongNotesCreator()  {
 //	startNotes = nullptr;
 //	endNotes = nullptr;
 //}
 //
-//Notes* LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
+//Notes* LongNotesCreator::CreateNotes(float& x, float& y)  {
 //
 //	//始点ノーツ
 //	if (isStart) {
@@ -44,7 +44,7 @@
 //	//return notes;
 //}
 //
-//void LongNotesCreator::CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept {
+//void LongNotesCreator::CreateNotes(float& x, float& y, std::vector<GameObject*>& objList)  {
 //	//始点ノーツ
 //	if (isStart) {
 //		//始点ノーツ生成
@@ -76,7 +76,7 @@
 //	}
 //}
 //
-//void LongNotesCreator::Cancel(std::vector<GameObject*>& objList) noexcept
+//void LongNotesCreator::Cancel(std::vector<GameObject*>& objList) 
 //{
 //	if (startNotes != nullptr && endNotes == nullptr) {
 //		objList.pop_back();
@@ -85,7 +85,7 @@
 //	}
 //}
 //
-//void LongNotesCreator::DeleteNotes(GameObject& notes) noexcept
+//void LongNotesCreator::DeleteNotes(GameObject& notes) 
 //{
 //	isStart = true;
 //	delete[] startNotes;

@@ -16,7 +16,10 @@ namespace NotesEditor
 		std::vector<Bar*> barList;
 
 	public:
-		void CreateBar(std::vector<Engine::GameObject*>& objList, int barNum);
+		// 1小節当たりの最大音符数
+		static const int MAXNOTENUM = 32;
+
+		void CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum);
 		//小節タイプ変更 1/1
 		void ChangeBarType();
 		//小節タイプ変更1/4
@@ -29,6 +32,9 @@ namespace NotesEditor
 		void ChangeBarType32();
 
 		void ChangeSize();
-		bool Collision(float x, float y);
+		float Collision(float x, float y);
+		float CalcTiming(float y);
+		unsigned int GetBarNum();
+		void Delete();
 	};
 }

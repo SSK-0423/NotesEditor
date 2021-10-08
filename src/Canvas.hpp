@@ -25,5 +25,4 @@ namespace Engine
 			void AddGUIObj(GUI& obj);
 		};
 	}
-
 }

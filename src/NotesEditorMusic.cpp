@@ -60,7 +60,7 @@ int NotesEditor::NotesEditorMusic::GetTotalTime() const
 	return audioSource.GetTotalTime();
 }
 
-float NotesEditor::NotesEditorMusic::GetElapsedTime() const
+int NotesEditor::NotesEditorMusic::GetElapsedTime() const
 {
 	return audioSource.GetElapsedTime();
 }

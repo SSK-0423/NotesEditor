@@ -9,12 +9,15 @@ namespace NotesEditor
 		friend Singleton<LaneManager>;
 	private:
 		LaneManager();
-		float lanePosX[6];
+		static const int MAXLANENUM = 6;
+		float lanePosX[MAXLANENUM];
 		std::vector<Lane*> laneList;
 	public:
 		~LaneManager();
 		void Update();
 		void Draw();
-		void Collision(float x, float y);
+		float Collision(float x, float y);
+		int GetLane(float x);
+		void Delete();
 	};
 }

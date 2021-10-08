@@ -3,14 +3,14 @@
 
 NotesEditor::LaneManager::LaneManager()
 {
-	lanePosX[0] = 307;
-	lanePosX[1] = 390;
-	lanePosX[2] = 472;
-	lanePosX[3] = 555;
-	lanePosX[4] = 637;
-	lanePosX[5] = 720;
+	lanePosX[0] = 307.f;
+	lanePosX[1] = 390.f;
+	lanePosX[2] = 472.f;
+	lanePosX[3] = 555.f;
+	lanePosX[4] = 637.f;
+	lanePosX[5] = 720.f;
 
-	for (int i = 0; i < Lane::MAXLANENUM; i++)
+	for (int i = 0; i < MAXLANENUM; i++)
 	{
 		laneList.push_back(new Lane(i, lanePosX[i]));
 	}
@@ -42,10 +42,33 @@ void NotesEditor::LaneManager::Draw()
 	}
 }
 
-void NotesEditor::LaneManager::Collision(float x, float y)
+float NotesEditor::LaneManager::Collision(float x, float y)
+{
+	float putPosX;
+	for (auto lane : laneList)
+	{
+		putPosX = lane->Collision(x, y);
+		if (putPosX != -1.f) return putPosX;
+	}
+	return -1.f;
+}
+
+int NotesEditor::LaneManager::GetLane(float x)
+{
+	for (int i = 0; i < MAXLANENUM; i++)
+	{
+		if (x == lanePosX[i])
+			return i;
+	}
+	return -1;
+}
+
+void NotesEditor::LaneManager::Delete()
 {
 	for (auto lane : laneList)
 	{
-		lane->Collision(x, y);
+		delete lane;
 	}
+	laneList.clear();
+	laneList.shrink_to_fit();
 }

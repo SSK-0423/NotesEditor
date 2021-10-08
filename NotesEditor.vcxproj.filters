@@ -207,6 +207,27 @@
     <ClCompile Include="src\NotesManager.cpp">
       <Filter>ソース ファイル\NotesEditor\Notes</Filter>
     </ClCompile>
+    <ClCompile Include="src\ShortNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlideNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShortNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlideNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Notes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -380,6 +401,30 @@
       <Filter>ヘッダー ファイル\NotesEditor\Lane</Filter>
     </ClInclude>
     <ClInclude Include="src\NotesManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlideNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlideNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShortNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShortNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Notes.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
   </ItemGroup>

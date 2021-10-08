@@ -9,7 +9,6 @@ Engine::GameObject::GameObject()
 
 Engine::GameObject::~GameObject()
 {
-	delete transform;
 }
 
 const Engine::Components::Transform& Engine::GameObject::GetTransform() const

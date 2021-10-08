@@ -12,9 +12,9 @@
 //staticïœêîÇÃé¿ëÃâª
 Font NotesEditor::Bar::fontHandle;
 NotesEditor::BARTYPE NotesEditor::Bar::nowType = NotesEditor::BARTYPE::BAR1;
-const int NotesEditor::Bar::MAXNOTENUM = 32;
+int NotesEditor::Bar::MAXNOTENUM = 1;
 
-NotesEditor::Bar::Bar(int barNum) : barNum(barNum)
+NotesEditor::Bar::Bar(int barNum, int lineNum) : barNum(barNum)
 {
 	BarLine::stepPosY = static_cast<float>(WINDOW_SIZE_HEIGHT) / MAXNOTENUM;
 
@@ -34,7 +34,7 @@ NotesEditor::Bar::Bar(int barNum) : barNum(barNum)
 		static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f - height * (static_cast<float>(WINDOW_SIZE_HEIGHT) / height) * barNum);
 
 	// è¨êﬂê¸ÇÃê∂ê¨
-	for (int i = 0; i < MAXNOTENUM; i++)
+	for (int i = 0; i < lineNum; i++)
 	{
 		barLineList.push_back(new BarLine(*this, i));
 	}
@@ -43,6 +43,12 @@ NotesEditor::Bar::Bar(int barNum) : barNum(barNum)
 
 NotesEditor::Bar::~Bar()
 {
+	for (auto line : barLineList)
+	{
+		delete line;
+	}
+	barLineList.clear();
+	barLineList.shrink_to_fit();
 	delete collider;
 	delete collision;
 }
@@ -64,19 +70,20 @@ void NotesEditor::Bar::Draw()
 	DrawBarNum();
 }
 
-bool NotesEditor::Bar::Collision(float& x, float& y)
+float NotesEditor::Bar::Collision(float x, float y)
 {
+	float putPoxY;
 	bool isOnBar = collision->Collision(x, y, *collider);
 	if (isOnBar)
 	{
 		DrawFormatString(700, 100, GetColor(0, 255, 0), "ìñÇΩÇ¡ÇΩ:%dè¨êﬂñ⁄", barNum);
 		for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
 		{
-			barLineList[i]->Collision(x, y);
+			putPoxY = barLineList[i]->Collision(x, y);
+			if (putPoxY != -1.f) return putPoxY;
 		}
-		return true;
 	}
-	return false;
+	return -1.f;
 }
 
 void NotesEditor::Bar::ChangeBarType(BARTYPE type)

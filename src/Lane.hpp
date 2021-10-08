@@ -32,12 +32,10 @@ namespace NotesEditor
 		Engine::PrimitiveObj::Point* endPoint;
 
 	public:
-		static int MAXLANENUM;
-		//Lane(int laneNum);
 		Lane(int laneNum, float posX);
 		~Lane();
 		void Update();
 		void Draw();
-		void Collision(float x, float y);
+		float Collision(float x, float y);
 	};
 }

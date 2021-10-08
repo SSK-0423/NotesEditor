@@ -126,3 +126,77 @@ NotesEditor::NOTESTYPE NotesEditor::NotesManager::type;
 //	}
 //	notesList.clear();
 //}
+
+bool NotesEditor::NotesManager::IsExist(float& x, float& y)
+{
+	
+	return false;
+}
+
+NotesEditor::NotesManager::NotesManager()
+{
+}
+
+void NotesEditor::NotesManager::ChangeNotesTypeShort()
+{
+}
+
+void NotesEditor::NotesManager::ChangeNotesTypeLong()
+{
+}
+
+void NotesEditor::NotesManager::ChangeNotesTypeSlide()
+{
+}
+
+void NotesEditor::NotesManager::Update()
+{
+}
+
+void NotesEditor::NotesManager::Draw()
+{
+}
+
+std::vector<Engine::GameObject*>* NotesEditor::NotesManager::GetListRef()
+{
+	return nullptr;
+}
+
+void NotesEditor::NotesManager::CreateNotes(float& x, float& y)
+{
+	//if (IsExist(x, y)) {
+	//	//ノーツ生成
+	//	NotesCreator* creator = nullptr;
+
+	//	//生成するノーツ
+	//	switch (type)
+	//	{
+	//	case SHORT_NOTES:
+	//		creator = &shortNotesCreator;
+	//		longNotesCreator.Cancel(notesList);		//ロングノーツの設置をキャンセル
+	//		slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
+	//		break;
+	//	case LONG_NOTES:
+	//		creator = &longNotesCreator;
+	//		slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
+	//		break;
+	//	case SLIDE_NOTES:
+	//		creator = &slideNotesCreator;
+	//		longNotesCreator.Cancel(notesList);		//ロングノーツの設置をキャンセル
+	//		break;
+	//	default:
+	//		creator = &shortNotesCreator;
+	//		break;
+	//	}
+	//	//ノーツ生成
+	//	creator->CreateNotes(x, y, notesList);
+	//}
+}
+
+void NotesEditor::NotesManager::DeleteNotes(float& x, float& y)
+{
+}
+
+void NotesEditor::NotesManager::DeleteObj()
+{
+}

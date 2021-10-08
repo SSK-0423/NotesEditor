@@ -167,13 +167,23 @@ void Engine::Camera2D::Controll()
 	// カメラの座標
 	Components::Position cameraPos = transform->GetPosition();
 
+	NotesEditor::NotesEditorMusic& music = NotesEditor::NotesEditorMusic::Instance();
+	// bpm:1分間の当たりの拍数
+	// beat:1小節
+	// 1拍の長さ
+	float beatTimeLength = 60.f / static_cast<float>(music.GetBPM());
+	// 1小節の長さ
+	float barTimeLength = 60.f / static_cast<float>(music.GetBPM()) * 4;
+	// 1/32音符の長さ
+	//float note32TimeLength = beatTimeLength / 32.f;
+	float note32TimeLength = static_cast<float>(WINDOW_SIZE_HEIGHT) / 32.f;
 	//マウスホイールでスクロール
-	cameraPos.y += 10 * GetMouseWheelRotVol();
-
+	//cameraPos.y += 10 * GetMouseWheelRotVol();
+	cameraPos.y += note32TimeLength * GetMouseWheelRotVol();
 	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_DOWN))
-		cameraPos.y += 5.f;
+		cameraPos.y += note32TimeLength;
 	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_UP))
-		cameraPos.y -= 5.f;
+		cameraPos.y -= note32TimeLength;
 
 	//PgUp PgDnでウィンドウサイズ分スクロール
 	if (Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_PGDN))
@@ -222,8 +232,8 @@ void Engine::Camera2D::DebugDraw()
 	DrawFormatString(800, 150, color, "drawListサイズ:%d", drawList.size());
 	////DrawFormatString(800, 150, color, "小節オブジェクト数:%d", objList[0][0]->size());
 	////DrawFormatString(800, 175, color, "ノーツオブジェクト数:%d", objList[0][1]->size());
-	//DrawFormatString(800, 250, color, "カメラの上端座標:%f", cameraPos.y - cameraSize.height / 2.f);
-	//DrawFormatString(800, 300, color, "カメラの下端座標:%f", cameraPos.y + cameraSize.height / 2.f);
+	DrawFormatString(800, 75, color, "カメラの上端座標:%f", cameraPos.y - cameraSize.height / 2.f);
+	DrawFormatString(800, 100, color, "カメラの下端座標:%f", cameraPos.y + cameraSize.height / 2.f);
 
 	// カメラ枠表示
 	//DrawBox(

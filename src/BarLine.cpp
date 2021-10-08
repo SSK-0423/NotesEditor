@@ -24,7 +24,7 @@ void NotesEditor::BarLine::InitTransform()
 	float windowHeight = static_cast<float>(WINDOW_SIZE_HEIGHT);
 
 	float width = windowWidth / 2.f;
-	float height = 10.f;
+	float height = 20.f;
 
 	float x = parentBar.GetTransform().GetPosition().x;
 	float y = parentBar.GetTransform().GetPosition().y +
@@ -91,11 +91,13 @@ void NotesEditor::BarLine::Draw()
 	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
 }
 
-void NotesEditor::BarLine::Collision(float x, float y)
+float NotesEditor::BarLine::Collision(float x, float y)
 {
 	if (collision->Collision(x, y, *collider))
 	{
 		/* ˆ— */
 		DrawFormatString(700, 75, GetColor(0, 255, 0), "“–‚½‚Á‚½:%d", lineNum);
+		return transform->GetPosition().y;
 	}
+	return -1.f;
 }

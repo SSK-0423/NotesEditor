@@ -5,6 +5,7 @@
 
 NotesEditor::BarManager::BarManager()
 {
+	Bar::MAXNOTENUM = MAXNOTENUM;
 	Bar::fontHandle = CreateFontToHandle("Bar", 30, 1);
 }
 
@@ -13,28 +14,62 @@ void NotesEditor::BarManager::ChangeSize()
 	Engine::Components::Size size;
 	for (auto bar : barList)
 	{
-		bar->GetTransform().Scaling(1.f,1.f);
+		bar->GetTransform().Scaling(1.f, 1.f);
 		Engine::Components::Position pos = bar->GetTransform().GetPosition();
-		bar->GetTransform().SetPosition(pos.x,pos.y * 1.f);
+		bar->GetTransform().SetPosition(pos.x, pos.y * 1.f);
 	}
 }
 
-bool NotesEditor::BarManager::Collision(float x, float y)
+float NotesEditor::BarManager::Collision(float x, float y)
 {
+	float putPosY;
 	for (auto bar : barList)
 	{
-		bool isCol = bar->Collision(x, y);
+		putPosY = bar->Collision(x, y);
+		if (putPosY != -1.f) return putPosY;
 	}
-	return false;
+	return -1.f;
 }
 
-void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objList, int barNum)
+float NotesEditor::BarManager::CalcTiming(float y)
 {
+	float timing = barList[0]->GetTransform().GetSize().height * static_cast<float>(barList.size());
+	return 0.0f;
+}
+
+unsigned int NotesEditor::BarManager::GetBarNum()
+{
+	return barList.size();
+}
+
+void NotesEditor::BarManager::Delete()
+{
+	//for (auto bar : barList)
+	//{
+	//	delete bar;
+	//}
+	barList.clear();
+	barList.shrink_to_fit();
+}
+
+void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum)
+{
+	// è¨êﬂÇÃê∂ê¨
 	for (int i = 0; i < barNum; i++)
 	{
-		Bar* bar = new Bar(i);
+		Bar* bar;
+		if (lineNum >= BarManager::MAXNOTENUM)
+		{
+			bar = new Bar(i, BarManager::MAXNOTENUM);
+		}
+		else
+		{
+			bar = new Bar(i, lineNum);
+		}
 		barList.push_back(bar);
 		objList.push_back(static_cast<Engine::GameObject*>(bar));
+
+		lineNum -= BarManager::MAXNOTENUM;
 	}
 }
 

@@ -4,15 +4,15 @@
 //#include "KeyInput.hpp"
 //#include <algorithm>
 //
-//SlideNotesCreator::SlideNotesCreator() noexcept {
+//SlideNotesCreator::SlideNotesCreator()  {
 //	isEnd = false;
 //}
 //
-//Notes* SlideNotesCreator::CreateNotes(float& x, float& y) noexcept {
+//Notes* SlideNotesCreator::CreateNotes(float& x, float& y)  {
 //	return nullptr;
 //}
 //
-//void SlideNotesCreator::CreateNotes(std::vector<GameObject*>& objList) noexcept {
+//void SlideNotesCreator::CreateNotes(std::vector<GameObject*>& objList)  {
 //	//終点ノーツ
 //	if(isEnd){
 //		//スライドノーツ生成
@@ -31,7 +31,7 @@
 //	}
 //}
 //
-//void SlideNotesCreator::CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept
+//void SlideNotesCreator::CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) 
 //{
 //	//始点、中間点ノーツ
 //	if (!isEnd) {
@@ -60,14 +60,14 @@
 //}
 //
 //// スライドノーツの終端を設置していいか判定
-//void SlideNotesCreator::IsEnd() noexcept {
+//void SlideNotesCreator::IsEnd()  {
 //	if (slideNotesList.size() >= 4) {
 //		isEnd = true;
 //	}
 //}
 //
 //// 設置キャンセル
-//void SlideNotesCreator::Cancel(std::vector<GameObject*>& objList) noexcept {
+//void SlideNotesCreator::Cancel(std::vector<GameObject*>& objList)  {
 //	for (int i = 0; i < slideNotesList.size(); i++) {
 //		objList.pop_back();
 //	}
@@ -75,7 +75,7 @@
 //}
 //
 ////中間ノーツ削除
-//void SlideNotesCreator::DeleteNotes(GameObject& notes) noexcept
+//void SlideNotesCreator::DeleteNotes(GameObject& notes) 
 //{
 //	//スライドノーツの中間ノーツなら削除
 //	auto deleteNotes = std::find(slideNotesList.begin(), slideNotesList.end(), (ShortNotes*)&notes);
