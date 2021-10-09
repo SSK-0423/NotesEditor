@@ -16,6 +16,7 @@
 NotesEditor::NotesEditorMusic& NotesEditor::ShortNotes::notesEditorMusic = NotesEditor::NotesEditorMusic::Instance();
 const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
 const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
+float NotesEditor::ShortNotes::playRange = 0.001f;
 
 NotesEditor::ShortNotes::ShortNotes(float x, float y) : color(GetColor(0, 255, 0))
 {
@@ -50,9 +51,12 @@ NotesEditor::ShortNotes::~ShortNotes()
 
 void NotesEditor::ShortNotes::Update()
 {
-	if (fabsf(timing - (static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f)) <= 0.01f)
+	if (notesEditorMusic.IsPlaying())
 	{
-		PlayClap();
+		if (fabsf(timing - (static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f)) <= ShortNotes::playRange)
+		{
+			PlayClap();
+		}
 	}
 }
 
@@ -92,7 +96,7 @@ void NotesEditor::ShortNotes::DrawNotes()
 void NotesEditor::ShortNotes::DebugDraw()
 {
 	DrawFormatString(800, 650, GetColor(0, 255, 0), "timing:%f", timing);
-	if (fabsf(timing - static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f) <= 0.01f)
+	if (fabsf(timing - static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f) <= ShortNotes::playRange)
 	{
 		DrawFormatString(800, 700, GetColor(0, 255, 0), "Ä¶I");
 	}

@@ -36,6 +36,8 @@ namespace NotesEditor
 		void DecidePutPos();
 		float CalcJudgeTiming(float y);
 		void DebugDraw();
+		void DebugPutNotes();
+
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
 		void Init() override;

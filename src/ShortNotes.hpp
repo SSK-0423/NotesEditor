@@ -27,6 +27,7 @@ namespace NotesEditor
 		Engine::Collision::PointWithPolygon* collision;
 
 		Color color;
+
 		void PlayClap() ;
 		// ÉmÅ[Écï`âÊ
 		void DrawNotes();
@@ -37,6 +38,8 @@ namespace NotesEditor
 		static const int SHORTNOTESWIDTH;
 		// ÉmÅ[ÉcÇÃècïù
 		static const int SHORTNOTESHEIGHT;
+		//
+		static float playRange;
 
 		ShortNotes(float x, float y);
 		ShortNotes(const NotesData& notesData);

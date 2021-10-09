@@ -6,6 +6,7 @@
 #include "SlideNotesCreator.hpp"
 #include "NotesData.hpp"
 #include "Transform.hpp"
+#include "InputDeviceContainer.hpp"
 #include "DxLib.h"
 #include <algorithm>
 
@@ -52,14 +53,15 @@ void NotesEditor::NotesManager::ChangeNotesTypeSlide()
 
 void NotesEditor::NotesManager::Update()
 {
-	for (auto notes : notesList)
-	{
-		notes->Update();
-	}
+	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_Q))
+		ShortNotes::playRange += 0.001f;	
+	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_E))
+		ShortNotes::playRange -= 0.001f;
 }
 
 void NotesEditor::NotesManager::Draw()
 {
+	DrawFormatString(800, 625, GetColor(0, 255, 0), "playRange:%f", ShortNotes::playRange);
 }
 
 void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
