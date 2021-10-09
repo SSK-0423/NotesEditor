@@ -421,7 +421,7 @@
     <ClInclude Include="src\LongNotesCreator.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
-    <ClInclude Include="src\NotesCreator.hpp">
+    <ClInclude Include="src\INotesCreator.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
     <ClInclude Include="src\Notes.hpp">

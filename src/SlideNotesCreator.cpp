@@ -1,3 +1,4 @@
+#include "SlideNotesCreator.hpp"
 //#include "SlideNotesCreator.hpp"
 //#include "SlideNotes.hpp"
 //#include "DxLib.h"
@@ -86,3 +87,32 @@
 //{
 //	DrawFormatString(800, 600, GetColor(0, 255, 0), "スライドノーツリスト:%d", slideNotesList.size());
 //}
+
+NotesEditor::SlideNotesCreator::SlideNotesCreator()
+{
+}
+
+NotesEditor::Notes* NotesEditor::SlideNotesCreator::CreateNotes(const NotesData& notesData)
+{
+	return nullptr;
+}
+
+void NotesEditor::SlideNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
+{
+}
+
+void NotesEditor::SlideNotesCreator::IsEnd()
+{
+}
+
+void NotesEditor::SlideNotesCreator::Cancel(std::vector<Engine::GameObject*>& objList)
+{
+}
+
+void NotesEditor::SlideNotesCreator::DeleteNotes(Engine::GameObject& notes)
+{
+}
+
+void NotesEditor::SlideNotesCreator::Draw()
+{
+}

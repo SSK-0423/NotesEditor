@@ -41,7 +41,6 @@ namespace NotesEditor
 		//
 		static float playRange;
 
-		ShortNotes(float x, float y);
 		ShortNotes(const NotesData& notesData);
 		~ShortNotes() ;
 		void Update()  override;

@@ -1,14 +1,13 @@
-//#include "ShortNotesCreator.hpp"
-//#include "ShortNotes.hpp"
-//
-//NotesEditor::Notes* NotesEditor::ShortNotesCreator::CreateNotes(float&x, float& y)  {
-//	Notes* notes = new ShortNotes(x,y);
-//	return notes;
-//}
-//
-//void NotesEditor::ShortNotesCreator::CreateNotes(float& x, float& y, std::vector<Engine::GameObject*>& objList) 
-//{
-//	//Notes* notes = new ShortNotes(x, y);
-//	//objList.push_back(notes);
-//}
-//
+#include "ShortNotesCreator.hpp"
+#include "ShortNotes.hpp"
+
+NotesEditor::Notes* NotesEditor::ShortNotesCreator::CreateNotes(const NotesData& notesData)
+{
+	return new ShortNotes(notesData);
+}
+
+void NotesEditor::ShortNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
+{
+	Notes* notes = new ShortNotes(notesData);
+	objList.push_back(notes);
+}

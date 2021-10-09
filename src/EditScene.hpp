@@ -33,6 +33,7 @@ namespace NotesEditor
 		void OnMusicLoaded();
 		void DeleteObj();
 		void PutNotes();
+		void RemoveNotes();
 		void DecidePutPos();
 		float CalcJudgeTiming(float y);
 		void DebugDraw();

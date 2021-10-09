@@ -1,16 +1,16 @@
-//#pragma once
-//#include "NotesCreator.hpp"
-//
-//namespace Engine
-//{
-//	class GameObject;
-//}
-//
-//namespace NotesEditor
-//{
-//	class ShortNotesCreator : public NotesCreator {
-//	public:
-//		Notes* CreateNotes(float& x, float& y) ;
-//		void CreateNotes(float& x, float& y, std::vector<Engine::GameObject*>& objList) ;
-//	};
-//}
+#pragma once
+#include "INotesCreator.hpp"
+
+namespace Engine
+{
+	class GameObject;
+}
+
+namespace NotesEditor
+{
+	class ShortNotesCreator : public INotesCreator {
+	public:
+		Notes* CreateNotes(const NotesData& notesData);
+		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
+	};
+}

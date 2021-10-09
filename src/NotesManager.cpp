@@ -1,9 +1,6 @@
 #include "NotesManager.hpp"
 #include "ShortNotes.hpp"
-#include "NotesCreator.hpp"
-#include "ShortNotesCreator.hpp"
-#include "LongNotesCreator.hpp"
-#include "SlideNotesCreator.hpp"
+#include "INotesCreator.hpp"
 #include "NotesData.hpp"
 #include "Transform.hpp"
 #include "InputDeviceContainer.hpp"
@@ -54,7 +51,7 @@ void NotesEditor::NotesManager::ChangeNotesTypeSlide()
 void NotesEditor::NotesManager::Update()
 {
 	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_Q))
-		ShortNotes::playRange += 0.001f;	
+		ShortNotes::playRange += 0.001f;
 	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_E))
 		ShortNotes::playRange -= 0.001f;
 }
@@ -70,9 +67,32 @@ void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vec
 	// 同じ場所にノーツが存在した
 	if (IsExist(notesData.x, notesData.y))
 		return;
-	ShortNotes* notes = new ShortNotes(notesData);
-	objList.push_back(notes);
-	notesList.push_back(notes);
+	//ノーツ生成
+	INotesCreator* creator = nullptr;
+
+	//生成するノーツ
+	switch (type)
+	{
+	case NOTESTYPE::SHORT_NOTES:
+		creator = &shortNotesCreator;
+		longNotesCreator.Cancel(objList);		//ロングノーツの設置をキャンセル
+		//slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
+		break;
+	case NOTESTYPE::LONG_NOTES:
+		creator = &longNotesCreator;
+		//slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
+		break;
+	case NOTESTYPE::SLIDE_NOTES:
+		creator = &slideNotesCreator;
+		//longNotesCreator.Cancel(notesList);		//ロングノーツの設置をキャンセル
+		break;
+	default:
+		break;
+	}
+	//ノーツ生成
+	creator->CreateNotes(notesData,objList);
+	//objList.push_back(notes);
+	//notesList.push_back(notes);
 }
 
 void NotesEditor::NotesManager::DeleteNotes(float x, float y)

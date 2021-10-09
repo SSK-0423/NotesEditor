@@ -1,5 +1,4 @@
 #include "ShortNotes.hpp"
-#include "DxLib.h"
 #include "WindowSize.hpp"
 #include "AudioSource.hpp"
 #include "BoxCollider.hpp"
@@ -8,6 +7,8 @@
 #include "NotesData.hpp"
 #include "NotesEditorMusic.hpp"
 #include "AudioSource.hpp"
+#include "InputDeviceContainer.hpp"
+#include "DxLib.h"
 #include <math.h>
 #include <stdlib.h>
 
@@ -17,13 +18,6 @@ NotesEditor::NotesEditorMusic& NotesEditor::ShortNotes::notesEditorMusic = Notes
 const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
 const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
 float NotesEditor::ShortNotes::playRange = 0.001f;
-
-NotesEditor::ShortNotes::ShortNotes(float x, float y) : color(GetColor(0, 255, 0))
-{
-	type = NOTESTYPE::SHORT_NOTES;
-	collider = new Engine::Components::BoxCollider(*transform);
-	collision = new Engine::Collision::PointWithPolygon();
-}
 
 NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(GetColor(0, 255, 0))
 {

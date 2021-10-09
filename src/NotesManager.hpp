@@ -2,7 +2,11 @@
 #include <vector>
 #include "Singleton.hpp"
 #include "Notes.hpp"
-#include "NotesCreator.hpp"
+#include "GameSymbol.hpp"
+#include "INotesCreator.hpp"
+#include "ShortNotesCreator.hpp"
+#include "LongNotesCreator.hpp"
+#include "SlideNotesCreator.hpp"
 
 namespace Engine
 {
@@ -21,10 +25,10 @@ namespace NotesEditor
 		NotesManager();
 		static NOTESTYPE type;						//ノーツタイプ
 		std::vector<Notes*> notesList;				//ノーツリスト
-		unsigned int color;
-		//ShortNotesCreator shortNotesCreator;		//ショートノーツ作成クラス
-		//LongNotesCreator longNotesCreator;		//ロングノーツ作成クラス
-		//SlideNotesCreator slideNotesCreator;		//スライドノーツ作成クラス
+		Color color;
+		ShortNotesCreator shortNotesCreator;
+		LongNotesCreator longNotesCreator;
+		SlideNotesCreator slideNotesCreator;
 		bool IsExist(float x, float y);				//ノーツの二重配置検知
 
 	public:
