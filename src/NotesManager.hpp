@@ -2,11 +2,7 @@
 #include <vector>
 #include "Singleton.hpp"
 #include "Notes.hpp"
-#include "BarManager.hpp"
 #include "NotesCreator.hpp"
-#include "ShortNotesCreator.hpp"
-#include "LongNotesCreator.hpp"
-#include "SlideNotesCreator.hpp"
 
 namespace Engine
 {
@@ -16,8 +12,7 @@ namespace Engine
 namespace NotesEditor
 {
 	class Notes;
-
-
+	struct NotesData;
 
 	//ノーツ管理クラス
 	class NotesManager : public Singleton<NotesManager> {
@@ -30,7 +25,7 @@ namespace NotesEditor
 		//ShortNotesCreator shortNotesCreator;		//ショートノーツ作成クラス
 		//LongNotesCreator longNotesCreator;		//ロングノーツ作成クラス
 		//SlideNotesCreator slideNotesCreator;		//スライドノーツ作成クラス
-		bool IsExist(float& x, float& y);	//ノーツの二重配置検知
+		bool IsExist(float x, float y);				//ノーツの二重配置検知
 
 	public:
 		void ChangeNotesTypeShort();
@@ -38,9 +33,8 @@ namespace NotesEditor
 		void ChangeNotesTypeSlide();
 		void Update();
 		void Draw();
-		std::vector<Engine::GameObject*>* GetListRef();
-		void CreateNotes(float& x, float& y);
-		void DeleteNotes(float& x, float& y);
+		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
+		void DeleteNotes(float x, float y);
 		void DeleteObj();
 	};
 }

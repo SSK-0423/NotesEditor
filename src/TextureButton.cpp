@@ -7,7 +7,7 @@
 #include "Point.hpp"
 #include "ColliderCreator.hpp"
 
-Engine::UI::TextureButton::TextureButton(const char* filePath, Components::COLLIDERTYPE type) : Button()
+Engine::UI::TextureButton::TextureButton(const char* filePath, Components::COLLIDERTYPE type) : Button(), isPressed(false)
 {
 	transform = new Components::Transform();
 	texture = new Components::Texture(*transform, filePath);
@@ -51,16 +51,18 @@ void Engine::UI::TextureButton::Update()
 void Engine::UI::TextureButton::Draw()
 {
 	texture->Draw();
+	collider->Draw();
 }
 
 bool Engine::UI::TextureButton::IsClick()
 {
 	if (IsOnButton())
 	{
-		// 左クリックが離されたか
+		// ボタンがクリックされている状態で左クリックが離されたか
 		bool isRelease = Engine::Input::InputDeviceContainer::Instance().GetMouse().IsReleaseKey(Engine::Input::Mouse::LEFT_CLICK);
-		if (isRelease)
+		if (isRelease && isPressed == true)
 		{
+			isPressed = false;
 			return true;
 		}
 
@@ -68,6 +70,7 @@ bool Engine::UI::TextureButton::IsClick()
 		bool isClicking = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPressingCount(Engine::Input::Mouse::LEFT_CLICK);
 		if (isClicking)
 		{
+			isPressed = true;
 			transform->Scaling(CLICKEDSIZE, CLICKEDSIZE);
 			return false;
 		}

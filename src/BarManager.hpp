@@ -14,7 +14,8 @@ namespace NotesEditor
 		BarManager();
 		// 生成した小節線オブジェクト
 		std::vector<Bar*> barList;
-
+		// ライン数
+		int lineNum;
 	public:
 		// 1小節当たりの最大音符数
 		static const int MAXNOTENUM = 32;
@@ -35,6 +36,7 @@ namespace NotesEditor
 		float Collision(float x, float y);
 		float CalcTiming(float y);
 		unsigned int GetBarNum();
+		int GetLineNum();
 		void Delete();
 	};
 }

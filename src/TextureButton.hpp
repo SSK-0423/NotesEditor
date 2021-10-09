@@ -39,6 +39,7 @@ namespace Engine
 			Components::ICollider* collider;
 			// マウスポインタとポリゴンとの判定
 			Collision::PointWithPolygon* collision;
+			bool isPressed;
 			void RunEventFunc();
 			bool IsOnButton();
 		public:

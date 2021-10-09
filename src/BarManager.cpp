@@ -42,6 +42,11 @@ unsigned int NotesEditor::BarManager::GetBarNum()
 	return barList.size();
 }
 
+int NotesEditor::BarManager::GetLineNum()
+{
+	return lineNum;
+}
+
 void NotesEditor::BarManager::Delete()
 {
 	//for (auto bar : barList)
@@ -54,6 +59,7 @@ void NotesEditor::BarManager::Delete()
 
 void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum)
 {
+	this->lineNum = lineNum;
 	// è¨êﬂÇÃê∂ê¨
 	for (int i = 0; i < barNum; i++)
 	{

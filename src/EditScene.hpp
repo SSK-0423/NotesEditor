@@ -33,6 +33,8 @@ namespace NotesEditor
 		void OnMusicLoaded();
 		void DeleteObj();
 		void PutNotes();
+		void DecidePutPos();
+		float CalcJudgeTiming(float y);
 		void DebugDraw();
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);

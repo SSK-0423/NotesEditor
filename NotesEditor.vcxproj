@@ -251,6 +251,7 @@
     <ClInclude Include="src\MusicInfoTextBox.hpp" />
     <ClInclude Include="src\Notes.hpp" />
     <ClInclude Include="src\NotesCreator.hpp" />
+    <ClInclude Include="src\NotesData.hpp" />
     <ClInclude Include="src\NotesEditorMusic.hpp" />
     <ClInclude Include="src\NotesManager.hpp" />
     <ClInclude Include="src\OpenFileExplorer.hpp" />

@@ -427,5 +427,8 @@
     <ClInclude Include="src\Notes.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
+    <ClInclude Include="src\NotesData.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

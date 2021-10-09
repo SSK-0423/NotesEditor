@@ -88,6 +88,7 @@ void NotesEditor::BarLine::Update()
 
 void NotesEditor::BarLine::Draw()
 {
+	collider->Draw();
 	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
 }
 

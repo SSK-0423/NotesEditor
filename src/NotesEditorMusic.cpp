@@ -23,6 +23,7 @@ void NotesEditor::NotesEditorMusic::LoadMusic()
 		if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED) 
 		{
 			isMusicLoaded = true;
+			audioSource.ChangeVolume(128);
 		}
 	}
 }
@@ -35,13 +36,13 @@ void NotesEditor::NotesEditorMusic::PlayStopMusic()
 			isPlaying = false;
 		return;
 	}
-	if(audioSource.PlayAudio() == RESULT::RESULT_SUCCEED)
+	if(audioSource.PlayAudioLoop() == RESULT::RESULT_SUCCEED)
 		isPlaying = true;
 }
 
 void NotesEditor::NotesEditorMusic::PlayMusic()
 {
-	audioSource.PlayAudio();
+	audioSource.PlayAudioLoop();
 }
 
 void NotesEditor::NotesEditorMusic::StopMusic()

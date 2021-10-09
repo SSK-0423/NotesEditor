@@ -6,9 +6,9 @@
 #include "MultiTextureButton.hpp"
 #include "MusicInfoTextBox.hpp"
 #include "TextureTextBox.hpp"
-#include "Music.hpp"
 #include "NotesEditorMusic.hpp"
 #include "BarManager.hpp"
+#include "NotesManager.hpp"
 #include "DxLib.h"
 
 const int BUTTON_SIZE_WIDTH = 126;
@@ -50,6 +50,10 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	paths.push_back("image/PLAY.png"); paths.push_back("image/STOP.png");
 	MultiTextureButton* playStopButton = new MultiTextureButton(paths, COLLIDERTYPE::COLLIDERTYPE_BOX);
 
+	// 設置するノーツ選択
+	shortButton->SetEventFunc(Delegate<NotesManager, void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeShort));
+	longButton->SetEventFunc(Delegate<NotesManager, void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeLong));
+	slideButton->SetEventFunc(Delegate<NotesManager, void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeSlide));
 
 	// クリック時に呼ばれる関数セット
 	playButton->SetEventFunc(Delegate<NotesEditorMusic,
@@ -58,7 +62,7 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::StopMusic));
 	playStopButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayStopMusic));
-	replayButton->SetEventFunc(Delegate<NotesEditor::NotesEditorMusic,
+	replayButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::ReplayMusic));
 	
 	// 小節線変更

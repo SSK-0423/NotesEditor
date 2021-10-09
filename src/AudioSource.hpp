@@ -11,12 +11,14 @@ namespace Engine
 		public:
 			AudioSource();
 			AudioSource(const char* filePath);
-			int PlayAudio();
+			int PlayAudioLoop();
+			int PlayOneShot();
 			int StopAudio();
 			int ReplayAudio();
 			int GetTotalTime() const;
 			float GetElapsedTime() const;
 			int LoadAudio(const char* filePath);
+			int ChangeVolume(int volume);
 		};
 	}
 }
