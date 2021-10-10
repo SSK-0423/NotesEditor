@@ -11,6 +11,6 @@ namespace NotesEditor
 	class ShortNotesCreator : public INotesCreator {
 	public:
 		Notes* CreateNotes(const NotesData& notesData);
-		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
+		Notes* CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 	};
 }

@@ -64,7 +64,7 @@ void NotesEditor::EditScene::Input()
 	{
 		PutNotes();
 	}
-	if (mouse.IsPressKey(Engine::Input::Mouse::LEFT_CLICK))
+	if (mouse.IsPressKey(Engine::Input::Mouse::RIGHT_CLICK))
 	{
 		RemoveNotes();
 	}
@@ -177,14 +177,14 @@ void NotesEditor::EditScene::RemoveNotes()
 	const Engine::Input::Mouse mouse = Engine::Input::InputDeviceContainer::Instance().GetMouse();
 
 	// ノーツの設置位置決定
-	float x = laneManager.Collision(mouse.GetPosX(), mouse.GetPosY());
-	float y = barManager.Collision(mouse.GetPosX() + camera.GetOriginPos().x, mouse.GetPosY() + camera.GetOriginPos().y);
+	float x = mouse.GetPosX();
+	float y = mouse.GetPosY() + camera.GetOriginPos().y;
 
 	// 無効な設置場所
 	if (x == -1 || y == -1)
 		return;
-	
-	notesManager.DeleteNotes(x,y);
+
+	notesManager.DeleteNotes(x, y, allObjList);
 }
 
 void NotesEditor::EditScene::PutNotes()
@@ -204,7 +204,7 @@ void NotesEditor::EditScene::PutNotes()
 	int lane = laneManager.GetLane(x);
 	float timing = CalcJudgeTiming(y);
 
-	DrawFormatString(500, 175, GetColor(0, 255, 0), "x:%f,y:%f,lane:%d,timing:%f", x, y, lane, timing);
+	//DrawFormatString(500, 175, GetColor(0, 255, 0), "x:%f,y:%f,lane:%d,timing:%f", x, y, lane, timing);
 
 	NotesData data(x, y, lane, timing);
 	notesManager.CreateNotes(data, allObjList);
@@ -233,14 +233,14 @@ float NotesEditor::EditScene::CalcJudgeTiming(float y)
 void NotesEditor::EditScene::DebugPutNotes()
 {
 	float x = 307;
-	
+
 	int lane = 0;
 
 	int minimum = 16;
 
-	for (int i = 0; i < minimum * (barManager.GetBarNum() - 1); i++) 
+	for (int i = 0; i < minimum * (barManager.GetBarNum() - 1); i++)
 	{
-		float y = static_cast<float>(WINDOW_SIZE_HEIGHT)  - static_cast<float>(WINDOW_SIZE_HEIGHT) / 
+		float y = static_cast<float>(WINDOW_SIZE_HEIGHT) - static_cast<float>(WINDOW_SIZE_HEIGHT) /
 			static_cast<float>(minimum) * static_cast<float>(i);
 
 		float timing = CalcJudgeTiming(y);

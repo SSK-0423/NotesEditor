@@ -1,6 +1,18 @@
 #pragma once
 #include "GameObject.hpp"
 
+namespace Engine
+{
+	namespace Components
+	{
+		class ICollider;
+	}
+	namespace Collision
+	{
+		class PointWithPolygon;
+	}
+}
+
 namespace NotesEditor
 {
 	enum class NOTESTYPE {
@@ -19,10 +31,15 @@ namespace NotesEditor
 		// ノーツタイプ
 		NOTESTYPE type;
 
+		Engine::Components::ICollider* collider;
+		Engine::Collision::PointWithPolygon* collision;
+
 	public:
+		virtual ~Notes();
 		float GetTiming();
 		int GetLane();
-		NOTESTYPE GetNotesType();
+		virtual bool Collision(float x, float y) = 0;
+		virtual NOTESTYPE GetNotesType() = 0;
 		virtual void Draw() = 0;
 		virtual void Update() = 0;
 	};

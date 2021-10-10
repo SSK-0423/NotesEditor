@@ -16,7 +16,7 @@ namespace NotesEditor
 	public:
 		SlideNotesCreator();
 		Notes* CreateNotes(const NotesData& notesData);
-		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
+		Notes* CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 		void IsEnd();
 		void Cancel(std::vector<Engine::GameObject*>& objList);
 		void DeleteNotes(Engine::GameObject& notes);

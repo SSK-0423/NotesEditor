@@ -8,6 +8,6 @@ namespace NotesEditor
 	class INotesCreator {
 	public:
 		virtual Notes* CreateNotes(const NotesData& notesData) = 0;
-		virtual void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList) = 0;
+		virtual Notes* CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList) = 0;
 	};
 }

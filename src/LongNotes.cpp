@@ -14,7 +14,7 @@ NotesEditor::LongNotes::LongNotes(ShortNotes& start, ShortNotes& end) : startNot
 	collider = new Engine::Components::BoxCollider(*transform);
 	collision = new Engine::Collision::PointWithPolygon();
 
-	float width = startNotesPos.x;
+	float width = start.GetTransform().GetSize().width;
 	float height = fabsf(endNotesPos.y - startNotesPos.y);
 	float x = startNotesPos.x;
 	float y = (startNotesPos.y + endNotesPos.y) / 2.f;
@@ -32,6 +32,16 @@ NotesEditor::LongNotes::~LongNotes()
 	delete collision;
 }
 
+NotesEditor::NOTESTYPE NotesEditor::LongNotes::GetNotesType()
+{
+	return NOTESTYPE::LONG_NOTES;
+}
+
+bool NotesEditor::LongNotes::Collision(float x, float y)
+{
+	return startNotes->Collision(x,y) || endNotes->Collision(x,y) || collision->Collision(x,y,*collider);
+}
+
 void NotesEditor::LongNotes::Update()
 {
 	startNotes->Update();
@@ -39,28 +49,25 @@ void NotesEditor::LongNotes::Update()
 
 	Engine::Components::Position startNotesScreenPos;
 	startNotesScreenPos.x = screenPos->x;
-	startNotesScreenPos.y = screenPos->y + transform->GetSize().height / 2.f;
+	startNotesScreenPos.y = screenPos->y + (startNotes->GetTransform().GetPosition().y - transform->GetPosition().y);
 	startNotes->UpdateScreenPos(startNotesScreenPos);
 
 	Engine::Components::Position endNotesScreenPos;
 	endNotesScreenPos.x = screenPos->x;
-	endNotesScreenPos.y = screenPos->y - transform->GetSize().height / 2.f;
+	endNotesScreenPos.y = screenPos->y + (endNotes->GetTransform().GetPosition().y - transform->GetPosition().y);
 	endNotes->UpdateScreenPos(endNotesScreenPos);
 }
 
 void NotesEditor::LongNotes::Draw()
 {
-	collider->Draw();
 	DrawMiddleLine();
 	startNotes->Draw();
 	endNotes->Draw();
-	DrawFormatString(700, 350, color, "width:%f,height:%f", transform->GetSize().width, transform->GetSize().height);
+	collider->Draw();
 }
 
 void NotesEditor::LongNotes::DrawMiddleLine()
 {
-	DrawFormatString(700, 300, color, "sx:%f,sy:%f", startNotes->GetScreenPos().x, startNotes->GetScreenPos().y);
-	DrawFormatString(700, 325, color, "ex:%f,ey:%f", endNotes->GetScreenPos().x, endNotes->GetScreenPos().y);
 	DrawLineAA(startNotes->GetScreenPos().x, startNotes->GetScreenPos().y,
 		endNotes->GetScreenPos().x, endNotes->GetScreenPos().y, color, startNotes->GetTransform().GetSize().width);
 }

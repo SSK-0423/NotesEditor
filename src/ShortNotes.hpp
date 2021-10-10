@@ -23,28 +23,29 @@ namespace NotesEditor
 	private:
 		static NotesEditorMusic& notesEditorMusic;
 		Engine::Components::AudioSource* handClap;
-		Engine::Components::ICollider* collider;
-		Engine::Collision::PointWithPolygon* collision;
 
 		Color color;
 
-		void PlayClap() ;
+		void PlayClap();
 		// ノーツ描画
 		void DrawNotes();
 		// デバッグ用の描画
 		void DebugDraw();
+
 	public:
 		// ノーツの横幅
 		static const int SHORTNOTESWIDTH;
 		// ノーツの縦幅
 		static const int SHORTNOTESHEIGHT;
-		//
+		// タイミングずれの許容幅
 		static float playRange;
 
 		ShortNotes(const NotesData& notesData);
-		~ShortNotes() ;
-		void Update()  override;
-		void Draw()  override;
+		~ShortNotes();
+		NOTESTYPE GetNotesType();
+		bool Collision(float x, float y) override;
+		void Update() override;
+		void Draw() override;
 		void SetColor(Color c);
 		Color GetNotesColor();
 	};

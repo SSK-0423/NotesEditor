@@ -19,7 +19,7 @@ NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& 
 	return nullptr;
 }
 
-void NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
+NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
 {
 	//始点ノーツ
 	if (isStart) 
@@ -33,15 +33,16 @@ void NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std:
 
 		objList.push_back(startNotes);
 
-		return;
+		return nullptr;
 	}
 
 	//終点ノーツ
 	//終点ノーツの位置が始点ノーツより後ろ(上)だったらロングノーツ設置
 	if (notesData.y < startNotes->GetTransform().GetPosition().y) {
 		//終点ノーツ生成
-		NotesData data(startNotes->GetTransform().GetPosition().x, notesData.y, notesData.lane, notesData.timing);
-		endNotes = new ShortNotes(data);
+		//NotesData data(startNotes->GetTransform().GetPosition().x, notesData.y, notesData.lane, notesData.timing);
+		//NotesData data(startNotes->GetTransform().GetPosition().x, notesData.y, notesData.lane, notesData.timing);
+		endNotes = new ShortNotes(notesData);
 		endNotes->SetColor(GetColor(0, 128, 255));
 		//ロングノーツ生成
 		LongNotes* longNotes = new LongNotes(*startNotes, *endNotes);
@@ -54,6 +55,8 @@ void NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std:
 		objList.push_back(longNotes);
 		//始点ノーツを無効にする
 		startNotes = nullptr;
+		
+		return longNotes;
 	}
 }
 

@@ -22,7 +22,7 @@ namespace NotesEditor
 		LongNotesCreator();
 		~LongNotesCreator();
 		Notes* CreateNotes(const NotesData& notesData);
-		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
+		Notes* CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 		void Cancel(std::vector<Engine::GameObject*>& objList);
 		void DeleteNotes(Engine::GameObject& notes);
 

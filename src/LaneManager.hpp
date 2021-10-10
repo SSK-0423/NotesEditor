@@ -9,9 +9,10 @@ namespace NotesEditor
 		friend Singleton<LaneManager>;
 	private:
 		LaneManager();
-		static const int MAXLANENUM = 6;
+		static const int MAXLANENUM = 11;
 		float lanePosX[MAXLANENUM];
 		std::vector<Lane*> laneList;
+
 	public:
 		~LaneManager();
 		void Update();

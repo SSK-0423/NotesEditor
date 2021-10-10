@@ -16,8 +16,7 @@ bool NotesEditor::NotesManager::IsExist(float x, float y)
 {
 	for (auto notes : notesList)
 	{
-		Engine::Components::Position pos = notes->GetTransform().GetPosition();
-		if (pos.x == x && pos.y == y)
+		if (notes->Collision(x, y))
 			return true;
 	}
 	return false;
@@ -79,34 +78,49 @@ void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vec
 	case NOTESTYPE::SHORT_NOTES:
 		creator = &shortNotesCreator;
 		longNotesCreator.Cancel(objList);		//ロングノーツの設置をキャンセル
-		//slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
+		slideNotesCreator.Cancel(objList);	//スライドノーツの設置をキャンセル
 		break;
 	case NOTESTYPE::LONG_NOTES:
 		creator = &longNotesCreator;
-		//slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
+		slideNotesCreator.Cancel(objList);	//スライドノーツの設置をキャンセル
 		break;
 	case NOTESTYPE::SLIDE_NOTES:
 		creator = &slideNotesCreator;
-		//longNotesCreator.Cancel(notesList);		//ロングノーツの設置をキャンセル
+		longNotesCreator.Cancel(objList);		//ロングノーツの設置をキャンセル
 		break;
 	default:
 		break;
 	}
+
 	//ノーツ生成
-	creator->CreateNotes(notesData,objList);
-	//objList.push_back(notes);
-	//notesList.push_back(notes);
+	Notes* notes = creator->CreateNotes(notesData, objList);
+
+	//生成が完了していたらnotesListに追加
+	if (notes != nullptr)
+		notesList.push_back(notes);
 }
 
-void NotesEditor::NotesManager::DeleteNotes(float x, float y)
+void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList)
 {
 	for (auto notes : notesList)
 	{
-		auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
-		notesList.erase(deleteNotes);
+		bool isCol = notes->Collision(x, y);
+		if (isCol)
+		{
+			DrawFormatString(800, 500, GetColor(0, 255, 0), "当たった");
+			auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
+			notesList.erase(deleteNotes);
+			auto notesDel = std::find(objList.begin(), objList.end(), static_cast<Engine::GameObject*>(notes));
+			objList.erase(notesDel);
+		}
 	}
 }
 
 void NotesEditor::NotesManager::DeleteObj()
 {
+}
+
+NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()
+{
+	return type;
 }

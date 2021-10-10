@@ -6,8 +6,9 @@ NotesEditor::Notes* NotesEditor::ShortNotesCreator::CreateNotes(const NotesData&
 	return new ShortNotes(notesData);
 }
 
-void NotesEditor::ShortNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
+NotesEditor::Notes* NotesEditor::ShortNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
 {
 	Notes* notes = new ShortNotes(notesData);
 	objList.push_back(notes);
+	return notes;
 }

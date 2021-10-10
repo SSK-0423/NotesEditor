@@ -51,7 +51,6 @@ void Engine::UI::TextureButton::Update()
 void Engine::UI::TextureButton::Draw()
 {
 	texture->Draw();
-	collider->Draw();
 }
 
 bool Engine::UI::TextureButton::IsClick()

@@ -43,6 +43,16 @@ NotesEditor::ShortNotes::~ShortNotes()
 	delete collision;
 }
 
+NotesEditor::NOTESTYPE NotesEditor::ShortNotes::GetNotesType()
+{
+	return NOTESTYPE::SHORT_NOTES;
+}
+
+bool NotesEditor::ShortNotes::Collision(float x, float y)
+{
+	return collision->Collision(x, y, *collider);
+}
+
 void NotesEditor::ShortNotes::Update()
 {
 	if (notesEditorMusic.IsPlaying())

@@ -23,11 +23,10 @@ namespace NotesEditor
 	class Lane : public Engine::GameObject{
 	private:
 		static int lineThickness;
-		static Color laneColor;
 		static float stepPosX;
+		static Color laneColor[2];
+		Color color;
 		int laneNum;
-		Engine::Components::ICollider* collider;
-		Engine::Collision::PointWithPolygon* collision;
 		Engine::PrimitiveObj::Point* startPoint;
 		Engine::PrimitiveObj::Point* endPoint;
 
@@ -36,6 +35,5 @@ namespace NotesEditor
 		~Lane();
 		void Update();
 		void Draw();
-		float Collision(float x, float y);
 	};
 }

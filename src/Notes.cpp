@@ -1,7 +1,12 @@
 #include "Notes.hpp"
+#include "PointWithPolygon.hpp"
 #include "DxLib.h"
 
-float NotesEditor::Notes::GetTiming()  
+NotesEditor::Notes::~Notes()
+{
+}
+
+float NotesEditor::Notes::GetTiming()
 {
 	return timing;
 }
@@ -11,7 +16,7 @@ int NotesEditor::Notes::GetLane()
 	return lane;
 }
 
-NotesEditor::NOTESTYPE NotesEditor::Notes::GetNotesType()
+bool NotesEditor::Notes::Collision(float x, float y)
 {
-	return type;
+	return collision->Collision(x, y, *collider);
 }

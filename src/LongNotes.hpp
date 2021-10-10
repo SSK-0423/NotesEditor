@@ -22,19 +22,18 @@ namespace NotesEditor
 	private:
 		// ノーツの色
 		static Color color;
-		//始点ノーツ
+		// 始点ノーツ
 		ShortNotes* startNotes;
 		// 終点ノーツ
 		ShortNotes* endNotes;
 
-		Engine::Components::ICollider* collider;
-		Engine::Collision::PointWithPolygon* collision;
-
 		void DrawMiddleLine();
 	public:
-		LongNotes(ShortNotes& start, ShortNotes& end) ;
-		~LongNotes() ;
-		void Update()  override;
-		void Draw()  override;
+		LongNotes(ShortNotes& start, ShortNotes& end);
+		~LongNotes();
+		NOTESTYPE GetNotesType();
+		bool Collision(float x, float y) override;
+		void Update() override;
+		void Draw() override;
 	};
 }

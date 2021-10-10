@@ -7,12 +7,13 @@
 #include "GameSymbol.hpp"
 
 int NotesEditor::Lane::lineThickness = 2;
-Color NotesEditor::Lane::laneColor = GetColor(255, 255, 255);
+Color NotesEditor::Lane::laneColor[2] = {
+	GetColor(255, 255, 255),
+	GetColor(0, 255, 255)
+};
 
-NotesEditor::Lane::Lane(int laneNum, float posX) : laneNum(laneNum)
+NotesEditor::Lane::Lane(int laneNum, float posX) : laneNum(laneNum), color(laneColor[laneNum % 2])
 {
-	collider = new Engine::Components::BoxCollider(*transform);
-	collision = new Engine::Collision::PointWithPolygon();
 	startPoint = new Engine::PrimitiveObj::Point();
 	endPoint = new Engine::PrimitiveObj::Point();
 
@@ -35,16 +36,12 @@ NotesEditor::Lane::Lane(int laneNum, float posX) : laneNum(laneNum)
 	transform->SetPosition(x, y);
 	transform->SetSize(width, height);
 
-	// colliderとtransformのパラメータ同期
-	collider->Update();
 }
 
 NotesEditor::Lane::~Lane()
 {
 	delete transform;
 	delete screenPos;
-	delete collider;
-	delete collision;
 	delete startPoint;
 	delete endPoint;
 }
@@ -55,15 +52,5 @@ void NotesEditor::Lane::Update()
 
 void NotesEditor::Lane::Draw()
 {
-	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, laneColor, lineThickness);
-}
-
-float NotesEditor::Lane::Collision(float x, float y)
-{
-	if (collision->Collision(x, y, *collider))
-	{
-		DrawFormatString(700, 200, GetColor(0, 255, 0), "当たった:レーン%d", laneNum + 1);
-		return transform->GetPosition().x;
-	}
-	return -1.f;
+	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
 }
