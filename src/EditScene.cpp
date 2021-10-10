@@ -236,7 +236,7 @@ void NotesEditor::EditScene::DebugPutNotes()
 
 	int lane = 0;
 
-	int minimum = 16;
+	int minimum = 4;
 
 	for (int i = 0; i < minimum * (barManager.GetBarNum() - 1); i++)
 	{

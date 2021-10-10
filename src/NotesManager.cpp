@@ -53,6 +53,10 @@ void NotesEditor::NotesManager::Update()
 		ShortNotes::playRange += 0.001f;
 	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_E))
 		ShortNotes::playRange -= 0.001f;
+
+	// 次のスライドノーツ設置へ
+	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_RETURN))
+		slideNotesCreator.IsEnd();
 }
 
 void NotesEditor::NotesManager::Draw()
@@ -61,6 +65,9 @@ void NotesEditor::NotesManager::Draw()
 	DrawFormatString(800, 600, GetColor(0, 255, 0), "notesList:%d", notesList.size());
 	DrawFormatString(800, 575, GetColor(0, 255, 0), "isStart:%d", LongNotesCreator::isStart);
 	DrawFormatString(800, 550, GetColor(0, 255, 0), "startNotes:%p", LongNotesCreator::startNotes);
+	int x, y;
+	GetMousePoint(&x, &y);
+	DrawBox(x - 10, y - 10, x + 10, y + 10, color, true);
 }
 
 void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
@@ -112,6 +119,9 @@ void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine
 			notesList.erase(deleteNotes);
 			auto notesDel = std::find(objList.begin(), objList.end(), static_cast<Engine::GameObject*>(notes));
 			objList.erase(notesDel);
+			// 削除したノーツがスライドノーツなら、ノーツ設置確定処理を行う
+			if (notes->GetNotesType() == NOTESTYPE::SLIDE_NOTES)
+				slideNotesCreator.IsEnd();
 		}
 	}
 }

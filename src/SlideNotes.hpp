@@ -40,6 +40,7 @@ namespace NotesEditor
 	public:
 		SlideNotes(std::vector<ShortNotes*> list);
 		~SlideNotes();
+		void AddNotes(ShortNotes& notes);
 		bool Collision(float x, float y);
 		NOTESTYPE GetNotesType();
 		void Update() override;
