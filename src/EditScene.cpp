@@ -24,7 +24,6 @@ void NotesEditor::EditScene::Init()
 {
 }
 
-
 void NotesEditor::EditScene::Update()
 {
 	editorSceneCanvas.Update();
@@ -43,7 +42,6 @@ void NotesEditor::EditScene::Update()
 		DeleteObj();
 	}
 }
-
 
 void NotesEditor::EditScene::Draw()
 {

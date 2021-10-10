@@ -59,6 +59,9 @@ void NotesEditor::NotesManager::Update()
 void NotesEditor::NotesManager::Draw()
 {
 	DrawFormatString(800, 625, GetColor(0, 255, 0), "playRange:%f", ShortNotes::playRange);
+	DrawFormatString(800, 600, GetColor(0, 255, 0), "notesList:%d", notesList.size());
+	DrawFormatString(800, 575, GetColor(0, 255, 0), "isStart:%d", LongNotesCreator::isStart);
+	DrawFormatString(800, 550, GetColor(0, 255, 0), "startNotes:%p", LongNotesCreator::startNotes);
 }
 
 void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
@@ -97,6 +100,11 @@ void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vec
 
 void NotesEditor::NotesManager::DeleteNotes(float x, float y)
 {
+	for (auto notes : notesList)
+	{
+		auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
+		notesList.erase(deleteNotes);
+	}
 }
 
 void NotesEditor::NotesManager::DeleteObj()

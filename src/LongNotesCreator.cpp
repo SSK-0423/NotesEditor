@@ -35,6 +35,7 @@ void NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std:
 
 		return;
 	}
+
 	//終点ノーツ
 	//終点ノーツの位置が始点ノーツより後ろ(上)だったらロングノーツ設置
 	if (notesData.y < startNotes->GetTransform().GetPosition().y) {
@@ -51,6 +52,8 @@ void NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std:
 		objList.pop_back();
 		//ロングノーツ追加
 		objList.push_back(longNotes);
+		//始点ノーツを無効にする
+		startNotes = nullptr;
 	}
 }
 
@@ -58,12 +61,14 @@ void NotesEditor::LongNotesCreator::Cancel(std::vector<Engine::GameObject*>& obj
 {
 	if (startNotes != nullptr)
 	{
+		objList.pop_back();
 		isStart = true;
 		delete startNotes;
-		objList.pop_back();
+		startNotes = nullptr;
 	}
 }
 
 void NotesEditor::LongNotesCreator::DeleteNotes(Engine::GameObject& notes)
 {
+
 }

@@ -14,11 +14,11 @@ namespace NotesEditor
 {
 	class LongNotesCreator : public INotesCreator {
 	private:
-		static bool isStart;
-		static ShortNotes* startNotes;
 		static ShortNotes* endNotes;
 
 	public:
+		static bool isStart;
+		static ShortNotes* startNotes;
 		LongNotesCreator();
 		~LongNotesCreator();
 		Notes* CreateNotes(const NotesData& notesData);
