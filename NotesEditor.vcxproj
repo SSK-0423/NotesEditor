@@ -188,6 +188,7 @@
     <ClCompile Include="src\Music.cpp" />
     <ClCompile Include="src\MusicInfoTextBox.cpp" />
     <ClCompile Include="src\Notes.cpp" />
+    <ClCompile Include="src\NotesColor.cpp" />
     <ClCompile Include="src\NotesEditorMusic.cpp" />
     <ClCompile Include="src\NotesManager.cpp" />
     <ClCompile Include="src\OpenFileExplorer.cpp" />
@@ -251,6 +252,7 @@
     <ClInclude Include="src\MusicInfoTextBox.hpp" />
     <ClInclude Include="src\Notes.hpp" />
     <ClInclude Include="src\INotesCreator.hpp" />
+    <ClInclude Include="src\NotesColor.hpp" />
     <ClInclude Include="src\NotesData.hpp" />
     <ClInclude Include="src\NotesEditorMusic.hpp" />
     <ClInclude Include="src\NotesManager.hpp" />

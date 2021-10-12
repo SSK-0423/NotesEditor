@@ -3,9 +3,11 @@
 #include "BoxCollider.hpp"
 #include "PointWithPolygon.hpp"
 #include "DxLib.h"
+#include "NotesColor.hpp"
 #include <math.h>
 
 #define DRAWMODE 1;
+
 const float INF = 2000000.f;
 
 NotesEditor::SlideNotes::SlideNotes(std::vector<ShortNotes*> list)
@@ -14,11 +16,25 @@ NotesEditor::SlideNotes::SlideNotes(std::vector<ShortNotes*> list)
 
 	collider = new Engine::Components::BoxCollider(*transform);
 	collision = new Engine::Collision::PointWithPolygon();
+
+	notesColor = NotesColor::puttingNotesColor;
+	lineColor = NotesColor::puttingLineColor;
+
 	Init();
 }
 
 NotesEditor::SlideNotes::~SlideNotes()
 {
+}
+
+void NotesEditor::SlideNotes::PutComplete()
+{
+	notesColor = NotesColor::slideNotesColor;
+	lineColor = NotesColor::slideNotesLineColor;
+	for (auto notes : notesList)
+	{
+		notes->SetColor(notesColor);
+	}
 }
 
 void NotesEditor::SlideNotes::AddNotes(ShortNotes& notes)
@@ -29,9 +45,6 @@ void NotesEditor::SlideNotes::AddNotes(ShortNotes& notes)
 
 bool NotesEditor::SlideNotes::Collision(float x, float y)
 {
-	if (collision->Collision(x, y, *collider))
-		return true;
-
 	for (auto notes : notesList)
 	{
 		if (notes->Collision(x, y))
@@ -66,10 +79,6 @@ void NotesEditor::SlideNotes::Draw()
 	{
 		notes->Draw();
 	}
-}
-
-void NotesEditor::SlideNotes::SetNotesList(std::vector<ShortNotes*> notesList)
-{
 }
 
 float NotesEditor::SlideNotes::CalcWidth()
@@ -143,53 +152,12 @@ void NotesEditor::SlideNotes::DrawCurve()
 	Engine::Components::Position position = *screenPos;
 	Engine::Components::Size size = transform->GetSize();
 
-	unsigned int slideColor = GetColor(255, 255, 0);
-	unsigned int StartEndColor = GetColor(255, 192, 0);
-	for (int i = 0; i < dx_.size() - 1; i++) {
-#if DRAWMODE
+	for (int i = 0; i < dx_.size() - 1; i++) 
+	{
 		// dx_[i] - dx_[0]
 		DrawBoxAA(dy_[i] + 40, position.y + (dx_[i] - dx_[0] + size.height / 2) + 1,
-			dy_[i + 1] - 40, position.y + (dx_[i + 1] - dx_[0] + size.height / 2) - 1, slideColor, true);
-#else
-		DrawBoxAA(dy_[i] + 40, position.y + dx_[i] + 1 + notesList[notesList.size() - 1]->GetTransform().GetPosition().y / 2.f,
-			dy_[i] - 40, position.y + dx_[i] - 1 + notesList[notesList.size() - 1]->GetTransform().GetPosition().y / 2.f, slideColor, true);
-#endif 
+			dy_[i + 1] - 40, position.y + (dx_[i + 1] - dx_[0] + size.height / 2) - 1, lineColor, true);
 	}
-
-#if DRAWMODE
-	//始点と終点
-	//DrawBoxAA(dy_[0] - 40, position.y + height / 2 - 5,
-	//	dy_[0] + 40, position.y + height / 2 + 5, StartEndColor, true);
-	//DrawBoxAA(dy_.back() - 40, (position.y - height / 2) - 5,
-	//	dy_.back() + 40, (position.y - height / 2) + 5, StartEndColor, true);
-
-#else
-	//始点と終点
-	DrawBoxAA(dy_[0] + 40, position.y + dx_[0] + 5,
-		dy_[0] - 40, position.y + dx_[0] - 5, StartEndColor, true);
-	DrawBoxAA(dy_[dx_.size() - 1] + 40, position.y + dx_[dx_.size() - 1] + 5,
-		dy_[dx_.size() - 1] - 40, position.y + dx_[dx_.size() - 1] - 5, StartEndColor, true);
-#endif
-
-	int x;
-	int y;
-
-	GetMousePoint(&x, &y);
-
-	//DrawFormatString(800, 500, GetColor(0, 255, 0), "ColPosY:%f", this->collisionPos.y);
-	//DrawFormatString(800, 525, GetColor(0, 255, 0), "positionY:%f", position.y);// + dx_[0] + 5);
-	//DrawFormatString(800, 550, GetColor(0, 255, 0), "MouseX:%d,MouseY:%d", x, y);// + dx_[0] + 5);
-	//DrawFormatString(800, 575, GetColor(0, 255, 0), "width:%d", width);// + dx_[0] + 5);
-	//DrawFormatString(800, 600, GetColor(0, 255, 0), "height:%d", height);// + dx_[0] + 5);
-
-	DrawBoxAA(position.x - size.width / 2.f, position.y - size.height / 2.f, position.x + size.width / 2.f, position.y + size.height / 2.f, GetColor(255, 0, 0), false);
-	DrawCircle(position.x, position.y, 10, GetColor(255, 255, 255), true);
-
-	/*DrawBoxAA(notesList[0]->position.x + 40, notesList[0]->position.y + 5,
-		notesList[0]->position.x - 40, notesList[0]->position.y - 5, StartEndColor, true);
-	DrawBoxAA(notesList[notesList.size() - 1]->position.x + 40, notesList[notesList.size() - 1]->position.y + 5,
-		notesList[notesList.size() - 1]->position.x - 40, notesList[notesList.size() - 1]->position.y - 5, StartEndColor, true);*/
-
 }
 
 void NotesEditor::SlideNotes::DebugDraw()
@@ -248,6 +216,7 @@ void NotesEditor::SlideNotes::Init()
 	transform->SetSize(width, height);
 
 	collider->Update();
+
 	if (notesList.size() >= 4)
 	{
 		// スプライン補間結果初期化

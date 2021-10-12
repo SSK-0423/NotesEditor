@@ -2,6 +2,7 @@
 #include "ShortNotes.hpp"
 #include "CubicSpline.hpp"
 #include "Vector2.hpp"
+#include "GameSymbol.hpp"
 #include <vector>
 
 namespace NotesEditor
@@ -12,6 +13,10 @@ namespace NotesEditor
 		CubicSpline cubicSpline;
 		// ノーツリスト
 		std::vector<ShortNotes*> notesList;
+		//
+		Color notesColor;
+		Color lineColor;
+
 		// 描画座標リスト
 		vector<float> dx_;
 		// 描画座標リスト
@@ -28,9 +33,7 @@ namespace NotesEditor
 		void SetInterpolationPoint(std::vector<vector<double>>& p_, float step, int splitNum, int i);
 		// 補間点計算
 		Vector2<float> CalcInterpolationPoint(std::vector<vector<double>>& p_, float step, int splitNum, int i, int j);
-		// カーブの描画
 		void DrawCurve();
-		// デバッグ用描画
 		void DebugDraw();
 		// 中間点セット
 		void SetPoint();
@@ -40,11 +43,11 @@ namespace NotesEditor
 	public:
 		SlideNotes(std::vector<ShortNotes*> list);
 		~SlideNotes();
+		void PutComplete();
 		void AddNotes(ShortNotes& notes);
 		bool Collision(float x, float y);
-		NOTESTYPE GetNotesType();
+		NOTESTYPE GetNotesType() override;
 		void Update() override;
 		void Draw() override;
-		void SetNotesList(std::vector<ShortNotes*> notesList);
 	};
 }

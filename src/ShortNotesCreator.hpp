@@ -1,16 +1,14 @@
 #pragma once
 #include "INotesCreator.hpp"
-
-namespace Engine
-{
-	class GameObject;
-}
+#include "Singleton.hpp"
 
 namespace NotesEditor
 {
-	class ShortNotesCreator : public INotesCreator {
+	class ShortNotesCreator : public INotesCreator, public Singleton<ShortNotesCreator> {
+		friend Singleton<ShortNotesCreator>;
+	private:
+		ShortNotesCreator();
 	public:
 		Notes* CreateNotes(const NotesData& notesData);
-		Notes* CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 	};
 }

@@ -18,22 +18,34 @@ namespace Engine
 
 namespace NotesEditor
 {
+	enum class LONGNOTES 
+	{
+		STARTNOTES,
+		ENDNOTES
+	};
 	class LongNotes : public Notes {
 	private:
 		// ノーツの色
 		static Color color;
-		// 始点ノーツ
-		ShortNotes* startNotes;
-		// 終点ノーツ
-		ShortNotes* endNotes;
+		// 始点と終点
+		std::vector<ShortNotes*> notesList;
+		//// 始点ノーツ
+		//ShortNotes* startNotes;
+		//// 終点ノーツ
+		//ShortNotes* endNotes;
 
+		void UpdateNotes();
+		void UpdateNotesScreenPos();
+		void DrawNotes();
 		void DrawMiddleLine();
+		void Init();
 	public:
-		LongNotes(ShortNotes& start, ShortNotes& end);
+		LongNotes(ShortNotes& start);
 		~LongNotes();
 		NOTESTYPE GetNotesType();
 		bool Collision(float x, float y) override;
 		void Update() override;
 		void Draw() override;
+		void AddEndNotes(ShortNotes& end);
 	};
 }

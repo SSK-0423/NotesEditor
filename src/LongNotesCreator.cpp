@@ -1,10 +1,13 @@
 #include "LongNotesCreator.hpp"
+#include "NotesData.hpp"
+#include "ShortNotes.hpp"
+#include "LongNotes.hpp"
 #include "Transform.hpp"
 #include "DxLib.h"
 
 bool NotesEditor::LongNotesCreator::isStart = true;
+NotesEditor::LongNotes* NotesEditor::LongNotesCreator::longNotes = nullptr;
 NotesEditor::ShortNotes* NotesEditor::LongNotesCreator::startNotes = nullptr;
-NotesEditor::ShortNotes* NotesEditor::LongNotesCreator::endNotes = nullptr;
 
 NotesEditor::LongNotesCreator::LongNotesCreator()
 {
@@ -16,62 +19,46 @@ NotesEditor::LongNotesCreator::~LongNotesCreator()
 
 NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData)
 {
-	return nullptr;
-}
-
-NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
-{
-	//始点ノーツ
-	if (isStart) 
+	// 終点ノーツ
+	if (isStart)
 	{
-		//始点ノーツ生成
 		startNotes = new ShortNotes(notesData);
 		startNotes->SetColor(GetColor(0, 128, 255));
 
-		//終点ノーツフラグ
+		longNotes = new LongNotes(*startNotes);
+
 		isStart = false;
-
-		objList.push_back(startNotes);
-
-		return nullptr;
+		return longNotes;
 	}
-
 	//終点ノーツ
 	//終点ノーツの位置が始点ノーツより後ろ(上)だったらロングノーツ設置
 	if (notesData.y < startNotes->GetTransform().GetPosition().y) {
 		//終点ノーツ生成
-		//NotesData data(startNotes->GetTransform().GetPosition().x, notesData.y, notesData.lane, notesData.timing);
-		//NotesData data(startNotes->GetTransform().GetPosition().x, notesData.y, notesData.lane, notesData.timing);
-		endNotes = new ShortNotes(notesData);
+		ShortNotes* endNotes = new ShortNotes(notesData);
 		endNotes->SetColor(GetColor(0, 128, 255));
-		//ロングノーツ生成
-		LongNotes* longNotes = new LongNotes(*startNotes, *endNotes);
-
+		//終点ノーツ追加
+		longNotes->AddEndNotes(*endNotes);
 		//始点ノーツフラグ
 		isStart = true;
-		//末尾に追加されている始点ノーツをリストから削除
-		objList.pop_back();
-		//ロングノーツ追加
-		objList.push_back(longNotes);
 		//始点ノーツを無効にする
 		startNotes = nullptr;
-		
-		return longNotes;
+		//ロングノーツ初期化
+		longNotes = nullptr;
 	}
+
+	return nullptr;
 }
 
-void NotesEditor::LongNotesCreator::Cancel(std::vector<Engine::GameObject*>& objList)
+NotesEditor::Notes* NotesEditor::LongNotesCreator::Cancel()
 {
-	if (startNotes != nullptr)
-	{
-		objList.pop_back();
-		isStart = true;
-		delete startNotes;
-		startNotes = nullptr;
-	}
+	Notes* cancelNotes = longNotes;
+	Init();
+	return cancelNotes;
 }
 
-void NotesEditor::LongNotesCreator::DeleteNotes(Engine::GameObject& notes)
+void NotesEditor::LongNotesCreator::Init()
 {
-
+	isStart = true;
+	longNotes = nullptr;
+	startNotes = nullptr;
 }

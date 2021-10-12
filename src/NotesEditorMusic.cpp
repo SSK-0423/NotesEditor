@@ -99,3 +99,8 @@ void NotesEditor::NotesEditorMusic::CompleteMusicLoad()
 void NotesEditor::NotesEditorMusic::MusicTimeDraw()
 {
 }
+
+void NotesEditor::NotesEditorMusic::SetCurrentTime(long long time)
+{
+	audioSource.SetCurrentTime(time);
+}

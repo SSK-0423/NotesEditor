@@ -228,6 +228,9 @@
     <ClCompile Include="src\Notes.cpp">
       <Filter>ソース ファイル\NotesEditor\Notes</Filter>
     </ClCompile>
+    <ClCompile Include="src\NotesColor.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -428,6 +431,9 @@
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
     <ClInclude Include="src\NotesData.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesColor.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
     </ClInclude>
   </ItemGroup>

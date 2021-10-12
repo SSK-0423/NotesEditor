@@ -15,6 +15,7 @@ int Engine::Components::AudioSource::PlayAudioLoop()
 	if (audioHandle == NONE || isPlaying)
 		return RESULT::RESULT_ERROR;
 
+	SetSoundCurrentTime(currentTime, audioHandle);
 	// 0:ê¨å˜ -1:é∏îs
 	return PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, false);
 }
@@ -72,4 +73,9 @@ int Engine::Components::AudioSource::LoadAudio(const char* filePath)
 int Engine::Components::AudioSource::ChangeVolume(int volume)
 {
 	return ChangeVolumeSoundMem(volume,audioHandle);
+}
+
+void Engine::Components::AudioSource::SetCurrentTime(long long time)
+{
+	currentTime = time;
 }

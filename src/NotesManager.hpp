@@ -4,9 +4,6 @@
 #include "Notes.hpp"
 #include "GameSymbol.hpp"
 #include "INotesCreator.hpp"
-#include "ShortNotesCreator.hpp"
-#include "LongNotesCreator.hpp"
-#include "SlideNotesCreator.hpp"
 
 namespace Engine
 {
@@ -25,12 +22,9 @@ namespace NotesEditor
 		NotesManager();
 		static NOTESTYPE type;						//ノーツタイプ
 		std::vector<Notes*> notesList;				//ノーツリスト
-		Color color;
-		ShortNotesCreator shortNotesCreator;
-		LongNotesCreator longNotesCreator;
-		SlideNotesCreator slideNotesCreator;
+		Color mousePointerColor;
 		bool IsExist(float x, float y);				//ノーツの二重配置検知
-
+		void Cancel(NOTESTYPE type, std::vector<Engine::GameObject*>& objList);
 	public:
 		void ChangeNotesTypeShort();
 		void ChangeNotesTypeLong();

@@ -8,6 +8,7 @@ namespace Engine
 		class AudioSource {
 		private:
 			Audio audioHandle;
+			long long currentTime;
 		public:
 			AudioSource();
 			AudioSource(const char* filePath);
@@ -19,6 +20,7 @@ namespace Engine
 			float GetElapsedTime() const;
 			int LoadAudio(const char* filePath);
 			int ChangeVolume(int volume);
+			void SetCurrentTime(long long time);
 		};
 	}
 }

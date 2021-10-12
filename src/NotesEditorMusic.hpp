@@ -52,5 +52,7 @@ namespace NotesEditor
 		void CompleteMusicLoad();
 		//総再生時間と経過時間表示
 		void MusicTimeDraw();
+		//再生開始位置セット
+		void SetCurrentTime(long long time);
 	};
 }

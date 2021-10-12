@@ -1,30 +1,24 @@
 #pragma once
 #include "INotesCreator.hpp"
-#include "BarManager.hpp"
-#include "ShortNotes.hpp"
-#include "LongNotes.hpp"
-#include "NotesData.hpp"
-
-namespace Engine
-{
-	class GameObject;
-}
+#include "Singleton.hpp"
 
 namespace NotesEditor
 {
-	class LongNotesCreator : public INotesCreator {
-	private:
-		static ShortNotes* endNotes;
+	class ShortNotes;
+	class LongNotes;
 
-	public:
+	class LongNotesCreator : public INotesCreator, public Singleton<LongNotesCreator> {
+		friend Singleton<LongNotesCreator>;
+	private:
+		LongNotesCreator();
 		static bool isStart;
 		static ShortNotes* startNotes;
-		LongNotesCreator();
+		static LongNotes* longNotes;
+
+	public:
 		~LongNotesCreator();
 		Notes* CreateNotes(const NotesData& notesData);
-		Notes* CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
-		void Cancel(std::vector<Engine::GameObject*>& objList);
-		void DeleteNotes(Engine::GameObject& notes);
-
+		Notes* Cancel();
+		void Init();
 	};
 }

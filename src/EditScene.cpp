@@ -41,6 +41,8 @@ void NotesEditor::EditScene::Update()
 	{
 		DeleteObj();
 	}
+	float nowCameraBottonPosY = camera.GetTransform().GetPosition().y + camera.GetTransform().GetSize().height / 2.f;
+	notesEditorMusic.SetCurrentTime(CalcJudgeTiming(nowCameraBottonPosY) * 1000.f);
 }
 
 void NotesEditor::EditScene::Draw()
@@ -64,11 +66,18 @@ void NotesEditor::EditScene::Input()
 	{
 		PutNotes();
 	}
+	if (mouse.GetPressingCount(Engine::Input::Mouse::LEFT_CLICK) > 31)
+	{
+		PutNotes();
+	}
 	if (mouse.IsPressKey(Engine::Input::Mouse::RIGHT_CLICK))
 	{
 		RemoveNotes();
 	}
-
+	if (mouse.GetPressingCount(Engine::Input::Mouse::RIGHT_CLICK) > 31)
+	{
+		RemoveNotes();
+	}
 	const Engine::Input::Keyboard key = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
 	if (key.IsPressKey(KEY_INPUT_G))
 		DebugPutNotes();
