@@ -2,19 +2,28 @@
 #include "ISceneChanger.hpp"
 #include "BaseScene.hpp"
 
-class SceneManager : public ISceneChanger, Task {
-private:
-	BaseScene* mScene;	//シーン管理変数
-	eScene mNextScene; // 次のシーン管理変数
+/*
+	各シーンの実行とシーン遷移を担うクラス
+*/
+namespace Engine
+{
+	namespace Scene {
 
-public:
-	SceneManager();
-	void Initialize() override;
-	void Finalize() override;
-	void Update() override;
-	void Draw() override;
+		class SceneManager : public ISceneChanger {
+		private:
+			//シーン管理変数
+			BaseScene* nowScene;
+			// 次のシーン管理変数
+			SCENE nextScene;
 
-	// ISceneChangerインターフェイス
-	// 引数 nextScene にシーンを変更する
-	void ChangeScene(eScene NextScene) override;
-};
+		public:
+			SceneManager();
+			void Update();
+			void Draw();
+
+			// ISceneChangerインターフェイス
+			// 引数 nextScene にシーンを変更する
+			void ChangeScene(SCENE NextScene) override;
+		};
+	}
+}

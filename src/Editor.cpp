@@ -5,21 +5,11 @@
 #include "DxLib.h"
 #include "Mouse.hpp"
 #include "KeyInput.hpp"
+#include "Texture.hpp"
 #include <string>
 #include <Windows.h>
 
 Editor::Editor(ISceneChanger* changer) : BaseScene(changer), speed(1), count(0), camera(objList) {
-	//objList.resize(2);	// 0:bar 1:notes
-	objList.push_back(barManager.GetListRef());
-	objList.push_back(notesManager.GetListRef());
-	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
-	//backgroungHandle = LoadGraph("image/背景.jpg");
-	laneHandle = LoadGraph("image/Lane.png");
-	musicInfoHandle = LoadGraph("image/MUSIC_NAME_BPM.png");
-	text.SetHandle(musicInfoHandle);
-	text.SetColor(0, 0, 0);
-	InitBarManager();
-	InitButton();
 }
 
 // 小節数オブジェクトの生成
@@ -36,7 +26,19 @@ void Editor::MakeBar() noexcept {
 	barManager.MakeBar(bar_num);
 }
 
-void Editor::Initialize() noexcept {}
+void Editor::Initialize() noexcept {
+	//objList.resize(2);	// 0:bar 1:notes
+	objList.push_back(barManager.GetListRef());
+	objList.push_back(notesManager.GetListRef());
+	fontHandle = CreateFontToHandle("font1", 10, 1, DX_FONTTYPE_ANTIALIASING);
+	//backgroungHandle = LoadGraph("image/背景.jpg");
+	laneHandle = LoadGraph("image/Lane.png");
+	text.GetTexture().LoadTexture("image/MUSIC_NAME_BPM.png");
+	text.SetColor(0, 0, 0);
+	InitBarManager();
+	InitButton();
+}
+
 void Editor::Finalize() noexcept {}
 
 void Editor::Update() noexcept {
@@ -60,6 +62,7 @@ void Editor::Update() noexcept {
 void Editor::Draw() noexcept {
 	//DrawGraph(0, 0, backgroungHandle, true);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.01, 0, laneHandle, true, false);
+	//canvas.Draw();
 	DrawButton();
 	text.Draw();
 	camera.Draw();
@@ -68,12 +71,14 @@ void Editor::Draw() noexcept {
 	notesManager.Draw();
 }
 
+// TODO:Canvasクラスに担当させる
 void Editor::DrawButton() noexcept {
 	for (int i = 0; i < BUTTON_NUM; i++) {
 		button[i].Draw();
 	}
 }
 
+// TODO:Canvasクラスに担当させる
 void Editor::UpdateButton() noexcept {
 	//Buttonのアップデート
 	for (int i = 0; i < BUTTON_NUM; i++) {
@@ -81,6 +86,7 @@ void Editor::UpdateButton() noexcept {
 	}
 }
 
+// TODO:Canvasクラスに担当させる
 //ボタンの初期化
 void Editor::InitButton() noexcept {
 	button = new Button[BUTTON_NUM];
@@ -90,6 +96,7 @@ void Editor::InitButton() noexcept {
 	SetClickEventFunc();
 }
 
+// TODO:Canvasクラスに担当させる
 //ボタンの画像セット
 void Editor::SetButtonImage() noexcept {
 	button[BUTTON_SHORT].SetImageHandle("image/SHORT.png");
@@ -107,6 +114,8 @@ void Editor::SetButtonImage() noexcept {
 	button[BUTTON_LOAD].SetImageHandle("image/LOAD.png");
 	button[BUTTON_SAVE].SetImageHandle("image/SAVE.png");
 }
+
+// TODO:Canvasクラスに担当させる
 //ボタンの位置セット
 void Editor::SetButtonPos() noexcept {
 	button[BUTTON_SHORT].SetButtonInfo(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y, BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT);
@@ -124,6 +133,7 @@ void Editor::SetButtonPos() noexcept {
 	button[BUTTON_SAVE].SetButtonInfo(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 8, BUTTON_SIZE_WIDTH * 2, BUTTON_SIZE2_HEIGHT);
 }
 
+// TODO:Canvasクラスに担当させる
 //ボタンのイベント関数セット
 void Editor::SetClickEventFunc() noexcept {
 	//設置するノーツの変更
@@ -142,11 +152,11 @@ void Editor::SetClickEventFunc() noexcept {
 	//DelegateBase<void(void)>* saveJson = Delegate<Music, void(void)>::createDelegator(&music, &Music::saveJson);
 
 	//小節線変更
-	DelegateBase<void(void)>* change_bar = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle);
-	DelegateBase<void(void)>* change_bar4 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle4);
-	DelegateBase<void(void)>* change_bar8 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle8);
-	DelegateBase<void(void)>* change_bar16 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle16);
-	DelegateBase<void(void)>* change_bar32 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle32);
+	DelegateBase<void(void)>* changeBar = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle);
+	DelegateBase<void(void)>* changeBar4 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle4);
+	DelegateBase<void(void)>* changeBar8 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle8);
+	DelegateBase<void(void)>* changeBar16 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle16);
+	DelegateBase<void(void)>* changeBar32 = Delegate<BarManager, void(void)>::createDelegator(&barManager, &BarManager::ChangeHandle32);
 
 	//押下時の関数セット
 	button[BUTTON_SHORT].SetEventFunction(changeNotesTypeShort);
@@ -155,11 +165,11 @@ void Editor::SetClickEventFunc() noexcept {
 	button[BUTTON_PLAY].SetEventFunction(playMusic);
 	button[BUTTON_RESTART].SetEventFunction(restartMusic);
 	button[BUTTON_LOADMUSIC].SetEventFunction(loadMusic);
-	button[BUTTON_CHANGEBAR].SetEventFunction(change_bar);
-	button[BUTTON_CHANGEBAR4].SetEventFunction(change_bar4);
-	button[BUTTON_CHANGEBAR8].SetEventFunction(change_bar8);
-	button[BUTTON_CHANGEBAR16].SetEventFunction(change_bar16);
-	button[BUTTON_CHANGEBAR32].SetEventFunction(change_bar32);
+	button[BUTTON_CHANGEBAR].SetEventFunction(changeBar);
+	button[BUTTON_CHANGEBAR4].SetEventFunction(changeBar4);
+	button[BUTTON_CHANGEBAR8].SetEventFunction(changeBar8);
+	button[BUTTON_CHANGEBAR16].SetEventFunction(changeBar16);
+	button[BUTTON_CHANGEBAR32].SetEventFunction(changeBar32);
 }
 
 void Editor::InitBarManager() noexcept {
@@ -177,21 +187,26 @@ void Editor::DebugDraw() {
 	DrawFormatString(800, 725, GetColor(0, 255, 0), "objList[1].size:%d", objList[1]->size());
 }
 
+// TODO:Textクラスに担当させる
 void Editor::InitTextBox() noexcept {
 	//曲名とBPMの
 	std::string str = music.GetName();
-	text.SetText(str);
+	text.AddText(str);
 	str = "BPM:";
 	str += std::to_string((int)music.GetBPM());
-	text.SetText(str);
+	text.AddText(str);
 }
 
-void Editor::ScrollCamera() noexcept {
+// Cameraクラスに担当させる
+void Editor::ScrollCamera() noexcept 
+{
 	//曲が再生されたら自動スクロール開始
-	if (music.IsPlay()) {
-		camera.SetPosition(WINDOW_SIZE_WIDTH / 2, -frame_move * music.GetElapsedTime() / 1000.0f * 60.0f + WINDOW_SIZE_HEIGHT / 2);
+	if (music.IsPlay()) 
+	{
+		//camera.SetPosition(WINDOW_SIZE_WIDTH / 2, -frame_move * music.GetElapsedTime() / 1000.0f * 60.0f + WINDOW_SIZE_HEIGHT / 2);
 	}
 }
+
 
 void Editor::KeyInput() noexcept {
 	if (Key[KEY_INPUT_D] == 1) {
@@ -256,10 +271,8 @@ void Editor::DeleteNotes() noexcept {
 
 void Editor::DeleteObj() noexcept {
 	for (auto list : objList) {
-		for (auto obj : *list) {
-			delete[] obj;
-			objList[0]->clear();
-			objList[1]->clear();
-		}
+		list->clear();
+		list->shrink_to_fit();
 	}
+	camera.DeleteObj();
 }

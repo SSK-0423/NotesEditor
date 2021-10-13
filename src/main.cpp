@@ -1,28 +1,17 @@
-#include "DxLib.h"
+#include "Application.hpp"
 #include "WindowSize.hpp"
-#include "SceneManager.hpp"
-#include "FPS.hpp"
-#include "Editor.hpp"
-#include "KeyInput.hpp"
-#define NOTES_SIZE_WIDTH 79
-#define NOTES_SIZE_HEIGHT 15
+#include "DxLib.h"
 
 //ゲームループ
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
-
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) 
+{
 	//ウィンドウモード、初期化、裏画面設定
 	SetGraphMode(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, 16);
 	ChangeWindowMode(true), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
+	SetDrawMode(DX_DRAWMODE_NEAREST);
 	SetAlwaysRunFlag(true);
-
-	SceneManager sceneManager;
-	Fps fps;
-	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {
-		sceneManager.Update();
-		sceneManager.Draw();
-		fps.Update();
-		fps.Draw();
-	}
+	Application game;
+	game.MainLoop();
 	DxLib_End();
 	return 0;
 }

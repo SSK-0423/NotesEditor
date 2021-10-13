@@ -1,7 +1,14 @@
 #pragma once
-#include "NotesCreator.hpp"
-class ShortNotesCreator : public NotesCreator {
-public:
-	Notes* CreateNotes(float& x, float& y) noexcept;
-	void CreateNotes(float& x, float& y,std::vector<GameObject*>& objList) noexcept;
-};
+#include "INotesCreator.hpp"
+#include "Singleton.hpp"
+
+namespace NotesEditor
+{
+	class ShortNotesCreator : public INotesCreator, public Singleton<ShortNotesCreator> {
+		friend Singleton<ShortNotesCreator>;
+	private:
+		ShortNotesCreator();
+	public:
+		Notes* CreateNotes(const NotesData& notesData);
+	};
+}

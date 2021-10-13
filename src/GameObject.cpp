@@ -1,34 +1,37 @@
 #include "GameObject.hpp"
-#include "DxLib.h"
+#include "Transform.hpp"
 
-GameObject::GameObject() noexcept : imageHandle(-1), width(0),height(0) {
-	position.x = 0;
-	position.y = 0;
-	collisionPos.x = 0;
-	collisionPos.y = 0;
+Engine::GameObject::GameObject()
+{
+	transform = new Components::Transform();
+	screenPos = new Components::Position();
 }
 
-GameObject::~GameObject() noexcept {
+Engine::GameObject::~GameObject()
+{
 }
 
-void GameObject::Update() noexcept {
+const Engine::Components::Transform& Engine::GameObject::GetTransform() const
+{
+	return *transform;
 }
 
-void GameObject::Draw() noexcept {
-}
-void GameObject::SetHandle(int handle) noexcept {
-	imageHandle = handle;
-}
-
-void GameObject::SetPosition(float x, float y) noexcept {
-	position.x = x;
-	position.y = y;
+Engine::Components::Transform& Engine::GameObject::GetTransform()
+{
+	return *transform;
 }
 
-int GameObject::GetObjHeight() noexcept {
-	return height;
+Engine::Components::Position Engine::GameObject::GetScreenPos()
+{
+	return *screenPos;
 }
 
-int GameObject::GetObjWidth() noexcept {
-	return width;
+const Engine::Components::Position Engine::GameObject::GetScreenPos() const
+{
+	return *screenPos;
+}
+
+void Engine::GameObject::UpdateScreenPos(Components::Position pos)
+{
+	*screenPos = pos;
 }

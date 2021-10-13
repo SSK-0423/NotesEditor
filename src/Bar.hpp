@@ -1,31 +1,61 @@
 #pragma once
 #include "GameObject.hpp"
+#include "GameSymbol.hpp"
 #include <vector>
-// 小節線クラス
-class Bar : public GameObject {
-private:
-	//何小節目か
-	int barNum;
 
-	static int lane[6];		//レーン判定用配列
+namespace Engine
+{
+	namespace Components
+	{
+		class Texture;
+		class ICollider;
+	}
+	namespace Collision
+	{
+		class PointWithPolygon;
+	}
+}
 
-	//レーン判定に使う配列を作成
-	void InitLaneArray() noexcept;
-	//何分目か判定するVector配列を作成
-	void MakeLineCollisionList(std::vector<int>& list) noexcept;
-	//実際に何分目か判定するVector配列を作成する関数
-	void MakeList(std::vector<int>& list, int lineNum) noexcept;
-public:
-	// フォント
-	static int fontHandle;
+namespace NotesEditor
+{
+	enum class BARTYPE {
+		BAR1 = 0b100000,	// 1/1
+		BAR4 = 0b01000,		// 1/4
+		BAR8 = 0b00100,		// 1/8
+		BAR16 = 0b00010,	// 1/16
+		BAR32 = 0b00001,	// 1/32
+	};
 
-	Bar(int handle, int i) noexcept;
-	~Bar() noexcept;
-	void Update() noexcept;
-	void Draw() noexcept;
-	void Collision(float& posX, float& posY) noexcept;
-	bool CollisionBar(int& x, int& y) noexcept;
-	float CollisionLane(int& x) noexcept;
-	float CollisionLine(int& y) noexcept;
-	void DebugDraw() noexcept;
-};
+	class BarLine;
+
+	// 小節線クラス
+	class Bar : public Engine::GameObject {
+	private:
+		// 小節線タイプ
+		static BARTYPE nowType;
+
+		Engine::Components::ICollider* collider;
+		Engine::Collision::PointWithPolygon* collision;
+		std::vector<BarLine*> barLineList;
+
+		//何小節目か
+		int barNum;
+		//小節番号描画
+		void DrawBarNum();
+		//小節線描画
+		void DrawBarLine();
+
+	public:
+		// フォント
+		static Font fontHandle;
+		// 1小節における音符数の最大値
+		static int MAXNOTENUM;
+
+		Bar(int barNum, int lineNum);
+		~Bar();
+		void Update();
+		void Draw();
+		float Collision(float x, float y);
+		static void ChangeBarType(BARTYPE type);
+	};
+}

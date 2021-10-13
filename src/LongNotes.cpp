@@ -1,77 +1,108 @@
 #include "LongNotes.hpp"
+#include "Transform.hpp"
+#include "BoxCollider.hpp"
+#include "PointWithPolygon.hpp"
 #include "DxLib.h"
-#include <math.h>
 
-//クラス変数実体化
-unsigned int LongNotes::color = GetColor(0, 0, 255);
+Color NotesEditor::LongNotes::color = GetColor(0, 0, 255);
 
-LongNotes::LongNotes(ShortNotes& start) noexcept {
-	startNotes = &start;
-	endNotes = nullptr;
-	width = 0;
-	height = 0;
+NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
+{
+	collider = new Engine::Components::BoxCollider(*transform);
+	collision = new Engine::Collision::PointWithPolygon();
+
+	// 始点ノーツ追加
+	notesList.push_back(&start);
+
+	Init();
 }
 
-LongNotes::LongNotes(ShortNotes& start, ShortNotes& end) noexcept {
-	startNotes = &start;
-	endNotes = &end;
-	//positionの設定
-	position.x = startNotes->collisionPos.x;
-	collisionPos.x = startNotes->collisionPos.x;
-	position.y = (startNotes->collisionPos.y + endNotes->collisionPos.y) / 2;
-	collisionPos.y = (startNotes->collisionPos.y + endNotes->collisionPos.y) / 2;
-	//サイズの設定
-	width = 80;
-	height = fabs(endNotes->collisionPos.y - startNotes->collisionPos.y);
+NotesEditor::LongNotes::~LongNotes()
+{
+	delete transform;
+	delete collider;
+	delete collision;
 }
 
-LongNotes::~LongNotes() noexcept {
-	delete[] startNotes;
-	delete[] endNotes;
+NotesEditor::NOTESTYPE NotesEditor::LongNotes::GetNotesType()
+{
+	return NOTESTYPE::LONG_NOTES;
 }
 
-void LongNotes::SetStartNotes(ShortNotes& start) noexcept {
-	startNotes = &start;
+bool NotesEditor::LongNotes::Collision(float x, float y)
+{
+	return notesList[0]->Collision(x, y) || notesList.back()->Collision(x, y) || collision->Collision(x, y, *collider);
 }
 
-void LongNotes::SetEndNotes(ShortNotes& end) noexcept {
-	endNotes = &end;
-	//positionの設定
-	position.x = startNotes->collisionPos.x;
-	collisionPos.x = startNotes->collisionPos.x;
-	position.y = (startNotes->collisionPos.y + endNotes->collisionPos.y) / 2;
-	collisionPos.y = (startNotes->collisionPos.y + endNotes->collisionPos.y) / 2;
-	//サイズの設定
-	width = 80;
-	height = fabs(fabs(endNotes->position.y) - fabs(startNotes->position.y));
+void NotesEditor::LongNotes::Update()
+{
+	UpdateNotes();
+	UpdateNotesScreenPos();
 }
 
-void LongNotes::SetObjSize(int w, int h) noexcept {
-	width = w;
-	height = h;
+void NotesEditor::LongNotes::Draw()
+{
+	collider->Draw();
+	DrawMiddleLine();
+	DrawNotes();
 }
 
-void LongNotes::Update() noexcept {
-	startNotes->SetPosition(position.x, position.y + height / 2);
-	endNotes->SetPosition(position.x, position.y - height / 2);
+void NotesEditor::LongNotes::AddEndNotes(ShortNotes& end)
+{
+	notesList.push_back(&end);
+	Init();
 }
 
-void LongNotes::Draw() noexcept {
+void NotesEditor::LongNotes::UpdateNotes()
+{
+	for (auto notes : notesList)
+	{
+		notes->Update();
+	}
+}
 
-	//始点描画
-	startNotes->Draw();
-	//終点描画
-	endNotes->Draw();
-	//始点と終点を線で繋ぐ
-	DrawLine(startNotes->position.x, startNotes->position.y, endNotes->position.x, endNotes->position.y, color, 80);
+void NotesEditor::LongNotes::UpdateNotesScreenPos()
+{
+	for (auto notes : notesList)
+	{
+		Engine::Components::Position newNotesScreenPos;
+		newNotesScreenPos.x = screenPos->x;
+		newNotesScreenPos.y = screenPos->y + (notes->GetTransform().GetPosition().y - transform->GetPosition().y);
+		notes->UpdateScreenPos(newNotesScreenPos);
+	}
+}
 
-	//DrawFormatString(800, 675, GetColor(0, 255, 0), "LY:%f", position.y);// + dx_[0] + 5);
+void NotesEditor::LongNotes::DrawNotes()
+{
+	for (auto notes : notesList)
+	{
+		notes->Draw();
+	}
+}
+
+void NotesEditor::LongNotes::Init()
+{
+	Engine::Components::Position startNotesPos = notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetPosition();
+	Engine::Components::Position endNotesPos = notesList.back()->GetTransform().GetPosition();
 	
-	DrawBox(position.x - width / 2, position.y - height / 2, position.x + width / 2, position.y + height / 2, GetColor(255, 0, 0), false);
-	DrawCircle(position.x, position.y, 10, GetColor(255, 255, 255), true);
+	float width = notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetSize().width;
+	float height = fabsf(endNotesPos.y - startNotesPos.y);
+	if (notesList.size() == 1)
+		height = notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetSize().height;
+	float x = startNotesPos.x;
+	float y = (startNotesPos.y + endNotesPos.y) / 2.f;
 
+	transform->SetPosition(x, y);
+	transform->SetSize(width, height);
 
-	/*DrawBox(position.x - width / 2, position.y - height / 2,
-		position.x + width / 2, position.y + height / 2,
-		color, true);*/
+	collider->Update();
+}
+
+void NotesEditor::LongNotes::DrawMiddleLine()
+{
+	if (notesList.size() == 2)
+	{
+		DrawLineAA(notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetScreenPos().x, notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetScreenPos().y,
+			notesList[static_cast<int>(LONGNOTES::ENDNOTES)]->GetScreenPos().x, notesList[static_cast<int>(LONGNOTES::ENDNOTES)]->GetScreenPos().y, color, notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetSize().width);
+	}
 }

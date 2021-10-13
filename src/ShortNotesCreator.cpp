@@ -1,14 +1,11 @@
 #include "ShortNotesCreator.hpp"
 #include "ShortNotes.hpp"
 
-Notes* ShortNotesCreator::CreateNotes(float&x, float& y) noexcept {
-	Notes* notes = new ShortNotes(x,y);
-	return notes;
-}
-
-void ShortNotesCreator::CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept
+NotesEditor::ShortNotesCreator::ShortNotesCreator()
 {
-	Notes* notes = new ShortNotes(x, y);
-	objList.push_back(notes);
 }
 
+NotesEditor::Notes* NotesEditor::ShortNotesCreator::CreateNotes(const NotesData& notesData)
+{
+	return new ShortNotes(notesData);
+}

@@ -3,42 +3,59 @@
 #include "DxLib.h"
 
 class Fps {
-	int mStartTime;         //測定開始時刻
-	int mCount;             //カウンタ
-	float mFps;             //fps
-	static const int N = 60;//平均を取るサンプル数
-	static const int FPS = 60;	//設定したFPS
+	//測定開始時刻
+	int startTime;
+	//カウンタ
+	int count;
+	//fps
+	float fps;
+	//平均を取るサンプル数
+	static const int N = 60;
+	//設定したFPS
+	static const int FPS = 60;
 
 public:
-	Fps() {
-		mStartTime = 0;
-		mCount = 0;
-		mFps = 0;
+	Fps()
+	{
+		startTime = 0;
+		count = 0;
+		fps = 0;
 	}
 
-	bool Update() {
-		if (mCount == 0) { //1フレーム目なら時刻を記憶
-			mStartTime = GetNowCount();
+	void Update()
+	{
+		//1フレーム目なら時刻を記憶
+		if (count == 0)
+		{
+			startTime = GetNowCount();
 		}
-		if (mCount == N) { //60フレーム目なら平均を計算する
+		//60フレーム目なら平均を計算する
+		if (count == N)
+		{
 			int t = GetNowCount();
-			mFps = 1000.f / ((t - mStartTime) / (float)N);
-			mCount = 0;
-			mStartTime = t;
+			fps = 1000.f / ((t - startTime) / (float)N);
+			count = 0;
+			startTime = t;
 		}
-		mCount++;
-		return true;
+		count++;
 	}
 
-	void Draw() {
-		DrawFormatString(0, 0, GetColor(0, 255, 0), "%.1f", mFps);
+	void Draw()
+	{
+		DrawFormatString(0, 0, GetColor(0, 255, 0), "%.1f", fps);
 	}
 
-	void Wait() {
-		int tookTime = GetNowCount() - mStartTime;	//かかった時間
-		int waitTime = mCount * 1000 / FPS - tookTime;	//待つべき時間
-		if (waitTime > 0) {
-			Sleep(waitTime);	//待機
+	void Wait()
+	{
+		//かかった時間
+		int tookTime = GetNowCount() - startTime;
+		//待つべき時間
+		int waitTime = count * 1000 / FPS - tookTime;
+
+		if (waitTime > 0)
+		{
+			//待機
+			Sleep(waitTime);
 		}
 	}
 };

@@ -5,6 +5,7 @@ using namespace std;
 
 class CubicSpline {
 	public:
+		void Init();
 		void cubicSpline(vector<vector<double>> points, int n);
 		double interpolation(double p,bool inverse);//•âŠÔ’l‚ÌŒvZ
 	private:

@@ -1,17 +1,24 @@
 #pragma once
-#include "Task.hpp"
-#include "ISceneChanger.hpp"
+#include "IScene.hpp"
 
-//シーンの基底クラス
-class BaseScene : public Task {
-protected:
-	int mImageHandle;
-	ISceneChanger* mSceneChanger;
-public:
-	BaseScene(ISceneChanger* changer);
-	virtual ~BaseScene(){}
-	virtual void Initialize() override{}
-	virtual void Finalize() override;
-	virtual void Update() override{}
-	virtual void Draw() override;
-};
+namespace Engine
+{
+	namespace Scene
+	{
+		class ISceneChanger;
+
+		//シーンの基底クラス
+		class BaseScene : public IScene {
+		protected:
+			ISceneChanger* sceneChanger;
+
+		public:
+			BaseScene(ISceneChanger* changer);
+			virtual ~BaseScene() {}
+			virtual void Init() override {};
+			virtual void Update() override {};
+			virtual void Draw() override {};
+		};
+	}
+
+}

@@ -1,57 +1,42 @@
 #pragma once
 #include "GameObject.hpp"
-//#include "Editor.hpp"
+#include "GameSymbol.hpp"
+#include "Singleton.hpp"
 #include <vector>
 
-typedef enum BARTYPE {
-	BAR1,				// 1/1
-	BAR4,				// 1/4
-	BAR8,				// 1/8
-	BAR16,				// 1/16
-	BAR32,				// 1/32
-	BARTYPENUM			// 小節線の種類数
-};
+namespace NotesEditor
+{
+	class Bar;
 
-// 小節線管理クラス
-class BarManager {
-private:
-	//小節線の画像ハンドル 1/1 1/4 1/8 1/16 1/32
-	std::vector<int> barHandle;
-	//生成した小節線オブジェクト
-	std::vector<GameObject*> bars;
-	static BARTYPE type;
-	//小節線画像の変更
-	void ChangeBarHandle(int handle) noexcept;
-	//画像ハンドルのセット
-	void SetHandle() noexcept;
-	//キー入力管理
-	void KeyInput() noexcept;
+	class BarManager : public Singleton<BarManager> {
+		friend Singleton<BarManager>;
+	private:
+		BarManager();
+		// 生成した小節線オブジェクト
+		std::vector<Bar*> barList;
+		// ライン数
+		int lineNum;
+	public:
+		// 1小節当たりの最大音符数
+		static const int MAXNOTENUM = 32;
 
-	//小節線の当たり判定実行
-	void BarsCollision(float& posX, float& posY) noexcept;
-public:
-	BarManager() noexcept;
-	~BarManager() noexcept;
+		void CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum);
+		//小節タイプ変更 1/1
+		void ChangeBarType();
+		//小節タイプ変更1/4
+		void ChangeBarType4();
+		//小節タイプ変更 1/8
+		void ChangeBarType8();
+		//小節タイプ変更 1/16
+		void ChangeBarType16();
+		//小節タイプ変更 1/32
+		void ChangeBarType32();
 
-	//Barオブジェクトの生成
-	void MakeBar(int num) noexcept;
-
-	//画像変更 1/1
-	void ChangeHandle() noexcept;
-	//画像変更 1/4
-	void ChangeHandle4() noexcept;
-	//画像変更 1/8
-	void ChangeHandle8() noexcept;
-	//画像変更 1/16
-	void ChangeHandle16() noexcept;
-	//画像変更 1/32
-	void ChangeHandle32() noexcept;
-	//ノーツ設置時の座標を決定
-	void DecidePutPos(float& posX, float& posY) noexcept;
-	static BARTYPE GetBarType() noexcept;
-
-	void Update() noexcept;
-	void Draw() noexcept;
-	std::vector<GameObject*>* GetListRef() noexcept;
-	void DeleteObj() noexcept;
-};
+		void ChangeSize();
+		float Collision(float x, float y);
+		float CalcTiming(float y);
+		unsigned int GetBarNum();
+		int GetLineNum();
+		void Delete();
+	};
+}

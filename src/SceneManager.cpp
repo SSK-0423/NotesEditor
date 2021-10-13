@@ -1,46 +1,42 @@
-#include "DxLib.h"
 #include "SceneManager.hpp"
-#include "Editor.hpp"
+#include "EditScene.hpp"
 
-SceneManager::SceneManager() :
-	mNextScene(eScene_None) //次のシーン管理変数
+Engine::Scene::SceneManager::SceneManager() : nextScene(SCENE_NONE)
 {
-	mScene = (BaseScene*) new Editor(this);
+	nowScene = (BaseScene*) new NotesEditor::EditScene(this);
 }
 
-//初期化
-void SceneManager::Initialize() {
-	mScene->Initialize();
-}
+void Engine::Scene::SceneManager::Update()
+{
+	//次のシーンがセットされていたら
+	if (nextScene != SCENE_NONE) 
+	{    
+		//現在のシーンの終了処理を実行
+		//nowScene->Finalize();
+		delete nowScene;
 
-//終了処理
-void SceneManager::Finalize() {
-	mScene->Finalize();
-}
-
-//更新
-void SceneManager::Update() {
-	if (mNextScene != eScene_None) {    //次のシーンがセットされていたら
-		mScene->Finalize();//現在のシーンの終了処理を実行
-		delete mScene;
-		switch (mNextScene) {       //シーンによって処理を分岐
-		case eScene_Menu:        //次の画面がメニューなら
-			mScene = (BaseScene*) new Editor(this); //メニュー画面のインスタンスを生成する
-			break;//以下略
+		//シーンによって処理を分岐
+		switch (nextScene) 
+		{       
+			//次の画面がエディット
+			case SCENE_EDIT:        
+				//エディット画面のインスタンス生成
+				nowScene = (BaseScene*) new NotesEditor::EditScene(this); 
+				break;
 		}
-		mNextScene = eScene_None;    //次のシーン情報をクリア
-		mScene->Initialize();    //シーンを初期化
+		nextScene = SCENE_NONE;    //次のシーン情報をクリア
+		nowScene->Init();  //シーンを初期化
 	}
 
-	mScene->Update(); //シーンの更新
+	nowScene->Update(); //シーンの更新
 }
 
-//描画
-void SceneManager::Draw() {
-	mScene->Draw(); //シーンの描画
+void Engine::Scene::SceneManager::Draw()
+{
+	nowScene->Draw();
 }
 
-// 引数 nextScene にシーンを変更する
-void SceneManager::ChangeScene(eScene NextScene) {
-	mNextScene = NextScene;    //次のシーンをセットする
+void Engine::Scene::SceneManager::ChangeScene(SCENE NextScene)
+{
+	this->nextScene = nextScene;
 }

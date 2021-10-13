@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Singleton&lt;_T&gt;">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAQAAgAAAAAAA=</HashCode>
+      <FileName>src\Singleton.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rotation">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAAAAAAAIAAAAAAAAAAEAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>src\Rotation.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Size">
+    <Position X="21.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAgAQAQAAIAABAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>src\Size.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestObject">
+    <Position X="14.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\TestObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fps">
+    <Position X="19.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAABAAgAAAQAAQAAAAAABAAABAQAAA=</HashCode>
+      <FileName>src\FPS.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseScene">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAAAgAAAAAAAAAAEAAAAAAEAAACABAAAAA=</HashCode>
+      <FileName>src\BaseScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IScene">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\IScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input::IInputDevice">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAECAAAACABACAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IInputDevice.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input::InputDevice">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAEAAAAAAIA=</HashCode>
+      <FileName>src\InputDevice.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input::InputDeviceContainer">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>src\InputDeviceContainer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input::Keyboard">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAAECAAAADAhQAAAAAAAAAAAAAIAAAQEABAAAAAAA=</HashCode>
+      <FileName>src\Keyboard.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Input::Mouse">
+    <Position X="1.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABECAACADABCEwAAAAAAAAAAAIAAAQAABAAEAYAE=</HashCode>
+      <FileName>src\Mouse.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Position">
+    <Position X="19.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAEwAAAYAA=</HashCode>
+      <FileName>src\Position.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Transform">
+    <Position X="19.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAACAAICAIAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Transform.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Texture">
+    <Position X="15" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAIAAAAAABA=</HashCode>
+      <FileName>src\Texture.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Polygon::Polygon">
+    <Position X="21.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAQAAAAQAgAAAQAAAAAAAAAAAACAAAAAQAAAACA=</HashCode>
+      <FileName>src\Polygon.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Polygon::Rectangle">
+    <Position X="13.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Rectangle.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collision::CrossingNumberAlgorithm">
+    <Position X="17.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\CrossingNumberAlgorithm.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collision::PointAndPolygonImpl">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\PointAndPolygonImpl.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collision::PointAndPolygon">
+    <Position X="12" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>src\PointAndPolygon.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collision::PointWithPolygon">
+    <Position X="19.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\PointWithPolygon.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collider::ICollider">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAgAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>src\ICollider.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collider::Collider">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQAAAA=</HashCode>
+      <FileName>src\Collider.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component::Collider::BoxCollider">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAgAAAAAAIAAAACAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>src\BoxCollider.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI::Button">
+    <Position X="3.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Button.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI::GUI">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\GUI.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI::Canvas">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAABAAgAAAAaAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\Canvas.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI::ICanvas">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>src\ICanvas.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI::TextureButton">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAEAAEAgAAAAAAEAAACAA=</HashCode>
+      <FileName>src\TextureButton.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI::TextureButtonRect">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAAAABAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\TextureButtonRect.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameGameObject">
+    <Position X="21.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAAAgAAAABAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>src\GameObject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System::ISceneChanger">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System::SceneManager">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAACAAAEAAAAAAAgQ=</HashCode>
+      <FileName>src\SceneManager.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotesEditor::EditorSceneCanvas">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>src\EditorSceneCanvas.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotesEditor::EditScene">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>src\EditScene.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Size2D&lt;int&gt;">
+    <Position X="17.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Size2D&lt;float&gt;">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Game.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Polygon::Point">
+    <Position X="12" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAgAAAgAAAAAAACAAAAAAAAADggAAAAAA=</HashCode>
+      <FileName>src\Point.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="SCENE" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="__unnamed_enum_0019_1">
+    <Position X="7.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACAAAA=</HashCode>
+      <FileName>src\ISceneChanger.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Component::Collider::COLLIDERTYPE">
+    <Position X="17.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\ICollider.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>
