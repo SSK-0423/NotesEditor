@@ -1,16 +1,22 @@
 #include "Notes.hpp"
+#include "PointWithPolygon.hpp"
 #include "DxLib.h"
-//ƒNƒ‰ƒX•Ï”ŽÀ‘Ì‰»
-float Notes::GetTiming() noexcept {
+
+NotesEditor::Notes::~Notes()
+{
+}
+
+float NotesEditor::Notes::GetTiming()
+{
 	return timing;
 }
 
-int Notes::GetLane() noexcept {
+int NotesEditor::Notes::GetLane()  
+{
 	return lane;
 }
 
-void Notes::Draw() noexcept {
-}
-
-void Notes::Update() noexcept {
+bool NotesEditor::Notes::Collision(float x, float y)
+{
+	return collision->Collision(x, y, *collider);
 }

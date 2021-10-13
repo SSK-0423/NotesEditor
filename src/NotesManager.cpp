@@ -1,129 +1,178 @@
 #include "NotesManager.hpp"
-#include "ShortNotes.hpp"
-#include "NotesCreator.hpp"
+#include "INotesCreator.hpp"
 #include "ShortNotesCreator.hpp"
 #include "LongNotesCreator.hpp"
 #include "SlideNotesCreator.hpp"
+#include "NotesData.hpp"
+#include "ShortNotes.hpp"
+#include "Transform.hpp"
+#include "InputDeviceContainer.hpp"
 #include "DxLib.h"
-#include "KeyInput.hpp"
+#include "NotesColor.hpp"
 #include <algorithm>
 
-#define CREATE 0
-
 //static変数実体化
-NOTESTYPE NotesManager::type;
+NotesEditor::NOTESTYPE NotesEditor::NotesManager::type = NotesEditor::NOTESTYPE::SHORT_NOTES;
 
-
-NotesManager::NotesManager() noexcept {
-	color = GetColor(0, 255, 0);
-	//objList = nullptr;
+NotesEditor::NotesManager::NotesManager() : mousePointerColor(GetColor(0, 255, 0))
+{
 }
 
-//	ショートノーツに変更
-void NotesManager::ChangeNotesTypeShort() noexcept {
-	type = SHORT_NOTES;
-	color = GetColor(0, 255, 0);
-}
-//	ロングノーツに変更
-void NotesManager::ChangeNotesTypeLong() noexcept {
-	type = LONG_NOTES;
-	color = GetColor(0, 128, 255);
-}
-//	スライドノーツに変更
-void NotesManager::ChangeNotesTypeSlide() noexcept {
-	type = SLIDE_NOTES;
-	color = GetColor(255, 128, 0);
+void NotesEditor::NotesManager::ChangeNotesTypeShort()
+{
+	type = NOTESTYPE::SHORT_NOTES;
+	mousePointerColor = NotesColor::shortNotesColor;
+	DrawFormatString(800, 600, GetColor(0, 255, 0), "ShortNotes");
 }
 
-void NotesManager::Update() noexcept {
-	if (Key[KEY_INPUT_RETURN] == 1) {
-		slideNotesCreator.IsEnd();
-		slideNotesCreator.CreateNotes(notesList);
-	}
+void NotesEditor::NotesManager::ChangeNotesTypeLong()
+{
+	type = NOTESTYPE::LONG_NOTES;
+	mousePointerColor = NotesColor::longNotesColor;
+	DrawFormatString(800, 600, GetColor(0, 255, 0), "LongNotes");
 }
 
-void NotesManager::Draw() noexcept {
+void NotesEditor::NotesManager::ChangeNotesTypeSlide()
+{
+	type = NOTESTYPE::SLIDE_NOTES;
+	mousePointerColor = NotesColor::slideNotesColor;
+	DrawFormatString(800, 600, GetColor(0, 255, 0), "SlideNotes");
+}
+
+void NotesEditor::NotesManager::Update()
+{
+	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_Q))
+		ShortNotes::playRange += 0.001f;
+	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_E))
+		ShortNotes::playRange -= 0.001f;
+
+	// 次のスライドノーツ設置へ
+	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_RETURN))
+		SlideNotesCreator::Instance().IsEnd();
+}
+
+void NotesEditor::NotesManager::Draw()
+{
+	DrawFormatString(800, 625, GetColor(0, 255, 0), "playRange:%f", ShortNotes::playRange);
+	DrawFormatString(800, 600, GetColor(0, 255, 0), "notesList:%d", notesList.size());
 	int x, y;
 	GetMousePoint(&x, &y);
-	DrawBox(x - 10, y - 10, x + 10, y + 10, color, true);
-	DrawFormatString(800, 350, GetColor(0, 255, 0), "NotesType:%d", type);
-	DrawFormatString(800, 400, GetColor(0, 255, 0), "ノーツ数:%d", notesList.size());
-	slideNotesCreator.Draw();
+	DrawBox(x - 10, y - 10, x + 10, y + 10, mousePointerColor, true);
 }
 
-std::vector<GameObject*>* NotesManager::GetListRef() noexcept {
-	return &notesList;
-}
+void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList)
+{
+	/* ノーツ生成 */
+	// 同じ場所にノーツが存在した
+	if (IsExist(notesData.x, notesData.y))
+		return;
 
-//ノーツ生成
-void NotesManager::CreateNotes(float& x, float& y) noexcept {
+	ShortNotesCreator::
+	//ノーツ生成
+	INotesCreator* creator = nullptr;
 
-	if (IsExist(x, y)) {
-		//ノーツ生成
-		NotesCreator* creator = nullptr;
+	//生成するノーツ
+	switch (type)
+	{
+	case NOTESTYPE::SHORT_NOTES:
+		creator = &ShortNotesCreator::Instance();
+		break;
+	case NOTESTYPE::LONG_NOTES:
+		creator = &LongNotesCreator::Instance();
+		break;
+	case NOTESTYPE::SLIDE_NOTES:
+		creator = &SlideNotesCreator::Instance();
+		break;
+	default:
+		break;
+	}
+	Cancel(type, objList);
 
-		//生成するノーツ
-		switch (type)
-		{
-		case SHORT_NOTES:
-			creator = &shortNotesCreator;
-			longNotesCreator.Cancel(notesList);		//ロングノーツの設置をキャンセル
-			slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
-			break;
-		case LONG_NOTES:
-			creator = &longNotesCreator;
-			slideNotesCreator.Cancel(notesList);	//スライドノーツの設置をキャンセル
-			break;
-		case SLIDE_NOTES:
-			creator = &slideNotesCreator;
-			longNotesCreator.Cancel(notesList);		//ロングノーツの設置をキャンセル
-			break;
-		default:
-			creator = &shortNotesCreator;
-			break;
-		}
-		//ノーツ生成
-		creator->CreateNotes(x, y, notesList);
+	//ノーツ生成
+	Notes* notes = creator->CreateNotes(notesData);
+
+	//ノーツ追加
+	if (notes != nullptr)
+	{
+		objList.push_back(notes);
+		notesList.push_back(notes);
 	}
 }
 
-// ノーツ削除
-void NotesManager::DeleteNotes(int& x, int& y) noexcept {
-	for (auto notes : notesList) {
-		if (notes->position.x - notes->GetObjWidth() / 2 <= x && notes->position.x + notes->GetObjWidth() / 2 >= x &&
-			notes->position.y - notes->GetObjHeight() / 2 <= y && notes->position.y + notes->GetObjHeight() / 2 >= y) {
+void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList)
+{
+	for (auto notes : notesList)
+	{
+		bool isCol = notes->Collision(x, y);
+		if (isCol)
+		{
+			/*
+				設置途中でノーツを削除し、ノーツ種類を切り替えて設置した際に、
+				キャンセルでもノーツの除去処理が行われ、
+				すでにないノーツを除去しようとするのでエラーが発生する
+			*/
+
 			auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
 			notesList.erase(deleteNotes);
+			auto notesDel = std::find(objList.begin(), objList.end(), static_cast<Engine::GameObject*>(notes));
+			objList.erase(notesDel);
 
-			//スライドノーツの中間ノーツ削除
-			if (dynamic_cast<ShortNotes*>(notes) != nullptr) {
-				if (dynamic_cast<ShortNotes*>(notes)->GetNotesColor() == GetColor(255, 128, 0)) {
-					slideNotesCreator.DeleteNotes(*notes);
-				}
-				if (dynamic_cast<ShortNotes*>(notes)->GetNotesColor() == GetColor(0, 128, 255)) {
-					longNotesCreator.DeleteNotes(*notes);
-				}
-				int clapHandle = LoadSoundMem("sounds/clap.ogg");
-				PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
-			}
+			// 削除したノーツがスライドノーツなら、ノーツ設置確定処理を行う
+			// →slideNotesCreatorの初期化処理を行う
+			NOTESTYPE notesType = notes->GetNotesType();
+			if (notesType == NOTESTYPE::LONG_NOTES)
+				LongNotesCreator::Instance().Init();
+			else if (notesType == NOTESTYPE::SLIDE_NOTES)
+				SlideNotesCreator::Instance().Init();
 		}
 	}
 }
 
-//	同じ場所にノーツを設置できないようにする
-bool NotesManager::IsExist(float& x, float& y) noexcept {
-	for (auto notes : notesList) {
-		if (notes->collisionPos.x == x && notes->collisionPos.y == y) {
-			return false;
-		}
-	}
-	return true;
+void NotesEditor::NotesManager::DeleteObj()
+{
 }
 
-//	ノーツの全削除
-void NotesManager::DeleteObj() noexcept {
-	for (auto notes : notesList) {
-		delete[] notes;
+NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()
+{
+	return type;
+}
+
+bool NotesEditor::NotesManager::IsExist(float x, float y)
+{
+	for (auto notes : notesList)
+	{
+		if (notes->Collision(x, y))
+			return true;
 	}
-	notesList.clear();
+	return false;
+}
+
+void NotesEditor::NotesManager::Cancel(NOTESTYPE type, std::vector<Engine::GameObject*>& objList)
+{
+	Notes* notes = nullptr;
+	//生成するノーツ
+	switch (type)
+	{
+	case NOTESTYPE::SHORT_NOTES:
+		notes = LongNotesCreator::Instance().Cancel();
+		if (notes == nullptr)
+			notes = SlideNotesCreator::Instance().Cancel();
+		break;
+	case NOTESTYPE::LONG_NOTES:
+		notes = SlideNotesCreator::Instance().Cancel();
+		break;
+	case NOTESTYPE::SLIDE_NOTES:
+		notes = LongNotesCreator::Instance().Cancel();
+		break;
+	default:
+		break;
+	}
+
+	if (notes != nullptr)
+	{
+		auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
+		notesList.erase(deleteNotes);
+		auto notesDel = std::find(objList.begin(), objList.end(), static_cast<Engine::GameObject*>(notes));
+		objList.erase(notesDel);
+	}
 }

@@ -1,23 +1,51 @@
 #pragma once
 #include "Notes.hpp"
 #include "ShortNotes.hpp"
+#include "GameSymbol.hpp"
 #include <vector>
 
-class LongNotes : public Notes{
-private:
-	// ノーツの色
-	static unsigned int color;
-	//始点ノーツ
-	ShortNotes* startNotes;
-	// 終点ノーツ
-	ShortNotes* endNotes;
-public:
-	LongNotes(ShortNotes& start) noexcept;
-	LongNotes(ShortNotes& start, ShortNotes& end) noexcept;
-	~LongNotes() noexcept;
-	void SetStartNotes(ShortNotes& start) noexcept;
-	void SetEndNotes(ShortNotes& end) noexcept;
-	void SetObjSize(int w, int h) noexcept;
-	void Update() noexcept override;
-	void Draw() noexcept override;
-};
+namespace Engine
+{
+	namespace Components
+	{
+		class ICollider;
+	}
+	namespace Collision
+	{
+		class PointWithPolygon;
+	}
+}
+
+namespace NotesEditor
+{
+	enum class LONGNOTES 
+	{
+		STARTNOTES,
+		ENDNOTES
+	};
+	class LongNotes : public Notes {
+	private:
+		// ノーツの色
+		static Color color;
+		// 始点と終点
+		std::vector<ShortNotes*> notesList;
+		//// 始点ノーツ
+		//ShortNotes* startNotes;
+		//// 終点ノーツ
+		//ShortNotes* endNotes;
+
+		void UpdateNotes();
+		void UpdateNotesScreenPos();
+		void DrawNotes();
+		void DrawMiddleLine();
+		void Init();
+	public:
+		LongNotes(ShortNotes& start);
+		~LongNotes();
+		NOTESTYPE GetNotesType();
+		bool Collision(float x, float y) override;
+		void Update() override;
+		void Draw() override;
+		void AddEndNotes(ShortNotes& end);
+	};
+}

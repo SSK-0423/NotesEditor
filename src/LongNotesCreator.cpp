@@ -1,92 +1,64 @@
 #include "LongNotesCreator.hpp"
+#include "NotesData.hpp"
+#include "ShortNotes.hpp"
+#include "LongNotes.hpp"
+#include "Transform.hpp"
 #include "DxLib.h"
 
-//クラス変数実体化
-bool LongNotesCreator::isStart = true;
+bool NotesEditor::LongNotesCreator::isStart = true;
+NotesEditor::LongNotes* NotesEditor::LongNotesCreator::longNotes = nullptr;
+NotesEditor::ShortNotes* NotesEditor::LongNotesCreator::startNotes = nullptr;
 
-LongNotesCreator::LongNotesCreator() noexcept {
-	startNotes = nullptr;
-	endNotes = nullptr;
+NotesEditor::LongNotesCreator::LongNotesCreator()
+{
 }
 
-Notes* LongNotesCreator::CreateNotes(float& x, float& y) noexcept {
-
-	//始点ノーツ
-	if (isStart) {
-		//始点ノーツ生成
-		startNotes = new ShortNotes(x, y);
-
-		//終点ノーツフラグ
-		isStart = false;
-
-		return nullptr;
-	}
-	//終点ノーツ
-	else {
-		//終点ノーツの位置が始点ノーツより前だったらnullを返す
-		if (y > startNotes->collisionPos.y) {
-			return nullptr;
-		}
-		//終点ノーツ生成
-		endNotes = new ShortNotes(startNotes->position.x, y);
-
-		//ロングノーツ生成
-		LongNotes* longNotes = new LongNotes(*startNotes);
-		//終点ノーツセット
-		longNotes->SetEndNotes(*endNotes);
-
-		//始点ノーツフラグ
-		isStart = true;
-
-		return longNotes;
-	}
-	//Notes* notes = new ShortNotes(x, y);
-	//return notes;
+NotesEditor::LongNotesCreator::~LongNotesCreator()
+{
 }
 
-void LongNotesCreator::CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept {
-	//始点ノーツ
-	if (isStart) {
-		//始点ノーツ生成
-		startNotes = new ShortNotes(x, y);
+NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& notesData)
+{
+	// 終点ノーツ
+	if (isStart)
+	{
+		startNotes = new ShortNotes(notesData);
 		startNotes->SetColor(GetColor(0, 128, 255));
 
-		//終点ノーツフラグ
-		isStart = false;
+		longNotes = new LongNotes(*startNotes);
 
-		objList.push_back(startNotes);
+		isStart = false;
+		return longNotes;
 	}
 	//終点ノーツ
-	else {
-		//終点ノーツの位置が始点ノーツより後ろ(上)だったらロングノーツ設置
-		if (y < startNotes->collisionPos.y) {
-			//終点ノーツ生成
-			endNotes = new ShortNotes(startNotes->collisionPos.x, y);
-			endNotes->SetColor(GetColor(0, 128, 255));
-			//ロングノーツ生成
-			LongNotes* longNotes = new LongNotes(*startNotes, *endNotes);
-
-			//始点ノーツフラグ
-			isStart = true;
-			//末尾に追加されている始点ノーツをリストから削除
-			objList.pop_back();
-			//ロングノーツ追加
-			objList.push_back(longNotes);
-		}
-	}
-}
-
-void LongNotesCreator::Cancel(std::vector<GameObject*>& objList) noexcept
-{
-	if (startNotes != nullptr && endNotes == nullptr) {
-		objList.pop_back();
+	//終点ノーツの位置が始点ノーツより後ろ(上)だったらロングノーツ設置
+	if (notesData.y < startNotes->GetTransform().GetPosition().y) {
+		//終点ノーツ生成
+		ShortNotes* endNotes = new ShortNotes(notesData);
+		endNotes->SetColor(GetColor(0, 128, 255));
+		//終点ノーツ追加
+		longNotes->AddEndNotes(*endNotes);
+		//始点ノーツフラグ
 		isStart = true;
-		delete[] startNotes;
+		//始点ノーツを無効にする
+		startNotes = nullptr;
+		//ロングノーツ初期化
+		longNotes = nullptr;
 	}
+
+	return nullptr;
 }
 
-void LongNotesCreator::DeleteNotes(GameObject& notes) noexcept
+NotesEditor::Notes* NotesEditor::LongNotesCreator::Cancel()
+{
+	Notes* cancelNotes = longNotes;
+	Init();
+	return cancelNotes;
+}
+
+void NotesEditor::LongNotesCreator::Init()
 {
 	isStart = true;
-	delete[] startNotes;
+	longNotes = nullptr;
+	startNotes = nullptr;
 }

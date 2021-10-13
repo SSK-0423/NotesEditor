@@ -21,6 +21,21 @@ double CubicSpline::interpolation(double p,bool inverse) {
 	}
 }
 
+void CubicSpline::Init()
+{
+	// 全リスト初期化
+	coord.clear();
+	coord.shrink_to_fit();
+	v_array.clear();
+	v_array.shrink_to_fit();
+	h_array.clear();
+	h_array.shrink_to_fit();
+	A.clear();
+	A.shrink_to_fit();
+	keisu.clear();
+	keisu.shrink_to_fit();
+}
+
 //3次スプライン補間(点の座標データ、点の数)
 void CubicSpline::cubicSpline(vector<vector<double>> points, int n){
 	

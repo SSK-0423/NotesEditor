@@ -1,20 +1,24 @@
 #pragma once
-#include "NotesCreator.hpp"
-#include "BarManager.hpp"
-#include "ShortNotes.hpp"
-#include "LongNotes.hpp"
+#include "INotesCreator.hpp"
+#include "Singleton.hpp"
 
-class LongNotesCreator : public NotesCreator {
-private:
-	static bool isStart;
-	ShortNotes* startNotes;
-	ShortNotes* endNotes;
+namespace NotesEditor
+{
+	class ShortNotes;
+	class LongNotes;
 
-public:
-	LongNotesCreator() noexcept;
-	Notes* CreateNotes(float& x, float& y) noexcept;
-	void CreateNotes(float& x, float& y, std::vector<GameObject*>& objList) noexcept;
-	void Cancel(std::vector<GameObject*>& objList) noexcept;
-	void DeleteNotes(GameObject& notes) noexcept;
+	class LongNotesCreator : public INotesCreator, public Singleton<LongNotesCreator> {
+		friend Singleton<LongNotesCreator>;
+	private:
+		LongNotesCreator();
+		static bool isStart;
+		static ShortNotes* startNotes;
+		static LongNotes* longNotes;
 
-};
+	public:
+		~LongNotesCreator();
+		Notes* CreateNotes(const NotesData& notesData);
+		Notes* Cancel();
+		void Init();
+	};
+}

@@ -1,52 +1,111 @@
 #include "ShortNotes.hpp"
-#include "DxLib.h"
 #include "WindowSize.hpp"
+#include "AudioSource.hpp"
+#include "BoxCollider.hpp"
+#include "PointWithPolygon.hpp"
+#include "Transform.hpp"
+#include "NotesData.hpp"
+#include "NotesEditorMusic.hpp"
+#include "AudioSource.hpp"
+#include "InputDeviceContainer.hpp"
+#include "DxLib.h"
 #include <math.h>
+#include <stdlib.h>
 
 //クラス変数実体化
-//int ShortNotes::clapHandle = LoadSoundMem("sounds/clap.ogg");
+//Engine::Components::AudioSource NotesEditor::ShortNotes::handClap("sounds/clap.ogg");
+NotesEditor::NotesEditorMusic& NotesEditor::ShortNotes::notesEditorMusic = NotesEditor::NotesEditorMusic::Instance();
+const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
+const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
+float NotesEditor::ShortNotes::playRange = 0.001f;
 
-ShortNotes::ShortNotes(float& x, float& y) noexcept {
-	clapHandle = LoadSoundMem("sounds/clap.ogg");
-	color = GetColor(0, 255, 0);
-	width = 80;
-	height = 20;
-	position.x = x;
-	position.y = y;
-	collisionPos.x = x;
-	collisionPos.y = y;
+NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(GetColor(0, 255, 0))
+{
+	type = NOTESTYPE::SHORT_NOTES;
+	handClap = new Engine::Components::AudioSource("sounds/clap.ogg");
+	collider = new Engine::Components::BoxCollider(*transform);
+	collision = new Engine::Collision::PointWithPolygon();
+
+	transform->SetPosition(notesData.x, notesData.y);
+	transform->SetSize(SHORTNOTESWIDTH, SHORTNOTESHEIGHT);
+	screenPos->SetPosition(notesData.x, notesData.y);
+	
+	lane = notesData.lane;
+	timing = notesData.timing;
+
+	collider->Update();
 }
 
-ShortNotes::~ShortNotes() noexcept {
-
+NotesEditor::ShortNotes::~ShortNotes()
+{
+	delete handClap;
+	delete collider;
+	delete collision;
 }
 
-void ShortNotes::Update() noexcept {
-	if (fabs(position.y - WINDOW_SIZE_HEIGHT) <= 5) {
-		PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
+NotesEditor::NOTESTYPE NotesEditor::ShortNotes::GetNotesType()
+{
+	return NOTESTYPE::SHORT_NOTES;
+}
+
+bool NotesEditor::ShortNotes::Collision(float x, float y)
+{
+	return collision->Collision(x, y, *collider);
+}
+
+void NotesEditor::ShortNotes::Update()
+{
+	if (notesEditorMusic.IsPlaying())
+	{
+		if (fabsf(timing - (static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f)) <= ShortNotes::playRange)
+		{
+			PlayClap();
+		}
 	}
 }
 
-void ShortNotes::Draw() noexcept {
-	DrawBox(position.x - width / 2, position.y - height / 2,
-		position.x + width / 2, position.y + height / 2,
-		color, true);
-	
-	DrawBox(position.x - width / 2, position.y - height / 2, position.x + width / 2, position.y + height / 2, GetColor(255, 0, 0), false);
-	//	DrawCircle(position.x, position.y, 10, GetColor(255, 255, 255), true);
-	//	DrawFormatString(800, 650, GetColor(0, 255, 0), "X:%f Y:%f", position.x, position.y);
+void NotesEditor::ShortNotes::Draw()
+{
+	DrawNotes();
+	DebugDraw();
 }
 
-void ShortNotes::SetColor(unsigned int c)
+void NotesEditor::ShortNotes::SetColor(Color c)
 {
 	color = c;
 }
 
-unsigned int ShortNotes::GetNotesColor() {
+Color NotesEditor::ShortNotes::GetNotesColor()
+{
 	return color;
 }
 
 //ハンドクラップ再生
-void ShortNotes::PlayClap() noexcept {
-	PlaySoundMem(clapHandle, DX_PLAYTYPE_BACK);
+void NotesEditor::ShortNotes::PlayClap()
+{
+	handClap->PlayOneShot();
+}
+
+// ノーツ描画
+void NotesEditor::ShortNotes::DrawNotes()
+{
+	Engine::Components::Position pos = *screenPos;
+	Engine::Components::Size size = transform->GetSize();
+
+	DrawBoxAA(pos.x - size.width / 2.f, pos.y - size.height / 2.f,
+		pos.x + size.width / 2.f, pos.y + size.height / 2.f, color, true);
+}
+
+// デバッグ用描画
+void NotesEditor::ShortNotes::DebugDraw()
+{
+	DrawFormatString(800, 650, GetColor(0, 255, 0), "timing:%f", timing);
+	if (fabsf(timing - static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f) <= ShortNotes::playRange)
+	{
+		DrawFormatString(800, 700, GetColor(0, 255, 0), "再生！");
+	}
+	else
+	{
+		DrawFormatString(800, 725, GetColor(0, 255, 0), "再生しない");
+	}
 }

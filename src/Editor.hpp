@@ -5,6 +5,7 @@
 #include "TextBox.hpp"
 #include "BarManager.hpp"
 #include "NotesManager.hpp"
+#include "EditorCanvas.hpp"
 #include <vector>
 
 #define BUTTON_SIZE_WIDTH 126
@@ -13,6 +14,7 @@
 #define ADD 10
 #define BUTTON_POS_Y BUTTON_SIZE_HEIGHT*2 + ADD*4
 
+// TODO:enum classに変更？
 typedef enum BUTTON {
 	BUTTON_SHORT,		// ショートノーツを配置するボタン
 	BUTTON_LONG,		// ロングノーツを配置するボタン

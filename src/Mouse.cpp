@@ -1,50 +1,86 @@
 #include <DxLib.h>
 #include "Mouse.hpp"
 
-Mouse::Mouse() : buttonPressingCount(), buttonReleasingCount(), x(), y() {
+void Engine::Input::Mouse::UpdateCounter()
+{
+	KeyCode nowButtonState = GetMouseInput();
+
+	for (KeyCode keyCode = 0; keyCode < KEY_NUM; keyCode++)
+	{
+		// i番のボタンが押されていたら
+		if ((nowButtonState >> keyCode) & 1)
+			UpdatePressingCounter(keyCode);
+		// i番のキーが離されていたら
+		else
+			UpdateReleasingCounter(keyCode);
+	}
 }
 
-//更新
-bool Mouse::Update() {
-	int nowButtonState = GetMouseInput();
+void Engine::Input::Mouse::UpdatePressingCounter(KeyCode keyCode) const
+{			
+	// 離されカウンタが0より大きければ
+	if (buttonReleasingCount[keyCode] > 0)
+	{
+		// 0に戻す
+		buttonReleasingCount[keyCode] = 0;
+	}
+	// 押されカウンタを増やす
+	buttonPressingCount[keyCode]++;
+	buttonPressed[keyCode] = true;
+}
+
+void Engine::Input::Mouse::UpdateReleasingCounter(KeyCode keyCode) const
+{			
+	// 押されカウンタが0より大きければ
+	if (buttonPressingCount[keyCode] > 0)
+	{
+		// 0に戻す
+		buttonPressingCount[keyCode] = 0;
+	}
+	// 離されカウンタを増やす
+	buttonReleasingCount[keyCode]++;
+}
+
+void Engine::Input::Mouse::GetMousePosition() const
+{
+	int x, y;
 	GetMousePoint(&x, &y);
-	for (int i = 0; i < KEY_NUM; i++) {
-		if ((nowButtonState >> i) & 1) {            //i番のボタンが押されていたら
-			if (buttonReleasingCount[i] > 0) {//離されカウンタが0より大きければ
-				buttonReleasingCount[i] = 0;   //0に戻す
-			}
-			buttonPressingCount[i]++;          //押されカウンタを増やす
-		}
-		else {                             //i番のキーが離されていたら
-			if (buttonPressingCount[i] > 0) { //押されカウンタが0より大きければ
-				buttonPressingCount[i] = 0;    //0に戻す
-			}
-			buttonReleasingCount[i]++;         //離されカウンタを増やす
-		}
-	}
-	return true;
+	mousePos.SetPosition(static_cast<float>(x), static_cast<float>(y));
 }
 
-//keyCodeのキーが押されているフレーム数を返す
-int Mouse::GetPressingCount(int keyCode) {
-	if (!IsAvailableCode(keyCode)) {
-		return -1;
-	}
-	return buttonPressingCount[keyCode];
+void Engine::Input::Mouse::ReadInput()
+{
+	GetMousePosition();
+	UpdateCounter();
 }
 
-//keyCodeのキーが離されているフレーム数を返す
-int Mouse::GetReleasingCount(int keyCode) {
-	if (!IsAvailableCode(keyCode)) {
-		return -1;
-	}
-	return buttonReleasingCount[keyCode];
+int Engine::Input::Mouse::GetPressingCount(KeyCode keyCode) const
+{
+	if (IsAvailableCode(keyCode))
+		return buttonPressingCount[keyCode];
+	return -1;
 }
 
-//keyCodeが有効な値かチェックする
-bool Mouse::IsAvailableCode(int keyCode) {
-	if (!(0 <= keyCode && keyCode < KEY_NUM)) {
-		return false;
+int Engine::Input::Mouse::GetReleasingCount(KeyCode keyCode) const
+{
+	if (IsAvailableCode(keyCode))
+		return buttonReleasingCount[keyCode];
+	return -1;
+}
+
+bool Engine::Input::Mouse::IsPressKey(KeyCode keyCode) const
+{
+	if (GetPressingCount(keyCode) == 1)
+		return true;
+	return false;
+}
+
+bool Engine::Input::Mouse::IsReleaseKey(KeyCode keyCode) const
+{
+	if (GetPressingCount(keyCode) == 0 && buttonPressed[keyCode])
+	{
+		buttonPressed[keyCode] = false;
+		return true;
 	}
-	return true;
+	return false;
 }

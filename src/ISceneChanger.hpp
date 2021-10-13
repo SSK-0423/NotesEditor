@@ -1,16 +1,22 @@
 #pragma once
 
-typedef enum {
-	eScene_Menu,
-	eScene_Game,
-	eScene_Config,
+typedef enum
+{
+	SCENE_EDIT,
+	SCENE_NONE
+} SCENE;
 
-	eScene_None,
-} eScene;
+namespace Engine
+{
+	namespace Scene {
 
-//シーンを変更するためのインターフェイスクラス
-class ISceneChanger {
-public:
-	virtual ~ISceneChanger() = 0;
-	virtual void ChangeScene(eScene NextScene) = 0;//指定シーンに変更する
-};
+		//シーンを変更するためのインターフェイスクラス
+		class ISceneChanger {
+		public:
+			virtual ~ISceneChanger() = 0;
+			//指定シーンに変更する
+			virtual void ChangeScene(SCENE NextScene) = 0;
+		};
+	}
+
+}
