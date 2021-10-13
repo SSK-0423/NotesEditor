@@ -35,5 +35,7 @@ namespace NotesEditor
 		void DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList);
 		void DeleteObj();
 		NOTESTYPE GetPutNotesType();
+		void LoadFumen();
+		void SaveFumen();
 	};
 }

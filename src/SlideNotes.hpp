@@ -49,5 +49,6 @@ namespace NotesEditor
 		NOTESTYPE GetNotesType() override;
 		void Update() override;
 		void Draw() override;
+		std::vector<ShortNotes*> GetChildNotesList();
 	};
 }

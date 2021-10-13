@@ -9,6 +9,7 @@
 #include "NotesEditorMusic.hpp"
 #include "BarManager.hpp"
 #include "NotesManager.hpp"
+#include "FumenJsonManager.hpp"
 #include "DxLib.h"
 
 const int BUTTON_SIZE_WIDTH = 126;
@@ -80,6 +81,10 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	// ロード・セーブ
 	loadMusicButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::LoadMusic));
+	loadButton->SetEventFunc(Delegate<NotesManager,
+		void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::LoadFumen));
+	saveButton->SetEventFunc(Delegate<NotesManager,
+		void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::SaveFumen));
 
 	// ボタンのサイズ設定
 	shortButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH - ADD / 2, BUTTON_SIZE_HEIGHT - ADD * 1);

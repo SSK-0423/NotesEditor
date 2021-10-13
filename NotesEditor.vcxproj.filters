@@ -85,6 +85,12 @@
     <Filter Include="ソース ファイル\NotesEditor\Notes">
       <UniqueIdentifier>{c3ceb358-7d1d-42ba-a390-924b86374c06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\FumenJson">
+      <UniqueIdentifier>{42b4722c-4009-446a-95b1-746d85b365a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\FumenJson">
+      <UniqueIdentifier>{384716a3-2383-468e-8cab-89b607d6900a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -230,6 +236,15 @@
     </ClCompile>
     <ClCompile Include="src\NotesColor.cpp">
       <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FumenJsonGenerator.cpp">
+      <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FumenJsonReader.cpp">
+      <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FumenJsonManager.cpp">
+      <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -435,6 +450,15 @@
     </ClInclude>
     <ClInclude Include="src\NotesColor.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FumenJsonGenerator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FumenJsonManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FumenJsonReader.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

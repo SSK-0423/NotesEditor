@@ -28,8 +28,6 @@ namespace NotesEditor
 		float timing;
 		// ノーツのレーン
 		int lane;
-		// ノーツタイプ
-		NOTESTYPE type;
 
 		Engine::Components::ICollider* collider;
 		Engine::Collision::PointWithPolygon* collision;

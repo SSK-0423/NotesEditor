@@ -1,5 +1,4 @@
 #include "NotesManager.hpp"
-#include "INotesCreator.hpp"
 #include "ShortNotesCreator.hpp"
 #include "LongNotesCreator.hpp"
 #include "SlideNotesCreator.hpp"
@@ -7,8 +6,9 @@
 #include "ShortNotes.hpp"
 #include "Transform.hpp"
 #include "InputDeviceContainer.hpp"
-#include "DxLib.h"
 #include "NotesColor.hpp"
+#include "FumenJsonGenerator.hpp"
+#include "DxLib.h"
 #include <algorithm>
 
 //static変数実体化
@@ -111,7 +111,6 @@ void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine
 				キャンセルでもノーツの除去処理が行われ、
 				すでにないノーツを除去しようとするのでエラーが発生する
 			*/
-
 			auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
 			notesList.erase(deleteNotes);
 			auto notesDel = std::find(objList.begin(), objList.end(), static_cast<Engine::GameObject*>(notes));
@@ -135,6 +134,17 @@ void NotesEditor::NotesManager::DeleteObj()
 NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()
 {
 	return type;
+}
+
+void NotesEditor::NotesManager::LoadFumen()
+{
+	DrawFormatString(800, 700, GetColor(0, 255, 0), "譜面読込");
+}
+
+void NotesEditor::NotesManager::SaveFumen()
+{
+	DrawFormatString(800, 700, GetColor(0, 255, 0), "譜面保存");
+	FumenJsonGenerator::Instance().SaveFumen(notesList);
 }
 
 bool NotesEditor::NotesManager::IsExist(float x, float y)

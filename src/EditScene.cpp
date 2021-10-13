@@ -5,9 +5,9 @@
 #include "NotesManager.hpp"
 #include "BarManager.hpp"
 #include "LaneManager.hpp"
-#include <math.h>
 #include "NotesData.hpp"
 #include "DxLib.h"
+#include <math.h>
 
 const int PLUS = 1;
 
@@ -17,7 +17,6 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 {
 	editorSceneCanvas.Init();
 	laneHandle = LoadGraph("image/レーン02.png");
-	int barHandle = LoadGraph("image/Bar8.png");
 }
 
 void NotesEditor::EditScene::Init()
@@ -78,8 +77,9 @@ void NotesEditor::EditScene::Input()
 	{
 		RemoveNotes();
 	}
-	const Engine::Input::Keyboard key = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
-	if (key.IsPressKey(KEY_INPUT_G))
+	const Engine::Input::Keyboard keyboard = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
+	
+	if (keyboard.IsPressKey(KEY_INPUT_G))
 		DebugPutNotes();
 }
 
@@ -203,17 +203,17 @@ void NotesEditor::EditScene::PutNotes()
 	const Engine::Input::Mouse mouse = Engine::Input::InputDeviceContainer::Instance().GetMouse();
 
 	// ノーツの設置位置決定
-	float x = laneManager.Collision(mouse.GetPosX(), mouse.GetPosY());
+	float x = laneManager.Collision(mouse.GetPosX());
 	float y = barManager.Collision(mouse.GetPosX() + camera.GetOriginPos().x, mouse.GetPosY() + camera.GetOriginPos().y);
 
 	// 無効な設置場所
-	if (x == -1 || y == -1)
+	if (y == -1)
 		return;
 
 	int lane = laneManager.GetLane(x);
 	float timing = CalcJudgeTiming(y);
 
-	//DrawFormatString(500, 175, GetColor(0, 255, 0), "x:%f,y:%f,lane:%d,timing:%f", x, y, lane, timing);
+	DrawFormatString(500, 175, GetColor(0, 255, 0), "x:%f,y:%f,lane:%d,timing:%f", x, y, lane, timing);
 
 	NotesData data(x, y, lane, timing);
 	notesManager.CreateNotes(data, allObjList);

@@ -2,8 +2,8 @@
 #include "BaseScene.hpp"
 #include "EditorSceneCanvas.hpp"
 #include "Camera2D.hpp"
-#include "TestObject.h"
 #include "Bar.hpp"
+#include "GameSymbol.hpp"
 
 namespace Engine
 {
@@ -16,11 +16,12 @@ namespace NotesEditor
 	class LaneManager;
 	class BarManager;
 	class NotesEditorMusic;
+	class FumenJsonManager;
 
 	class EditScene : public Engine::Scene::BaseScene {
 	private:
 		EditorSceneCanvas editorSceneCanvas;
-		int laneHandle;
+		Image laneHandle;
 		//EditorCamera editorCamera
 		Engine::Camera2D camera;
 		NotesEditorMusic& notesEditorMusic;

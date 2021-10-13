@@ -171,6 +171,9 @@
     <ClCompile Include="src\EditorSceneCanvas.cpp" />
     <ClCompile Include="src\EditScene.cpp" />
     <ClCompile Include="src\EquationsSolver.cpp" />
+    <ClCompile Include="src\FumenJsonGenerator.cpp" />
+    <ClCompile Include="src\FumenJsonManager.cpp" />
+    <ClCompile Include="src\FumenJsonReader.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GaussElimination.cpp" />
     <ClCompile Include="src\InputDevice.cpp" />
@@ -228,6 +231,9 @@
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\EquationsSolver.hpp" />
+    <ClInclude Include="src\FumenJsonGenerator.hpp" />
+    <ClInclude Include="src\FumenJsonManager.hpp" />
+    <ClInclude Include="src\FumenJsonReader.hpp" />
     <ClInclude Include="src\GameObject.hpp" />
     <ClInclude Include="src\GameSymbol.hpp" />
     <ClInclude Include="src\GaussElimination.hpp" />

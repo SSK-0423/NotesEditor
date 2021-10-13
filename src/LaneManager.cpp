@@ -4,23 +4,33 @@
 
 NotesEditor::LaneManager::LaneManager()
 {
+	// ショート、ロングノーツのレーン座標
 	lanePosX[0] = 307.f;
-	lanePosX[1] = 348.f;
-	lanePosX[2] = 390.f;
-	lanePosX[3] = 431.f;
-	lanePosX[4] = 472.f;
-	lanePosX[5] = 513.f;
-	lanePosX[6] = 555.f;
-	lanePosX[7] = 596.f;
-	lanePosX[8] = 637.f;
-	lanePosX[9] = 678.f;
-	lanePosX[10] = 720.f;
+	lanePosX[1] = 390.f;
+	lanePosX[2] = 472.f;
+	lanePosX[3] = 555.f;
+	lanePosX[4] = 637.f;
+	lanePosX[5] = 720.f;
 
-	for (int i = 0; i < MAXLANENUM; i++)
+	// スライドノーツのレーン座標
+	slideLanePosX[0] = 307.f;
+	slideLanePosX[1] = 348.f;
+	slideLanePosX[2] = 390.f;
+	slideLanePosX[3] = 431.f;
+	slideLanePosX[4] = 472.f;
+	slideLanePosX[5] = 513.f;
+	slideLanePosX[6] = 555.f;
+	slideLanePosX[7] = 596.f;
+	slideLanePosX[8] = 637.f;
+	slideLanePosX[9] = 678.f;
+	slideLanePosX[10] = 720.f;
+
+	for (int i = 0; i < SLIDELANENUM; i++)
 	{
-		laneList.push_back(new Lane(i, lanePosX[i]));
+		laneList.push_back(new Lane(i, slideLanePosX[i]));
 	}
 }
+
 
 NotesEditor::LaneManager::~LaneManager()
 {
@@ -48,40 +58,60 @@ void NotesEditor::LaneManager::Draw()
 	}
 }
 
-float NotesEditor::LaneManager::Collision(float x, float y)
+// 設置するレーンを決めてX座標を返す
+float NotesEditor::LaneManager::Collision(float x)
 {
-	int laneIndex = 0;
-	int step = 2;
+	/*
+		SHORT,LONGの場合はLANENUM
+		SLIDEの場合はSLIDELANENUM
+		を使う
+	*/
 
-	// スライドノーツ設置時は設置可能なレーンを増やす
 	if (NotesManager::Instance().GetPutNotesType() == NOTESTYPE::SLIDE_NOTES)
 	{
-		step = 1;
+		return DecidePosX(x, slideLanePosX, SLIDELANENUM);
 	}
 
-	// 初期の最小値設定
-	float min = abs(lanePosX[0] - x);
-
-	for (int i = 0; i < 11; i += step)
-	{
-		if (min > abs(lanePosX[i] - x))
-		{
-			min = abs(lanePosX[i] - x);
-			laneIndex = i;
-		}
-	}
-	
-	return lanePosX[laneIndex];
+	return DecidePosX(x, lanePosX, LANENUM);
 }
 
 int NotesEditor::LaneManager::GetLane(float x)
 {
-	for (int i = 0; i < MAXLANENUM; i++)
+	if (NotesManager::Instance().GetPutNotesType() == NOTESTYPE::SLIDE_NOTES)
 	{
-		if (x == lanePosX[i])
+		return DecideLane(x, slideLanePosX, SLIDELANENUM);
+	}
+
+	return DecideLane(x, lanePosX, LANENUM);
+}
+
+float NotesEditor::LaneManager::DecideLane(float x, float laneList[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (x == laneList[i])
 			return i;
 	}
 	return -1;
+}
+
+float NotesEditor::LaneManager::DecidePosX(float x, float laneList[],int size)
+{
+	int laneIndex = 0;
+	
+	// 初期の最小値設定
+	float min = abs(laneList[0] - x);
+
+	for (int i = 0; i < size; i++)
+	{
+		if (min > abs(laneList[i] - x))
+		{
+			min = abs(laneList[i] - x);
+			laneIndex = i;
+		}
+	}
+	
+	return laneList[laneIndex];
 }
 
 void NotesEditor::LaneManager::Delete()

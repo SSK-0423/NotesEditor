@@ -11,6 +11,8 @@ NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
 	collider = new Engine::Components::BoxCollider(*transform);
 	collision = new Engine::Collision::PointWithPolygon();
 
+	lane = start.GetLane();
+	timing = start.GetTiming();
 	// 始点ノーツ追加
 	notesList.push_back(&start);
 
@@ -51,6 +53,11 @@ void NotesEditor::LongNotes::AddEndNotes(ShortNotes& end)
 {
 	notesList.push_back(&end);
 	Init();
+}
+
+std::vector<NotesEditor::ShortNotes*> NotesEditor::LongNotes::GetChildNotesList()
+{
+	return notesList;
 }
 
 void NotesEditor::LongNotes::UpdateNotes()

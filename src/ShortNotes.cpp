@@ -21,7 +21,6 @@ float NotesEditor::ShortNotes::playRange = 0.001f;
 
 NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(GetColor(0, 255, 0))
 {
-	type = NOTESTYPE::SHORT_NOTES;
 	handClap = new Engine::Components::AudioSource("sounds/clap.ogg");
 	collider = new Engine::Components::BoxCollider(*transform);
 	collision = new Engine::Collision::PointWithPolygon();

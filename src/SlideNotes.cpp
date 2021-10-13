@@ -12,6 +12,8 @@ const float INF = 2000000.f;
 
 NotesEditor::SlideNotes::SlideNotes(std::vector<ShortNotes*> list)
 {
+	timing = list[0]->GetTiming();
+	lane = list[0]->GetLane();
 	notesList = list;
 
 	collider = new Engine::Components::BoxCollider(*transform);
@@ -79,6 +81,11 @@ void NotesEditor::SlideNotes::Draw()
 	{
 		notes->Draw();
 	}
+}
+
+std::vector<NotesEditor::ShortNotes*> NotesEditor::SlideNotes::GetChildNotesList()
+{
+	return notesList;
 }
 
 float NotesEditor::SlideNotes::CalcWidth()
