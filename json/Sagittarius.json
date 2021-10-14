@@ -1,6 +1,6 @@
 {
-    "NAME": "Sagittarius",
-    "BPM": 140,
-    "BEAT":4,
-    "PATH":"sounds/Sagittarius.ogg"
+    "name": "Sagittarius",
+    "bpm": 140,
+    "beat":4,
+    "path":"sounds/Sagittarius.ogg"
 }

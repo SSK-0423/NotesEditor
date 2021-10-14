@@ -23,7 +23,6 @@ NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& 
 	if (isStart)
 	{
 		startNotes = new ShortNotes(notesData);
-		startNotes->SetColor(GetColor(0, 128, 255));
 
 		longNotes = new LongNotes(*startNotes);
 
@@ -35,7 +34,6 @@ NotesEditor::Notes* NotesEditor::LongNotesCreator::CreateNotes(const NotesData& 
 	if (notesData.y < startNotes->GetTransform().GetPosition().y) {
 		//終点ノーツ生成
 		ShortNotes* endNotes = new ShortNotes(notesData);
-		endNotes->SetColor(GetColor(0, 128, 255));
 		//終点ノーツ追加
 		longNotes->AddEndNotes(*endNotes);
 		//始点ノーツフラグ

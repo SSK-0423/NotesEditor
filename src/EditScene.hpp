@@ -1,8 +1,8 @@
 #pragma once
 #include "BaseScene.hpp"
-#include "EditorSceneCanvas.hpp"
 #include "Camera2D.hpp"
 #include "Bar.hpp"
+#include "EditorSceneCanvas.hpp"
 #include "GameSymbol.hpp"
 
 namespace Engine
@@ -16,18 +16,20 @@ namespace NotesEditor
 	class LaneManager;
 	class BarManager;
 	class NotesEditorMusic;
-	class FumenJsonManager;
+	class FumenJsonGenerator;
+	class FumenJsonLoader;
 
 	class EditScene : public Engine::Scene::BaseScene {
 	private:
-		EditorSceneCanvas editorSceneCanvas;
 		Image laneHandle;
-		//EditorCamera editorCamera
+		EditorSceneCanvas editorSceneCanvas;
 		Engine::Camera2D camera;
 		NotesEditorMusic& notesEditorMusic;
 		NotesManager& notesManager;
 		LaneManager& laneManager;
 		BarManager& barManager;
+		FumenJsonGenerator& fumenJsonGenerator;
+		FumenJsonLoader& fumenJsonLoader;
 		std::vector<Engine::GameObject*> allObjList;
 		
 		void Input();

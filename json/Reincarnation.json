@@ -1,6 +1,6 @@
 {
-    "NAME": "Reincarnation",
-    "BPM": 175,
-    "BEAT":4,
-    "PATH":"sounds/Reincarnation.ogg"
+    "name": "Reincarnation",
+    "bpm": 175,
+    "beat":4,
+    "path":"sounds/Reincarnation.ogg"
 }

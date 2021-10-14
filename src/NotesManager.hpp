@@ -25,6 +25,7 @@ namespace NotesEditor
 		Color mousePointerColor;
 		bool IsExist(float x, float y);				//ノーツの二重配置検知
 		void Cancel(NOTESTYPE type, std::vector<Engine::GameObject*>& objList);
+
 	public:
 		void ChangeNotesTypeShort();
 		void ChangeNotesTypeLong();
@@ -35,7 +36,6 @@ namespace NotesEditor
 		void DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList);
 		void DeleteObj();
 		NOTESTYPE GetPutNotesType();
-		void LoadFumen();
-		void SaveFumen();
+		std::vector<Notes*>& GetNotesListRef();
 	};
 }

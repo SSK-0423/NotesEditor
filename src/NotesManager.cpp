@@ -67,7 +67,6 @@ void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vec
 	if (IsExist(notesData.x, notesData.y))
 		return;
 
-	ShortNotesCreator::
 	//ÉmÅ[Écê∂ê¨
 	INotesCreator* creator = nullptr;
 
@@ -136,15 +135,9 @@ NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()
 	return type;
 }
 
-void NotesEditor::NotesManager::LoadFumen()
+std::vector<NotesEditor::Notes*>& NotesEditor::NotesManager::GetNotesListRef()
 {
-	DrawFormatString(800, 700, GetColor(0, 255, 0), "ïàñ ì«çû");
-}
-
-void NotesEditor::NotesManager::SaveFumen()
-{
-	DrawFormatString(800, 700, GetColor(0, 255, 0), "ïàñ ï€ë∂");
-	FumenJsonGenerator::Instance().SaveFumen(notesList);
+	return notesList;
 }
 
 bool NotesEditor::NotesManager::IsExist(float x, float y)

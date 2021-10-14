@@ -25,8 +25,6 @@ namespace NotesEditor
 	};
 	class LongNotes : public Notes {
 	private:
-		// ノーツの色
-		static Color color;
 		// 始点と終点
 		std::vector<ShortNotes*> notesList;
 

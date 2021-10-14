@@ -2,9 +2,8 @@
 #include "Transform.hpp"
 #include "BoxCollider.hpp"
 #include "PointWithPolygon.hpp"
+#include "NotesColor.hpp"
 #include "DxLib.h"
-
-Color NotesEditor::LongNotes::color = GetColor(0, 0, 255);
 
 NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
 {
@@ -13,6 +12,8 @@ NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
 
 	lane = start.GetLane();
 	timing = start.GetTiming();
+
+	start.SetColor(NotesColor::longNotesColor);
 	// 始点ノーツ追加
 	notesList.push_back(&start);
 
@@ -51,6 +52,7 @@ void NotesEditor::LongNotes::Draw()
 
 void NotesEditor::LongNotes::AddEndNotes(ShortNotes& end)
 {
+	end.SetColor(NotesColor::longNotesColor);
 	notesList.push_back(&end);
 	Init();
 }
@@ -110,6 +112,6 @@ void NotesEditor::LongNotes::DrawMiddleLine()
 	if (notesList.size() == 2)
 	{
 		DrawLineAA(notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetScreenPos().x, notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetScreenPos().y,
-			notesList[static_cast<int>(LONGNOTES::ENDNOTES)]->GetScreenPos().x, notesList[static_cast<int>(LONGNOTES::ENDNOTES)]->GetScreenPos().y, color, notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetSize().width);
+			notesList[static_cast<int>(LONGNOTES::ENDNOTES)]->GetScreenPos().x, notesList[static_cast<int>(LONGNOTES::ENDNOTES)]->GetScreenPos().y, NotesColor::longNotesLineColor, notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetSize().width);
 	}
 }

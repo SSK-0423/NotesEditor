@@ -159,7 +159,7 @@ void NotesEditor::SlideNotes::DrawCurve()
 	Engine::Components::Position position = *screenPos;
 	Engine::Components::Size size = transform->GetSize();
 
-	for (int i = 0; i < dx_.size() - 1; i++) 
+	for (int i = 0; i < dx_.size() - 1; i++)
 	{
 		// dx_[i] - dx_[0]
 		DrawBoxAA(dy_[i] + 40, position.y + (dx_[i] - dx_[0] + size.height / 2) + 1,
@@ -176,8 +176,6 @@ void NotesEditor::SlideNotes::SetPoint()
 	// 点の座標格納リスト
 	std::vector<vector<double>> p_;
 	p_.resize(notesList.size());
-	// 色
-	Color color = GetColor(0, 0, 255);
 
 	// 中間点の座標を代入
 	// y-xの関数なのでxとyを逆にする

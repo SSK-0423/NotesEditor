@@ -5,27 +5,36 @@ NotesEditor::NotesEditorMusic::NotesEditorMusic() : musicName("No Data"), audioS
 {
 }
 
+void NotesEditor::NotesEditorMusic::JsonParse(picojson::value json)
+{
+	//既に読み込んだ曲を削除
+	InitSoundMem();
+	//曲名読込
+	musicName = json.get<picojson::object>()["name"].get<std::string>();
+	//BPM読み込み
+	bpm = json.get<picojson::object>()["bpm"].get<double>();
+	//拍子読み込み
+	beat = json.get<picojson::object>()["beat"].get<double>();
+	//ファイルパス読込
+	std::string path = json.get<picojson::object>()["path"].get<std::string>();
+	//曲読み込み
+	if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED) 
+	{
+		isMusicLoaded = true;
+		audioSource.ChangeVolume(128);
+	}
+}
+
 void NotesEditor::NotesEditorMusic::LoadMusic()
 {
 	//jsonファイルを読み込む
-	if (openFileExplorer.OpenJsonFile(json) != -1) {
-		//既に読み込んだ曲を削除
-		InitSoundMem();
-		//曲名読込
-		musicName = json.get<picojson::object>()["NAME"].get<std::string>();
-		//BPM読み込み
-		bpm = json.get<picojson::object>()["BPM"].get<double>();
-		//拍子読み込み
-		beat = json.get<picojson::object>()["BEAT"].get<double>();
-		//ファイルパス読込
-		std::string path = json.get<picojson::object>()["PATH"].get<std::string>();
-		//曲読み込み
-		if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED) 
-		{
-			isMusicLoaded = true;
-			audioSource.ChangeVolume(128);
-		}
-	}
+	if (openFileExplorer.OpenJsonFile(json) != -1)
+		JsonParse(json);
+}
+
+void NotesEditor::NotesEditorMusic::LoadMusicFromFumen(picojson::value fumen)
+{
+	JsonParse(fumen);
 }
 
 void NotesEditor::NotesEditorMusic::PlayStopMusic()

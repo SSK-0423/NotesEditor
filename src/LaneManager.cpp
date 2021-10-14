@@ -85,6 +85,16 @@ int NotesEditor::LaneManager::GetLane(float x)
 	return DecideLane(x, lanePosX, LANENUM);
 }
 
+float NotesEditor::LaneManager::GetLanePosX(int lane)
+{
+	return lanePosX[lane];
+}
+
+float NotesEditor::LaneManager::GetSlideLanePosX(int lane)
+{
+	return slideLanePosX[lane];
+}
+
 float NotesEditor::LaneManager::DecideLane(float x, float laneList[], int size)
 {
 	for (int i = 0; i < size; i++)
@@ -95,10 +105,10 @@ float NotesEditor::LaneManager::DecideLane(float x, float laneList[], int size)
 	return -1;
 }
 
-float NotesEditor::LaneManager::DecidePosX(float x, float laneList[],int size)
+float NotesEditor::LaneManager::DecidePosX(float x, float laneList[], int size)
 {
 	int laneIndex = 0;
-	
+
 	// ‰Šú‚ÌÅ¬’lÝ’è
 	float min = abs(laneList[0] - x);
 
@@ -110,7 +120,7 @@ float NotesEditor::LaneManager::DecidePosX(float x, float laneList[],int size)
 			laneIndex = i;
 		}
 	}
-	
+
 	return laneList[laneIndex];
 }
 

@@ -9,7 +9,8 @@
 #include "NotesEditorMusic.hpp"
 #include "BarManager.hpp"
 #include "NotesManager.hpp"
-#include "FumenJsonManager.hpp"
+#include "FumenJsonGenerator.hpp"
+#include "FumenJsonLoader.hpp"
 #include "DxLib.h"
 
 const int BUTTON_SIZE_WIDTH = 126;
@@ -81,11 +82,16 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	// ロード・セーブ
 	loadMusicButton->SetEventFunc(Delegate<NotesEditorMusic,
 		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::LoadMusic));
-	loadButton->SetEventFunc(Delegate<NotesManager,
-		void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::LoadFumen));
-	saveButton->SetEventFunc(Delegate<NotesManager,
-		void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::SaveFumen));
+	loadButton->SetEventFunc(Delegate<FumenJsonLoader,
+		void(void)>::createDelegator(&FumenJsonLoader::Instance(), &FumenJsonLoader::LoadFumen));
+	saveButton->SetEventFunc(Delegate<FumenJsonGenerator,
+		void(void)>::createDelegator(&FumenJsonGenerator::Instance(), &FumenJsonGenerator::SaveFumen));
 
+	//loadButton->SetEventFunc(Delegate<NotesManager,
+	//	void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::LoadFumen));
+	//saveButton->SetEventFunc(Delegate<NotesManager,
+	//	void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::SaveFumen));
+	
 	// ボタンのサイズ設定
 	shortButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH - ADD / 2, BUTTON_SIZE_HEIGHT - ADD * 1);
 	longButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH - ADD / 2, BUTTON_SIZE_HEIGHT - ADD * 1);

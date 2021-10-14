@@ -5,6 +5,7 @@
 namespace NotesEditor
 {
 	class Lane;
+
 	class LaneManager : public Singleton<LaneManager> {
 		friend Singleton<LaneManager>;
 	private:
@@ -23,6 +24,8 @@ namespace NotesEditor
 		void Draw();
 		float Collision(float x);
 		int GetLane(float x);
+		float GetLanePosX(int lane);
+		float GetSlideLanePosX(int lane);
 		void Delete();
 	};
 }

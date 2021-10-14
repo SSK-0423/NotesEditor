@@ -47,6 +47,5 @@ namespace NotesEditor
 		void Update() override;
 		void Draw() override;
 		void SetColor(Color c);
-		Color GetNotesColor();
 	};
 }

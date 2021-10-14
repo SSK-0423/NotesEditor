@@ -5,6 +5,7 @@
 #include "PointWithPolygon.hpp"
 #include "Transform.hpp"
 #include "NotesData.hpp"
+#include "NotesColor.hpp"
 #include "NotesEditorMusic.hpp"
 #include "AudioSource.hpp"
 #include "InputDeviceContainer.hpp"
@@ -19,7 +20,7 @@ const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
 const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
 float NotesEditor::ShortNotes::playRange = 0.001f;
 
-NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(GetColor(0, 255, 0))
+NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(NotesColor::shortNotesColor)
 {
 	handClap = new Engine::Components::AudioSource("sounds/clap.ogg");
 	collider = new Engine::Components::BoxCollider(*transform);
@@ -72,11 +73,6 @@ void NotesEditor::ShortNotes::Draw()
 void NotesEditor::ShortNotes::SetColor(Color c)
 {
 	color = c;
-}
-
-Color NotesEditor::ShortNotes::GetNotesColor()
-{
-	return color;
 }
 
 //ハンドクラップ再生

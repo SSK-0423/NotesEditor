@@ -2,6 +2,7 @@
 #include "OpenFileExplorer.hpp"
 #include "AudioSource.hpp"
 #include "Singleton.hpp"
+#include "picojson.h"
 
 namespace NotesEditor
 {
@@ -11,21 +12,20 @@ namespace NotesEditor
 		NotesEditorMusic();
 		OpenFileExplorer openFileExplorer;
 		Engine::Components::AudioSource audioSource;
-		
-		//jsonファイル
 		picojson::value json;
-		//曲名
 		std::string musicName;
-		//BPM
 		float bpm;
-		//拍子
 		int beat;
 
 		bool isMusicLoaded;
 		bool isPlaying;
+
+		void JsonParse(picojson::value json);
 	public:
 		//曲読み込み
 		void LoadMusic();
+		//譜面ファイルからの曲読み込み
+		void LoadMusicFromFumen(picojson::value fumen);
 		//曲の再生・停止
 		void PlayStopMusic();
 		//曲の再生

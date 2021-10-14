@@ -240,10 +240,7 @@
     <ClCompile Include="src\FumenJsonGenerator.cpp">
       <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
     </ClCompile>
-    <ClCompile Include="src\FumenJsonReader.cpp">
-      <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FumenJsonManager.cpp">
+    <ClCompile Include="src\FumenJsonLoader.cpp">
       <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
     </ClCompile>
   </ItemGroup>
@@ -454,10 +451,7 @@
     <ClInclude Include="src\FumenJsonGenerator.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
     </ClInclude>
-    <ClInclude Include="src\FumenJsonManager.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
-    </ClInclude>
-    <ClInclude Include="src\FumenJsonReader.hpp">
+    <ClInclude Include="src\FumenJsonLoader.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,31 +1,31 @@
 {
-    "NAME": "曲名",
-    "BPM": "BPM",
-    "BEAT":"拍子",
-    "PATH":"sounds/曲名.ogg",
-    "NOTES": [
+    "name": "曲名",
+    "bpm": "bpm",
+    "beat":"拍子",
+    "path":"sounds/曲名.ogg",
+    "notes": [
         {
-            "TYPE": "ノーツタイプ",
-            "LANE": "レーン",
-            "TIMING": "判定タイミング",
-            "NOTES": []
+            "type": "ノーツタイプ",
+            "lane": "レーン",
+            "timing": "判定タイミング",
+            "notes": []
         },
         {
-            "TYPE": "ノーツタイプ",
-            "LANE": "レーン",
-            "TIMING": "判定タイミング",
-            "NOTES": [
+            "type": "ノーツタイプ",
+            "lane": "レーン",
+            "timing": "判定タイミング",
+            "notes": [
                 {
-                    "TYPE": "ノーツタイプ",
-                    "LANE": "レーン",
-                    "TIMING": "判定タイミング",
-                    "NOTES": []
+                    "type": "ノーツタイプ",
+                    "lane": "レーン",
+                    "timing": "判定タイミング",
+                    "notes": []
                 },
                 {
-                    "TYPE": "ノーツタイプ",
-                    "LANE": "レーン",
-                    "TIMING": "判定タイミング",
-                    "NOTES": []
+                    "type": "ノーツタイプ",
+                    "lane": "レーン",
+                    "timing": "判定タイミング",
+                    "notes": []
                 }
             ]
         }

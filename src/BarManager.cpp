@@ -73,8 +73,8 @@ void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objLis
 			bar = new Bar(i, lineNum);
 		}
 		barList.push_back(bar);
-		objList.push_back(static_cast<Engine::GameObject*>(bar));
-
+		//objList.push_back(static_cast<Engine::GameObject*>(bar));
+		objList.insert(objList.begin(), bar);
 		lineNum -= BarManager::MAXNOTENUM;
 	}
 }
