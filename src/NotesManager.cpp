@@ -41,11 +41,6 @@ void NotesEditor::NotesManager::ChangeNotesTypeSlide()
 
 void NotesEditor::NotesManager::Update()
 {
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_Q))
-		ShortNotes::playRange += 0.001f;
-	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_E))
-		ShortNotes::playRange -= 0.001f;
-
 	// 次のスライドノーツ設置へ
 	if (Engine::Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_RETURN))
 		SlideNotesCreator::Instance().IsEnd();
@@ -53,7 +48,6 @@ void NotesEditor::NotesManager::Update()
 
 void NotesEditor::NotesManager::Draw()
 {
-	DrawFormatString(800, 625, GetColor(0, 255, 0), "playRange:%f", ShortNotes::playRange);
 	DrawFormatString(800, 600, GetColor(0, 255, 0), "notesList:%d", notesList.size());
 	int x, y;
 	GetMousePoint(&x, &y);

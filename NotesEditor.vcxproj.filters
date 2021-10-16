@@ -120,9 +120,6 @@
     <ClCompile Include="src\EditScene.cpp">
       <Filter>ソース ファイル\NotesEditor</Filter>
     </ClCompile>
-    <ClCompile Include="src\Canvas.cpp">
-      <Filter>ソース ファイル\Engine\UI</Filter>
-    </ClCompile>
     <ClCompile Include="src\BaseScene.cpp">
       <Filter>ソース ファイル\Engine\Scene</Filter>
     </ClCompile>
@@ -147,9 +144,6 @@
     <ClCompile Include="src\PointWithPolygon.cpp">
       <Filter>ソース ファイル\Engine\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="src\Button.cpp">
-      <Filter>ソース ファイル\Engine\UI</Filter>
-    </ClCompile>
     <ClCompile Include="src\TextureButton.cpp">
       <Filter>ソース ファイル\Engine\UI</Filter>
     </ClCompile>
@@ -158,9 +152,6 @@
     </ClCompile>
     <ClCompile Include="src\CubicSpline.cpp">
       <Filter>ソース ファイル\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Music.cpp">
-      <Filter>ソース ファイル\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\OpenFileExplorer.cpp">
       <Filter>ソース ファイル</Filter>
@@ -243,6 +234,9 @@
     <ClCompile Include="src\FumenJsonLoader.cpp">
       <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
     </ClCompile>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -310,9 +304,6 @@
     <ClInclude Include="src\Transform.hpp">
       <Filter>ヘッダー ファイル\Engine\Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\TestObject.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="src\BoxCollider.hpp">
       <Filter>ヘッダー ファイル\Engine\Components</Filter>
     </ClInclude>
@@ -346,17 +337,11 @@
     <ClInclude Include="src\ColliderCreator.hpp">
       <Filter>ヘッダー ファイル\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scale.hpp">
-      <Filter>ヘッダー ファイル\Engine\Components</Filter>
-    </ClInclude>
     <ClInclude Include="src\Delegate.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\CubicSpline.hpp">
       <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Music.hpp">
-      <Filter>ヘッダー ファイル\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\OpenFileExplorer.hpp">
       <Filter>ヘッダー ファイル</Filter>
@@ -384,9 +369,6 @@
     </ClInclude>
     <ClInclude Include="src\NotesEditorMusic.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameSymbol.hpp">
-      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\MusicInfoTextBox.hpp">
       <Filter>ヘッダー ファイル\NotesEditor</Filter>
@@ -453,6 +435,9 @@
     </ClInclude>
     <ClInclude Include="src\FumenJsonLoader.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameUtility.hpp">
+      <Filter>ヘッダー ファイル\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

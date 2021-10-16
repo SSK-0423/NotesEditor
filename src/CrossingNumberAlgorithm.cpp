@@ -5,8 +5,8 @@
 // 点と多角形の内外判定アルゴリズム
 bool Engine::Collision::CrossingNumberAlgorithm::Collision(const PrimitiveObj::Point& target, const PrimitiveObj::Polygon& polygon)
 {
-	// ポリゴンの頂点配列取得
 	std::vector<PrimitiveObj::Point> vertex = polygon.GetVertexList();
+	// 第1点と最終点を結ぶ直線を生成するために
 	// 末尾に始点を追加
 	vertex.push_back(vertex[0]);
 	// 辺と点からX方向に水平に飛ばしたRayとの交差回数
@@ -14,6 +14,7 @@ bool Engine::Collision::CrossingNumberAlgorithm::Collision(const PrimitiveObj::P
 	// yの上昇率
 	float yIncreaseRatio = 0.f;
 
+	// ポリゴンの各辺と点からX軸正方向に伸ばした直線との交差回数をカウントする
 	for (size_t i = 0; i < vertex.size() - 1; i++)
 	{
 		// y座標に関する判定

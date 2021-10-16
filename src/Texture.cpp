@@ -1,76 +1,28 @@
 #include "Texture.hpp"
 #include "Transform.hpp"
+#include "GameUtility.hpp"
 #include "DxLib.h"
-#include "TestObject.h"
 #include <cmath>
 
 Engine::Components::Texture::Texture(const Transform& transform, const char* path)
 	: posX(0.f), posY(0.f), angle(0.f), imgWidth(1.f), imgHeight(1.f),
-	drawScaleWidth(1.f), drawScaleHeight(1.f), imageHandle(-1), parentTransform(transform)
-{
-	parentScreenPos = nullptr;
-
-	imageHandle = LoadGraph(path);
-
-	// 画像サイズ取得
-	GetGraphSizeF(imageHandle, &imgWidth, &imgHeight);
-}
-
-Engine::Components::Texture::Texture(const Transform& transform, const Position& pos, const char* path)
-	: posX(0.f), posY(0.f), angle(0.f), imgWidth(1.f), imgHeight(1.f),
-	drawScaleWidth(1.f), drawScaleHeight(1.f), imageHandle(-1), parentTransform(transform), parentScreenPos(&pos)
+	drawScaleWidth(1.f), drawScaleHeight(1.f), imageHandle(NONE), parentTransform(transform)
 {
 	imageHandle = LoadGraph(path);
 
-	// 画像サイズ取得
-	GetGraphSizeF(imageHandle, &imgWidth, &imgHeight);
-}
-
-Engine::Components::Texture::Texture(const Transform& transform, const Position& pos, Image handle)
-	: posX(0.f), posY(0.f), angle(0.f), imgWidth(1.f), imgHeight(1.f),
-	drawScaleWidth(1.f), drawScaleHeight(1.f), imageHandle(-1), parentTransform(transform), parentScreenPos(&pos)
-{
-	imageHandle = handle;
-	// 画像サイズ取得
 	GetGraphSizeF(imageHandle, &imgWidth, &imgHeight);
 }
 
 void Engine::Components::Texture::Update()
 {
-	Rotation rot = parentTransform.GetRotation();
-	Size size = parentTransform.GetSize();
-
-	if (parentScreenPos == nullptr)
-	{
-		posX = parentTransform.GetPosition().x;
-		posY = parentTransform.GetPosition().y;
-	}
-	else
-	{
-		// 座標取得
-		posX = parentScreenPos->x;
-		posY = parentScreenPos->y;
-	}
-
-	// 度数からラジアンへ変換
-	angle = acosf(-1.f) / 180.f * rot.angle;
-
-	float sizeWidth = size.width;
-	float sizeHeight = size.height;
-
-	// スケール取得
-	float scaleWidth = size.scaleWidth;
-	float scaleHeight = size.scaleHeight;
-
-	// 描画時のスケール計算
-	drawScaleWidth = static_cast<double>(sizeWidth / imgWidth) * scaleWidth;
-	drawScaleHeight = static_cast<double>(sizeHeight / imgHeight) * scaleHeight;
+	UpdatePos();
+	UpdateAngle();
+	UpdateDrawScale();
 }
 
 void Engine::Components::Texture::Draw()
 {
-	// 画像がセットされていない場合は描画しない
-	if (imageHandle == -1) return;
+	if (imageHandle == NONE) return;
 
 	DrawRotaGraph3F(posX, posY, imgWidth / 2.f, imgHeight / 2.f,
 		drawScaleWidth, drawScaleHeight, angle, imageHandle, true, false);
@@ -87,7 +39,40 @@ void Engine::Components::Texture::GetTextureSize(float& w, float& h) const
 	h = imgHeight;
 }
 
-void Engine::Components::Texture::SetImage(Image handle)
+
+void Engine::Components::Texture::UpdatePos()
 {
-	imageHandle = handle;
+	Position pos = parentTransform.GetPosition();
+	posX = pos.x;
+	posY = pos.y;
+}
+
+void Engine::Components::Texture::UpdateAngle()
+{
+	Rotation rot = parentTransform.GetRotation();
+	angle = DegreeToRadian(rot.angle);
+}
+
+void Engine::Components::Texture::UpdateDrawScale()
+{
+	Size size = parentTransform.GetSize();
+	drawScaleWidth = CalcDrawScaleWidth(size);
+	drawScaleHeight = CalcDrawScaleHeight(size);
+}
+
+double Engine::Components::Texture::CalcDrawScaleWidth(const Size& size)
+{
+	float sizeWidth = size.width;
+	float scaleWidth = size.scaleWidth;
+	// DrawRotaGraphFの第5第6引数は元の画像サイズに依存した倍率なので、
+	// 自身が指定したサイズと画像サイズとの比率を基にした描画倍率を求めることで
+	// つじつまを合わせる (高さも同様)
+	return static_cast<double>(sizeWidth / imgWidth) * scaleWidth;
+}
+
+double Engine::Components::Texture::CalcDrawScaleHeight(const Size& size)
+{
+	float sizeHeight = size.height;
+	float scaleHeight = size.scaleHeight;
+	return static_cast<double>(sizeHeight / imgHeight) * scaleHeight;
 }

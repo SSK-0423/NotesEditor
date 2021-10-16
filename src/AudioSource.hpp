@@ -1,5 +1,9 @@
 #pragma once
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
+
+/*
+* オーディオリソースのクラス
+*/
 
 namespace Engine
 {
@@ -8,19 +12,21 @@ namespace Engine
 		class AudioSource {
 		private:
 			Audio audioHandle;
-			long long currentTime;
+			long long playStartTime;
+
 		public:
 			AudioSource();
 			AudioSource(const char* filePath);
-			int PlayAudioLoop();
-			int PlayOneShot();
-			int StopAudio();
-			int ReplayAudio();
-			int GetTotalTime() const;
-			float GetElapsedTime() const;
+			void PlayLoop();
+			void PlayOneShot();
+			void Stop();
+			void Replay();
+			long long GetTotalTime() const;
+			long long GetElapsedTime() const;
 			int LoadAudio(const char* filePath);
-			int ChangeVolume(int volume);
-			void SetCurrentTime(long long time);
+			void ChangeVolume(int volume);
+			void SetPlayStartTime(long long time);
+			bool IsPlaying();
 		};
 	}
 }

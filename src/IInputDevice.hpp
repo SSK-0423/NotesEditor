@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+* 入力デバイスのインターフェース
+*/
+
 namespace Engine
 {
 	namespace Input {

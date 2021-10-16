@@ -1,5 +1,6 @@
 #pragma once
 #include "Camera2D.hpp"
+
 namespace NotesEditor
 {
 	class EditorCamera : public Engine::Camera2D{
@@ -19,10 +20,6 @@ namespace NotesEditor
 		void DrawInCameraObj();
 		// デバッグ用描画関数
 		void DebugDraw();
-		// キーボード、マウス操作
-		void Controll() override;
-		// 移動限界
-		void LimitPos() override;
 		// オブジェクトがカメラ内に入ったかどうかを判定
 		bool Collision(const GameObject& obj);
 		// オブジェクト間の距離を計算
@@ -42,7 +39,7 @@ namespace NotesEditor
 		// 描画対象オブジェクトのメモリ開放
 		void DeleteObj();
 		// 移動限界をセット
-		void SetMinposition(float x, float y);
+		void SetMinPosition(float x, float y);
 		void SetMaxposition(float x, float y);
 	};
 }

@@ -7,9 +7,6 @@
 
 NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
 {
-	collider = new Engine::Components::BoxCollider(*transform);
-	collision = new Engine::Collision::PointWithPolygon();
-
 	lane = start.GetLane();
 	timing = start.GetTiming();
 
@@ -22,9 +19,6 @@ NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
 
 NotesEditor::LongNotes::~LongNotes()
 {
-	delete transform;
-	delete collider;
-	delete collision;
 }
 
 NotesEditor::NOTESTYPE NotesEditor::LongNotes::GetNotesType()

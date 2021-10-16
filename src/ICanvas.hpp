@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+* Canvasのインターフェース
+*/
+
 namespace Input
 {
 	class InputDeviceContainer;

@@ -1,64 +1,46 @@
 #include "AudioSource.hpp"
 #include "DxLib.h"
 
-Engine::Components::AudioSource::AudioSource() : audioHandle(-1)
+Engine::Components::AudioSource::AudioSource() : audioHandle(-1), playStartTime(0LL)
 {
 }
 
-Engine::Components::AudioSource::AudioSource(const char* filePath) : audioHandle(LoadSoundMem(filePath))
+Engine::Components::AudioSource::AudioSource(const char* filePath) : audioHandle(LoadSoundMem(filePath)), playStartTime(0LL)
 {
 }
 
-int Engine::Components::AudioSource::PlayAudioLoop()
+void Engine::Components::AudioSource::PlayLoop()
 {
-	bool isPlaying = CheckSoundMem(audioHandle);
-	if (audioHandle == NONE || isPlaying)
-		return RESULT::RESULT_ERROR;
-
-	SetSoundCurrentTime(currentTime, audioHandle);
-	// 0:¬Œ÷ -1:¸”s
-	return PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, false);
+	SetSoundCurrentTime(playStartTime, audioHandle);
+	PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, false);
 }
 
-int Engine::Components::AudioSource::PlayOneShot()
+void Engine::Components::AudioSource::PlayOneShot()
 {
-	bool isPlaying = CheckSoundMem(audioHandle);
-	if (audioHandle == NONE || isPlaying)
-		return RESULT::RESULT_ERROR;
-
-	// 0:¬Œ÷ -1:¸”s
-	return PlaySoundMem(audioHandle, DX_PLAYTYPE_BACK, true);
+	PlaySoundMem(audioHandle, DX_PLAYTYPE_BACK, true);
 }
 
-int Engine::Components::AudioSource::StopAudio()
+void Engine::Components::AudioSource::Stop()
 {
-	// 0:¬Œ÷ -1:¸”s
-	return StopSoundMem(audioHandle);
+	StopSoundMem(audioHandle);
 }
 
-int Engine::Components::AudioSource::ReplayAudio()
+void Engine::Components::AudioSource::Replay()
 {
-	bool isPlaying = CheckSoundMem(audioHandle);
-	if (isPlaying)
-	{
-		if (StopAudio() == RESULT::RESULT_ERROR)
-			return RESULT::RESULT_ERROR;
-	}
-	// 0:¬Œ÷ -1:¸”s
-	return PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, true);
+	// “¯‚¶‰¹Œ¹‚ª•¡”“¯‚ÉÄ¶‚³‚ê‚é‚Ì‚ğ–h‚®‚½‚ß‚É
+	// Šù‚ÉÄ¶’†‚Ìê‡‚Íˆê’UÄ¶‚ğ~‚ß‚é
+	if (IsPlaying()) Stop();
+	PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, true);
 }
 
-int Engine::Components::AudioSource::GetTotalTime() const
+long long Engine::Components::AudioSource::GetTotalTime() const
 {
 	return GetSoundTotalTime(audioHandle);
 }
 
-float Engine::Components::AudioSource::GetElapsedTime() const
+long long Engine::Components::AudioSource::GetElapsedTime() const
 {
-	if (audioHandle == NONE)
-		return RESULT::RESULT_ERROR;
-	
-	return static_cast<float>(GetSoundCurrentTime(audioHandle));
+	return GetSoundCurrentTime(audioHandle);
 }
 
 int Engine::Components::AudioSource::LoadAudio(const char* filePath)
@@ -66,16 +48,24 @@ int Engine::Components::AudioSource::LoadAudio(const char* filePath)
 	audioHandle = LoadSoundMem(filePath);
 	if (audioHandle == NONE)
 		return RESULT::RESULT_ERROR;
-
 	return RESULT::RESULT_SUCCEED;
 }
 
-int Engine::Components::AudioSource::ChangeVolume(int volume)
+void Engine::Components::AudioSource::ChangeVolume(int volume)
 {
-	return ChangeVolumeSoundMem(volume,audioHandle);
+	ChangeVolumeSoundMem(volume, audioHandle);
 }
 
-void Engine::Components::AudioSource::SetCurrentTime(long long time)
+void Engine::Components::AudioSource::SetPlayStartTime(long long time)
 {
-	currentTime = time;
+	playStartTime = time;
+}
+
+bool Engine::Components::AudioSource::IsPlaying()
+{
+	// ƒnƒ“ƒhƒ‹‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢A
+	// CheckSoundMem‚Ítrue‚ğ•Ô‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅA
+	// ƒnƒ“ƒhƒ‹‚ªİ’è‚³‚ê‚Ä‚È‚¢ê‡‚Ífalse‚ğ•Ô‚·‚æ‚¤‚É‚·‚é
+	if (audioHandle == NONE) return false;
+	return CheckSoundMem(audioHandle);
 }

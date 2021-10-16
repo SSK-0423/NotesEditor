@@ -27,9 +27,7 @@ namespace NotesEditor
 		Color color;
 
 		void PlayClap();
-		// ノーツ描画
 		void DrawNotes();
-		// デバッグ用の描画
 		void DebugDraw();
 
 	public:
@@ -37,15 +35,15 @@ namespace NotesEditor
 		static const int SHORTNOTESWIDTH;
 		// ノーツの縦幅
 		static const int SHORTNOTESHEIGHT;
-		// タイミングずれの許容幅
-		static float playRange;
+		// ハンドクラップ再生時のタイミングずれの許容幅
+		static const float playRange;
 
 		ShortNotes(const NotesData& notesData);
 		~ShortNotes();
-		NOTESTYPE GetNotesType();
-		bool Collision(float x, float y) override;
 		void Update() override;
 		void Draw() override;
+		bool Collision(float x, float y) override;
+		NOTESTYPE GetNotesType() override;
 		void SetColor(Color c);
 	};
 }

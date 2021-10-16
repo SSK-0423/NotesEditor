@@ -1,6 +1,10 @@
 #pragma once
 #include "IInputDevice.hpp"
 
+/*
+* 入力デバイス
+*/
+
 namespace Engine
 {
 	namespace Input

@@ -2,7 +2,7 @@
 #include "ShortNotes.hpp"
 #include "CubicSpline.hpp"
 #include "Vector2.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 #include <vector>
 
 namespace NotesEditor
@@ -13,7 +13,6 @@ namespace NotesEditor
 		CubicSpline cubicSpline;
 		// ノーツリスト
 		std::vector<ShortNotes*> notesList;
-		//
 		Color notesColor;
 		Color lineColor;
 

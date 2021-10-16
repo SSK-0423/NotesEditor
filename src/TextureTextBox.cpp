@@ -2,6 +2,55 @@
 #include "Transform.hpp"
 #include "DxLib.h"
 
+const int Engine::UI::TextureTextBox::FONTSIZE = 25;
+const int Engine::UI::TextureTextBox::FONTTHICK = 1;
+
+Engine::UI::TextureTextBox::TextureTextBox(const char* filePath) 
+	: color(GetColor(255, 255, 255)),
+	fontHandle(CreateFontToHandle("default", FONTSIZE, FONTTHICK, DX_FONTTYPE_ANTIALIASING))
+{
+	transform = new Engine::Components::Transform();
+	texture = new Engine::Components::Texture(*transform, filePath);
+}
+
+Engine::UI::TextureTextBox::~TextureTextBox()
+{
+	delete transform;
+	delete texture;
+}
+
+void Engine::UI::TextureTextBox::Update()
+{
+	texture->Update();
+}
+
+void Engine::UI::TextureTextBox::Draw()
+{
+	texture->Draw();
+	DrawStrings();
+}
+
+void Engine::UI::TextureTextBox::AddText(std::string str)
+{
+	text.push_back(str);
+}
+
+void Engine::UI::TextureTextBox::SetColor(Color color)
+{
+	this->color = color;
+}
+
+void Engine::UI::TextureTextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype)
+{
+	fontHandle = CreateFontToHandle(name, size, thick, fonttype);
+}
+
+void Engine::UI::TextureTextBox::ResetText()
+{
+	text.clear();
+	text.shrink_to_fit();
+}
+
 void Engine::UI::TextureTextBox::DrawStrings()
 {
 	Engine::Components::Position pos = transform->GetPosition();
@@ -19,47 +68,4 @@ void Engine::UI::TextureTextBox::DrawStrings()
 			pos.y - size.height / 2 + size.height / text.size() * (i + 1) - 37.5,
 			color, fontHandle, text[i].c_str());
 	}
-}
-
-Engine::UI::TextureTextBox::TextureTextBox(const char* filePath) : color(GetColor(255, 255, 255))
-{
-	fontHandle = CreateFontToHandle("default", 25, 1, DX_FONTTYPE_ANTIALIASING);
-	transform = new Engine::Components::Transform();
-	texture = new Engine::Components::Texture(*transform, filePath);
-}
-
-Engine::UI::TextureTextBox::~TextureTextBox()
-{
-
-}
-void Engine::UI::TextureTextBox::Update()
-{
-	texture->Update();
-}
-
-void Engine::UI::TextureTextBox::Draw()
-{
-	texture->Draw();
-	DrawStrings();
-}
-
-void Engine::UI::TextureTextBox::AddText(std::string str)
-{
-	text.push_back(str);
-}
-
-void Engine::UI::TextureTextBox::SetColor(int r, int g, int b)
-{
-	color = GetColor(r, g, b);
-}
-
-void Engine::UI::TextureTextBox::CreateFontHandle(const char* name, int size, int thick, int fonttype)
-{
-	fontHandle = CreateFontToHandle(name, size, thick, fonttype);
-}
-
-void Engine::UI::TextureTextBox::ResetText()
-{
-	text.clear();
-	text.shrink_to_fit();
 }

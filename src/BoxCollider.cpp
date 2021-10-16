@@ -7,6 +7,14 @@
 
 void Engine::Components::BoxCollider::UpdatePolygon()
 {
+	// ƒ^ƒXƒN
+	// ’¸“_‰Šú‰»
+	// e‚ÌÀ•WEƒTƒCƒYEŠp“xŽæ“¾
+	// Œ´“_‚ð’†S‚Æ‚·‚é“_ì¬
+	// ‰ñ“]ˆ—
+	// •ÀsˆÚ“®
+	// •ÏŠ·Œã‚Ì’¸“_‚ðƒ|ƒŠƒSƒ“‚Ì’¸“_‚Æ‚µ‚Ä“o˜^
+	
 	// ƒ|ƒŠƒSƒ“‚Ì’¸“_‰Šú‰»
 	rectHitBox->ResetVertex();
 
@@ -60,17 +68,13 @@ void Engine::Components::BoxCollider::UpdatePolygon()
 
 	// ’¸“_‚Æ‚µ‚Ä“o˜^
 	rectHitBox->AddPoint(rotatedP1.myMatrix[0][0], rotatedP1.myMatrix[1][0]);
-	// ’¸“_‚Æ‚µ‚Ä“o˜^
 	rectHitBox->AddPoint(rotatedP2.myMatrix[0][0], rotatedP2.myMatrix[1][0]);
-	// ’¸“_‚Æ‚µ‚Ä“o˜^
 	rectHitBox->AddPoint(rotatedP3.myMatrix[0][0], rotatedP3.myMatrix[1][0]);
-	// ’¸“_‚Æ‚µ‚Ä“o˜^
 	rectHitBox->AddPoint(rotatedP4.myMatrix[0][0], rotatedP4.myMatrix[1][0]);
 }
 
 Engine::Components::BoxCollider::BoxCollider(const Components::Transform& transform) : parentTransform(transform)
 {
-	parentScreenPos = nullptr;
 	rectHitBox = new PrimitiveObj::Polygon();
 	UpdatePolygon();
 }

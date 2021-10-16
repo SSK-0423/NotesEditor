@@ -1,6 +1,10 @@
 #pragma once
 #include <vector>
 
+/*
+* 3次スプライン補間クラス
+*/
+
 using namespace std;
 
 class CubicSpline {

@@ -2,6 +2,10 @@
 #include "Singleton.hpp"
 #include "InputDevice.hpp"
 
+/*
+* キーボードの入力状態を検知するクラス
+*/
+
 namespace Engine
 {
 	namespace Input {
@@ -12,18 +16,14 @@ namespace Engine
 		private:
 			Keyboard() : InputDevice(KEY_NUM), keyPressingCount(), keyReleasingCount(), keyPressed() {}
 
-			// キーの総数
 			static constexpr int KEY_NUM = 256;
-			// 押されカウンタ
-			mutable int keyPressingCount[KEY_NUM];
-			// 離されカウンタ
-			mutable int keyReleasingCount[KEY_NUM];
-			// 押されたかどうか
+			int keyPressingCount[KEY_NUM];
+			int keyReleasingCount[KEY_NUM];
 			mutable bool keyPressed[KEY_NUM];
-			// カウンタ更新
-			void UpdateCounter() const;
-			void UpdatePressingCounter(KeyCode keyCode) const;
-			void UpdateReleasingCounter(KeyCode keyCode) const;
+			
+			void UpdateCounter();
+			void UpdatePressingCounter(KeyCode keyCode);
+			void UpdateReleasingCounter(KeyCode keyCode);
 		public:
 			void ReadInput() override;
 			int GetPressingCount(KeyCode keyCode) const override;
@@ -32,5 +32,4 @@ namespace Engine
 			bool IsReleaseKey(KeyCode keyCode) const override;
 		};
 	}
-
 }

@@ -2,46 +2,38 @@
 #include "Button.hpp"
 #include <vector>
 
+/*
+* クリック回数によってテクスチャを切り替えるボタンクラス
+*/
+
 namespace Engine
 {
-	namespace Input
-	{
-		class InputDeviceContainer;
-	}
-
 	namespace Components
 	{
 		class Texture;
-		enum class COLLIDERTYPE;
-		class ICollider;
-	}
-
-	namespace Collision
-	{
-		class PointWithPolygon;
 	}
 
 	namespace UI
 	{
-		class TextureButton;
 		class MultiTextureButton : public Button {
 		private:
 			// ボタンクリック時に呼び出される関数
 			DelegateBase<void(void)>* eventFunc;
-			std::vector<Components::Texture*> texture;
-			Components::ICollider* collider;
-			
-			// マウスポインタとポリゴンとの判定
-			Collision::PointWithPolygon* collision;
+			std::vector<Components::Texture*> textures;
+			int nowTexIndex;
 			int clickCount;
-
+			void UpdateNowTexIndex();
 			void RunEventFunc();
+			void OnClick() override;
+			void Release() override;
+			void Clicking() override;
+			void NotOnButton() override;
 		public:
-			MultiTextureButton(std::vector<const char*> filePath,Components::COLLIDERTYPE type);
+			MultiTextureButton(std::vector<const char*> filePath, Components::COLLIDERTYPE type);
 			virtual ~MultiTextureButton();
 			void SetEventFunc(DelegateBase<void(void)>* func);
-			void Update();
-			void Draw();
+			void Update() override;
+			void Draw() override;
 		};
 	}
 }

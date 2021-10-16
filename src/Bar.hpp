@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 #include <vector>
 
 namespace Engine
@@ -31,25 +31,19 @@ namespace NotesEditor
 	// 小節線クラス
 	class Bar : public Engine::GameObject {
 	private:
-		// 小節線タイプ
 		static BARTYPE nowType;
 
 		Engine::Components::ICollider* collider;
 		Engine::Collision::PointWithPolygon* collision;
 		std::vector<BarLine*> barLineList;
 
-		//何小節目か
 		int barNum;
-		//小節番号描画
 		void DrawBarNum();
-		//小節線描画
 		void DrawBarLine();
 
 	public:
-		// フォント
 		static Font fontHandle;
-		// 1小節における音符数の最大値
-		static int MAXNOTENUM;
+		static int MAXNOTENUM;	// 1小節における音符数の最大値
 
 		Bar(int barNum, int lineNum);
 		~Bar();

@@ -2,7 +2,7 @@
 #include <vector>
 #include "Singleton.hpp"
 #include "Notes.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 #include "INotesCreator.hpp"
 
 namespace Engine

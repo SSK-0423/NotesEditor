@@ -13,19 +13,14 @@
 #include <math.h>
 #include <stdlib.h>
 
-//クラス変数実体化
-//Engine::Components::AudioSource NotesEditor::ShortNotes::handClap("sounds/clap.ogg");
 NotesEditor::NotesEditorMusic& NotesEditor::ShortNotes::notesEditorMusic = NotesEditor::NotesEditorMusic::Instance();
 const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
 const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
-float NotesEditor::ShortNotes::playRange = 0.001f;
+const float NotesEditor::ShortNotes::playRange = 0.016f;
 
 NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(NotesColor::shortNotesColor)
 {
 	handClap = new Engine::Components::AudioSource("sounds/clap.ogg");
-	collider = new Engine::Components::BoxCollider(*transform);
-	collision = new Engine::Collision::PointWithPolygon();
-
 	transform->SetPosition(notesData.x, notesData.y);
 	transform->SetSize(SHORTNOTESWIDTH, SHORTNOTESHEIGHT);
 	screenPos->SetPosition(notesData.x, notesData.y);
@@ -39,8 +34,21 @@ NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(NotesCol
 NotesEditor::ShortNotes::~ShortNotes()
 {
 	delete handClap;
-	delete collider;
-	delete collision;
+}
+
+void NotesEditor::ShortNotes::Update()
+{
+	if (!notesEditorMusic.IsPlaying()) return;
+	// TODO: timingと経過時間の差の計算を関数化する
+	if (fabsf(timing - (static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f)) <= ShortNotes::playRange)
+	{
+		PlayClap();
+	}
+}
+
+void NotesEditor::ShortNotes::Draw()
+{
+	DrawNotes();
 }
 
 NotesEditor::NOTESTYPE NotesEditor::ShortNotes::GetNotesType()
@@ -53,23 +61,6 @@ bool NotesEditor::ShortNotes::Collision(float x, float y)
 	return collision->Collision(x, y, *collider);
 }
 
-void NotesEditor::ShortNotes::Update()
-{
-	if (notesEditorMusic.IsPlaying())
-	{
-		if (fabsf(timing - (static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f)) <= ShortNotes::playRange)
-		{
-			PlayClap();
-		}
-	}
-}
-
-void NotesEditor::ShortNotes::Draw()
-{
-	DrawNotes();
-	DebugDraw();
-}
-
 void NotesEditor::ShortNotes::SetColor(Color c)
 {
 	color = c;
@@ -78,6 +69,9 @@ void NotesEditor::ShortNotes::SetColor(Color c)
 //ハンドクラップ再生
 void NotesEditor::ShortNotes::PlayClap()
 {
+	// 多重再生回避の為に、
+	// 1度再生が終わってから次の再生を行うようにする
+	if (handClap->IsPlaying()) return;
 	handClap->PlayOneShot();
 }
 

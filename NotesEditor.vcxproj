@@ -164,7 +164,6 @@
     <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Camera2D.cpp" />
-    <ClCompile Include="src\Canvas.cpp" />
     <ClCompile Include="src\ColliderCreator.cpp" />
     <ClCompile Include="src\CrossingNumberAlgorithm.cpp" />
     <ClCompile Include="src\CubicSpline.cpp" />
@@ -187,7 +186,6 @@
     <ClCompile Include="src\Matrix.cpp" />
     <ClCompile Include="src\Mouse.cpp" />
     <ClCompile Include="src\MultiTextureButton.cpp" />
-    <ClCompile Include="src\Music.cpp" />
     <ClCompile Include="src\MusicInfoTextBox.cpp" />
     <ClCompile Include="src\Notes.cpp" />
     <ClCompile Include="src\NotesColor.cpp" />
@@ -233,7 +231,6 @@
     <ClInclude Include="src\FumenJsonGenerator.hpp" />
     <ClInclude Include="src\FumenJsonLoader.hpp" />
     <ClInclude Include="src\GameObject.hpp" />
-    <ClInclude Include="src\GameSymbol.hpp" />
     <ClInclude Include="src\GaussElimination.hpp" />
     <ClInclude Include="src\GUI.hpp" />
     <ClInclude Include="src\ICanvas.hpp" />
@@ -252,7 +249,6 @@
     <ClInclude Include="src\Matrix.hpp" />
     <ClInclude Include="src\Mouse.hpp" />
     <ClInclude Include="src\MultiTextureButton.hpp" />
-    <ClInclude Include="src\Music.hpp" />
     <ClInclude Include="src\MusicInfoTextBox.hpp" />
     <ClInclude Include="src\Notes.hpp" />
     <ClInclude Include="src\INotesCreator.hpp" />
@@ -267,7 +263,6 @@
     <ClInclude Include="src\Position.hpp" />
     <ClInclude Include="src\Rotation.hpp" />
     <ClInclude Include="src\Rotator.hpp" />
-    <ClInclude Include="src\Scale.hpp" />
     <ClInclude Include="src\SceneManager.hpp" />
     <ClInclude Include="src\ShortNotes.hpp" />
     <ClInclude Include="src\ShortNotesCreator.hpp" />
@@ -275,11 +270,11 @@
     <ClInclude Include="src\Size.hpp" />
     <ClInclude Include="src\SlideNotes.hpp" />
     <ClInclude Include="src\SlideNotesCreator.hpp" />
-    <ClInclude Include="src\TestObject.h" />
     <ClInclude Include="src\TextureTextBox.hpp" />
     <ClInclude Include="src\Texture.hpp" />
     <ClInclude Include="src\TextureButton.hpp" />
     <ClInclude Include="src\Transform.hpp" />
+    <ClInclude Include="src\GameUtility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

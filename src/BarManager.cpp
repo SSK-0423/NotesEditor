@@ -3,21 +3,13 @@
 #include "Transform.hpp"
 #include "DxLib.h"
 
-NotesEditor::BarManager::BarManager()
+const int NotesEditor::BarManager::FONTSIZE = 30;
+const int NotesEditor::BarManager::FONTTHICK = 1;
+
+NotesEditor::BarManager::BarManager() : lineNum(0)
 {
 	Bar::MAXNOTENUM = MAXNOTENUM;
-	Bar::fontHandle = CreateFontToHandle("Bar", 30, 1);
-}
-
-void NotesEditor::BarManager::ChangeSize()
-{
-	Engine::Components::Size size;
-	for (auto bar : barList)
-	{
-		bar->GetTransform().Scaling(1.f, 1.f);
-		Engine::Components::Position pos = bar->GetTransform().GetPosition();
-		bar->GetTransform().SetPosition(pos.x, pos.y * 1.f);
-	}
+	Bar::fontHandle = CreateFontToHandle("Bar", FONTSIZE, FONTTHICK);
 }
 
 float NotesEditor::BarManager::Collision(float x, float y)
@@ -34,7 +26,7 @@ float NotesEditor::BarManager::Collision(float x, float y)
 float NotesEditor::BarManager::CalcTiming(float y)
 {
 	float timing = barList[0]->GetTransform().GetSize().height * static_cast<float>(barList.size());
-	return 0.0f;
+	return timing;
 }
 
 unsigned int NotesEditor::BarManager::GetBarNum()
@@ -73,7 +65,6 @@ void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objLis
 			bar = new Bar(i, lineNum);
 		}
 		barList.push_back(bar);
-		//objList.push_back(static_cast<Engine::GameObject*>(bar));
 		objList.insert(objList.begin(), bar);
 		lineNum -= BarManager::MAXNOTENUM;
 	}

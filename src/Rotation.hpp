@@ -1,13 +1,19 @@
 #pragma once
+
+/*
+* オブジェクトの回転クラス
+*/
+
 namespace Engine
 {
 	namespace Components
 	{
 		using Degree = float;
+
 		class Rotation {
 		public:
-			float angle;
-			
+			Degree angle;
+
 			Rotation() : angle(0.f) {}
 			Rotation(Degree angle) : angle(angle) {}
 

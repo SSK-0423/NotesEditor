@@ -4,9 +4,12 @@
 #include "Singleton.hpp"
 #include "picojson.h"
 
+/*
+* ノーツエディターで使用する楽曲のクラス
+*/
 namespace NotesEditor
 {
-	class NotesEditorMusic : public Singleton<NotesEditorMusic>{
+	class NotesEditorMusic : public Singleton<NotesEditorMusic> {
 		friend Singleton<NotesEditorMusic>;
 	private:
 		NotesEditorMusic();
@@ -16,43 +19,22 @@ namespace NotesEditor
 		std::string musicName;
 		float bpm;
 		int beat;
-
 		bool isMusicLoaded;
-		bool isPlaying;
 
 		void JsonParse(picojson::value json);
 	public:
-		//曲読み込み
 		void LoadMusic();
-		//譜面ファイルからの曲読み込み
 		void LoadMusicFromFumen(picojson::value fumen);
-		//曲の再生・停止
 		void PlayStopMusic();
-		//曲の再生
-		void PlayMusic();
-		//曲の停止
-		void StopMusic();
-		//曲を最初から再生
 		void ReplayMusic();
-		//曲の長さを取得
-		int GetTotalTime() const;
-		//現在の再生位置を取得
-		int GetElapsedTime() const;
-		//曲名取得
-		std::string GetName() const;
-		//BPM取得
+		long long GetTotalTime() const;
+		long long GetElapsedTime() const;
+		std::string GetMusicName() const;
 		float GetBPM() const;
-		//拍子取得
 		int GetBeat() const;
-		//曲が読み込まれたかどうかを取得
 		bool IsMusicLoaded();
-		//曲が再生中がどうか
 		bool IsPlaying();
-		//曲の読み込みが完了したことを通知
 		void CompleteMusicLoad();
-		//総再生時間と経過時間表示
-		void MusicTimeDraw();
-		//再生開始位置セット
-		void SetCurrentTime(long long time);
+		void SetPlayStartTime(long long time);
 	};
 }

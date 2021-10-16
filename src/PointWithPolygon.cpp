@@ -4,8 +4,7 @@
 #include "Point.hpp"
 #include "Polygon.hpp"
 
-// static•Ï”À‘Ì‰»
-//Component::Collision::CrossingNumberAlgorithm Component::Collision::PointWithPolygon::collision;
+Engine::Collision::CrossingNumberAlgorithm Engine::Collision::PointWithPolygon::collision;
 
 Engine::Collision::PointWithPolygon::PointWithPolygon()
 {

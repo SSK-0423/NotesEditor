@@ -43,7 +43,7 @@ NotesEditor::Bar::Bar(int barNum, int lineNum) : barNum(barNum)
 
 NotesEditor::Bar::~Bar()
 {
-	for (auto line : barLineList)
+	for (auto& line : barLineList)
 	{
 		delete line;
 	}

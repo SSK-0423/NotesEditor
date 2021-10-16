@@ -1,51 +1,28 @@
 #include "MultiTextureButton.hpp"
 #include "TextureButton.hpp"
-
-#include "Transform.hpp"
 #include "Texture.hpp"
+#include "Transform.hpp"
 #include "ICollider.hpp"
-#include "InputDeviceContainer.hpp"
 #include "PointWithPolygon.hpp"
 #include "Point.hpp"
 #include "ColliderCreator.hpp"
+#include "GameUtility.hpp"
 
-#include "GameSymbol.hpp"
-
-void Engine::UI::MultiTextureButton::RunEventFunc()
+Engine::UI::MultiTextureButton::MultiTextureButton(std::vector<const char*> filePath, Components::COLLIDERTYPE type)
+	: Button(type), nowTexIndex(0), clickCount(0), eventFunc(nullptr)
 {
-	if (eventFunc == nullptr)
-		return;
-	(*eventFunc)();
-}
-
-Engine::UI::MultiTextureButton::MultiTextureButton(std::vector<const char*> filePath, Components::COLLIDERTYPE type) : clickCount(0)
-{
-	transform = new Components::Transform();
 	for (auto& path : filePath)
 	{
-		texture.push_back(new Components::Texture(*transform, path));
+		textures.push_back(new Components::Texture(*transform, path));
 	}
-	collision = new Collision::PointWithPolygon();
-
-	eventFunc = nullptr;
-
-	// Collider生成
-	collider = Engine::ColliderCreator::Instance().CreateCollider(type, *transform);
-
-	collider->Update();
 }
 
 Engine::UI::MultiTextureButton::~MultiTextureButton()
 {
-	for (auto& tex : texture)
-	{
+	for (auto& tex : textures)
 		delete tex;
-	}
-	texture.clear();
-	texture.shrink_to_fit();
-	delete transform;
-	delete collider;
-	delete collision;
+	textures.clear();
+	textures.shrink_to_fit();
 }
 
 void Engine::UI::MultiTextureButton::SetEventFunc(DelegateBase<void(void)>* func)
@@ -55,42 +32,48 @@ void Engine::UI::MultiTextureButton::SetEventFunc(DelegateBase<void(void)>* func
 
 void Engine::UI::MultiTextureButton::Update()
 {
-	texture[clickCount % texture.size()]->Update();
+	UpdateNowTexIndex();
+	textures[nowTexIndex]->Update();
 	collider->Update();
-	// マウスポインタの座標取得
-	float x, y;
-	x = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPosX();
-	y = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPosY();
-
-	// マウスポインタがボタンの上にあるか
-	bool isOnButton = collision->Collision(x, y, *collider);
-	// ボタンクリック時の処理
-	if (isOnButton)
-	{
-		// 左クリックが離されたか
-		bool isRelease = Engine::Input::InputDeviceContainer::Instance().GetMouse().IsReleaseKey(Engine::Input::Mouse::LEFT_CLICK);
-		if (isRelease)
-		{
-			// イベント実行
-			RunEventFunc();
-			clickCount++;
-		}
-
-		// 左クリックされているか
-		bool isClicking = Engine::Input::InputDeviceContainer::Instance().GetMouse().GetPressingCount(Engine::Input::Mouse::LEFT_CLICK);
-		if (isClicking)
-		{
-			// ボタンサイズ変更
-			transform->Scaling(CLICKEDSIZE, CLICKEDSIZE);
-			return;
-		}
-	}
-
-	// ボタンを元の大きさに戻す
-	transform->Scaling(1.0f, 1.0f);
+	if (IsClicked())
+		OnClick();
 }
 
 void Engine::UI::MultiTextureButton::Draw()
 {
-	texture[clickCount % texture.size()]->Draw();
+	textures[nowTexIndex]->Draw();
+}
+
+void Engine::UI::MultiTextureButton::UpdateNowTexIndex()
+{
+	nowTexIndex = clickCount % textures.size();
+}
+
+void Engine::UI::MultiTextureButton::RunEventFunc()
+{
+	if (eventFunc == nullptr)
+		return;
+	(*eventFunc)();
+}
+
+void Engine::UI::MultiTextureButton::OnClick()
+{
+	RunEventFunc();
+	clickCount++;
+}
+
+void Engine::UI::MultiTextureButton::Release()
+{
+	isPressed = false;
+}
+
+void Engine::UI::MultiTextureButton::Clicking()
+{
+	isPressed = true;
+	transform->Scaling(CLICKEDSIZE, CLICKEDSIZE);
+}
+
+void Engine::UI::MultiTextureButton::NotOnButton()
+{
+	transform->Scaling(1.f, 1.f);
 }

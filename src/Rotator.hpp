@@ -2,6 +2,7 @@
 /*
 	‰ñ“]ˆÚ“®‚ğs‚¤ƒNƒ‰ƒX
 */
+
 namespace Math 
 {
 	class Matrix;

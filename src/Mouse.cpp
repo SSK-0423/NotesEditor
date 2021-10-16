@@ -3,6 +3,7 @@
 
 void Engine::Input::Mouse::UpdateCounter()
 {
+	// マウスの入力状態取得
 	KeyCode nowButtonState = GetMouseInput();
 
 	for (KeyCode keyCode = 0; keyCode < KEY_NUM; keyCode++)
@@ -10,34 +11,29 @@ void Engine::Input::Mouse::UpdateCounter()
 		// i番のボタンが押されていたら
 		if ((nowButtonState >> keyCode) & 1)
 			UpdatePressingCounter(keyCode);
-		// i番のキーが離されていたら
 		else
 			UpdateReleasingCounter(keyCode);
 	}
 }
 
-void Engine::Input::Mouse::UpdatePressingCounter(KeyCode keyCode) const
-{			
-	// 離されカウンタが0より大きければ
+void Engine::Input::Mouse::UpdatePressingCounter(KeyCode keyCode)
+{
+	// 離されカウンタ初期化
 	if (buttonReleasingCount[keyCode] > 0)
 	{
-		// 0に戻す
 		buttonReleasingCount[keyCode] = 0;
 	}
-	// 押されカウンタを増やす
 	buttonPressingCount[keyCode]++;
 	buttonPressed[keyCode] = true;
 }
 
-void Engine::Input::Mouse::UpdateReleasingCounter(KeyCode keyCode) const
+void Engine::Input::Mouse::UpdateReleasingCounter(KeyCode keyCode)
 {			
-	// 押されカウンタが0より大きければ
+	// 押されカウンタ初期化
 	if (buttonPressingCount[keyCode] > 0)
 	{
-		// 0に戻す
 		buttonPressingCount[keyCode] = 0;
 	}
-	// 離されカウンタを増やす
 	buttonReleasingCount[keyCode]++;
 }
 

@@ -15,10 +15,6 @@ NotesEditor::SlideNotes::SlideNotes(std::vector<ShortNotes*> list)
 	timing = list[0]->GetTiming();
 	lane = list[0]->GetLane();
 	notesList = list;
-
-	collider = new Engine::Components::BoxCollider(*transform);
-	collision = new Engine::Collision::PointWithPolygon();
-
 	notesColor = NotesColor::puttingNotesColor;
 	lineColor = NotesColor::puttingLineColor;
 
@@ -27,6 +23,10 @@ NotesEditor::SlideNotes::SlideNotes(std::vector<ShortNotes*> list)
 
 NotesEditor::SlideNotes::~SlideNotes()
 {
+	for (auto& notes : notesList)
+	{
+		delete notes;
+	}
 }
 
 void NotesEditor::SlideNotes::PutComplete()

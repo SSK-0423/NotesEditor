@@ -4,7 +4,6 @@
 #include "SlideNotes.hpp"
 #include "NotesEditorMusic.hpp"
 #include "picojson.h"
-#include <filesystem>
 #include <fstream>
 
 NotesEditor::FumenJsonGenerator::FumenJsonGenerator() : notesList(nullptr), notesEditorMusic(nullptr)
@@ -63,7 +62,7 @@ void NotesEditor::FumenJsonGenerator::SaveFumen()
 	// 譜面オブジェクト
 	picojson::object fumen;
 	// 楽曲情報追加
-	std::string musicName = notesEditorMusic->GetName();
+	std::string musicName = notesEditorMusic->GetMusicName();
 	float bpm = notesEditorMusic->GetBPM();
 	int beat = notesEditorMusic->GetBeat();
 	std::string audioFilePath = "sounds\\" + musicName + ".ogg";

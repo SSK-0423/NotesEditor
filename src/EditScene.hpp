@@ -3,7 +3,7 @@
 #include "Camera2D.hpp"
 #include "Bar.hpp"
 #include "EditorSceneCanvas.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 
 namespace Engine
 {
@@ -37,15 +37,13 @@ namespace NotesEditor
 		void DeleteObj();
 		void PutNotes();
 		void RemoveNotes();
-		void DecidePutPos();
 		float CalcJudgeTiming(float y);
-		void DebugDraw();
-		void DebugPutNotes();
 
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
-		void Init() override;
+		void Initialize() override;
 		void Update() override;
 		void Draw() override;
+		void Finalize() override;
 	};
 }

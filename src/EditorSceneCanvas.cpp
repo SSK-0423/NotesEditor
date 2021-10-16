@@ -27,15 +27,13 @@ using namespace Engine::Components;
 void NotesEditor::EditorSceneCanvas::InitButton()
 {
 	buttonList.resize(BUTTON::BUTTON_NUM);
-	
+
 	// ボタン生成
 	// 設置ノーツ選択ボタン
 	TextureButton* shortButton = new TextureButton("image/SHORT.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
 	TextureButton* longButton = new TextureButton("image/LONG.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
 	TextureButton* slideButton = new TextureButton("image/SLIDE.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
 	// 曲の再生・停止ボタン
-	TextureButton* playButton = new TextureButton("image/PLAY.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
-	TextureButton* stopButton = new TextureButton("image/STOP.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
 	TextureButton* replayButton = new TextureButton("image/REPLAY.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
 	// 小節線変更ボタン
 	TextureButton* changeBarButton = new TextureButton("image/CHANGE_BAR.png", COLLIDERTYPE::COLLIDERTYPE_BOX);
@@ -53,62 +51,50 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	MultiTextureButton* playStopButton = new MultiTextureButton(paths, COLLIDERTYPE::COLLIDERTYPE_BOX);
 
 	// 設置するノーツ選択
-	shortButton->SetEventFunc(Delegate<NotesManager, void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeShort));
-	longButton->SetEventFunc(Delegate<NotesManager, void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeLong));
-	slideButton->SetEventFunc(Delegate<NotesManager, void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeSlide));
+	shortButton->SetEventFunc(Delegate<NotesManager, void(void)>::CreateDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeShort));
+	longButton->SetEventFunc(Delegate<NotesManager, void(void)>::CreateDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeLong));
+	slideButton->SetEventFunc(Delegate<NotesManager, void(void)>::CreateDelegator(&NotesManager::Instance(), &NotesManager::ChangeNotesTypeSlide));
 
 	// クリック時に呼ばれる関数セット
-	playButton->SetEventFunc(Delegate<NotesEditorMusic,
-		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayMusic));
-	stopButton->SetEventFunc(Delegate<NotesEditorMusic,
-		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::StopMusic));
 	playStopButton->SetEventFunc(Delegate<NotesEditorMusic,
-		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayStopMusic));
+		void(void)>::CreateDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::PlayStopMusic));
 	replayButton->SetEventFunc(Delegate<NotesEditorMusic,
-		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::ReplayMusic));
-	
+		void(void)>::CreateDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::ReplayMusic));
+
 	// 小節線変更
 	changeBarButton->SetEventFunc(Delegate<BarManager,
-		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType));
+		void(void)>::CreateDelegator(&BarManager::Instance(), &BarManager::ChangeBarType));
 	changeBarButton4->SetEventFunc(Delegate<BarManager,
-		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType4));
-	changeBarButton8->SetEventFunc(Delegate<BarManager, 
-		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType8));
-	changeBarButton16->SetEventFunc(Delegate<BarManager, 
-		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType16));
-	changeBarButton32->SetEventFunc(Delegate<BarManager, 
-		void(void)>::createDelegator(&BarManager::Instance(), &BarManager::ChangeBarType32));
-	
+		void(void)>::CreateDelegator(&BarManager::Instance(), &BarManager::ChangeBarType4));
+	changeBarButton8->SetEventFunc(Delegate<BarManager,
+		void(void)>::CreateDelegator(&BarManager::Instance(), &BarManager::ChangeBarType8));
+	changeBarButton16->SetEventFunc(Delegate<BarManager,
+		void(void)>::CreateDelegator(&BarManager::Instance(), &BarManager::ChangeBarType16));
+	changeBarButton32->SetEventFunc(Delegate<BarManager,
+		void(void)>::CreateDelegator(&BarManager::Instance(), &BarManager::ChangeBarType32));
+
 	// ロード・セーブ
 	loadMusicButton->SetEventFunc(Delegate<NotesEditorMusic,
-		void(void)>::createDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::LoadMusic));
+		void(void)>::CreateDelegator(&NotesEditorMusic::Instance(), &NotesEditorMusic::LoadMusic));
 	loadButton->SetEventFunc(Delegate<FumenJsonLoader,
-		void(void)>::createDelegator(&FumenJsonLoader::Instance(), &FumenJsonLoader::LoadFumen));
+		void(void)>::CreateDelegator(&FumenJsonLoader::Instance(), &FumenJsonLoader::LoadFumen));
 	saveButton->SetEventFunc(Delegate<FumenJsonGenerator,
-		void(void)>::createDelegator(&FumenJsonGenerator::Instance(), &FumenJsonGenerator::SaveFumen));
+		void(void)>::CreateDelegator(&FumenJsonGenerator::Instance(), &FumenJsonGenerator::SaveFumen));
 
-	//loadButton->SetEventFunc(Delegate<NotesManager,
-	//	void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::LoadFumen));
-	//saveButton->SetEventFunc(Delegate<NotesManager,
-	//	void(void)>::createDelegator(&NotesManager::Instance(), &NotesManager::SaveFumen));
-	
 	// ボタンのサイズ設定
 	shortButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH - ADD / 2, BUTTON_SIZE_HEIGHT - ADD * 1);
 	longButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH - ADD / 2, BUTTON_SIZE_HEIGHT - ADD * 1);
 	slideButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 
-	playButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
-	stopButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
-	
 	playStopButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	replayButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
-	
+
 	changeBarButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	changeBarButton4->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	changeBarButton8->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	changeBarButton16->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
 	changeBarButton32->GetTransform().SetSize(BUTTON_SIZE_WIDTH, BUTTON_SIZE_HEIGHT - ADD * 1);
-	
+
 	loadMusicButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH * 2, BUTTON_SIZE_HEIGHT - ADD * 3);
 	loadButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH * 2, BUTTON_SIZE_HEIGHT - ADD * 3);
 	saveButton->GetTransform().SetSize(BUTTON_SIZE_WIDTH * 2, BUTTON_SIZE_HEIGHT - ADD * 3);
@@ -117,37 +103,34 @@ void NotesEditor::EditorSceneCanvas::InitButton()
 	shortButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y);
 	longButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y);
 	slideButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT);
-	
-	playButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
-	stopButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
-	
+
 	playStopButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
 	replayButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + BUTTON_SIZE_WIDTH + ADD, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 2);
-	
+
 	changeBarButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 4);
 	changeBarButton4->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + BUTTON_SIZE_WIDTH + ADD, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 4);
 	changeBarButton8->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 5);
 	changeBarButton16->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + BUTTON_SIZE_WIDTH + ADD, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 5);
 	changeBarButton32->GetTransform().SetPosition(BUTTON_SIZE_WIDTH / 2 + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 6);
-	
+
 	loadMusicButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 3);
 	loadButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 7);
 	saveButton->GetTransform().SetPosition(BUTTON_SIZE_WIDTH + ADD / 2, BUTTON_POS_Y + BUTTON_SIZE_HEIGHT * 8);
 
 	// buttonListに格納
-	buttonList[BUTTON::BUTTON_SHORT]		= shortButton;
-	buttonList[BUTTON::BUTTON_LONG]			= longButton;
-	buttonList[BUTTON::BUTTON_SLIDE]		= slideButton;
-	buttonList[BUTTON::BUTTON_REPLAY]		= replayButton;
-	buttonList[BUTTON::BUTTON_PLAYSTOP]		= playStopButton;
-	buttonList[BUTTON::BUTTON_CHANGEBAR]	= changeBarButton;
-	buttonList[BUTTON::BUTTON_CHANGEBAR4]	= changeBarButton4;
-	buttonList[BUTTON::BUTTON_CHANGEBAR8]	= changeBarButton8;
-	buttonList[BUTTON::BUTTON_CHANGEBAR16]	= changeBarButton16;
-	buttonList[BUTTON::BUTTON_CHANGEBAR32]	= changeBarButton32;
-	buttonList[BUTTON::BUTTON_LOADMUSIC]	= loadMusicButton;
-	buttonList[BUTTON::BUTTON_LOAD]			= loadButton;
-	buttonList[BUTTON::BUTTON_SAVE]			= saveButton;
+	buttonList[BUTTON::BUTTON_SHORT] = shortButton;
+	buttonList[BUTTON::BUTTON_LONG] = longButton;
+	buttonList[BUTTON::BUTTON_SLIDE] = slideButton;
+	buttonList[BUTTON::BUTTON_REPLAY] = replayButton;
+	buttonList[BUTTON::BUTTON_PLAYSTOP] = playStopButton;
+	buttonList[BUTTON::BUTTON_CHANGEBAR] = changeBarButton;
+	buttonList[BUTTON::BUTTON_CHANGEBAR4] = changeBarButton4;
+	buttonList[BUTTON::BUTTON_CHANGEBAR8] = changeBarButton8;
+	buttonList[BUTTON::BUTTON_CHANGEBAR16] = changeBarButton16;
+	buttonList[BUTTON::BUTTON_CHANGEBAR32] = changeBarButton32;
+	buttonList[BUTTON::BUTTON_LOADMUSIC] = loadMusicButton;
+	buttonList[BUTTON::BUTTON_LOAD] = loadButton;
+	buttonList[BUTTON::BUTTON_SAVE] = saveButton;
 
 	for (int i = 0; i < BUTTON::BUTTON_NUM; i++)
 	{
@@ -161,15 +144,15 @@ void NotesEditor::EditorSceneCanvas::InitTextBox()
 	guiList.push_back(musicInfoText);
 }
 
-NotesEditor::EditorSceneCanvas::EditorSceneCanvas()
+NotesEditor::EditorSceneCanvas::EditorSceneCanvas() : musicInfoText(nullptr)
 {
+	Init();
 }
 
 NotesEditor::EditorSceneCanvas::~EditorSceneCanvas()
 {
 	for (auto& gui : guiList)
 		delete gui;
-
 	guiList.clear();
 	guiList.shrink_to_fit();
 }

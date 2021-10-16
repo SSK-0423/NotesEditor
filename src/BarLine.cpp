@@ -5,6 +5,7 @@
 #include "WindowSize.hpp"
 #include "InputDeviceContainer.hpp"
 #include "Point.hpp"
+#include "DxLib.h"
 
 //static•Ï”À‘Ì‰»
 Color NotesEditor::BarLine::lineColor[4] = {
@@ -72,7 +73,6 @@ NotesEditor::BarLine::BarLine(const Engine::GameObject& parentBar, int lineNum) 
 
 NotesEditor::BarLine::~BarLine()
 {
-	delete transform;
 	delete collider;
 	delete collision;
 	delete startPoint;

@@ -9,6 +9,8 @@ Engine::GameObject::GameObject()
 
 Engine::GameObject::~GameObject()
 {
+	delete transform;
+	delete screenPos;
 }
 
 const Engine::Components::Transform& Engine::GameObject::GetTransform() const

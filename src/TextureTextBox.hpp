@@ -1,5 +1,5 @@
 #pragma once
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 #include "GUI.hpp"
 #include "Texture.hpp"
 #include <string>
@@ -15,23 +15,20 @@ namespace Engine
 	{
 		class TextureTextBox : public GUI {
 		private:
-			// フォント
-			Font fontHandle;
-			// 色
-			Color color;
-			// テキスト
 			std::vector<std::string> text;
-			// テキストボックスの背景画像
 			Components::Texture* texture;
-
+			Font fontHandle;
+			Color color;
+			static const int FONTSIZE;
+			static const int FONTTHICK;
 			void DrawStrings();
 		public:
 			TextureTextBox(const char* filePath);
 			~TextureTextBox();
-			void Update();
-			void Draw();
+			void Update() override;
+			void Draw() override;
 			void AddText(std::string str);
-			void SetColor(int r, int g, int b);
+			void SetColor(Color color);
 			void CreateFontHandle(const char* name, int size, int thick, int fonttype);
 			void ResetText();
 		};

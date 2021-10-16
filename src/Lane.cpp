@@ -4,7 +4,8 @@
 #include "BoxCollider.hpp"
 #include "PointWithPolygon.hpp"
 #include "Point.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
+#include "DxLib.h"
 
 int NotesEditor::Lane::lineThickness = 2;
 Color NotesEditor::Lane::laneColor[2] = {
@@ -40,8 +41,6 @@ NotesEditor::Lane::Lane(int laneNum, float posX) : laneNum(laneNum), color(laneC
 
 NotesEditor::Lane::~Lane()
 {
-	delete transform;
-	delete screenPos;
 	delete startPoint;
 	delete endPoint;
 }

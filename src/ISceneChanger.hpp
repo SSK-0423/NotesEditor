@@ -1,20 +1,22 @@
 #pragma once
 
-typedef enum
+/*
+* シーン変更のインターフェース
+*/		
+
+enum class SCENE
 {
 	SCENE_EDIT,
 	SCENE_NONE
-} SCENE;
+};
 
 namespace Engine
 {
 	namespace Scene {
 
-		//シーンを変更するためのインターフェイスクラス
 		class ISceneChanger {
 		public:
 			virtual ~ISceneChanger() = 0;
-			//指定シーンに変更する
 			virtual void ChangeScene(SCENE NextScene) = 0;
 		};
 	}

@@ -1,6 +1,10 @@
 #pragma once
 #include <math.h>
 
+/*
+* “_ƒNƒ‰ƒX
+*/
+
 namespace Engine
 {
 	namespace PrimitiveObj

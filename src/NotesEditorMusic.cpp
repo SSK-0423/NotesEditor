@@ -1,7 +1,7 @@
 #include "NotesEditorMusic.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 
-NotesEditor::NotesEditorMusic::NotesEditorMusic() : musicName("No Data"), audioSource(), bpm(0.f), beat(0), isMusicLoaded(false), isPlaying(false)
+NotesEditor::NotesEditorMusic::NotesEditorMusic() : musicName("No Data"), audioSource(), bpm(0.f), beat(0), isMusicLoaded(false)
 {
 }
 
@@ -9,16 +9,11 @@ void NotesEditor::NotesEditorMusic::JsonParse(picojson::value json)
 {
 	//既に読み込んだ曲を削除
 	InitSoundMem();
-	//曲名読込
 	musicName = json.get<picojson::object>()["name"].get<std::string>();
-	//BPM読み込み
-	bpm = json.get<picojson::object>()["bpm"].get<double>();
-	//拍子読み込み
-	beat = json.get<picojson::object>()["beat"].get<double>();
-	//ファイルパス読込
+	bpm = static_cast<float>(json.get<picojson::object>()["bpm"].get<double>());
+	beat = static_cast<float>(json.get<picojson::object>()["beat"].get<double>());
 	std::string path = json.get<picojson::object>()["path"].get<std::string>();
-	//曲読み込み
-	if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED) 
+	if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED)
 	{
 		isMusicLoaded = true;
 		audioSource.ChangeVolume(128);
@@ -27,7 +22,6 @@ void NotesEditor::NotesEditorMusic::JsonParse(picojson::value json)
 
 void NotesEditor::NotesEditorMusic::LoadMusic()
 {
-	//jsonファイルを読み込む
 	if (openFileExplorer.OpenJsonFile(json) != -1)
 		JsonParse(json);
 }
@@ -39,43 +33,30 @@ void NotesEditor::NotesEditorMusic::LoadMusicFromFumen(picojson::value fumen)
 
 void NotesEditor::NotesEditorMusic::PlayStopMusic()
 {
-	if (isPlaying) 
+	if (audioSource.IsPlaying())
 	{
-		if(audioSource.StopAudio() == RESULT::RESULT_SUCCEED);
-			isPlaying = false;
+		audioSource.Stop();
 		return;
 	}
-	if(audioSource.PlayAudioLoop() == RESULT::RESULT_SUCCEED)
-		isPlaying = true;
-}
-
-void NotesEditor::NotesEditorMusic::PlayMusic()
-{
-	audioSource.PlayAudioLoop();
-}
-
-void NotesEditor::NotesEditorMusic::StopMusic()
-{
-	audioSource.StopAudio();
+	audioSource.PlayLoop();
 }
 
 void NotesEditor::NotesEditorMusic::ReplayMusic()
 {
-	if(audioSource.ReplayAudio() == RESULT::RESULT_SUCCEED)
-		isPlaying = true;
+	audioSource.Replay();
 }
 
-int NotesEditor::NotesEditorMusic::GetTotalTime() const
+long long NotesEditor::NotesEditorMusic::GetTotalTime() const
 {
 	return audioSource.GetTotalTime();
 }
 
-int NotesEditor::NotesEditorMusic::GetElapsedTime() const
+long long NotesEditor::NotesEditorMusic::GetElapsedTime() const
 {
 	return audioSource.GetElapsedTime();
 }
 
-std::string NotesEditor::NotesEditorMusic::GetName() const
+std::string NotesEditor::NotesEditorMusic::GetMusicName() const
 {
 	return musicName;
 }
@@ -97,7 +78,7 @@ bool NotesEditor::NotesEditorMusic::IsMusicLoaded()
 
 bool NotesEditor::NotesEditorMusic::IsPlaying()
 {
-	return isPlaying;
+	return audioSource.IsPlaying();
 }
 
 void NotesEditor::NotesEditorMusic::CompleteMusicLoad()
@@ -105,11 +86,7 @@ void NotesEditor::NotesEditorMusic::CompleteMusicLoad()
 	isMusicLoaded = false;
 }
 
-void NotesEditor::NotesEditorMusic::MusicTimeDraw()
+void NotesEditor::NotesEditorMusic::SetPlayStartTime(long long time)
 {
-}
-
-void NotesEditor::NotesEditorMusic::SetCurrentTime(long long time)
-{
-	audioSource.SetCurrentTime(time);
+	audioSource.SetPlayStartTime(time);
 }

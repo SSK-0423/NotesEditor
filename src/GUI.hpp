@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+* GUIƒNƒ‰ƒX
+*/
+
 namespace Engine
 {
 	namespace Components 

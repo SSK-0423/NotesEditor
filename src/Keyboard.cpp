@@ -1,7 +1,7 @@
 #include "Keyboard.hpp"
 #include "DxLib.h"
 
-void Engine::Input::Keyboard::UpdateCounter() const
+void Engine::Input::Keyboard::UpdateCounter()
 {
 	// 現在のキーの入力状態を格納する
 	char tmpKey[KEY_NUM];
@@ -10,37 +10,31 @@ void Engine::Input::Keyboard::UpdateCounter() const
 
 	for (KeyCode keyCode = 0; keyCode < KEY_NUM; keyCode++)
 	{
-		// i番のキーコードに対応するキーが押されていたら
 		if (tmpKey[keyCode] != 0)
 			UpdatePressingCounter(keyCode);
-		// 押されていなければ
 		else
 			UpdateReleasingCounter(keyCode);
 	}
 }
 
-void Engine::Input::Keyboard::UpdatePressingCounter(KeyCode keyCode) const
+void Engine::Input::Keyboard::UpdatePressingCounter(KeyCode keyCode)
 {
-	// 離されカウンタが0より大きければ
+	// 離されカウンタ初期化
 	if (keyReleasingCount[keyCode] > 0)
 	{
-		// 0に戻す
 		keyReleasingCount[keyCode] = 0;
 	}
-	// 加算
 	keyPressingCount[keyCode]++;
 	keyPressed[keyCode] = true;
 }
 
-void Engine::Input::Keyboard::UpdateReleasingCounter(KeyCode keyCode) const
+void Engine::Input::Keyboard::UpdateReleasingCounter(KeyCode keyCode)
 {
-	// 押されカウンタが0より大きければ
+	// 押されカウンタ初期化
 	if (keyPressingCount[keyCode] > 0)
 	{
-		// 0に戻す
 		keyPressingCount[keyCode] = 0;
 	}
-	// 離されカウンタを増やす
 	keyReleasingCount[keyCode]++;
 }
 

@@ -1,4 +1,9 @@
 #pragma once
+
+/*
+	点と多角形の内外判定を実際に行うクラス
+*/
+
 namespace Engine
 {
 	namespace PrimitiveObj

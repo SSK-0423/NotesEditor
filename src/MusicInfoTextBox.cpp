@@ -5,6 +5,7 @@
 
 const int BOX_SIZE_WIDTH = 252;
 const int BOX_SIZE_HEIGHT = 122;
+const float TUNINGNUM = 8.f;
 
 void NotesEditor::MusicInfoTextBox::UpdateText()
 {
@@ -12,24 +13,25 @@ void NotesEditor::MusicInfoTextBox::UpdateText()
 	textBox->ResetText();
 
 	// 表示テキストの設定
-	std::string str = NotesEditorMusic::Instance().GetName();
+	std::string str = NotesEditorMusic::Instance().GetMusicName();
 	textBox->AddText(str);
 	str = "BPM:";
 	str += std::to_string(static_cast<int>(NotesEditorMusic::Instance().GetBPM()));
 	textBox->AddText(str);
-	textBox->SetColor(0, 0, 0);
+	textBox->SetColor(GetColor(0,0,0));
 }
 
 NotesEditor::MusicInfoTextBox::MusicInfoTextBox(const char* filePath)
 {
 	textBox = new Engine::UI::TextureTextBox(filePath);
-	textBox->GetTransform().SetPosition(BOX_SIZE_WIDTH / 2.f + 8.f, BOX_SIZE_HEIGHT / 2.f + 8.f);
+	textBox->GetTransform().SetPosition(BOX_SIZE_WIDTH / 2.f + TUNINGNUM, BOX_SIZE_HEIGHT / 2.f + TUNINGNUM);
 	textBox->GetTransform().SetSize(BOX_SIZE_WIDTH, BOX_SIZE_HEIGHT);
 	UpdateText();
 }
 
 NotesEditor::MusicInfoTextBox::~MusicInfoTextBox()
 {
+	delete textBox;
 }
 
 void NotesEditor::MusicInfoTextBox::Update()

@@ -18,7 +18,6 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	laneManager(LaneManager::Instance()), barManager(BarManager::Instance()),
 	fumenJsonGenerator(FumenJsonGenerator::Instance()), fumenJsonLoader(FumenJsonLoader::Instance())
 {
-	editorSceneCanvas.Init();
 	fumenJsonGenerator.SetNotesList(notesManager.GetNotesListRef());
 	fumenJsonGenerator.SetNotesEditorMusic(notesEditorMusic);
 	fumenJsonLoader.SetObjList(allObjList);
@@ -28,7 +27,11 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	laneHandle = LoadGraph("image/レーン02.png");
 }
 
-void NotesEditor::EditScene::Init()
+void NotesEditor::EditScene::Finalize()
+{
+}
+
+void NotesEditor::EditScene::Initialize()
 {
 }
 
@@ -49,8 +52,9 @@ void NotesEditor::EditScene::Update()
 	{
 		DeleteObj();
 	}
+	// 
 	float nowCameraBottonPosY = camera.GetTransform().GetPosition().y + camera.GetTransform().GetSize().height / 2.f;
-	notesEditorMusic.SetCurrentTime(CalcJudgeTiming(nowCameraBottonPosY) * 1000.f);
+	notesEditorMusic.SetPlayStartTime(CalcJudgeTiming(nowCameraBottonPosY) * 1000.f);
 }
 
 void NotesEditor::EditScene::Draw()
@@ -62,7 +66,6 @@ void NotesEditor::EditScene::Draw()
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 	laneManager.Draw();
 	camera.Draw();
-	DebugDraw();
 	Input();
 }
 
@@ -90,9 +93,6 @@ void NotesEditor::EditScene::Input()
 	const Engine::Input::Keyboard keyboard = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
 	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) && keyboard.GetPressingCount(KEY_INPUT_S))
 		fumenJsonGenerator.SaveFumen();
-
-	if (keyboard.IsPressKey(KEY_INPUT_G))
-		DebugPutNotes();
 }
 
 void NotesEditor::EditScene::OnMusicLoaded()
@@ -116,9 +116,9 @@ void NotesEditor::EditScene::OnMusicLoaded()
 	//小節数の計算
 	int barNum = totalTime / 1000.f * bpm / (60.f * beat) + 1;
 
-	camera.SetMinposition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
+	camera.SetMinPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
 		static_cast<float>(-WINDOW_SIZE_HEIGHT) * static_cast<float>(barNum) + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f);
-	camera.SetMaxposition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f, static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f);
+	camera.SetMaxPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f, static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f);
 
 	barManager.CreateBar(allObjList, barNum, lineNum);
 
@@ -135,15 +135,6 @@ void NotesEditor::EditScene::DeleteObj()
 	camera.DeleteObj();
 	barManager.Delete();
 	laneManager.Delete();
-}
-
-void NotesEditor::EditScene::DebugDraw()
-{
-	notesManager.Draw();
-}
-
-void NotesEditor::EditScene::DecidePutPos()
-{
 }
 
 void NotesEditor::EditScene::RemoveNotes()
@@ -188,7 +179,7 @@ float NotesEditor::EditScene::CalcJudgeTiming(float y)
 	float minimunNoteTimeLength = static_cast<float>(WINDOW_SIZE_HEIGHT) / BarManager::MAXNOTENUM;
 	float barTopEdgePos = minimunNoteTimeLength * barManager.GetLineNum();
 	// 曲の総再生時間
-	int totalTime = notesEditorMusic.GetTotalTime();
+	long long totalTime = notesEditorMusic.GetTotalTime();
 	// 下端からの変位
 	float mouseDisplacement = fabsf(static_cast<float>(WINDOW_SIZE_HEIGHT) - y);
 	// 単位y座標当たりの経過時間(ms)
@@ -197,23 +188,4 @@ float NotesEditor::EditScene::CalcJudgeTiming(float y)
 	float timing = elapsedTimePerY * mouseDisplacement / 1000.f;
 
 	return timing;
-}
-
-void NotesEditor::EditScene::DebugPutNotes()
-{
-	float x = 307;
-
-	int lane = 0;
-
-	int minimum = 4;
-
-	for (int i = 0; i < minimum * (barManager.GetBarNum() - 1); i++)
-	{
-		float y = static_cast<float>(WINDOW_SIZE_HEIGHT) - static_cast<float>(WINDOW_SIZE_HEIGHT) /
-			static_cast<float>(minimum) * static_cast<float>(i);
-
-		float timing = CalcJudgeTiming(y);
-		NotesData data(x, y, lane, timing);
-		notesManager.CreateNotes(data, allObjList);
-	}
 }

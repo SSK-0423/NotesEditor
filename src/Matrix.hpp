@@ -2,6 +2,9 @@
 #include <vector>
 #include <initializer_list>
 
+/*
+* s—ñƒNƒ‰ƒX
+*/
 namespace Math
 {
 	class Matrix

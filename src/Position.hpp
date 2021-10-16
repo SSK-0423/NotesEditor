@@ -1,7 +1,7 @@
 #pragma once
-#include "DxLib.h"
+
 /*
-	オブジェクトの座標を保持するクラス
+* オブジェクトの座標クラス
 */
 
 namespace Engine
@@ -17,13 +17,11 @@ namespace Engine
 			Position() :x(0), y(0) {}
 			Position(float x, float y) :x(x), y(y) {}
 
-			// 移動
 			void Translate(float x, float y)
 			{
 				this->x += x;
 				this->y += y;
 			}
-			// 座標セット
 			void SetPosition(float x, float y)
 			{
 				this->x = x;

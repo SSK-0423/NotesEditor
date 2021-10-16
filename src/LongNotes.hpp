@@ -1,7 +1,7 @@
 #pragma once
 #include "Notes.hpp"
 #include "ShortNotes.hpp"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 #include <vector>
 
 namespace Engine

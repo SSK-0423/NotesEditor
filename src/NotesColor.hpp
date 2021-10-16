@@ -1,6 +1,6 @@
 #pragma once
 #include "DxLib.h"
-#include "GameSymbol.hpp"
+#include "GameUtility.hpp"
 
 namespace NotesEditor
 {
