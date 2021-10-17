@@ -1,6 +1,10 @@
 #pragma once
 #include "Notes.hpp"
 
+/*
+* ショートノーツクラス
+*/
+
 namespace Engine
 {
 	namespace Components

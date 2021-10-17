@@ -7,10 +7,17 @@ Application::Application()
 {
 }
 
+Application::~Application()
+{
+}
+
 void Application::MainLoop()
 {
-	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
+	while (ScreenFlip() == 0 && ClearDrawScreen() == 0)
 	{
+		if (ProcessMessage() != 0)
+			break;
+
 		// “ü—Í“Ç‚İæ‚è
 		Input();
 		// XV

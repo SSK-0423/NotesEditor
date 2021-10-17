@@ -7,6 +7,7 @@
 /*
 * ノーツエディターで使用する楽曲のクラス
 */
+
 namespace NotesEditor
 {
 	class NotesEditorMusic : public Singleton<NotesEditorMusic> {
@@ -20,7 +21,7 @@ namespace NotesEditor
 		float bpm;
 		int beat;
 		bool isMusicLoaded;
-
+		bool isLoadFromFumenJson;
 		void JsonParse(picojson::value json);
 	public:
 		void LoadMusic();
@@ -33,6 +34,7 @@ namespace NotesEditor
 		float GetBPM() const;
 		int GetBeat() const;
 		bool IsMusicLoaded();
+		bool IsLoadFromFumenJson();
 		bool IsPlaying();
 		void CompleteMusicLoad();
 		void SetPlayStartTime(long long time);

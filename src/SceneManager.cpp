@@ -6,9 +6,13 @@ Engine::Scene::SceneManager::SceneManager()
 	nowScene = (BaseScene*) new NotesEditor::EditScene(this);
 }
 
+Engine::Scene::SceneManager::~SceneManager()
+{
+	delete nowScene;
+}
+
 void Engine::Scene::SceneManager::Update()
 {
-
 	nowScene->Update();
 }
 

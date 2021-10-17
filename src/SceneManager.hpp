@@ -16,6 +16,7 @@ namespace Engine
 
 		public:
 			SceneManager();
+			~SceneManager();
 			void Update();
 			void Draw();
 			void ChangeScene(SCENE NextScene) override;

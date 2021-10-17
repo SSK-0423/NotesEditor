@@ -2,6 +2,10 @@
 #include <vector>
 #include "Singleton.hpp"
 
+/*
+* ƒŒ[ƒ“ŠÇ—ƒNƒ‰ƒX
+*/
+
 namespace NotesEditor
 {
 	class Lane;
@@ -20,9 +24,8 @@ namespace NotesEditor
 		float DecidePosX(float x, float laneList[], int size);
 	public:
 		~LaneManager();
-		void Update();
 		void Draw();
-		float Collision(float x);
+		float DecidePutPosX(float x);
 		int GetLane(float x);
 		float GetLanePosX(int lane);
 		float GetSlideLanePosX(int lane);

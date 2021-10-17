@@ -6,7 +6,7 @@
 
 namespace Engine
 {
-	namespace Components 
+	namespace Components
 	{
 		class Transform;
 	}
@@ -16,12 +16,11 @@ namespace Engine
 		protected:
 			Components::Transform* transform;
 		public:
+			GUI();
+			virtual ~GUI();
 			virtual void Draw() = 0;
 			virtual void Update() = 0;
-			Components::Transform& GetTransform()
-			{
-				return *transform;
-			}
+			Components::Transform& GetTransform();
 		};
 	}
 

@@ -35,7 +35,7 @@ namespace Engine
 		~Camera2D();
 		void Update() override;
 		void Draw() override;
-		void DeleteObj();
+		void Delete();
 		Components::Position GetOriginPos();
 		// ˆÚ“®ŒÀŠE‚ðƒZƒbƒg
 		void SetMinPosition(float x, float y);

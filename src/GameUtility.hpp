@@ -23,8 +23,22 @@ using Font = int;
 using Degree = float;
 // ƒ‰ƒWƒAƒ“
 using Radian = float;
+// •b
+using Second = float;
+// ƒ~ƒŠ•b
+using Msecond = float;
 
 inline Radian DegreeToRadian(Degree angle)
 {
 	return acosf(-1.f) / 180.f * angle;
+}
+
+inline Msecond SecToMsec(Second sec)
+{
+	return sec * 1000.f;
+}
+
+inline Second MsecToSec(Msecond ms)
+{
+	return ms / 1000.f;
 }

@@ -17,14 +17,11 @@ namespace Engine
 		protected:
 			std::vector<GUI*> guiList;
 		public:
-			Canvas() {}
-			virtual ~Canvas() {}
+			Canvas();
+			virtual ~Canvas();
 			virtual void Update() = 0;
 			virtual void Draw() = 0;
-			void AddGUIObj(GUI& obj)
-			{
-				guiList.push_back(&obj);
-			}
+			void AddGUIObj(GUI& obj);
 		};
 	}
 }

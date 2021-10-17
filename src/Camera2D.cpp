@@ -20,7 +20,7 @@ Engine::Camera2D::Camera2D(std::vector<Engine::GameObject*>& objList) : objList(
 //デストラクタ
 Engine::Camera2D::~Camera2D()
 {
-	DeleteObj();
+	Delete();
 }
 
 void Engine::Camera2D::Update()
@@ -102,7 +102,7 @@ Engine::Components::Size Engine::Camera2D::SumSize(const Components::Transform& 
 }
 
 
-void Engine::Camera2D::DeleteObj()
+void Engine::Camera2D::Delete()
 {
 	drawList.clear();
 	drawList.shrink_to_fit();
@@ -184,7 +184,7 @@ void Engine::Camera2D::Input()
 void Engine::Camera2D::LimitPos()
 {
 	Components::Position cameraPos = transform->GetPosition();
-	transform->SetPosition(cameraPos.x, (std::max)(cameraPos.y, minLimitPos.y));
+	transform->SetPosition(cameraPos.x, (std::min)((std::max)(cameraPos.y, minLimitPos.y), (cameraPos.y, maxLimitPos.y)));
 	//transform->SetPosition(cameraPos.x, (std::min)(cameraPos.y, maxLimitPos.y));
 }
 

@@ -1,6 +1,10 @@
 #pragma once
 #include "GameObject.hpp"
 
+/*
+* ノーツの基底クラス
+*/
+
 namespace Engine
 {
 	namespace Components

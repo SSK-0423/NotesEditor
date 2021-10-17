@@ -12,12 +12,12 @@ NotesEditor::BarManager::BarManager() : lineNum(0)
 	Bar::fontHandle = CreateFontToHandle("Bar", FONTSIZE, FONTTHICK);
 }
 
-float NotesEditor::BarManager::Collision(float x, float y)
+float NotesEditor::BarManager::DecidePutPosY(float x, float y)
 {
 	float putPosY;
-	for (auto bar : barList)
+	for (auto& bar : barList)
 	{
-		putPosY = bar->Collision(x, y);
+		putPosY = bar->DecidePutPosY(x, y);
 		if (putPosY != -1.f) return putPosY;
 	}
 	return -1.f;
@@ -41,12 +41,23 @@ int NotesEditor::BarManager::GetLineNum()
 
 void NotesEditor::BarManager::Delete()
 {
-	//for (auto bar : barList)
-	//{
-	//	delete bar;
-	//}
+	for (auto bar : barList)
+		delete bar;
 	barList.clear();
 	barList.shrink_to_fit();
+}
+
+NotesEditor::BarManager::~BarManager()
+{
+	for (auto bar : barList)
+		delete bar;
+	barList.clear();
+	barList.shrink_to_fit();
+}
+
+void NotesEditor::BarManager::DebugDraw()
+{
+	DrawFormatString(800, 25, GetColor(0, 255, 0), "barList:%d", barList.size());
 }
 
 void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum)

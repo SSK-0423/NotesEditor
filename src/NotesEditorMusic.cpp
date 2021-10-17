@@ -1,7 +1,8 @@
 #include "NotesEditorMusic.hpp"
 #include "GameUtility.hpp"
 
-NotesEditor::NotesEditorMusic::NotesEditorMusic() : musicName("No Data"), audioSource(), bpm(0.f), beat(0), isMusicLoaded(false)
+NotesEditor::NotesEditorMusic::NotesEditorMusic() 
+	: musicName("No Data"), audioSource(), bpm(0.f), beat(0), isMusicLoaded(false), isLoadFromFumenJson(false)
 {
 }
 
@@ -23,12 +24,16 @@ void NotesEditor::NotesEditorMusic::JsonParse(picojson::value json)
 void NotesEditor::NotesEditorMusic::LoadMusic()
 {
 	if (openFileExplorer.OpenJsonFile(json) != -1)
+	{
 		JsonParse(json);
+		isLoadFromFumenJson = false;
+	}
 }
 
 void NotesEditor::NotesEditorMusic::LoadMusicFromFumen(picojson::value fumen)
 {
 	JsonParse(fumen);
+	isLoadFromFumenJson = true;
 }
 
 void NotesEditor::NotesEditorMusic::PlayStopMusic()
@@ -74,6 +79,11 @@ int NotesEditor::NotesEditorMusic::GetBeat() const
 bool NotesEditor::NotesEditorMusic::IsMusicLoaded()
 {
 	return isMusicLoaded;
+}
+
+bool NotesEditor::NotesEditorMusic::IsLoadFromFumenJson()
+{
+	return isLoadFromFumenJson;
 }
 
 bool NotesEditor::NotesEditorMusic::IsPlaying()

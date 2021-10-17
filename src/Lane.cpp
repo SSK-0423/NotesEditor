@@ -12,31 +12,26 @@ Color NotesEditor::Lane::laneColor[2] = {
 	GetColor(255, 255, 255),
 	GetColor(0, 255, 255)
 };
+const float NotesEditor::Lane::LANEWIDTH = 20.f;
+const float NotesEditor::Lane::LANEHEIGHT = static_cast<float>(WINDOW_SIZE_HEIGHT);
 
 NotesEditor::Lane::Lane(int laneNum, float posX) : laneNum(laneNum), color(laneColor[laneNum % 2])
 {
 	startPoint = new Engine::PrimitiveObj::Point();
 	endPoint = new Engine::PrimitiveObj::Point();
-
-	float windowWidth = static_cast<float>(WINDOW_SIZE_WIDTH);
-	float windowHeight = static_cast<float>(WINDOW_SIZE_HEIGHT);
-
-	float width = 20.f;
-	float height = windowHeight;
-
+	
 	float x = posX;
-	float y = windowHeight / 2.f;
-
+	float y = LANEHEIGHT / 2.f;
+	
 	// ラインの始点終点初期化
 	startPoint->x = x;
 	startPoint->y = 0.f;
 	endPoint->x = x;
-	endPoint->y = windowHeight;
-
+	endPoint->y = LANEHEIGHT;
+	
 	// transform初期化
 	transform->SetPosition(x, y);
-	transform->SetSize(width, height);
-
+	transform->SetSize(LANEWIDTH, LANEHEIGHT);
 }
 
 NotesEditor::Lane::~Lane()
@@ -47,6 +42,7 @@ NotesEditor::Lane::~Lane()
 
 void NotesEditor::Lane::Update()
 {
+	// 何もしない
 }
 
 void NotesEditor::Lane::Draw()

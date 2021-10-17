@@ -4,6 +4,10 @@
 #include "GameUtility.hpp"
 #include <vector>
 
+/*
+* ロングノーツクラス
+*/
+
 namespace Engine
 {
 	namespace Components

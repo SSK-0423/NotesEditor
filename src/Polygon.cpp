@@ -53,7 +53,7 @@ std::vector<Engine::PrimitiveObj::Point> Engine::PrimitiveObj::Polygon::GetVerte
 
 void Engine::PrimitiveObj::Polygon::ResetVertex()
 {
-	for (auto& p : vertex)
+	for (auto p : vertex)
 		delete p;
 	vertex.clear();
 	vertex.shrink_to_fit();

@@ -3,6 +3,10 @@
 #include "GameUtility.hpp"
 #include <vector>
 
+/*
+* è¨êﬂÉNÉâÉX
+*/
+
 namespace Engine
 {
 	namespace Components
@@ -32,24 +36,26 @@ namespace NotesEditor
 	class Bar : public Engine::GameObject {
 	private:
 		static BARTYPE nowType;
-
+		static const float BARWIDTH;
+		static const float BARHEIGHT;
 		Engine::Components::ICollider* collider;
 		Engine::Collision::PointWithPolygon* collision;
 		std::vector<BarLine*> barLineList;
-
 		int barNum;
+		void InitPos(int barNum);
+		void CreateBarLine(int lineNum);
+		void UpdateBarLine();
 		void DrawBarNum();
 		void DrawBarLine();
-
+		bool IsOnBar(float x, float y);
 	public:
 		static Font fontHandle;
 		static int MAXNOTENUM;	// 1è¨êﬂÇ…Ç®ÇØÇÈâπïÑêîÇÃç≈ëÂíl
-
 		Bar(int barNum, int lineNum);
 		~Bar();
 		void Update();
 		void Draw();
-		float Collision(float x, float y);
+		float DecidePutPosY(float x, float y);
 		static void ChangeBarType(BARTYPE type);
 	};
 }

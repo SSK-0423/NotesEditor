@@ -38,9 +38,13 @@ namespace NotesEditor
 		void PutNotes();
 		void RemoveNotes();
 		float CalcJudgeTiming(float y);
-
+		int CalcLineNum(long long totalTime, float bpm, float beat);
+		int CalcBarNum(long long totalTime, float bpm, float beat);
+		void UpdateStartMusicTime();
+		void DrawLaneBackground();
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
+		~EditScene();
 		void Initialize() override;
 		void Update() override;
 		void Draw() override;

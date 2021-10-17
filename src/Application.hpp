@@ -9,9 +9,10 @@ private:
 	Engine::Scene::SceneManager sceneManager;
 
 	void Input();
-	void Draw();
 	void Update();
+	void Draw();
 public:
 	Application();
+	~Application();
 	void MainLoop();
 };

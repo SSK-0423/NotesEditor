@@ -151,10 +151,6 @@ NotesEditor::EditorSceneCanvas::EditorSceneCanvas() : musicInfoText(nullptr)
 
 NotesEditor::EditorSceneCanvas::~EditorSceneCanvas()
 {
-	for (auto& gui : guiList)
-		delete gui;
-	guiList.clear();
-	guiList.shrink_to_fit();
 }
 
 void NotesEditor::EditorSceneCanvas::Init()
@@ -166,17 +162,13 @@ void NotesEditor::EditorSceneCanvas::Init()
 void NotesEditor::EditorSceneCanvas::Update()
 {
 	for (auto& gui : guiList)
-	{
 		gui->Update();
-	}
 }
 
 void NotesEditor::EditorSceneCanvas::Draw()
 {
 	for (auto& gui : guiList)
-	{
 		gui->Draw();
-	}
 }
 
 void NotesEditor::EditorSceneCanvas::OnMusicLoaded()

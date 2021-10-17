@@ -164,6 +164,7 @@
     <ClCompile Include="src\BoxCollider.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Camera2D.cpp" />
+    <ClCompile Include="src\Canvas.cpp" />
     <ClCompile Include="src\ColliderCreator.cpp" />
     <ClCompile Include="src\CrossingNumberAlgorithm.cpp" />
     <ClCompile Include="src\CubicSpline.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="src\FumenJsonLoader.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GaussElimination.cpp" />
+    <ClCompile Include="src\GUI.cpp" />
     <ClCompile Include="src\InputDevice.cpp" />
     <ClCompile Include="src\ISceneChanger.cpp" />
     <ClCompile Include="src\Keyboard.cpp" />
@@ -224,7 +226,6 @@
     <ClInclude Include="src\CrossingNumberAlgorithm.hpp" />
     <ClInclude Include="src\CubicSpline.hpp" />
     <ClInclude Include="src\Delegate.hpp" />
-    <ClInclude Include="src\EditorCamera.hpp" />
     <ClInclude Include="src\EditorSceneCanvas.hpp" />
     <ClInclude Include="src\EditScene.hpp" />
     <ClInclude Include="src\EquationsSolver.hpp" />

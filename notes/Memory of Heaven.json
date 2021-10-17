@@ -1,0 +1,68 @@
+{
+  "beat": 4,
+  "bpm": 175,
+  "name": "Memory of Heaven",
+  "notes": [
+    {
+      "lane": 2,
+      "timing": 2.7428514957427979,
+      "type": 0
+    },
+    {
+      "lane": 0,
+      "timing": 2.7428514957427979,
+      "type": 0
+    },
+    {
+      "lane": 1,
+      "timing": 2.7428514957427979,
+      "type": 0
+    },
+    {
+      "lane": 5,
+      "timing": 2.7428514957427979,
+      "type": 0
+    },
+    {
+      "lane": 3,
+      "timing": 2.7428514957427979,
+      "type": 0
+    },
+    {
+      "lane": 4,
+      "timing": 2.7428514957427979,
+      "type": 0
+    },
+    {
+      "lane": 0,
+      "timing": 135.77113342285156,
+      "type": 0
+    },
+    {
+      "lane": 3,
+      "timing": 135.77113342285156,
+      "type": 0
+    },
+    {
+      "lane": 2,
+      "timing": 135.77113342285156,
+      "type": 0
+    },
+    {
+      "lane": 1,
+      "timing": 135.77113342285156,
+      "type": 0
+    },
+    {
+      "lane": 4,
+      "timing": 135.77113342285156,
+      "type": 0
+    },
+    {
+      "lane": 5,
+      "timing": 135.77113342285156,
+      "type": 0
+    }
+  ],
+  "path": "sounds\\Memory of Heaven.ogg"
+}

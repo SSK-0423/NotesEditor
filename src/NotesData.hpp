@@ -1,4 +1,9 @@
 #pragma once
+
+/*
+* ショートノーツ生成に必要なデータ
+*/
+
 namespace NotesEditor
 {
 	struct NotesData

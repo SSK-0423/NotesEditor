@@ -1,6 +1,10 @@
 #pragma once
 #include "GameObject.hpp"
 
+/*
+* ƒŒ[ƒ“ƒNƒ‰ƒX
+*/
+
 namespace Engine
 {
 	namespace Components
@@ -25,6 +29,8 @@ namespace NotesEditor
 		static int lineThickness;
 		static float stepPosX;
 		static Color laneColor[2];
+		static const float LANEWIDTH;
+		static const float LANEHEIGHT;
 		Color color;
 		int laneNum;
 		Engine::PrimitiveObj::Point* startPoint;

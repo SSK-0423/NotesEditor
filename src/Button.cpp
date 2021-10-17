@@ -15,7 +15,6 @@ Engine::UI::Button::Button(Components::COLLIDERTYPE type) : isPressed(false)
 
 Engine::UI::Button::~Button()
 {
-	delete transform;
 	delete collider;
 	delete collision;
 }

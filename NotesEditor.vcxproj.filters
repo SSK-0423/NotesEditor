@@ -237,6 +237,12 @@
     <ClCompile Include="src\Button.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\GUI.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Canvas.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -379,9 +385,6 @@
     <ClInclude Include="src\GameObject.hpp">
       <Filter>ヘッダー ファイル\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\EditorCamera.hpp">
-      <Filter>ヘッダー ファイル\NotesEditor</Filter>
-    </ClInclude>
     <ClInclude Include="src\Bar.hpp">
       <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
     </ClInclude>
@@ -437,7 +440,7 @@
       <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
     </ClInclude>
     <ClInclude Include="src\GameUtility.hpp">
-      <Filter>ヘッダー ファイル\Engine</Filter>
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,10 @@
 #include "INotesCreator.hpp"
 #include "Singleton.hpp"
 
+/*
+* ショートノーツ生成クラス
+*/
+
 namespace NotesEditor
 {
 	class ShortNotesCreator : public INotesCreator, public Singleton<ShortNotesCreator> {

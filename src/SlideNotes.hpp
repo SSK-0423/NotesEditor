@@ -5,6 +5,10 @@
 #include "GameUtility.hpp"
 #include <vector>
 
+/*
+* スライドノーツクラス
+*/
+
 namespace NotesEditor
 {
 	class SlideNotes : public Notes {

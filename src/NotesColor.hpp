@@ -2,6 +2,10 @@
 #include "DxLib.h"
 #include "GameUtility.hpp"
 
+/*
+* ノーツの色をまとめた構造体
+*/
+
 namespace NotesEditor
 {
 	struct NotesColor

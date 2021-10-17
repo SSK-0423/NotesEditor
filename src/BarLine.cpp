@@ -16,50 +16,9 @@ Color NotesEditor::BarLine::lineColor[4] = {
 };
 
 int NotesEditor::BarLine::lineThickness = 2;
-
 float NotesEditor::BarLine::stepPosY;
-
-void NotesEditor::BarLine::InitTransform()
-{
-	float windowWidth = static_cast<float>(WINDOW_SIZE_WIDTH);
-	float windowHeight = static_cast<float>(WINDOW_SIZE_HEIGHT);
-
-	float width = windowWidth / 2.f;
-	float height = 20.f;
-
-	float x = parentBar.GetTransform().GetPosition().x;
-	float y = parentBar.GetTransform().GetPosition().y +
-		windowHeight / 2.f - stepPosY * static_cast<float>(lineNum);
-
-	// ラインの始点終点初期化
-	startPoint->x = windowWidth / 4.f;
-	startPoint->y = y;
-	endPoint->x = windowWidth - windowWidth / 4.f;
-	endPoint->y = y;
-
-	// transform初期化
-	transform->SetPosition(x, y);
-	transform->SetSize(width, height);
-
-	// colliderとtransformのパラメータ同期
-	collider->Update();
-}
-
-void NotesEditor::BarLine::InitColor()
-{
-	// 白：1/1, 1/4
-	if (lineNum % 8 == 0)
-		color = lineColor[0];
-	// 水色：1/8
-	else if (lineNum % 4 == 0)
-		color = lineColor[1];
-	// 黄色：1/16
-	else if (lineNum % 2 == 0)
-		color = lineColor[2];
-	// 紫：1/32
-	else if (lineNum % 2 == 1)
-		color = lineColor[3];
-}
+const float NotesEditor::BarLine::BARLINEWIDTH = static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f;
+const float NotesEditor::BarLine::BARLINEHEIGHT = 20.f;
 
 NotesEditor::BarLine::BarLine(const Engine::GameObject& parentBar, int lineNum) : parentBar(parentBar), lineNum(lineNum)
 {
@@ -81,7 +40,7 @@ NotesEditor::BarLine::~BarLine()
 
 void NotesEditor::BarLine::Update()
 {
-	float y = parentBar.GetScreenPos().y + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f - stepPosY * lineNum;
+	float y = CalcScreenPos();
 	startPoint->y = y;
 	endPoint->y = y;
 }
@@ -91,13 +50,53 @@ void NotesEditor::BarLine::Draw()
 	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
 }
 
-float NotesEditor::BarLine::Collision(float x, float y)
+float NotesEditor::BarLine::DecidePutPosY(float x, float y)
 {
+	const float NONE = -1.f;
 	if (collision->Collision(x, y, *collider))
-	{
-		/* 処理 */
-		DrawFormatString(700, 75, GetColor(0, 255, 0), "当たった:%d", lineNum);
 		return transform->GetPosition().y;
-	}
-	return -1.f;
+	return NONE;
+}
+
+float NotesEditor::BarLine::CalcScreenPos()
+{
+	// 小節の下端座標 + 線の単位y座標 * 線番号 
+	float barBottomPos = parentBar.GetScreenPos().y + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f;
+	return barBottomPos - stepPosY * lineNum;
+}
+
+void NotesEditor::BarLine::InitTransform()
+{
+	float windowWidth = static_cast<float>(WINDOW_SIZE_WIDTH);
+	float windowHeight = static_cast<float>(WINDOW_SIZE_HEIGHT);
+
+	float x = parentBar.GetTransform().GetPosition().x;
+	float y = parentBar.GetTransform().GetPosition().y +
+		windowHeight / 2.f - stepPosY * static_cast<float>(lineNum);
+
+	// ラインの始点終点初期化
+	startPoint->x = windowWidth / 4.f;
+	startPoint->y = y;
+	endPoint->x = windowWidth - windowWidth / 4.f;
+	endPoint->y = y;
+
+	transform->SetPosition(x, y);
+	transform->SetSize(BARLINEWIDTH, BARLINEHEIGHT);
+	collider->Update();
+}
+
+void NotesEditor::BarLine::InitColor()
+{
+	// 白：1/1, 1/4
+	if (lineNum % 8 == 0)
+		color = lineColor[0];
+	// 水色：1/8
+	else if (lineNum % 4 == 0)
+		color = lineColor[1];
+	// 黄色：1/16
+	else if (lineNum % 2 == 0)
+		color = lineColor[2];
+	// 紫：1/32
+	else if (lineNum % 2 == 1)
+		color = lineColor[3];
 }

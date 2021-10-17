@@ -16,6 +16,9 @@ namespace Engine
 namespace NotesEditor
 {
 	class Notes;
+	class ShortNotes;
+	class LongNotes;
+	class SlideNotes;
 	class NotesEditorMusic;
 	enum class NOTESTYPE;
 
@@ -27,11 +30,16 @@ namespace NotesEditor
 		std::vector<Engine::GameObject*>* objList;
 		std::vector<Notes*>* notesList;
 		NotesEditorMusic* notesEditorMusic;
-		
+
+		void DeleteExitNotes();
 		float GetPosX(NOTESTYPE parentType, int lane);
 		float CalcPosY(float timing);
+		void CreateNotesFromFumen(picojson::value fumen);
 		NotesData MakeNotesData(picojson::value notesVal, NOTESTYPE parentType);
-		void CreateNotes(picojson::value fumen);
+		Notes* CreateNotes(picojson::value notesVal, NOTESTYPE type);
+		ShortNotes* CreateShortNotes(picojson::value notesVal, NOTESTYPE type);
+		LongNotes* CreateLongNotes(picojson::value notesVal, NOTESTYPE type);
+		SlideNotes* CreateSlideNotes(picojson::value notesVal, NOTESTYPE type);
 	public:
 		~FumenJsonLoader();
 		void SetObjList(std::vector<Engine::GameObject*>& objList);

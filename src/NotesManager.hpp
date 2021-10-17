@@ -5,6 +5,10 @@
 #include "GameUtility.hpp"
 #include "INotesCreator.hpp"
 
+/*
+* ノーツ管理クラス
+*/
+
 namespace Engine
 {
 	class GameObject;
@@ -15,7 +19,6 @@ namespace NotesEditor
 	class Notes;
 	struct NotesData;
 
-	//ノーツ管理クラス
 	class NotesManager : public Singleton<NotesManager> {
 		friend Singleton<NotesManager>;
 	private:
@@ -27,6 +30,7 @@ namespace NotesEditor
 		void Cancel(NOTESTYPE type, std::vector<Engine::GameObject*>& objList);
 
 	public:
+		~NotesManager();
 		void ChangeNotesTypeShort();
 		void ChangeNotesTypeLong();
 		void ChangeNotesTypeSlide();
@@ -34,7 +38,7 @@ namespace NotesEditor
 		void Draw();
 		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 		void DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList);
-		void DeleteObj();
+		void Delete();
 		NOTESTYPE GetPutNotesType();
 		std::vector<Notes*>& GetNotesListRef();
 	};

@@ -15,7 +15,6 @@ Engine::UI::TextureTextBox::TextureTextBox(const char* filePath)
 
 Engine::UI::TextureTextBox::~TextureTextBox()
 {
-	delete transform;
 	delete texture;
 }
 

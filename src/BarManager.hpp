@@ -20,14 +20,15 @@ namespace NotesEditor
 	public:
 		// 1è¨êﬂìñÇΩÇËÇÃç≈ëÂâπïÑêî
 		static const int MAXNOTENUM = 32;
-
+		~BarManager();
+		void DebugDraw();
 		void CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum);
 		void ChangeBarType();
 		void ChangeBarType4();
 		void ChangeBarType8();
 		void ChangeBarType16();
 		void ChangeBarType32();
-		float Collision(float x, float y);
+		float DecidePutPosY(float x, float y);
 		float CalcTiming(float y);
 		unsigned int GetBarNum();
 		int GetLineNum();

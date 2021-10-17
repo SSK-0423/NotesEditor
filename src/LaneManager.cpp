@@ -25,52 +25,37 @@ NotesEditor::LaneManager::LaneManager()
 	slideLanePosX[9] = 678.f;
 	slideLanePosX[10] = 720.f;
 
+	// レーンはスライドノーツ設置時の分必要なので,
+	// SLIDELANENUM分生成
 	for (int i = 0; i < SLIDELANENUM; i++)
 	{
 		laneList.push_back(new Lane(i, slideLanePosX[i]));
 	}
 }
 
-
 NotesEditor::LaneManager::~LaneManager()
 {
 	for (auto lane : laneList)
-	{
 		delete lane;
-	}
 	laneList.clear();
 	laneList.shrink_to_fit();
-}
-
-void NotesEditor::LaneManager::Update()
-{
-	for (auto lane : laneList)
-	{
-		lane->Update();
-	}
 }
 
 void NotesEditor::LaneManager::Draw()
 {
 	for (auto lane : laneList)
-	{
 		lane->Draw();
-	}
 }
 
 // 設置するレーンを決めてX座標を返す
-float NotesEditor::LaneManager::Collision(float x)
+float NotesEditor::LaneManager::DecidePutPosX(float x)
 {
 	/*
-		SHORT,LONGの場合はLANENUM
-		SLIDEの場合はSLIDELANENUM
-		を使う
+	* SHORT,LONGの場合はLANENUM
+	* SLIDEの場合はSLIDELANENUMを使う
 	*/
-
 	if (NotesManager::Instance().GetPutNotesType() == NOTESTYPE::SLIDE_NOTES)
-	{
 		return DecidePosX(x, slideLanePosX, SLIDELANENUM);
-	}
 
 	return DecidePosX(x, lanePosX, LANENUM);
 }
@@ -78,9 +63,7 @@ float NotesEditor::LaneManager::Collision(float x)
 int NotesEditor::LaneManager::GetLane(float x)
 {
 	if (NotesManager::Instance().GetPutNotesType() == NOTESTYPE::SLIDE_NOTES)
-	{
 		return DecideLane(x, slideLanePosX, SLIDELANENUM);
-	}
 
 	return DecideLane(x, lanePosX, LANENUM);
 }
@@ -127,9 +110,7 @@ float NotesEditor::LaneManager::DecidePosX(float x, float laneList[], int size)
 void NotesEditor::LaneManager::Delete()
 {
 	for (auto lane : laneList)
-	{
 		delete lane;
-	}
 	laneList.clear();
 	laneList.shrink_to_fit();
 }

@@ -18,6 +18,14 @@ NotesEditor::NotesManager::NotesManager() : mousePointerColor(GetColor(0, 255, 0
 {
 }
 
+NotesEditor::NotesManager::~NotesManager()
+{
+	for (auto notes : notesList)
+		delete notes;
+	notesList.clear();
+	notesList.shrink_to_fit();
+}
+
 void NotesEditor::NotesManager::ChangeNotesTypeShort()
 {
 	type = NOTESTYPE::SHORT_NOTES;
@@ -48,7 +56,7 @@ void NotesEditor::NotesManager::Update()
 
 void NotesEditor::NotesManager::Draw()
 {
-	DrawFormatString(800, 600, GetColor(0, 255, 0), "notesList:%d", notesList.size());
+	DrawFormatString(800, 50, GetColor(0, 255, 0), "notesList:%d", notesList.size());
 	int x, y;
 	GetMousePoint(&x, &y);
 	DrawBox(x - 10, y - 10, x + 10, y + 10, mousePointerColor, true);
@@ -120,8 +128,12 @@ void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine
 	}
 }
 
-void NotesEditor::NotesManager::DeleteObj()
+void NotesEditor::NotesManager::Delete()
 {
+	for (auto notes : notesList)
+		delete notes;
+	notesList.clear();
+	notesList.shrink_to_fit();
 }
 
 NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()

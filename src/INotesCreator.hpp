@@ -1,6 +1,10 @@
 #pragma once
 #include <vector>
 
+/*
+* NotesCreatorのインターフェース
+*/
+
 namespace NotesEditor
 {
 	struct NotesData;

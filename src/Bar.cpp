@@ -9,35 +9,23 @@
 #include "BarLine.hpp"
 #include <math.h>
 
-//static変数の実体化
-Font NotesEditor::Bar::fontHandle;
 NotesEditor::BARTYPE NotesEditor::Bar::nowType = NotesEditor::BARTYPE::BAR1;
+const float NotesEditor::Bar::BARWIDTH = static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f;
+const float NotesEditor::Bar::BARHEIGHT = static_cast<float>(WINDOW_SIZE_HEIGHT);
+Font NotesEditor::Bar::fontHandle;
 int NotesEditor::Bar::MAXNOTENUM = 1;
 
 NotesEditor::Bar::Bar(int barNum, int lineNum) : barNum(barNum)
 {
-	BarLine::stepPosY = static_cast<float>(WINDOW_SIZE_HEIGHT) / MAXNOTENUM;
-
+	BarLine::stepPosY = BARHEIGHT / MAXNOTENUM;
 	collider = new Engine::Components::BoxCollider(*transform);
 	collision = new Engine::Collision::PointWithPolygon();
-
 	// サイズ初期化
-	float width = static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f;
-	float height = static_cast<float>(WINDOW_SIZE_HEIGHT);
-
-	transform->SetSize(width, height);
-
+	transform->SetSize(BARWIDTH, BARHEIGHT);
 	// 座標初期化
-	transform->SetPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
-		static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f - height * (static_cast<float>(WINDOW_SIZE_HEIGHT) / height) * barNum);
-	screenPos->SetPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
-		static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f - height * (static_cast<float>(WINDOW_SIZE_HEIGHT) / height) * barNum);
-
+	InitPos(barNum);
 	// 小節線の生成
-	for (int i = 0; i < lineNum; i++)
-	{
-		barLineList.push_back(new BarLine(*this, i));
-	}
+	CreateBarLine(lineNum);
 	collider->Update();
 }
 
@@ -55,35 +43,26 @@ NotesEditor::Bar::~Bar()
 
 void NotesEditor::Bar::Update()
 {
-	for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
-	{
-		barLineList[i]->Update();
-	}
+	UpdateBarLine();
 }
 
 void NotesEditor::Bar::Draw()
 {
-	for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
-	{
-		barLineList[i]->Draw();
-	}
+	DrawBarLine();
 	DrawBarNum();
 }
 
-float NotesEditor::Bar::Collision(float x, float y)
+float NotesEditor::Bar::DecidePutPosY(float x, float y)
 {
+	const float NONE = -1.f;
+	if (!IsOnBar(x, y)) return NONE;
 	float putPoxY;
-	bool isOnBar = collision->Collision(x, y, *collider);
-	if (isOnBar)
+	for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
 	{
-		DrawFormatString(700, 100, GetColor(0, 255, 0), "当たった:%d小節目", barNum);
-		for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
-		{
-			putPoxY = barLineList[i]->Collision(x, y);
-			if (putPoxY != -1.f) return putPoxY;
-		}
+		putPoxY = barLineList[i]->DecidePutPosY(x, y);
+		if (putPoxY != -1.f) return putPoxY;
 	}
-	return -1.f;
+	return NONE;
 }
 
 void NotesEditor::Bar::ChangeBarType(BARTYPE type)
@@ -91,25 +70,47 @@ void NotesEditor::Bar::ChangeBarType(BARTYPE type)
 	nowType = type;
 }
 
+void NotesEditor::Bar::InitPos(int barNum)
+{
+	/*
+	* 座標
+	* X:ウィンドウの中央
+	* Y:ウィンドウの中央 - 小節番号 * 小節の高さ
+	*/
+	transform->SetPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f, static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f - BARHEIGHT * barNum);
+	screenPos->SetPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f, static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f - BARHEIGHT * barNum);
+}
+
+void NotesEditor::Bar::CreateBarLine(int lineNum)
+{
+	for (int i = 0; i < lineNum; i++)
+	{
+		barLineList.push_back(new BarLine(*this, i));
+	}
+}
+
+void NotesEditor::Bar::UpdateBarLine()
+{
+	for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
+	{
+		barLineList[i]->Update();
+	}
+}
+
 void NotesEditor::Bar::DrawBarNum()
 {
-	// 小節線描画	
 	DrawFormatStringToHandle(780, screenPos->y + static_cast<float>(transform->GetSize().height) / 2.f - 20.f, GetColor(255, 255, 255), fontHandle, "%d", barNum + 1);
 }
 
 void NotesEditor::Bar::DrawBarLine()
 {
-	for (auto line : barLineList)
+	for (size_t i = 0; i < barLineList.size(); i += static_cast<int>(nowType))
 	{
-		line->Draw();
+		barLineList[i]->Draw();
 	}
 }
 
-//void NotesEditor::Bar::InitLaneArray() {
-//	lane[0] = 307;
-//	lane[1] = 390;
-//	lane[2] = 472;
-//	lane[3] = 555;
-//	lane[4] = 637;
-//	lane[5] = 720;
-//}
+bool NotesEditor::Bar::IsOnBar(float x, float y)
+{
+	return collision->Collision(x, y, *collider);
+}
