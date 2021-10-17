@@ -47,7 +47,6 @@ namespace NotesEditor
 		void UpdateBarLine();
 		void DrawBarNum();
 		void DrawBarLine();
-		void DebugDraw();
 		bool IsOnBar(float x, float y);
 	public:
 		static Font fontHandle;
@@ -57,7 +56,9 @@ namespace NotesEditor
 		void Update();
 		void Draw();
 		float DecidePutPosY(float x, float y);
-		void ChangedSize(float scaleHeight);
+		void ChangedScale(float scaleHeight);
+		int LineNum(float y);
+		bool Collision(float x, float y);
 		static void ChangeBarType(BARTYPE type);
 	};
 }

@@ -39,6 +39,30 @@ int NotesEditor::BarManager::GetLineNum()
 	return lineNum;
 }
 
+int NotesEditor::BarManager::NotesBarNum(float y)
+{
+	const int NONE = -1;
+
+	for (size_t i = 0; i < barList.size(); i++)
+	{
+		if (barList[i]->Collision(barList[i]->GetTransform().GetPosition().x, y))
+			return i;
+	}
+	return NONE;
+}
+
+int NotesEditor::BarManager::NotesLineNum(float y)
+{
+	const int NONE = -1;
+	for (auto bar : barList)
+	{
+		int lineNum = bar->LineNum(y);
+		if (lineNum != NONE)
+			return lineNum;
+	}
+	return NONE;
+}
+
 void NotesEditor::BarManager::Delete()
 {
 	for (auto bar : barList)
@@ -101,8 +125,8 @@ void NotesEditor::BarManager::ChangeBarType32()
 	Bar::ChangeBarType(BARTYPE::BAR32);
 }
 
-void NotesEditor::BarManager::ChangeSize(float scaleHeight)
+void NotesEditor::BarManager::ChangeScale(float scaleHeight)
 {
 	for (auto bar : barList)
-		bar->ChangedSize(scaleHeight);
+		bar->ChangedScale(scaleHeight);
 }

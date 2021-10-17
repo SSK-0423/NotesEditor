@@ -11,13 +11,13 @@
 #include "DxLib.h"
 #include <math.h>
 
-const float NotesEditor::EditScene::MAXSIZE = 5.f;
+const float NotesEditor::EditScene::MAXSIZE = 3.f;
 const float NotesEditor::EditScene::MINSIZE = 0.25f;
 
 NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	: BaseScene(changer), camera(allObjList), notesEditorMusic(NotesEditorMusic::Instance()), notesManager(NotesManager::Instance()),
 	laneManager(LaneManager::Instance()), barManager(BarManager::Instance()),
-	fumenJsonGenerator(FumenJsonGenerator::Instance()), fumenJsonLoader(FumenJsonLoader::Instance()), size(1.f)
+	fumenJsonGenerator(FumenJsonGenerator::Instance()), fumenJsonLoader(FumenJsonLoader::Instance()), scale(1.f)
 {
 	fumenJsonGenerator.SetNotesList(notesManager.GetNotesListRef());
 	fumenJsonGenerator.SetNotesEditorMusic(notesEditorMusic);
@@ -28,6 +28,7 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	laneHandle = LoadGraph("image/レーン02.png");
 	backgroundHandle = LoadGraph("image/背景.jpg");
 }
+
 
 NotesEditor::EditScene::~EditScene()
 {
@@ -82,6 +83,8 @@ void NotesEditor::EditScene::Draw()
 	notesManager.Draw();
 	fumenJsonGenerator.Draw();
 	Input();
+
+	DrawFormatString(800, 100, GetColor(0, 255, 0), "倍率:%f", scale);
 }
 
 void NotesEditor::EditScene::Input()
@@ -111,26 +114,42 @@ void NotesEditor::EditScene::Input()
 
 	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) && mouse.GetMouseWheelRotVol())
 	{
-		size += 0.25f * mouse.GetMouseWheelRotVol();
-		size = (std::min)((std::max)(size, MINSIZE),MAXSIZE);
-		// barのサイズ変更
-		barManager.ChangeSize(size);
-		// ノーツの位置変更
-		notesManager.ChangedSize(size);
-		// カメラのスクロールスピード変更
-		camera.ChangedScrollSpeed(size);
-		// カメラの移動限界座標変更
-		camera.SetMinPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
-			(static_cast<float>(-WINDOW_SIZE_HEIGHT) * static_cast<float>(barManager.GetBarNum()) + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f) * size);
+		OnChangedScale(mouse.GetMouseWheelRotVol());
 	}
-	DrawFormatString(800, 100, GetColor(0, 255, 0), "回転量:%d", mouse.GetMouseWheelRotVol());
-	DrawFormatString(800, 125, GetColor(0, 255, 0), "サイズ:%f", size);
 }
 
+void NotesEditor::EditScene::OnChangedScale(int mouseWheelRotVol)
+{
+	float beforeScale = scale;
+	// 符号だけ取り出す
+	scale += 0.25f * mouseWheelRotVol / abs(mouseWheelRotVol);
+	scale = (std::min)((std::max)(scale, MINSIZE), MAXSIZE);
+	// barのサイズ変更
+	barManager.ChangeScale(scale);
+	// ノーツの位置変更
+	notesManager.ChangedScale(scale);
+	Engine::Components::Position cameraPos = camera.GetTransform().GetPosition();
+	//
+	camera.GetTransform().SetPosition(cameraPos.x, cameraPos.y * scale / beforeScale);
+	// カメラのスクロールスピード変更
+	camera.ChangedScrollSpeed(scale);
+	// カメラの移動限界座標変更
+	camera.SetMinPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
+		(static_cast<float>(-WINDOW_SIZE_HEIGHT) * static_cast<float>(barManager.GetBarNum()) + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f) * scale);
+}
 void NotesEditor::EditScene::OnMusicLoaded()
 {
 	// テキストボックスの更新
 	editorSceneCanvas.OnMusicLoaded();
+
+	// サイズ初期化
+	scale = 1.f;
+	// barのサイズ変更
+	barManager.ChangeScale(scale);
+	// ノーツの位置変更
+	notesManager.ChangedScale(scale);
+	// カメラのスクロールスピード変更
+	camera.ChangedScrollSpeed(scale);
 
 	NotesEditor::NotesEditorMusic& music = NotesEditor::NotesEditorMusic::Instance();
 	long long totalTime = music.GetTotalTime();
@@ -180,8 +199,10 @@ void NotesEditor::EditScene::PutNotes()
 
 	int lane = laneManager.GetLane(x);
 	float timing = CalcJudgeTiming(y);
+	int barNum = barManager.NotesBarNum(y);
+	int lineNum = barManager.NotesLineNum(y);
 
-	NotesData data(x, y, lane, timing);
+	NotesData data(x, y, lane, timing, barNum, lineNum);
 	notesManager.CreateNotes(data, allObjList);
 
 	fumenJsonGenerator.NotSaveCompleted();
@@ -190,7 +211,7 @@ void NotesEditor::EditScene::PutNotes()
 float NotesEditor::EditScene::CalcJudgeTiming(float y)
 {
 	// 最小単位音符当たりの座標
-	float minimumNotePosY = static_cast<float>(WINDOW_SIZE_HEIGHT) * size / BarManager::MAXNOTENUM;
+	float minimumNotePosY = static_cast<float>(WINDOW_SIZE_HEIGHT) * scale / BarManager::MAXNOTENUM;
 	// 小節の上端座標
 	float barTopPos = minimumNotePosY * barManager.GetLineNum();
 	// 曲の総再生時間

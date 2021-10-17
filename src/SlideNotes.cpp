@@ -14,6 +14,8 @@ NotesEditor::SlideNotes::SlideNotes(std::vector<ShortNotes*> list)
 {
 	timing = list[0]->GetTiming();
 	lane = list[0]->GetLane();
+	barNum = list[0]->GetBarNum();
+	lineNum = list[0]->GetLineNum();
 	notesList = list;
 	notesColor = NotesColor::puttingNotesColor;
 	lineColor = NotesColor::puttingLineColor;
@@ -81,6 +83,26 @@ void NotesEditor::SlideNotes::Draw()
 	{
 		notes->Draw();
 	}
+
+	//@“–‚½‚è”»’è•`‰æ
+	Engine::Components::Size size = transform->GetSize();
+	float scale = size.scaleHeight;
+	DrawBoxAA(screenPos->x - size.width / 2.f, screenPos->y - size.height * scale / 2.f,
+		screenPos->x + size.width / 2.f, screenPos->y + size.height * scale / 2.f,
+		GetColor(255, 0, 0), false, 2.f);
+}
+
+void NotesEditor::SlideNotes::ChangedScale(float scale, bool isScaleUp)
+{
+	for (auto notes : notesList)
+		notes->ChangedScale(scale, isScaleUp);
+
+	transform->Scaling(0.f, scale);
+	// ‰Šú‰»()
+	Init();
+	//ƒXƒP[ƒ‹1”{‚ÌŽž‚ÌƒTƒCƒY‚ðÝ’è‚·‚é
+	Engine::Components::Size size = transform->GetSize();
+	transform->SetSize(size.width, size.height / scale);
 }
 
 std::vector<NotesEditor::ShortNotes*> NotesEditor::SlideNotes::GetChildNotesList()
@@ -154,16 +176,20 @@ Vector2<float> NotesEditor::SlideNotes::CalcInterpolationPoint(std::vector<vecto
 	return vec;
 }
 
+/*
+* ‚‚³‚ª”{—¦1”{‚ÌŽž‚Ì‚‚³‚É‚È‚Á‚Ä‚¢‚é‚½‚ßA
+* ‚‚³‚ª‘å‚«‚·‚¬‚½‚è¬‚³‚·‚¬‚½‚è‚·‚é
+*/
 void NotesEditor::SlideNotes::DrawCurve()
 {
 	Engine::Components::Position position = *screenPos;
-	Engine::Components::Size size = transform->GetSize();
+	float height = transform->GetSize().height * transform->GetSize().scaleHeight;
 
 	for (int i = 0; i < dx_.size() - 1; i++)
 	{
 		// dx_[i] - dx_[0]
-		DrawBoxAA(dy_[i] + 40, position.y + (dx_[i] - dx_[0] + size.height / 2) + 1,
-			dy_[i + 1] - 40, position.y + (dx_[i + 1] - dx_[0] + size.height / 2) - 1, lineColor, true);
+		DrawBoxAA(dy_[i] + 40, position.y + (dx_[i] - dx_[0] + height / 2) + 1,
+			dy_[i + 1] - 40, position.y + (dx_[i + 1] - dx_[0] + height / 2) - 1, lineColor, true);
 	}
 }
 

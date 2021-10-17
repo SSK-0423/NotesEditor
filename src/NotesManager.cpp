@@ -132,10 +132,15 @@ void NotesEditor::NotesManager::Delete()
 	notesList.shrink_to_fit();
 }
 
-void NotesEditor::NotesManager::ChangedSize(float size)
+void NotesEditor::NotesManager::ChangedScale(float scale)
 {
+	static float beforeScale = 1.f;
+	if (beforeScale == scale) return;
+
 	for (auto notes : notesList)
-		notes->ChangedSize(size);
+		notes->ChangedScale(scale, beforeScale < scale ? true : false);
+
+	beforeScale = scale;
 }
 
 NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()

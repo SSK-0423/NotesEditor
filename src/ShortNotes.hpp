@@ -46,6 +46,7 @@ namespace NotesEditor
 		~ShortNotes();
 		void Update() override;
 		void Draw() override;
+		void ChangedScale(float size, bool isScaleUp) override;
 		bool Collision(float x, float y) override;
 		NOTESTYPE GetNotesType() override;
 		void SetColor(Color c);

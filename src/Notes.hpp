@@ -32,7 +32,10 @@ namespace NotesEditor
 		float timing;
 		// ノーツが属するレーン
 		int lane;
-		// 
+		// 何小節目か
+		int barNum;
+		// 1小節を最小単位音符で分割した際に
+		// 1小節の開始位置から何番目のラインなのか
 		int lineNum;
 
 		Engine::Components::ICollider* collider;
@@ -43,9 +46,11 @@ namespace NotesEditor
 		virtual ~Notes();
 		float GetTiming();
 		int GetLane();
-		void ChangedSize(float scaleHeight);
+		int GetBarNum();
+		int GetLineNum();
 		virtual void Draw() = 0;
 		virtual void Update() = 0;
+		virtual void ChangedScale(float size, bool isScaleUp) = 0;
 		virtual bool Collision(float x, float y) = 0;
 		virtual NOTESTYPE GetNotesType() = 0;
 	};

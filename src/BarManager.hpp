@@ -7,6 +7,7 @@
 namespace NotesEditor
 {
 	class Bar;
+	class BarLine;
 
 	class BarManager : public Singleton<BarManager> {
 		friend Singleton<BarManager>;
@@ -27,11 +28,13 @@ namespace NotesEditor
 		void ChangeBarType8();
 		void ChangeBarType16();
 		void ChangeBarType32();
-		void ChangeSize(float scaleHeight);
+		void ChangeScale(float scaleHeight);
 		float DecidePutPosY(float x, float y);
 		float CalcTiming(float y);
 		unsigned int GetBarNum();
 		int GetLineNum();
+		int NotesBarNum(float y);
+		int NotesLineNum(float y);
 		void Delete();
 	};
 }

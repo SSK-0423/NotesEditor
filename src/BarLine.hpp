@@ -31,6 +31,10 @@ namespace NotesEditor
 		static int lineThickness;
 		static const float BARLINEWIDTH;
 		static const float BARLINEHEIGHT;
+
+		float beforePos;
+
+
 		int lineNum; // ‰½”Ô–Ú‚Ìƒ‰ƒCƒ“‚©
 		Color color;
 		Engine::Components::ICollider* collider;
@@ -49,7 +53,7 @@ namespace NotesEditor
 		~BarLine();
 		void Update();
 		void Draw();
-		void OnChangedSize();
+		void OnChangedScale();
 		float DecidePutPosY(float x, float y);
 	};
 }

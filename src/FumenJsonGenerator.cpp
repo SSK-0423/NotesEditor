@@ -106,11 +106,16 @@ void NotesEditor::FumenJsonGenerator::MakeLongNotesData(picojson::object& parent
 		NOTESTYPE childType = child->GetNotesType();
 		int childLane = child->GetLane();
 		float childTiming = child->GetTiming();
+		int childBarNum = child->GetBarNum();
+		int childLineNum = child->GetLineNum();
+
 		// 子ノーツ
 		picojson::object childNotes;
 		childNotes.insert(std::make_pair("type", picojson::value(static_cast<double>(childType))));
 		childNotes.insert(std::make_pair("lane", picojson::value(static_cast<double>(childLane))));
 		childNotes.insert(std::make_pair("timing", picojson::value(static_cast<double>(childTiming))));
+		childNotes.insert(std::make_pair("barNum", picojson::value(static_cast<double>(childBarNum))));
+		childNotes.insert(std::make_pair("lineNum", picojson::value(static_cast<double>(childLineNum))));
 
 		childNotesList.push_back(picojson::value(childNotes));
 	}
@@ -130,11 +135,15 @@ void NotesEditor::FumenJsonGenerator::MakeSlideNotesData(picojson::object& paren
 		NOTESTYPE childType = child->GetNotesType();
 		int childLane = child->GetLane();
 		float childTiming = child->GetTiming();
+		int childBarNum = child->GetBarNum();
+		int childLineNum = child->GetLineNum();
 		// 子ノーツ
 		picojson::object childNotes;
 		childNotes.insert(std::make_pair("type", picojson::value(static_cast<double>(childType))));
 		childNotes.insert(std::make_pair("lane", picojson::value(static_cast<double>(childLane))));
 		childNotes.insert(std::make_pair("timing", picojson::value(static_cast<double>(childTiming))));
+		childNotes.insert(std::make_pair("barNum", picojson::value(static_cast<double>(childBarNum))));
+		childNotes.insert(std::make_pair("lineNum", picojson::value(static_cast<double>(childLineNum))));
 
 		childNotesList.push_back(picojson::value(childNotes));
 	}
@@ -150,12 +159,15 @@ void NotesEditor::FumenJsonGenerator::MakeNotesDataList(picojson::object& fumen)
 		NOTESTYPE type = notes->GetNotesType();
 		int lane = notes->GetLane();
 		float timing = notes->GetTiming();
-
+		int barNum = notes->GetBarNum();
+		int lineNum = notes->GetLineNum();
 		// ノーツ
 		picojson::object parentNotes;
 		parentNotes.insert(std::make_pair("type", picojson::value(static_cast<double>(type))));
 		parentNotes.insert(std::make_pair("lane", picojson::value(static_cast<double>(lane))));
 		parentNotes.insert(std::make_pair("timing", picojson::value(static_cast<double>(timing))));
+		parentNotes.insert(std::make_pair("barNum", picojson::value(static_cast<double>(barNum))));
+		parentNotes.insert(std::make_pair("lineNum", picojson::value(static_cast<double>(lineNum))));
 
 		// ロングノーツだったら
 		if (type == NOTESTYPE::LONG_NOTES)

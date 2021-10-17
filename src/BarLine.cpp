@@ -47,11 +47,14 @@ void NotesEditor::BarLine::Update()
 void NotesEditor::BarLine::Draw()
 {
 	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
-	DrawFormatString(endPoint->x, endPoint->y, color, "Y:%f", endPoint->y);
+	DrawFormatString(endPoint->x, endPoint->y, color, "Y:%5.0f", endPoint->y);
+	//DrawFormatString(endPoint->x + 100.f, endPoint->y + 12.5f, color, "BY:%5.0f", beforePos);
+	DrawFormatString(endPoint->x + 100.f, endPoint->y + 12.5f, color, "diff:%5.0f", endPoint->y - beforePos);
 }
 
-void NotesEditor::BarLine::OnChangedSize()
+void NotesEditor::BarLine::OnChangedScale()
 {
+	beforePos = endPoint->y;
 	UpdatePosition();
 }
 

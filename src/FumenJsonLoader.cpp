@@ -89,15 +89,15 @@ float NotesEditor::FumenJsonLoader::CalcPosY(float timing)
 
 NotesEditor::NotesData NotesEditor::FumenJsonLoader::MakeNotesData(picojson::value notesVal, NOTESTYPE parentType)
 {
-	// レーン
 	int lane = notesVal.get<picojson::object>()["lane"].get<double>();
-	// タイミング
 	float timing = notesVal.get<picojson::object>()["timing"].get<double>();
+	int barNum = notesVal.get<picojson::object>()["barNum"].get<double>();
+	int lineNum = notesVal.get<picojson::object>()["lineNum"].get<double>();
 
 	float x = GetPosX(parentType, lane);
 	float y = CalcPosY(timing);
 
-	return NotesData(x, y, lane, timing);
+	return NotesData(x, y, lane, timing, barNum, lineNum);
 }
 
 void NotesEditor::FumenJsonLoader::CreateNotesFromFumen(picojson::value fumen)

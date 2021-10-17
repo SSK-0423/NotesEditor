@@ -27,7 +27,8 @@ NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(NotesCol
 	
 	lane = notesData.lane;
 	timing = notesData.timing;
-
+	barNum = notesData.barNum;
+	lineNum = notesData.lineNum;
 	collider->Update();
 }
 
@@ -50,8 +51,24 @@ void NotesEditor::ShortNotes::Draw()
 {
 	DrawNotes();
 	collider->Draw();
-	DrawFormatString(800, 300, GetColor(0, 255, 0), "posY:%f", transform->GetPosition().y);
-	DrawFormatString(800, 325, GetColor(0, 255, 0), "screenPosY:%f", screenPos->y);
+}
+
+void NotesEditor::ShortNotes::ChangedScale(float size, bool isScaleUp)
+{
+	// 倍率が上がった場合
+	if (isScaleUp)
+	{
+		// 座標とスケールの更新
+		transform->SetPosition(transform->GetPosition().x,
+			transform->GetPosition().y - 6.f * lineNum - 192.f * barNum);
+	}
+	else
+	{
+		transform->SetPosition(transform->GetPosition().x,
+			transform->GetPosition().y + 6.f * lineNum + 192.f * barNum);
+	}
+
+	collider->Update();
 }
 
 NotesEditor::NOTESTYPE NotesEditor::ShortNotes::GetNotesType()

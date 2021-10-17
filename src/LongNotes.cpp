@@ -9,7 +9,8 @@ NotesEditor::LongNotes::LongNotes(ShortNotes& start)// : startNotes(&start)
 {
 	lane = start.GetLane();
 	timing = start.GetTiming();
-
+	barNum = start.GetBarNum();
+	lineNum = start.GetLineNum();
 	start.SetColor(NotesColor::longNotesColor);
 	// 始点ノーツ追加
 	notesList.push_back(&start);
@@ -33,6 +34,7 @@ bool NotesEditor::LongNotes::Collision(float x, float y)
 
 void NotesEditor::LongNotes::Update()
 {
+	collider->Update();
 	UpdateNotes();
 	UpdateNotesScreenPos();
 }
@@ -42,6 +44,26 @@ void NotesEditor::LongNotes::Draw()
 	collider->Draw();
 	DrawMiddleLine();
 	DrawNotes();
+
+	//　当たり判定描画
+	Engine::Components::Size size = transform->GetSize();
+	float scale = size.scaleHeight;
+	DrawBoxAA(screenPos->x - size.width / 2.f, screenPos->y - size.height * scale / 2.f,
+		screenPos->x + size.width / 2.f, screenPos->y + size.height * scale / 2.f,
+		GetColor(255, 0, 0), false, 2.f);
+}
+
+void NotesEditor::LongNotes::ChangedScale(float scale, bool isScaleUp)
+{
+	for (auto notes : notesList)
+		notes->ChangedScale(scale, isScaleUp);
+
+	Init();
+	transform->Scaling(0.f, scale);
+	// スケール1倍の時のサイズを設定する
+	Engine::Components::Size size = transform->GetSize();
+	transform->SetSize(size.width, size.height / scale);
+	collider->Update();
 }
 
 void NotesEditor::LongNotes::AddEndNotes(ShortNotes& end)
@@ -87,7 +109,7 @@ void NotesEditor::LongNotes::Init()
 {
 	Engine::Components::Position startNotesPos = notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetPosition();
 	Engine::Components::Position endNotesPos = notesList.back()->GetTransform().GetPosition();
-	
+
 	float width = notesList[static_cast<int>(LONGNOTES::STARTNOTES)]->GetTransform().GetSize().width;
 	float height = fabsf(endNotesPos.y - startNotesPos.y);
 	if (notesList.size() == 1)

@@ -35,7 +35,7 @@ namespace NotesEditor
 		
 		static const float MAXSIZE;
 		static const float MINSIZE;
-		float size;
+		float scale;
 		
 		void Input();
 		void OnMusicLoaded();
@@ -47,6 +47,7 @@ namespace NotesEditor
 		int CalcBarNum(long long totalTime, float bpm, float beat);
 		void UpdateStartMusicTime();
 		void DrawLaneBackground();
+		void OnChangedScale(int mouseWheelRotVol);
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
 		~EditScene();

@@ -52,6 +52,7 @@ namespace NotesEditor
 		NOTESTYPE GetNotesType() override;
 		void Update() override;
 		void Draw() override;
+		void ChangedScale(float size, bool isScaleUp) override;
 		std::vector<ShortNotes*> GetChildNotesList();
 	};
 }

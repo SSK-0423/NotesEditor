@@ -4,64 +4,1129 @@
   "name": "Memory of Heaven",
   "notes": [
     {
-      "lane": 2,
-      "timing": 2.7428514957427979,
-      "type": 0
-    },
-    {
+      "barNum": 1,
       "lane": 0,
-      "timing": 2.7428514957427979,
-      "type": 0
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 1,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 1.3714257478713989,
+          "type": 0
+        },
+        {
+          "barNum": 2,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 2.7428514957427979,
+          "type": 0
+        }
+      ],
+      "timing": 1.3714257478713989,
+      "type": 1
     },
     {
+      "barNum": 2,
       "lane": 1,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 2,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 2.7428514957427979,
+          "type": 0
+        },
+        {
+          "barNum": 3,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 4.1142778396606445,
+          "type": 0
+        }
+      ],
       "timing": 2.7428514957427979,
-      "type": 0
+      "type": 1
     },
     {
-      "lane": 5,
-      "timing": 2.7428514957427979,
-      "type": 0
-    },
-    {
-      "lane": 3,
-      "timing": 2.7428514957427979,
-      "type": 0
-    },
-    {
-      "lane": 4,
-      "timing": 2.7428514957427979,
-      "type": 0
-    },
-    {
-      "lane": 0,
-      "timing": 135.77113342285156,
-      "type": 0
-    },
-    {
-      "lane": 3,
-      "timing": 135.77113342285156,
-      "type": 0
-    },
-    {
+      "barNum": 3,
       "lane": 2,
-      "timing": 135.77113342285156,
-      "type": 0
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 3,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 4.1142778396606445,
+          "type": 0
+        },
+        {
+          "barNum": 4,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 5.4857034683227539,
+          "type": 0
+        }
+      ],
+      "timing": 4.1142778396606445,
+      "type": 1
     },
     {
+      "barNum": 5,
+      "lane": 2,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 5,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 6.8571286201477051,
+          "type": 0
+        },
+        {
+          "barNum": 6,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 8.2285547256469727,
+          "type": 0
+        },
+        {
+          "barNum": 7,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 9.599980354309082,
+          "type": 0
+        },
+        {
+          "barNum": 8,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 10.971405982971191,
+          "type": 0
+        }
+      ],
+      "timing": 6.8571286201477051,
+      "type": 2
+    },
+    {
+      "barNum": 9,
       "lane": 1,
-      "timing": 135.77113342285156,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 9,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 12.342833518981934,
+          "type": 0
+        },
+        {
+          "barNum": 10,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 13.714260101318359,
+          "type": 0
+        }
+      ],
+      "timing": 12.342833518981934,
+      "type": 1
+    },
+    {
+      "barNum": 10,
+      "lane": 2,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 10,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 13.714260101318359,
+          "type": 0
+        },
+        {
+          "barNum": 11,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 15.085686683654785,
+          "type": 0
+        }
+      ],
+      "timing": 13.714260101318359,
+      "type": 1
+    },
+    {
+      "barNum": 11,
+      "lane": 3,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 11,
+          "lane": 3,
+          "lineNum": 0,
+          "timing": 15.085686683654785,
+          "type": 0
+        },
+        {
+          "barNum": 12,
+          "lane": 3,
+          "lineNum": 0,
+          "timing": 16.457111358642578,
+          "type": 0
+        }
+      ],
+      "timing": 15.085686683654785,
+      "type": 1
+    },
+    {
+      "barNum": 13,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 17.828536987304688,
       "type": 0
     },
     {
+      "barNum": 13,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 18.514249801635742,
+      "type": 0
+    },
+    {
+      "barNum": 14,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 19.199962615966797,
+      "type": 0
+    },
+    {
+      "barNum": 14,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 19.885675430297852,
+      "type": 0
+    },
+    {
+      "barNum": 15,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 20.571390151977539,
+      "type": 0
+    },
+    {
+      "barNum": 15,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 20.914247512817383,
+      "type": 0
+    },
+    {
+      "barNum": 15,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 21.257102966308594,
+      "type": 0
+    },
+    {
+      "barNum": 15,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 21.599960327148438,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 21.942815780639648,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 22.11424446105957,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 22.285673141479492,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 22.457101821899414,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 22.628528594970703,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 18,
+      "timing": 22.71424674987793,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 20,
+      "timing": 22.799959182739258,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 22,
+      "timing": 22.885673522949219,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 22.97138786315918,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 26,
+      "timing": 23.057102203369141,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 28,
+      "timing": 23.142816543579102,
+      "type": 0
+    },
+    {
+      "barNum": 16,
+      "lane": 0,
+      "lineNum": 30,
+      "timing": 23.22852897644043,
+      "type": 0
+    },
+    {
+      "barNum": 17,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 23.314243316650391,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 34.28564453125,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 1,
+      "lineNum": 4,
+      "timing": 34.457073211669922,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 34.628501892089844,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 34.799930572509766,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 1,
+      "lineNum": 16,
+      "timing": 34.971359252929688,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 35.142784118652344,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 35.314216613769531,
+      "type": 0
+    },
+    {
+      "barNum": 25,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 35.485645294189453,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 35.657070159912109,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 35.828498840332031,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 1,
+      "lineNum": 8,
+      "timing": 35.999927520751953,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 36.171356201171875,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 36.342784881591797,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 1,
+      "lineNum": 20,
+      "timing": 36.514209747314453,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 36.685642242431641,
+      "type": 0
+    },
+    {
+      "barNum": 26,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 36.857070922851562,
+      "type": 0
+    },
+    {
+      "barNum": 27,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 37.028495788574219,
+      "type": 0
+    },
+    {
+      "barNum": 27,
       "lane": 4,
-      "timing": 135.77113342285156,
+      "lineNum": 4,
+      "timing": 37.199924468994141,
       "type": 0
     },
     {
+      "barNum": 27,
       "lane": 5,
-      "timing": 135.77113342285156,
+      "lineNum": 8,
+      "timing": 37.371353149414062,
       "type": 0
+    },
+    {
+      "barNum": 27,
+      "lane": 3,
+      "lineNum": 12,
+      "timing": 37.542781829833984,
+      "type": 0
+    },
+    {
+      "barNum": 27,
+      "lane": 4,
+      "lineNum": 16,
+      "timing": 37.714210510253906,
+      "type": 0
+    },
+    {
+      "barNum": 27,
+      "lane": 5,
+      "lineNum": 20,
+      "timing": 37.885635375976562,
+      "type": 0
+    },
+    {
+      "barNum": 27,
+      "lane": 3,
+      "lineNum": 24,
+      "timing": 38.05706787109375,
+      "type": 0
+    },
+    {
+      "barNum": 27,
+      "lane": 4,
+      "lineNum": 28,
+      "timing": 38.228496551513672,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 5,
+      "lineNum": 0,
+      "timing": 38.399921417236328,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 3,
+      "lineNum": 4,
+      "timing": 38.57135009765625,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 38.742778778076172,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 5,
+      "lineNum": 12,
+      "timing": 38.914207458496094,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 3,
+      "lineNum": 16,
+      "timing": 39.085636138916016,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 39.257061004638672,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 5,
+      "lineNum": 24,
+      "timing": 39.428493499755859,
+      "type": 0
+    },
+    {
+      "barNum": 28,
+      "lane": 4,
+      "lineNum": 28,
+      "timing": 39.599922180175781,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 39.7713623046875,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 39.942787170410156,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 40.114219665527344,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 40.285648345947266,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 40.457073211669922,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 40.628505706787109,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 40.799934387207031,
+      "type": 0
+    },
+    {
+      "barNum": 29,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 40.971359252929688,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 4,
+      "lineNum": 0,
+      "timing": 41.142787933349609,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 41.314216613769531,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 41.485645294189453,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 4,
+      "lineNum": 12,
+      "timing": 41.657073974609375,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 41.828498840332031,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 41.999931335449219,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 42.171360015869141,
+      "type": 0
+    },
+    {
+      "barNum": 30,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 42.342784881591797,
+      "type": 0
+    },
+    {
+      "barNum": 33,
+      "lane": 0,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 33,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 45.257068634033203,
+          "type": 0
+        },
+        {
+          "barNum": 34,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 46.628494262695312,
+          "type": 0
+        }
+      ],
+      "timing": 45.257068634033203,
+      "type": 1
+    },
+    {
+      "barNum": 34,
+      "lane": 1,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 34,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 46.628494262695312,
+          "type": 0
+        },
+        {
+          "barNum": 34,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 47.999912261962891,
+          "type": 0
+        }
+      ],
+      "timing": 46.628494262695312,
+      "type": 1
+    },
+    {
+      "barNum": 34,
+      "lane": 2,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 34,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 47.999912261962891,
+          "type": 0
+        },
+        {
+          "barNum": 36,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 49.371341705322266,
+          "type": 0
+        }
+      ],
+      "timing": 47.999912261962891,
+      "type": 1
+    },
+    {
+      "barNum": 36,
+      "lane": 5,
+      "lineNum": 8,
+      "notes": [
+        {
+          "barNum": 36,
+          "lane": 5,
+          "lineNum": 8,
+          "timing": 49.714195251464844,
+          "type": 0
+        },
+        {
+          "barNum": 36,
+          "lane": 5,
+          "lineNum": 16,
+          "timing": 50.057056427001953,
+          "type": 0
+        }
+      ],
+      "timing": 49.714195251464844,
+      "type": 1
+    },
+    {
+      "barNum": 36,
+      "lane": 4,
+      "lineNum": 16,
+      "notes": [
+        {
+          "barNum": 36,
+          "lane": 4,
+          "lineNum": 16,
+          "timing": 50.057056427001953,
+          "type": 0
+        },
+        {
+          "barNum": 36,
+          "lane": 4,
+          "lineNum": 24,
+          "timing": 50.399909973144531,
+          "type": 0
+        }
+      ],
+      "timing": 50.057056427001953,
+      "type": 1
+    },
+    {
+      "barNum": 36,
+      "lane": 3,
+      "lineNum": 24,
+      "notes": [
+        {
+          "barNum": 36,
+          "lane": 3,
+          "lineNum": 24,
+          "timing": 50.399909973144531,
+          "type": 0
+        },
+        {
+          "barNum": 37,
+          "lane": 3,
+          "lineNum": 0,
+          "timing": 50.742767333984375,
+          "type": 0
+        }
+      ],
+      "timing": 50.399909973144531,
+      "type": 1
+    },
+    {
+      "barNum": 37,
+      "lane": 0,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 37,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 50.742767333984375,
+          "type": 0
+        },
+        {
+          "barNum": 38,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 52.114192962646484,
+          "type": 0
+        }
+      ],
+      "timing": 50.742767333984375,
+      "type": 1
+    },
+    {
+      "barNum": 38,
+      "lane": 1,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 38,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 52.114192962646484,
+          "type": 0
+        },
+        {
+          "barNum": 39,
+          "lane": 1,
+          "lineNum": 0,
+          "timing": 53.485618591308594,
+          "type": 0
+        }
+      ],
+      "timing": 52.114192962646484,
+      "type": 1
+    },
+    {
+      "barNum": 39,
+      "lane": 2,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 39,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 53.485618591308594,
+          "type": 0
+        },
+        {
+          "barNum": 40,
+          "lane": 2,
+          "lineNum": 0,
+          "timing": 54.857044219970703,
+          "type": 0
+        }
+      ],
+      "timing": 53.485618591308594,
+      "type": 1
+    },
+    {
+      "barNum": 40,
+      "lane": 5,
+      "lineNum": 8,
+      "notes": [
+        {
+          "barNum": 40,
+          "lane": 5,
+          "lineNum": 8,
+          "timing": 55.199897766113281,
+          "type": 0
+        },
+        {
+          "barNum": 40,
+          "lane": 5,
+          "lineNum": 16,
+          "timing": 55.542755126953125,
+          "type": 0
+        }
+      ],
+      "timing": 55.199897766113281,
+      "type": 1
+    },
+    {
+      "barNum": 40,
+      "lane": 4,
+      "lineNum": 16,
+      "notes": [
+        {
+          "barNum": 40,
+          "lane": 4,
+          "lineNum": 16,
+          "timing": 55.542755126953125,
+          "type": 0
+        },
+        {
+          "barNum": 40,
+          "lane": 4,
+          "lineNum": 24,
+          "timing": 55.885612487792969,
+          "type": 0
+        }
+      ],
+      "timing": 55.542755126953125,
+      "type": 1
+    },
+    {
+      "barNum": 40,
+      "lane": 3,
+      "lineNum": 24,
+      "notes": [
+        {
+          "barNum": 40,
+          "lane": 3,
+          "lineNum": 24,
+          "timing": 55.885612487792969,
+          "type": 0
+        },
+        {
+          "barNum": 41,
+          "lane": 3,
+          "lineNum": 0,
+          "timing": 56.228469848632812,
+          "type": 0
+        }
+      ],
+      "timing": 55.885612487792969,
+      "type": 1
+    },
+    {
+      "barNum": 51,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 69.942726135253906,
+      "type": 0
+    },
+    {
+      "barNum": 51,
+      "lane": 1,
+      "lineNum": 8,
+      "timing": 70.28558349609375,
+      "type": 0
+    },
+    {
+      "barNum": 51,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 70.628440856933594,
+      "type": 0
+    },
+    {
+      "barNum": 51,
+      "lane": 1,
+      "lineNum": 20,
+      "timing": 70.79986572265625,
+      "type": 0
+    },
+    {
+      "barNum": 51,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 71.142723083496094,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 71.485580444335938,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 1,
+      "lineNum": 8,
+      "timing": 71.657005310058594,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 71.828437805175781,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 3,
+      "lineNum": 16,
+      "timing": 71.999870300292969,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 5,
+      "lineNum": 20,
+      "timing": 72.171287536621094,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 4,
+      "lineNum": 24,
+      "timing": 72.342720031738281,
+      "type": 0
+    },
+    {
+      "barNum": 52,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 72.514144897460938,
+      "type": 0
+    },
+    {
+      "barNum": 53,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 72.685577392578125,
+      "type": 0
+    },
+    {
+      "barNum": 53,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 73.028427124023438,
+      "type": 0
+    },
+    {
+      "barNum": 53,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 73.371292114257812,
+      "type": 0
+    },
+    {
+      "barNum": 53,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 73.542716979980469,
+      "type": 0
+    },
+    {
+      "barNum": 53,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 73.885574340820312,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 0,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 71,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 97.371246337890625,
+          "type": 0
+        },
+        {
+          "barNum": 71,
+          "lane": 2,
+          "lineNum": 4,
+          "timing": 97.542671203613281,
+          "type": 0
+        },
+        {
+          "barNum": 71,
+          "lane": 2,
+          "lineNum": 8,
+          "timing": 97.714103698730469,
+          "type": 0
+        },
+        {
+          "barNum": 71,
+          "lane": 1,
+          "lineNum": 12,
+          "timing": 97.885528564453125,
+          "type": 0
+        },
+        {
+          "barNum": 71,
+          "lane": 2,
+          "lineNum": 16,
+          "timing": 98.056961059570312,
+          "type": 0
+        },
+        {
+          "barNum": 71,
+          "lane": 5,
+          "lineNum": 24,
+          "timing": 98.399810791015625,
+          "type": 0
+        },
+        {
+          "barNum": 71,
+          "lane": 7,
+          "lineNum": 28,
+          "timing": 98.571243286132812,
+          "type": 0
+        },
+        {
+          "barNum": 72,
+          "lane": 4,
+          "lineNum": 0,
+          "timing": 98.742668151855469,
+          "type": 0
+        },
+        {
+          "barNum": 72,
+          "lane": 2,
+          "lineNum": 4,
+          "timing": 98.914100646972656,
+          "type": 0
+        }
+      ],
+      "timing": 97.371246337890625,
+      "type": 2
     }
   ],
   "path": "sounds\\Memory of Heaven.ogg"
