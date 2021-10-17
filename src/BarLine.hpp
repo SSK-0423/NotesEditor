@@ -39,6 +39,8 @@ namespace NotesEditor
 		Engine::PrimitiveObj::Point* startPoint;
 		Engine::PrimitiveObj::Point* endPoint;
 		float CalcScreenPos();
+		void UpdateScreenPos();
+		void UpdatePosition();
 		void InitTransform();
 		void InitColor();
 	public:
@@ -47,6 +49,7 @@ namespace NotesEditor
 		~BarLine();
 		void Update();
 		void Draw();
+		void OnChangedSize();
 		float DecidePutPosY(float x, float y);
 	};
 }

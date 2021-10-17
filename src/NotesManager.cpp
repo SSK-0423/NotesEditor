@@ -30,21 +30,18 @@ void NotesEditor::NotesManager::ChangeNotesTypeShort()
 {
 	type = NOTESTYPE::SHORT_NOTES;
 	mousePointerColor = NotesColor::shortNotesColor;
-	DrawFormatString(800, 600, GetColor(0, 255, 0), "ShortNotes");
 }
 
 void NotesEditor::NotesManager::ChangeNotesTypeLong()
 {
 	type = NOTESTYPE::LONG_NOTES;
 	mousePointerColor = NotesColor::longNotesColor;
-	DrawFormatString(800, 600, GetColor(0, 255, 0), "LongNotes");
 }
 
 void NotesEditor::NotesManager::ChangeNotesTypeSlide()
 {
 	type = NOTESTYPE::SLIDE_NOTES;
 	mousePointerColor = NotesColor::slideNotesColor;
-	DrawFormatString(800, 600, GetColor(0, 255, 0), "SlideNotes");
 }
 
 void NotesEditor::NotesManager::Update()
@@ -56,7 +53,6 @@ void NotesEditor::NotesManager::Update()
 
 void NotesEditor::NotesManager::Draw()
 {
-	DrawFormatString(800, 50, GetColor(0, 255, 0), "notesList:%d", notesList.size());
 	int x, y;
 	GetMousePoint(&x, &y);
 	DrawBox(x - 10, y - 10, x + 10, y + 10, mousePointerColor, true);
@@ -134,6 +130,12 @@ void NotesEditor::NotesManager::Delete()
 		delete notes;
 	notesList.clear();
 	notesList.shrink_to_fit();
+}
+
+void NotesEditor::NotesManager::ChangedSize(float size)
+{
+	for (auto notes : notesList)
+		notes->ChangedSize(size);
 }
 
 NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()

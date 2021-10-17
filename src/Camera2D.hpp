@@ -19,6 +19,7 @@ namespace Engine
 		Components::Position origin;
 		Vector2<float> minLimitPos;
 		Vector2<float> maxLimitPos;
+		float speed;
 		void UpdateOrigin();
 		void UpdateDrawList();
 		void UpdateInCameraObj();
@@ -40,6 +41,6 @@ namespace Engine
 		// ˆÚ“®ŒÀŠE‚ðƒZƒbƒg
 		void SetMinPosition(float x, float y);
 		void SetMaxPosition(float x, float y);
-
+		void ChangedScrollSpeed(float speed);
 	};
 }

@@ -10,7 +10,7 @@
 const float CAMERA_WIDTH = static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f;
 const float CAMERA_HEIGHT = static_cast<float>(WINDOW_SIZE_HEIGHT);
 
-Engine::Camera2D::Camera2D(std::vector<Engine::GameObject*>& objList) : objList(objList)
+Engine::Camera2D::Camera2D(std::vector<Engine::GameObject*>& objList) : objList(objList), speed(1.f)
 {
 	transform = new Components::Transform();
 	transform->SetPosition(CAMERA_WIDTH, CAMERA_HEIGHT / 2.f);
@@ -58,7 +58,7 @@ void Engine::Camera2D::AutoScroll()
 	if (music.IsPlaying())
 	{
 		// 1小節の縦幅 / ((60 * beat * speed / bpm)  * 60) = 1フレームの移動幅
-		float frame_move = WINDOW_SIZE_HEIGHT / (music.GetBeat() * (60 / music.GetBPM()) * 60);
+		float frame_move = WINDOW_SIZE_HEIGHT / (music.GetBeat() * (60 / music.GetBPM()) * 60) * speed;
 		transform->SetPosition(WINDOW_SIZE_WIDTH / 2, -frame_move * music.GetElapsedTime() / 1000.0f * 60.0f + WINDOW_SIZE_HEIGHT / 2);
 	}
 }
@@ -95,8 +95,8 @@ Engine::Components::Size Engine::Camera2D::SumSize(const Components::Transform& 
 	Components::Size cameraSize = transform->GetSize();
 
 	// サイズ計算
-	sizeSum.width = (cameraSize.width + targetSize.width) / 2.f;
-	sizeSum.height = (cameraSize.height + targetSize.height) / 2.f;
+	sizeSum.width = (cameraSize.width + targetSize.width * targetSize.scaleWidth) / 2.f;
+	sizeSum.height = (cameraSize.height + targetSize.height * targetSize.scaleHeight) / 2.f;
 
 	return sizeSum;
 }
@@ -154,27 +154,31 @@ void Engine::Camera2D::Input()
 	// 1/32音符の長さ
 	//float note32TimeLength = beatTimeLength / 32.f;
 	float note32TimeLength = static_cast<float>(WINDOW_SIZE_HEIGHT) / 32.f;
-	//マウスホイールでスクロール
-	//cameraPos.y += 10 * GetMouseWheelRotVol();
-	cameraPos.y += note32TimeLength * GetMouseWheelRotVol();
-	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_DOWN))
+
+	const Engine::Input::Keyboard keyboard = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
+	if (keyboard.GetPressingCount(KEY_INPUT_DOWN))
 		cameraPos.y += note32TimeLength;
-	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_UP))
+	if (keyboard.GetPressingCount(KEY_INPUT_UP))
 		cameraPos.y -= note32TimeLength;
 
 	//PgUp PgDnでウィンドウサイズ分スクロール
-	if (Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_PGDN))
+	if (keyboard.IsPressKey(KEY_INPUT_PGDN))
 		cameraPos.y += CAMERA_HEIGHT;
-	if (Input::InputDeviceContainer::Instance().GetKeyboard().IsPressKey(KEY_INPUT_PGUP))
+	if (keyboard.IsPressKey(KEY_INPUT_PGUP))
 		cameraPos.y -= CAMERA_HEIGHT;
 
 	//長押しで連続スクロール
-	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGDN) > 31
-		&& Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGDN) % 5 == 0)
+	if (keyboard.GetPressingCount(KEY_INPUT_PGDN) > 31
+		&& keyboard.GetPressingCount(KEY_INPUT_PGDN) % 5 == 0)
 		cameraPos.y += CAMERA_HEIGHT;
-	if (Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGUP) > 31
-		&& Input::InputDeviceContainer::Instance().GetKeyboard().GetPressingCount(KEY_INPUT_PGUP) % 5 == 0)
+	if (keyboard.GetPressingCount(KEY_INPUT_PGUP) > 31
+		&& keyboard.GetPressingCount(KEY_INPUT_PGUP) % 5 == 0)
 		cameraPos.y -= CAMERA_HEIGHT;
+
+	//マウスホイールでスクロール
+	const Engine::Input::Mouse mouse = Engine::Input::InputDeviceContainer::Instance().GetMouse();
+	if(keyboard.GetReleasingCount(KEY_INPUT_LCONTROL))
+		cameraPos.y += note32TimeLength * mouse.GetMouseWheelRotVol();
 
 	// 更新後の座標セット
 	transform->SetPosition(cameraPos.x, cameraPos.y);
@@ -198,4 +202,9 @@ void Engine::Camera2D::SetMaxPosition(float x, float y)
 {
 	maxLimitPos.x = x;
 	maxLimitPos.y = y;
+}
+
+void Engine::Camera2D::ChangedScrollSpeed(float speed)
+{
+	this->speed = speed;
 }

@@ -47,12 +47,12 @@ void NotesEditor::FumenJsonLoader::LoadFumen()
 	notesEditorMusic->LoadMusicFromFumen(fumen);
 	// •ˆ–Ê‚ð¶¬‚µ‚Ä’Ç‰Á‚·‚é
 	CreateNotesFromFumen(fumen);
+
+	DrawFormatString(700, 800, GetColor(0, 255, 0), "“Ç‚Ýž‚ÝŠ®—¹");
 }
 
 void NotesEditor::FumenJsonLoader::DeleteExitNotes()
 {
-	for (auto notes : *objList)
-		delete notes;
 	objList->clear();
 	objList->shrink_to_fit();
 	for (auto notes : *notesList)

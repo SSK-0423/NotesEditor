@@ -5,7 +5,7 @@
 #include "NotesEditorMusic.hpp"
 #include <fstream>
 
-NotesEditor::FumenJsonGenerator::FumenJsonGenerator() : notesList(nullptr), notesEditorMusic(nullptr)
+NotesEditor::FumenJsonGenerator::FumenJsonGenerator() : isSaveComplete(true), notesList(nullptr), notesEditorMusic(nullptr)
 {
 }
 
@@ -14,6 +14,11 @@ NotesEditor::FumenJsonGenerator::~FumenJsonGenerator()
 {
 	notesList = nullptr;
 	notesEditorMusic = nullptr;
+}
+
+void NotesEditor::FumenJsonGenerator::Draw()
+{
+	DrawSaveText();
 }
 
 void NotesEditor::FumenJsonGenerator::SetNotesList(std::vector<Notes*>& notesList)
@@ -44,6 +49,23 @@ void NotesEditor::FumenJsonGenerator::SaveFumen()
 	std::string json = static_cast<picojson::value>(fumen).serialize(true);
 	fumenFile << json;
 	fumenFile.close();
+
+	SaveCompleted();
+}
+
+void NotesEditor::FumenJsonGenerator::NotSaveCompleted()
+{
+	isSaveComplete = false;
+}
+
+void NotesEditor::FumenJsonGenerator::DrawSaveText()
+{
+	if (isSaveComplete)
+	{
+		DrawFormatString(800, 700, GetColor(0, 255, 0), "•Û‘¶Š®—¹");
+		return;
+	}
+	DrawFormatString(800, 700, GetColor(0, 255, 0), "–¢•Û‘¶‚Ìƒf[ƒ^‚ ‚è");
 }
 
 void NotesEditor::FumenJsonGenerator::QuickSort(std::vector<Notes*>& notesList, int left, int right)
@@ -161,4 +183,9 @@ void NotesEditor::FumenJsonGenerator::AddMusicInfo(picojson::object& fumen)
 	fumen.insert(std::make_pair("bpm", picojson::value(static_cast<double>(bpm))));
 	fumen.insert(std::make_pair("beat", picojson::value(static_cast<double>(beat))));
 	fumen.insert(std::make_pair("path", picojson::value(audioFilePath)));
+}
+
+void NotesEditor::FumenJsonGenerator::SaveCompleted()
+{
+	isSaveComplete = true;
 }

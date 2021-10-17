@@ -39,6 +39,7 @@ namespace NotesEditor
 		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 		void DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList);
 		void Delete();
+		void ChangedSize(float size);
 		NOTESTYPE GetPutNotesType();
 		std::vector<Notes*>& GetNotesListRef();
 	};

@@ -11,14 +11,13 @@
 #include "DxLib.h"
 #include <math.h>
 
-const int PLUS = 1;
-
-
+const float NotesEditor::EditScene::MAXSIZE = 5.f;
+const float NotesEditor::EditScene::MINSIZE = 0.25f;
 
 NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	: BaseScene(changer), camera(allObjList), notesEditorMusic(NotesEditorMusic::Instance()), notesManager(NotesManager::Instance()),
 	laneManager(LaneManager::Instance()), barManager(BarManager::Instance()),
-	fumenJsonGenerator(FumenJsonGenerator::Instance()), fumenJsonLoader(FumenJsonLoader::Instance())
+	fumenJsonGenerator(FumenJsonGenerator::Instance()), fumenJsonLoader(FumenJsonLoader::Instance()), size(1.f)
 {
 	fumenJsonGenerator.SetNotesList(notesManager.GetNotesListRef());
 	fumenJsonGenerator.SetNotesEditorMusic(notesEditorMusic);
@@ -27,6 +26,7 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	fumenJsonLoader.SetNotesEditorMusic(notesEditorMusic);
 
 	laneHandle = LoadGraph("image/レーン02.png");
+	backgroundHandle = LoadGraph("image/背景.jpg");
 }
 
 NotesEditor::EditScene::~EditScene()
@@ -51,16 +51,20 @@ void NotesEditor::EditScene::Update()
 	camera.Update();
 	notesManager.Update();
 	UpdateStartMusicTime();
-	Input();
 	// 曲の読み込みが完了したら
 	if (NotesEditorMusic::Instance().IsMusicLoaded())
 	{
+		// カメラのdrawlist初期化
+		// barListの初期化
 		camera.Delete();
 		barManager.Delete();
-		if(!NotesEditorMusic::Instance().IsLoadFromFumenJson())
+		// 譜面ファイルじゃなければ
+		if (!(NotesEditorMusic::Instance().IsLoadFromFumenJson()))
+		{
 			allObjList.clear();
 			allObjList.shrink_to_fit();
 			notesManager.Delete();
+		}
 		OnMusicLoaded();
 		// isMusicLoadedフラグをfalseにする
 		NotesEditorMusic::Instance().CompleteMusicLoad();
@@ -74,9 +78,10 @@ void NotesEditor::EditScene::Draw()
 	editorSceneCanvas.Draw();
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 	laneManager.Draw();
-	notesManager.Draw();
-	barManager.DebugDraw();
 	camera.Draw();
+	notesManager.Draw();
+	fumenJsonGenerator.Draw();
+	Input();
 }
 
 void NotesEditor::EditScene::Input()
@@ -103,23 +108,27 @@ void NotesEditor::EditScene::Input()
 	const Engine::Input::Keyboard keyboard = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
 	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) && keyboard.GetPressingCount(KEY_INPUT_S))
 		fumenJsonGenerator.SaveFumen();
+
+	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) && mouse.GetMouseWheelRotVol())
+	{
+		size += 0.25f * mouse.GetMouseWheelRotVol();
+		size = (std::min)((std::max)(size, MINSIZE),MAXSIZE);
+		// barのサイズ変更
+		barManager.ChangeSize(size);
+		// ノーツの位置変更
+		notesManager.ChangedSize(size);
+		// カメラのスクロールスピード変更
+		camera.ChangedScrollSpeed(size);
+		// カメラの移動限界座標変更
+		camera.SetMinPosition(static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f,
+			(static_cast<float>(-WINDOW_SIZE_HEIGHT) * static_cast<float>(barManager.GetBarNum()) + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f) * size);
+	}
+	DrawFormatString(800, 100, GetColor(0, 255, 0), "回転量:%d", mouse.GetMouseWheelRotVol());
+	DrawFormatString(800, 125, GetColor(0, 255, 0), "サイズ:%f", size);
 }
 
 void NotesEditor::EditScene::OnMusicLoaded()
 {
-	/*
-	* カメラのDrawList初期化
-	* 前の曲の小節削除
-	* 前の曲のノーツ削除
-	* テキストボックスの更新
-	* ライン数の計算
-	* 小節数計算
-	* カメラの移動限界設定
-	* 小節の生成
-	*/
-	
-
-
 	// テキストボックスの更新
 	editorSceneCanvas.OnMusicLoaded();
 
@@ -153,6 +162,8 @@ void NotesEditor::EditScene::RemoveNotes()
 	float y = mouse.GetPosY() + camera.GetOriginPos().y;
 
 	notesManager.DeleteNotes(x, y, allObjList);
+
+	fumenJsonGenerator.NotSaveCompleted();
 }
 
 void NotesEditor::EditScene::PutNotes()
@@ -172,12 +183,14 @@ void NotesEditor::EditScene::PutNotes()
 
 	NotesData data(x, y, lane, timing);
 	notesManager.CreateNotes(data, allObjList);
+
+	fumenJsonGenerator.NotSaveCompleted();
 }
 
 float NotesEditor::EditScene::CalcJudgeTiming(float y)
 {
 	// 最小単位音符当たりの座標
-	float minimumNotePosY = static_cast<float>(WINDOW_SIZE_HEIGHT) / BarManager::MAXNOTENUM;
+	float minimumNotePosY = static_cast<float>(WINDOW_SIZE_HEIGHT) * size / BarManager::MAXNOTENUM;
 	// 小節の上端座標
 	float barTopPos = minimumNotePosY * barManager.GetLineNum();
 	// 曲の総再生時間
@@ -222,5 +235,6 @@ void NotesEditor::EditScene::UpdateStartMusicTime()
 
 void NotesEditor::EditScene::DrawLaneBackground()
 {
+	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.0, 0, backgroundHandle, true, false);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.0, 0, laneHandle, true, false);
 }

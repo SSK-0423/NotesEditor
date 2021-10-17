@@ -37,16 +37,22 @@ void Engine::Input::Mouse::UpdateReleasingCounter(KeyCode keyCode)
 	buttonReleasingCount[keyCode]++;
 }
 
-void Engine::Input::Mouse::GetMousePosition() const
+void Engine::Input::Mouse::UpdateMousePosition() const
 {
 	int x, y;
 	GetMousePoint(&x, &y);
 	mousePos.SetPosition(static_cast<float>(x), static_cast<float>(y));
 }
 
+void Engine::Input::Mouse::UpdateMouseWheelRotVol()
+{
+	mouseWheelRotVol = DxLib::GetMouseWheelRotVol();
+}
+
 void Engine::Input::Mouse::ReadInput()
 {
-	GetMousePosition();
+	UpdateMousePosition();
+	UpdateMouseWheelRotVol();
 	UpdateCounter();
 }
 
@@ -79,4 +85,9 @@ bool Engine::Input::Mouse::IsReleaseKey(KeyCode keyCode) const
 		return true;
 	}
 	return false;
+}
+
+int Engine::Input::Mouse::GetMouseWheelRotVol() const
+{
+	return mouseWheelRotVol;
 }

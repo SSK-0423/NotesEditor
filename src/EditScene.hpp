@@ -22,6 +22,7 @@ namespace NotesEditor
 	class EditScene : public Engine::Scene::BaseScene {
 	private:
 		Image laneHandle;
+		Image backgroundHandle;
 		EditorSceneCanvas editorSceneCanvas;
 		Engine::Camera2D camera;
 		NotesEditorMusic& notesEditorMusic;
@@ -31,6 +32,10 @@ namespace NotesEditor
 		FumenJsonGenerator& fumenJsonGenerator;
 		FumenJsonLoader& fumenJsonLoader;
 		std::vector<Engine::GameObject*> allObjList;
+		
+		static const float MAXSIZE;
+		static const float MINSIZE;
+		float size;
 		
 		void Input();
 		void OnMusicLoaded();

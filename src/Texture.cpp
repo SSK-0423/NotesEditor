@@ -25,7 +25,7 @@ void Engine::Components::Texture::Draw()
 	if (imageHandle == NONE) return;
 
 	DrawRotaGraph3F(posX, posY, imgWidth / 2.f, imgHeight / 2.f,
-		drawScaleWidth, drawScaleHeight, angle, imageHandle, true, false);
+		drawScaleWidth, drawScaleHeight, angle, imageHandle, false, false);
 }
 
 void Engine::Components::Texture::LoadTexture(const char* path) const

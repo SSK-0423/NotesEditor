@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include "WindowSize.hpp"
 #include "DxLib.h"
 
 class Fps {
@@ -42,7 +43,7 @@ public:
 
 	void Draw()
 	{
-		DrawFormatString(0, 0, GetColor(0, 255, 0), "%.1f", fps);
+		DrawFormatString(WINDOW_SIZE_WIDTH - 40, 0, GetColor(0, 255, 0), "%.1f", fps);
 	}
 
 	void Wait()

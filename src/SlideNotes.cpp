@@ -192,16 +192,12 @@ void NotesEditor::SlideNotes::SetPoint()
 
 	for (int i = 0; i < p_.size() - 1; i++)
 	{
-		//// x座標が同じならリソース削減のために分割数を1にする
+		// x座標が同じならリソース削減のために分割数を1にする
 		if (p_[i][1] == p_[i + 1][1])
-		{
 			splitNum = 1;
-		}
 		else
-		{
 			// 分割数の調整
 			splitNum = fabs(p_[i + 1][0] - p_[i][0]);
-		}
 		// 分割数の調整
 		//splitNum = fabs(p_[i + 1][0] - p_[i][0]) / 96 * 96;
 		// 2点間の距離を補間点数で割る

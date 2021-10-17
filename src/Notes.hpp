@@ -32,6 +32,8 @@ namespace NotesEditor
 		float timing;
 		// ƒm[ƒc‚ª‘®‚·‚éƒŒ[ƒ“
 		int lane;
+		// 
+		int lineNum;
 
 		Engine::Components::ICollider* collider;
 		Engine::Collision::PointWithPolygon* collision;
@@ -41,6 +43,7 @@ namespace NotesEditor
 		virtual ~Notes();
 		float GetTiming();
 		int GetLane();
+		void ChangedSize(float scaleHeight);
 		virtual void Draw() = 0;
 		virtual void Update() = 0;
 		virtual bool Collision(float x, float y) = 0;

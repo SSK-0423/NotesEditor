@@ -40,14 +40,19 @@ NotesEditor::BarLine::~BarLine()
 
 void NotesEditor::BarLine::Update()
 {
-	float y = CalcScreenPos();
-	startPoint->y = y;
-	endPoint->y = y;
+	UpdateScreenPos();
+	collider->Update();
 }
 
 void NotesEditor::BarLine::Draw()
 {
 	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
+	DrawFormatString(endPoint->x, endPoint->y, color, "Y:%f", endPoint->y);
+}
+
+void NotesEditor::BarLine::OnChangedSize()
+{
+	UpdatePosition();
 }
 
 float NotesEditor::BarLine::DecidePutPosY(float x, float y)
@@ -60,9 +65,31 @@ float NotesEditor::BarLine::DecidePutPosY(float x, float y)
 
 float NotesEditor::BarLine::CalcScreenPos()
 {
+	// 小節の下端座標 = 小節の中心座標 + 小節のサイズ / 2;
+	float barHeight = parentBar.GetTransform().GetSize().height * parentBar.GetTransform().GetSize().scaleHeight;
 	// 小節の下端座標 + 線の単位y座標 * 線番号 
-	float barBottomPos = parentBar.GetScreenPos().y + static_cast<float>(WINDOW_SIZE_HEIGHT) / 2.f;
-	return barBottomPos - stepPosY * lineNum;
+	float barBottomPos = parentBar.GetScreenPos().y + barHeight / 2.f;
+	// 小節の高さスケール
+	float barScale = parentBar.GetTransform().GetSize().scaleHeight;
+	return barBottomPos - stepPosY * barScale * lineNum;
+}
+
+void NotesEditor::BarLine::UpdateScreenPos()
+{
+	float y = CalcScreenPos();
+	startPoint->y = y;
+	endPoint->y = y;
+}
+
+void NotesEditor::BarLine::UpdatePosition()
+{
+	// 小節の下端座標 = 小節の中心座標 + 小節のサイズ / 2;
+	float barHeight = parentBar.GetTransform().GetSize().height * parentBar.GetTransform().GetSize().scaleHeight;
+	// 小節の下端座標 + 線の単位y座標 * 線番号 
+	float barBottomPos = parentBar.GetTransform().GetPosition().y + barHeight / 2.f;
+	// 小節の高さスケール
+	float barScale = parentBar.GetTransform().GetSize().scaleHeight;
+	transform->SetPosition(transform->GetPosition().x, barBottomPos - stepPosY * barScale * lineNum);
 }
 
 void NotesEditor::BarLine::InitTransform()
@@ -72,7 +99,7 @@ void NotesEditor::BarLine::InitTransform()
 
 	float x = parentBar.GetTransform().GetPosition().x;
 	float y = parentBar.GetTransform().GetPosition().y +
-		windowHeight / 2.f - stepPosY * static_cast<float>(lineNum);
+		parentBar.GetTransform().GetSize().height / 2.f - stepPosY * static_cast<float>(lineNum) * parentBar.GetTransform().GetSize().scaleHeight;
 
 	// ラインの始点終点初期化
 	startPoint->x = windowWidth / 4.f;

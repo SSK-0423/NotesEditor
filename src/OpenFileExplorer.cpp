@@ -61,7 +61,7 @@ int OpenFileExplorer::OpenJsonFile(picojson::value& v) {
 		ifs >> v;
 		ifs.close();
 		//カレントディレクトリを戻す
-		SetCurrentDirectory("C:\\DxLib\\MyProjects\\NotesEditor");
+		SetCurrentDirectory("..");
 		return 0;
 	}
 	return -1;

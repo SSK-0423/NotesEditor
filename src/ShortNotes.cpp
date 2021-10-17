@@ -49,6 +49,9 @@ void NotesEditor::ShortNotes::Update()
 void NotesEditor::ShortNotes::Draw()
 {
 	DrawNotes();
+	collider->Draw();
+	DrawFormatString(800, 300, GetColor(0, 255, 0), "posY:%f", transform->GetPosition().y);
+	DrawFormatString(800, 325, GetColor(0, 255, 0), "screenPosY:%f", screenPos->y);
 }
 
 NotesEditor::NOTESTYPE NotesEditor::ShortNotes::GetNotesType()

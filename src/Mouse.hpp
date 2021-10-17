@@ -23,11 +23,12 @@ namespace Engine
 			int buttonPressingCount[KEY_NUM];
 			int buttonReleasingCount[KEY_NUM];
 			mutable bool buttonPressed[KEY_NUM];
-
+			int mouseWheelRotVol;
 			void UpdateCounter();
 			void UpdatePressingCounter(KeyCode keyCode);
 			void UpdateReleasingCounter(KeyCode keyCode);
-			void GetMousePosition() const;
+			void UpdateMousePosition() const;
+			void UpdateMouseWheelRotVol();
 		public:
 			static constexpr int LEFT_CLICK = 0;
 			static constexpr int RIGHT_CLICK = 1;
@@ -37,6 +38,7 @@ namespace Engine
 			int GetReleasingCount(KeyCode keyCode) const override;
 			bool IsPressKey(KeyCode keyCode) const override;
 			bool IsReleaseKey(KeyCode keyCode) const override;
+			int GetMouseWheelRotVol() const;
 
 			Components::Position GetPosition() const { return mousePos; }
 			float GetPosX() const { return mousePos.x; }

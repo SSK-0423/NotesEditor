@@ -3,7 +3,7 @@
 #include "Transform.hpp"
 #include "DxLib.h"
 
-const int NotesEditor::BarManager::FONTSIZE = 30;
+const int NotesEditor::BarManager::FONTSIZE = 50;
 const int NotesEditor::BarManager::FONTTHICK = 1;
 
 NotesEditor::BarManager::BarManager() : lineNum(0)
@@ -55,11 +55,6 @@ NotesEditor::BarManager::~BarManager()
 	barList.shrink_to_fit();
 }
 
-void NotesEditor::BarManager::DebugDraw()
-{
-	DrawFormatString(800, 25, GetColor(0, 255, 0), "barList:%d", barList.size());
-}
-
 void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objList, int barNum, int lineNum)
 {
 	this->lineNum = lineNum;
@@ -104,4 +99,10 @@ void NotesEditor::BarManager::ChangeBarType16()
 void NotesEditor::BarManager::ChangeBarType32()
 {
 	Bar::ChangeBarType(BARTYPE::BAR32);
+}
+
+void NotesEditor::BarManager::ChangeSize(float scaleHeight)
+{
+	for (auto bar : barList)
+		bar->ChangedSize(scaleHeight);
 }

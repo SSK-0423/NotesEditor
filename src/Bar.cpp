@@ -50,6 +50,7 @@ void NotesEditor::Bar::Draw()
 {
 	DrawBarLine();
 	DrawBarNum();
+	DebugDraw();
 }
 
 float NotesEditor::Bar::DecidePutPosY(float x, float y)
@@ -63,6 +64,28 @@ float NotesEditor::Bar::DecidePutPosY(float x, float y)
 		if (putPoxY != -1.f) return putPoxY;
 	}
 	return NONE;
+}
+
+void NotesEditor::Bar::ChangedSize(float scaleHeight)
+{
+	float beforeHeight = transform->GetSize().height * transform->GetSize().scaleHeight;
+	float afterHeight = transform->GetSize().height * scaleHeight;
+	float diff = beforeHeight - afterHeight;
+
+	float beforeScale = transform->GetSize().scaleHeight;
+
+	// 座標とスケールの更新
+	transform->SetPosition(transform->GetPosition().x,
+		transform->GetPosition().y * (scaleHeight / beforeScale));
+	transform->Scaling(1.f, scaleHeight);
+
+	// １小節目の下端をウィンドウの下端に合わせる 
+	transform->Translate(0.f, diff * (1.f / beforeScale));
+	
+	collider->Update();
+
+	for (auto bar : barLineList)
+		bar->OnChangedSize();
 }
 
 void NotesEditor::Bar::ChangeBarType(BARTYPE type)
@@ -99,7 +122,27 @@ void NotesEditor::Bar::UpdateBarLine()
 
 void NotesEditor::Bar::DrawBarNum()
 {
-	DrawFormatStringToHandle(780, screenPos->y + static_cast<float>(transform->GetSize().height) / 2.f - 20.f, GetColor(255, 255, 255), fontHandle, "%d", barNum + 1);
+	const float turningNum = 8.f;
+	const int lineThickness = 2.f;
+	float height = BARHEIGHT * transform->GetSize().scaleHeight;
+	float barBottom = screenPos->y + height / 2.f;
+
+	DrawFormatString(700, 150, GetColor(0, 255, 0), "BARHEIGHT:%f", height);
+	if (barNum == 1)
+	{
+		DrawFormatString(700, 175, GetColor(0, 255, 0), "BarBottom:%f", barBottom);
+		DrawFormatString(700, 200, GetColor(0, 255, 0), "posX:%f", transform->GetPosition().x);
+		DrawFormatString(700, 225, GetColor(0, 255, 0), "posY:%f", screenPos->y + height / 2.f);
+	}
+
+	// 小節の縦範囲に合わせて黒色のボックス描画
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
+	DrawBox(screenPos->x + BARWIDTH / 2.f - turningNum, screenPos->y + height / 2.f, WINDOW_SIZE_WIDTH, screenPos->y - height / 2.f + lineThickness, GetColor(0, 0, 0), true);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+	//DrawLineAA(screenPos->x + BARWIDTH / 2.f, screenPos->y + height / 2.f, WINDOW_SIZE_WIDTH, screenPos->y + height / 2.f, GetColor(255, 255, 255), lineThickness);
+	//DrawFormatStringFToHandle(screenPos->x + BARWIDTH / 4.f * 3.f - turningNum * 2.5f, screenPos->y, GetColor(255, 255, 255), fontHandle, "%d", barNum + 1);
+	DrawFormatStringFToHandle(screenPos->x + BARWIDTH / 2.f, screenPos->y + height / 2.f - 20.f, GetColor(255, 255, 255), fontHandle, "%d", barNum + 1);
 }
 
 void NotesEditor::Bar::DrawBarLine()
@@ -108,6 +151,15 @@ void NotesEditor::Bar::DrawBarLine()
 	{
 		barLineList[i]->Draw();
 	}
+}
+
+void NotesEditor::Bar::DebugDraw()
+{
+	float height = transform->GetSize().height * transform->GetSize().scaleHeight;
+	float size = 10.f;
+	DrawBoxAA(transform->GetPosition().x - size, transform->GetPosition().y - size,
+		transform->GetPosition().x + size, transform->GetPosition().y + size,
+		GetColor(255, 255, 255), true);
 }
 
 bool NotesEditor::Bar::IsOnBar(float x, float y)
