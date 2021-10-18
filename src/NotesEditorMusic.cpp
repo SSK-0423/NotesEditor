@@ -6,34 +6,59 @@ NotesEditor::NotesEditorMusic::NotesEditorMusic()
 {
 }
 
-void NotesEditor::NotesEditorMusic::JsonParse(picojson::value json)
+int NotesEditor::NotesEditorMusic::JsonParse(picojson::value json)
 {
-	//ä˘Ç…ì«Ç›çûÇÒÇæã»ÇçÌèú
-	InitSoundMem();
-	musicName = json.get<picojson::object>()["name"].get<std::string>();
-	bpm = static_cast<float>(json.get<picojson::object>()["bpm"].get<double>());
-	beat = static_cast<float>(json.get<picojson::object>()["beat"].get<double>());
+	Audio audio = audioSource.GetAudioHandle();
 	std::string path = json.get<picojson::object>()["path"].get<std::string>();
+	
+	// ã»Ç™ì«Ç›çûÇﬂÇΩÇ»ÇÁ
 	if (audioSource.LoadAudio(path.c_str()) == RESULT::RESULT_SUCCEED)
 	{
 		isMusicLoaded = true;
 		audioSource.ChangeVolume(128);
+		musicName = json.get<picojson::object>()["name"].get<std::string>();
+		bpm = static_cast<float>(json.get<picojson::object>()["bpm"].get<double>());
+		beat = static_cast<float>(json.get<picojson::object>()["beat"].get<double>());
+		return RESULT::RESULT_SUCCEED;
 	}
+
+	isMusicLoaded = false;
+	audioSource.SetAudioHandle(audio);
+	return RESULT::RESULT_ERROR;
+}
+
+NotesEditor::NotesEditorMusic::~NotesEditorMusic()
+{
 }
 
 void NotesEditor::NotesEditorMusic::LoadMusic()
 {
-	if (openFileExplorer.OpenJsonFile(json) != -1)
+	try
 	{
-		JsonParse(json);
-		isLoadFromFumenJson = false;
+		if (openFileExplorer.OpenJsonFile(json) != -1 && JsonParse(json) == RESULT::RESULT_SUCCEED)
+		{
+			isLoadFromFumenJson = false;
+		}
 	}
+	catch (const std::exception&)
+	{}
 }
 
-void NotesEditor::NotesEditorMusic::LoadMusicFromFumen(picojson::value fumen)
+int NotesEditor::NotesEditorMusic::LoadMusicFromFumen(picojson::value fumen)
 {
-	JsonParse(fumen);
-	isLoadFromFumenJson = true;
+	try
+	{
+		if (JsonParse(fumen) == RESULT::RESULT_SUCCEED)
+		{
+			isLoadFromFumenJson = true;
+			return RESULT::RESULT_SUCCEED;
+		}
+		return RESULT::RESULT_ERROR;
+	}
+	catch (const std::exception&)
+	{
+		return RESULT::RESULT_ERROR;
+	}
 }
 
 void NotesEditor::NotesEditorMusic::PlayStopMusic()

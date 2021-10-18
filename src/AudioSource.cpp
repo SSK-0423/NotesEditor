@@ -33,6 +33,16 @@ void Engine::Components::AudioSource::Replay()
 	PlaySoundMem(audioHandle, DX_PLAYTYPE_LOOP, true);
 }
 
+Audio Engine::Components::AudioSource::GetAudioHandle()
+{
+	return audioHandle;
+}
+
+void Engine::Components::AudioSource::SetAudioHandle(Audio audioHandle)
+{
+	this->audioHandle = audioHandle;
+}
+
 long long Engine::Components::AudioSource::GetTotalTime() const
 {
 	return GetSoundTotalTime(audioHandle);

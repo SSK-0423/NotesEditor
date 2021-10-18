@@ -30,9 +30,9 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	backgroundHandle = LoadGraph("image/îwåi.jpg");
 }
 
-
 NotesEditor::EditScene::~EditScene()
 {
+	InitSoundMem();
 	allObjList.clear();
 	allObjList.shrink_to_fit();
 }

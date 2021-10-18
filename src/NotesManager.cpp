@@ -98,18 +98,13 @@ void NotesEditor::NotesManager::CreateNotes(const NotesData& notesData, std::vec
 
 void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList)
 {
-	for (auto notes : notesList)
+	for (auto itr = notesList.begin(); itr != notesList.end(); itr++)
 	{
+		Notes* notes = *itr;
 		bool isCol = notes->Collision(x, y);
 		if (isCol)
 		{
-			/*
-				設置途中でノーツを削除し、ノーツ種類を切り替えて設置した際に、
-				キャンセルでもノーツの除去処理が行われ、
-				すでにないノーツを除去しようとするのでエラーが発生する
-			*/
-			auto deleteNotes = std::find(notesList.begin(), notesList.end(), notes);
-			notesList.erase(deleteNotes);
+			notesList.erase(itr);
 			auto notesDel = std::find(objList.begin(), objList.end(), static_cast<Engine::GameObject*>(notes));
 			objList.erase(notesDel);
 
@@ -120,6 +115,8 @@ void NotesEditor::NotesManager::DeleteNotes(float x, float y, std::vector<Engine
 				LongNotesCreator::Instance().Init();
 			else if (notesType == NOTESTYPE::SLIDE_NOTES)
 				SlideNotesCreator::Instance().Init();
+
+			break;
 		}
 	}
 }
@@ -170,7 +167,7 @@ bool NotesEditor::NotesManager::IsExist(float x, float y)
 void NotesEditor::NotesManager::Cancel(NOTESTYPE type, std::vector<Engine::GameObject*>& objList)
 {
 	Notes* notes = nullptr;
-	//生成するノーツ
+
 	switch (type)
 	{
 	case NOTESTYPE::SHORT_NOTES:

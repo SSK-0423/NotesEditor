@@ -108,6 +108,13 @@
       "type": 2
     },
     {
+      "barNum": 36,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 49.366535186767578,
+      "type": 0
+    },
+    {
       "barNum": 61,
       "lane": 10,
       "lineNum": 0,
@@ -130,7 +137,7 @@
           "barNum": 63,
           "lane": 10,
           "lineNum": 0,
-          "timing": 86.391433715820312,
+          "timing": 86.391433715820313,
           "type": 0
         },
         {

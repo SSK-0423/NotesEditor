@@ -22,10 +22,11 @@ namespace NotesEditor
 		int beat;
 		bool isMusicLoaded;
 		bool isLoadFromFumenJson;
-		void JsonParse(picojson::value json);
+		int JsonParse(picojson::value json);
 	public:
+		~NotesEditorMusic();
 		void LoadMusic();
-		void LoadMusicFromFumen(picojson::value fumen);
+		int LoadMusicFromFumen(picojson::value fumen);
 		void PlayStopMusic();
 		void ReplayMusic();
 		long long GetTotalTime() const;

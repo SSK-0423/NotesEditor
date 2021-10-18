@@ -21,6 +21,8 @@ namespace Engine
 			void PlayOneShot();
 			void Stop();
 			void Replay();
+			Audio GetAudioHandle();
+			void SetAudioHandle(Audio audioHandle);
 			long long GetTotalTime() const;
 			long long GetElapsedTime() const;
 			int LoadAudio(const char* filePath);

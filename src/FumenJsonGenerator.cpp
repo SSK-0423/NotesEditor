@@ -4,6 +4,7 @@
 #include "SlideNotes.hpp"
 #include "NotesEditorMusic.hpp"
 #include <fstream>
+#include <Windows.h>
 
 NotesEditor::FumenJsonGenerator::FumenJsonGenerator() : isSaveComplete(true), notesList(nullptr), notesEditorMusic(nullptr)
 {

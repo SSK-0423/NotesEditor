@@ -36,20 +36,23 @@ void NotesEditor::FumenJsonLoader::SetNotesEditorMusic(NotesEditorMusic& notesEd
 
 void NotesEditor::FumenJsonLoader::LoadFumen()
 {
+	try
+	{
+		// JSONファイル
+		picojson::value fumen;
+		// JSONファイル読み込み
+		OpenFileExplorer openFileExplorer;
+		if (openFileExplorer.OpenJsonFile(fumen) == -1) return;
+		// 曲読み込み
+		if(notesEditorMusic->LoadMusicFromFumen(fumen) == -1) return;
+		// 既存ノーツ削除
+		DeleteExitNotes();
+		// 譜面を生成して追加する
+		CreateNotesFromFumen(fumen); 
+	}
+	catch (const std::exception&)
+	{}
 
-	// JSONファイル
-	picojson::value fumen;
-	// JSONファイル読み込み
-	OpenFileExplorer openFileExplorer;
-	if (openFileExplorer.OpenJsonFile(fumen) == -1) return;
-	// 既存ノーツ削除
-	DeleteExitNotes();
-	// 曲読み込み
-	notesEditorMusic->LoadMusicFromFumen(fumen);
-	// 譜面を生成して追加する
-	CreateNotesFromFumen(fumen);
-
-	DrawFormatString(700, 800, GetColor(0, 255, 0), "読み込み完了");
 }
 
 void NotesEditor::FumenJsonLoader::DeleteExitNotes()
