@@ -62,23 +62,23 @@ void NotesEditor::FumenJsonGenerator::DrawSaveText()
 {
 	if (isSaveComplete)
 	{
-		DrawFormatString(800, 700, GetColor(0, 255, 0), "保存完了");
+		DrawFormatString(50, 740, GetColor(0, 255, 0), "保存完了");
 		return;
 	}
-	DrawFormatString(800, 700, GetColor(0, 255, 0), "未保存のデータあり");
+	DrawFormatString(50, 740, GetColor(0, 255, 0), "未保存のデータあり");
 }
 
-void NotesEditor::FumenJsonGenerator::QuickSort(std::vector<Notes*>& notesList, int left, int right)
+void NotesEditor::FumenJsonGenerator::QuickSort(std::vector<Notes*>& notesList, size_t left, size_t right)
 {
 	if (right - left <= 1) return;
-	int pivot_index = (right + left) / 2;   // 基準点　ここでは適当に配列の中央とする
+	size_t pivot_index = (right + left) / 2;   // 基準点　ここでは適当に配列の中央とする
 	float pivot_timing = notesList[pivot_index]->GetTiming();
 
 	// 分割
 	// 基準値を右端のデータと交換
-	std::swap(notesList[pivot_index], notesList[right - 1]);
-	int i = left;
-	for (int j = left; j < right - 1; j++)
+	std::swap(notesList[pivot_index], notesList[static_cast<size_t>(right) - 1]);
+	size_t i = left;
+	for (size_t j = left; j < right - 1; j++)
 	{
 		if (notesList[j]->GetTiming() < pivot_timing)
 		{
@@ -86,7 +86,7 @@ void NotesEditor::FumenJsonGenerator::QuickSort(std::vector<Notes*>& notesList, 
 			i++;
 		}
 	}
-	std::swap(notesList[i], notesList[right - 1]);
+	std::swap(notesList[i], notesList[static_cast<size_t>(right) - 1]);
 
 	// 再帰的に解く
 	QuickSort(notesList, left, i);			// 左半分(pivot_timing)未満

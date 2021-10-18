@@ -4,21 +4,23 @@
 
 using namespace std;
 
-double CubicSpline::interpolation(double p,bool inverse) {
+double CubicSpline::interpolation(double p, bool inverse) {
 	int inv = 0;
 	if (inverse) inv = 1;
-	printf("x = %lf\n",p);
 	//点の数=N+1
-	for (int i = 0; i < N; i++) {
-		printf("xの範囲[%lf,%lf]\n", coord[i][0], coord[i + 1][0]);
-		if (coord[i+inv][0] <= p && p <= coord[i+1-inv][0]) {
-			printf("a=%lf,b=%lf,c=%lf,d=%lf ", keisu[i][0], keisu[i][1], keisu[i][2], keisu[i][3]);
+	for (size_t i = 0; i < N; i++) {
+		if (coord[i + inv][0] <= p && p <= coord[i + 1 - inv][0]) {
 			double tmp1 = keisu[i][0] * pow(p - coord[i][0], 3);
 			double tmp2 = keisu[i][1] * pow(p - coord[i][0], 2);
 			double tmp3 = keisu[i][2] * (p - coord[i][0]);
 			return tmp1 + tmp2 + tmp3 + keisu[i][3];
 		}
 	}
+	return 0;
+}
+
+CubicSpline::CubicSpline() : N(0)
+{
 }
 
 void CubicSpline::Init()
@@ -37,13 +39,13 @@ void CubicSpline::Init()
 }
 
 //3次スプライン補間(点の座標データ、点の数)
-void CubicSpline::cubicSpline(vector<vector<double>> points, int n){
-	
+void CubicSpline::cubicSpline(vector<vector<double>> points, size_t n) {
+
 	N = n - 1;//補間多項式の数(N)
 	coord = points;
 
 	double* u_array;
-	u_array = new double[N+1];
+	u_array = new double[static_cast<size_t>(N) + 1];
 	u_array[0] = u_array[N] = 0;
 	calc_h();
 	calc_v();
@@ -55,20 +57,19 @@ void CubicSpline::cubicSpline(vector<vector<double>> points, int n){
 
 //hの計算
 void CubicSpline::calc_h() {
-	for (int i = 0; i < N; i++) {
+	for (size_t i = 0; i < N; i++) {
 		h_array.push_back(coord[i + 1][0] - coord[i][0]);
-		printf("h[%d]=%f\n", i, h_array[i]);
 	}
-	//cout << "h_size= " << h_array.size() << "\n";
 }
+
 //vの計算
 void CubicSpline::calc_v() {
-	for (int i = 1; i < N; i++) {
+	for (size_t i = 1; i < N; i++) {
 		double tmp1 = (coord[i + 1][1] - coord[i][1]) / h_array[i];
 		double tmp2 = (coord[i][1] - coord[i - 1][1]) / h_array[i - 1];
 		v_array.push_back(6 * (tmp1 - tmp2));
 	}
-	//cout << "v_size= " << v_array.size() << "\n";
+
 	for (int i = 0; i < N - 1; i++) {
 		cout << v_array[i] << " ";
 	}
@@ -77,38 +78,37 @@ void CubicSpline::calc_v() {
 
 //左辺左の行列作成
 void CubicSpline::make_array(vector<double> h) {
-	A.resize(N - 1);
+	A.resize(static_cast<size_t>(N) - 1);
 	//配列の初期化
-	for (int i = 0; i < N - 1; i++) {
-		A[i].resize(N - 1);
+	for (size_t i = 0; i < static_cast<size_t>(N) - 1; i++) {
+		A[i].resize(static_cast<size_t>(N) - 1);
 		for (int j = 0; j < N - 1; j++) {
-			A[i][j]=0;
+			A[i][j] = 0;
 		}
 	}
 	//1行目
 	A[0][0] = 2 * (h[0] + h[1]);
 	A[0][1] = h[1];
 	//2行目～[n-1]行目の行列作成
-	for (int i = 1; i < N - 1; i++) {
+	for (size_t i = 1; i < static_cast<size_t>(N) - 1; i++) {
 		//[n-1]行目
-		if (i == N - 2) {
+		if (i == static_cast<size_t>(N) - 2) {
 			A[i][i - 1] = h[i - 1];
 			A[i][i] = 2 * (h[i - 1] + h[i]);
 			break;
 		}
-		A[i][i-1] = h[i];
+		A[i][i - 1] = h[i];
 		A[i][i] = 2 * (h[i] + h[i + 1]);
 		A[i][i + 1] = h[i + 1];
 
 	}
 	for (int i = 0; i < N - 1; i++) {
-		printf("v_array[%d]=%4.2f \n",i,v_array[i]);
 		A[i].push_back(v_array[i]);
 	}
 
 	for (int i = 0; i < N - 1; i++) {
 		for (int j = 0; j < N; j++) {
-			printf("%5.3f ",A[i][j]);
+			printf("%5.3f ", A[i][j]);
 		}
 		cout << "\n";
 	}
@@ -118,12 +118,9 @@ void CubicSpline::make_array(vector<double> h) {
 void CubicSpline::calc_keisu(double u_array[]) {
 	keisu.resize(N);
 	EquationsSolver es;
-	es.GaussEliminationPivoting(A, u_array,N-1,1,N-1);
-	for (int i = 0; i <= N; i++) {
-		printf("u[%d]=%5.3f\n",i,u_array[i]);
-	}
+	es.GaussEliminationPivoting(A, u_array, N - 1, 1, N - 1);
 	cout << "----------------------------------------\n";
-	for (int i = 0; i <= N-1; i++) {
+	for (int i = 0; i <= N - 1; i++) {
 		keisu[i].push_back(calc_a(u_array, i));
 		keisu[i].push_back(calc_b(u_array, i));
 		keisu[i].push_back(calc_c(u_array, i));
@@ -138,20 +135,20 @@ void CubicSpline::calc_keisu(double u_array[]) {
 	}
 }
 //aの計算
-double CubicSpline::calc_a(double u_array[],int i){
+double CubicSpline::calc_a(double u_array[], size_t i) {
 	return (u_array[i + 1] - u_array[i]) / (6 * (coord[i + 1][0] - coord[i][0]));
 }
 //bの計算
-double CubicSpline::calc_b(double u_array[],int i){
+double CubicSpline::calc_b(double u_array[], size_t i) {
 	return u_array[i] / 2;
 }
 //cの計算
-double CubicSpline::calc_c(double u_array[],int i){
+double CubicSpline::calc_c(double u_array[], size_t i) {
 	double tmp1 = (coord[i + 1][1] - coord[i][1]) / (coord[i + 1][0] - coord[i][0]);
 	double tmp2 = (coord[i + 1][0] - coord[i][0]) * (2 * u_array[i] + u_array[i + 1]) / 6;
 	return tmp1 - tmp2;
 }
 //dの計算
-double CubicSpline::calc_d(int i){
+double CubicSpline::calc_d(size_t i) {
 	return coord[i][1];
 }

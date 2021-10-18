@@ -50,7 +50,7 @@ namespace NotesEditor
 		int GetLineNum();
 		virtual void Draw() = 0;
 		virtual void Update() = 0;
-		virtual void ChangedScale(float size, bool isScaleUp) = 0;
+		virtual void ChangedTransformByScale(float size, bool isScaleUp) = 0;
 		virtual bool Collision(float x, float y) = 0;
 		virtual NOTESTYPE GetNotesType() = 0;
 	};

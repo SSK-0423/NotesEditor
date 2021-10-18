@@ -15,7 +15,7 @@ Color NotesEditor::BarLine::lineColor[4] = {
 	GetColor(255,0,255)		//ƒsƒ“ƒN
 };
 
-int NotesEditor::BarLine::lineThickness = 2;
+float NotesEditor::BarLine::lineThickness = 2.f;
 float NotesEditor::BarLine::stepPosY;
 const float NotesEditor::BarLine::BARLINEWIDTH = static_cast<float>(WINDOW_SIZE_WIDTH) / 2.f;
 const float NotesEditor::BarLine::BARLINEHEIGHT = 20.f;
@@ -47,12 +47,9 @@ void NotesEditor::BarLine::Update()
 void NotesEditor::BarLine::Draw()
 {
 	DrawLineAA(startPoint->x, startPoint->y, endPoint->x, endPoint->y, color, lineThickness);
-	DrawFormatString(endPoint->x, endPoint->y, color, "Y:%5.0f", endPoint->y);
-	//DrawFormatString(endPoint->x + 100.f, endPoint->y + 12.5f, color, "BY:%5.0f", beforePos);
-	DrawFormatString(endPoint->x + 100.f, endPoint->y + 12.5f, color, "diff:%5.0f", endPoint->y - beforePos);
 }
 
-void NotesEditor::BarLine::OnChangedScale()
+void NotesEditor::BarLine::ChangedPosByScale()
 {
 	beforePos = endPoint->y;
 	UpdatePosition();

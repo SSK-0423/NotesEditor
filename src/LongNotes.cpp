@@ -34,32 +34,23 @@ bool NotesEditor::LongNotes::Collision(float x, float y)
 
 void NotesEditor::LongNotes::Update()
 {
-	collider->Update();
 	UpdateNotes();
 	UpdateNotesScreenPos();
 }
 
 void NotesEditor::LongNotes::Draw()
 {
-	collider->Draw();
 	DrawMiddleLine();
 	DrawNotes();
-
-	//　当たり判定描画
-	Engine::Components::Size size = transform->GetSize();
-	float scale = size.scaleHeight;
-	DrawBoxAA(screenPos->x - size.width / 2.f, screenPos->y - size.height * scale / 2.f,
-		screenPos->x + size.width / 2.f, screenPos->y + size.height * scale / 2.f,
-		GetColor(255, 0, 0), false, 2.f);
 }
 
-void NotesEditor::LongNotes::ChangedScale(float scale, bool isScaleUp)
+void NotesEditor::LongNotes::ChangedTransformByScale(float scale, bool isScaleUp)
 {
 	for (auto notes : notesList)
-		notes->ChangedScale(scale, isScaleUp);
+		notes->ChangedTransformByScale(scale, isScaleUp);
 
 	Init();
-	transform->Scaling(0.f, scale);
+	transform->Scaling(1.f, scale);
 	// スケール1倍の時のサイズを設定する
 	Engine::Components::Size size = transform->GetSize();
 	transform->SetSize(size.width, size.height / scale);

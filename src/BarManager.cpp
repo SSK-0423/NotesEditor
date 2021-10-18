@@ -87,13 +87,10 @@ void NotesEditor::BarManager::CreateBar(std::vector<Engine::GameObject*>& objLis
 	{
 		Bar* bar;
 		if (lineNum >= BarManager::MAXNOTENUM)
-		{
 			bar = new Bar(i, BarManager::MAXNOTENUM);
-		}
 		else
-		{
 			bar = new Bar(i, lineNum);
-		}
+		
 		barList.push_back(bar);
 		objList.insert(objList.begin(), bar);
 		lineNum -= BarManager::MAXNOTENUM;
@@ -125,8 +122,8 @@ void NotesEditor::BarManager::ChangeBarType32()
 	Bar::ChangeBarType(BARTYPE::BAR32);
 }
 
-void NotesEditor::BarManager::ChangeScale(float scaleHeight)
+void NotesEditor::BarManager::ChangedBarsTransformByScale(float scaleHeight)
 {
 	for (auto bar : barList)
-		bar->ChangedScale(scaleHeight);
+		bar->ChangedTransformByScale(scaleHeight);
 }

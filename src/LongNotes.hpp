@@ -44,7 +44,7 @@ namespace NotesEditor
 		bool Collision(float x, float y) override;
 		void Update() override;
 		void Draw() override;
-		void ChangedScale(float size, bool isScaleUp) override;
+		void ChangedTransformByScale(float size, bool isScaleUp) override;
 		void AddEndNotes(ShortNotes& end);
 		std::vector<ShortNotes*> GetChildNotesList();
 	};

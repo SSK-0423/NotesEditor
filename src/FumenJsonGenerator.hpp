@@ -17,12 +17,11 @@ namespace NotesEditor
 		friend Singleton<FumenJsonGenerator>;
 	private:
 		FumenJsonGenerator();
-
 		bool isSaveComplete;
 		std::vector<Notes*>* notesList;
 		NotesEditorMusic* notesEditorMusic;
 		void DrawSaveText();
-		void QuickSort(std::vector<Notes*>& notesList, int left, int right);
+		void QuickSort(std::vector<Notes*>& notesList, size_t left, size_t right);
 		void MakeLongNotesData(picojson::object& parentNotes, Notes& notes);
 		void MakeSlideNotesData(picojson::object& parentNotes, Notes& notes);
 		void MakeNotesDataList(picojson::object& fumen);

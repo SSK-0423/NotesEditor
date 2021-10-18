@@ -28,7 +28,7 @@ namespace NotesEditor
 		void ChangeBarType8();
 		void ChangeBarType16();
 		void ChangeBarType32();
-		void ChangeScale(float scaleHeight);
+		void ChangedBarsTransformByScale(float scaleHeight);
 		float DecidePutPosY(float x, float y);
 		float CalcTiming(float y);
 		unsigned int GetBarNum();

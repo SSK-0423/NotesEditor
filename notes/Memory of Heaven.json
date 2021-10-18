@@ -110,6 +110,43 @@
       "type": 2
     },
     {
+      "barNum": 6,
+      "lane": 6,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 6,
+          "lane": 6,
+          "lineNum": 0,
+          "timing": 8.2285547256469727,
+          "type": 0
+        },
+        {
+          "barNum": 7,
+          "lane": 7,
+          "lineNum": 0,
+          "timing": 9.599980354309082,
+          "type": 0
+        },
+        {
+          "barNum": 8,
+          "lane": 8,
+          "lineNum": 0,
+          "timing": 10.971405982971191,
+          "type": 0
+        },
+        {
+          "barNum": 9,
+          "lane": 6,
+          "lineNum": 0,
+          "timing": 12.342830657958984,
+          "type": 0
+        }
+      ],
+      "timing": 8.2285547256469727,
+      "type": 2
+    },
+    {
       "barNum": 9,
       "lane": 1,
       "lineNum": 0,
@@ -693,41 +730,41 @@
           "barNum": 34,
           "lane": 1,
           "lineNum": 0,
-          "timing": 46.628494262695312,
+          "timing": 46.628471374511719,
           "type": 0
         },
         {
-          "barNum": 34,
+          "barNum": 35,
           "lane": 1,
           "lineNum": 0,
-          "timing": 47.999912261962891,
+          "timing": 47.999897003173828,
           "type": 0
         }
       ],
-      "timing": 46.628494262695312,
+      "timing": 46.628471374511719,
       "type": 1
     },
     {
-      "barNum": 34,
+      "barNum": 35,
       "lane": 2,
       "lineNum": 0,
       "notes": [
         {
-          "barNum": 34,
+          "barNum": 35,
           "lane": 2,
           "lineNum": 0,
-          "timing": 47.999912261962891,
+          "timing": 47.999897003173828,
           "type": 0
         },
         {
           "barNum": 36,
           "lane": 2,
           "lineNum": 0,
-          "timing": 49.371341705322266,
+          "timing": 49.371322631835938,
           "type": 0
         }
       ],
-      "timing": 47.999912261962891,
+      "timing": 47.999897003173828,
       "type": 1
     },
     {
@@ -1057,6 +1094,3429 @@
       "type": 0
     },
     {
+      "barNum": 55,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 76.199844360351562,
+      "type": 0
+    },
+    {
+      "barNum": 55,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 76.37127685546875,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 3,
+      "timing": 76.928413391113281,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 76.971267700195312,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 77.014122009277344,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 77.056983947753906,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 77.099838256835938,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 77.142692565917969,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 77.185554504394531,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 77.228416442871094,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 77.271263122558594,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 77.314125061035156,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 77.356986999511719,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 77.399833679199219,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 77.442695617675781,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 77.485557556152344,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 77.528411865234375,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 77.571266174316406,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 77.614128112792969,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 77.656982421875,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 77.699836730957031,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 77.742698669433594,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 77.785552978515625,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 77.828407287597656,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 77.871269226074219,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 77.91412353515625,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 77.956985473632812,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 77.999832153320312,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 78.042694091796875,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 78.085556030273438,
+      "type": 0
+    },
+    {
+      "barNum": 56,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 78.128402709960938,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 78.1712646484375,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 1,
+      "timing": 78.214126586914062,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 2,
+      "timing": 78.256973266601562,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 3,
+      "timing": 78.299835205078125,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 78.342697143554688,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 78.385551452636719,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 78.42840576171875,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 78.471267700195312,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 78.514122009277344,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 78.556976318359375,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 78.599838256835938,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 78.642692565917969,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 78.685546875,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 78.728408813476562,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 78.771263122558594,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 78.814125061035156,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 78.856979370117188,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 78.899833679199219,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 78.942695617675781,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 78.985549926757812,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 79.028404235839844,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 79.071266174316406,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 79.114128112792969,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 79.156974792480469,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 79.199836730957031,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 79.242698669433594,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 79.285545349121094,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 79.328407287597656,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 79.371269226074219,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 79.414115905761719,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 79.456977844238281,
+      "type": 0
+    },
+    {
+      "barNum": 57,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 79.499832153320312,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 79.542694091796875,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 1,
+      "timing": 79.585548400878906,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 2,
+      "timing": 79.628402709960938,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 3,
+      "timing": 79.6712646484375,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 79.714118957519531,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 79.756973266601562,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 79.799835205078125,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 79.842689514160156,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 79.885543823242188,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 79.92840576171875,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 79.971267700195312,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 80.014114379882812,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 80.056976318359375,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 80.099838256835938,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 80.142684936523438,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 80.185546875,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 80.228408813476562,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 80.271255493164062,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 80.314117431640625,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 80.356979370117188,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 80.399833679199219,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 80.44268798828125,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 80.485549926757812,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 80.528404235839844,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 80.571258544921875,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 80.614120483398438,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 80.656974792480469,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 80.699836730957031,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 80.742691040039062,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 80.785545349121094,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 80.828407287597656,
+      "type": 0
+    },
+    {
+      "barNum": 58,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 80.871261596679688,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 80.914115905761719,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 1,
+      "timing": 80.956977844238281,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 2,
+      "timing": 80.999824523925781,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 3,
+      "timing": 81.042686462402344,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 81.085548400878906,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 81.128402709960938,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 81.171257019042969,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 81.214118957519531,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 81.256973266601562,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 81.299827575683594,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 81.342689514160156,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 81.385543823242188,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 81.428398132324219,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 81.471260070800781,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 81.514114379882812,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 81.556976318359375,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 81.599830627441406,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 81.642684936523438,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 81.685546875,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 81.728401184082031,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 81.771255493164062,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 81.814117431640625,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 81.856979370117188,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 81.899826049804688,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 81.94268798828125,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 81.985549926757812,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 82.028396606445312,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 82.071258544921875,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 82.114120483398438,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 82.156967163085938,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 3,
+      "lineNum": 29,
+      "timing": 82.156967163085938,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 82.1998291015625,
+      "type": 0
+    },
+    {
+      "barNum": 59,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 82.242691040039062,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 82.285545349121094,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 82.328399658203125,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 82.371261596679688,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 82.414115905761719,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 4,
+      "timing": 82.45697021484375,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 5,
+      "timing": 82.499824523925781,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 6,
+      "timing": 82.542686462402344,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 7,
+      "timing": 82.585540771484375,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 8,
+      "timing": 82.628395080566406,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 9,
+      "timing": 82.671257019042969,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 10,
+      "timing": 82.714118957519531,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 11,
+      "timing": 82.756965637207031,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 12,
+      "timing": 82.799827575683594,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 13,
+      "timing": 82.842689514160156,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 14,
+      "timing": 82.885536193847656,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 15,
+      "timing": 82.928398132324219,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 16,
+      "timing": 82.971260070800781,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 17,
+      "timing": 83.014106750488281,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 18,
+      "timing": 83.056968688964844,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 19,
+      "timing": 83.099830627441406,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 20,
+      "timing": 83.142684936523438,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 3,
+      "lineNum": 21,
+      "timing": 83.185539245605469,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 22,
+      "timing": 83.228401184082031,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 23,
+      "timing": 83.271255493164062,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 24,
+      "timing": 83.314109802246094,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 25,
+      "timing": 83.356971740722656,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 26,
+      "timing": 83.399826049804688,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 27,
+      "timing": 83.44268798828125,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 28,
+      "timing": 83.485542297363281,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 29,
+      "timing": 83.528396606445312,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 30,
+      "timing": 83.571258544921875,
+      "type": 0
+    },
+    {
+      "barNum": 60,
+      "lane": 4,
+      "lineNum": 31,
+      "timing": 83.614112854003906,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 0,
+      "timing": 83.656967163085938,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 1,
+      "timing": 83.6998291015625,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 83.742683410644531,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 83.785537719726562,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 83.828399658203125,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 83.871261596679688,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 83.914108276367188,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 7,
+      "timing": 83.95697021484375,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 83.999824523925781,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 84.042678833007812,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 10,
+      "timing": 84.085540771484375,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 11,
+      "timing": 84.128395080566406,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 12,
+      "timing": 84.171249389648438,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 13,
+      "timing": 84.214111328125,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 14,
+      "timing": 84.256965637207031,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 15,
+      "timing": 84.299827575683594,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 16,
+      "timing": 84.342681884765625,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 17,
+      "timing": 84.385536193847656,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 18,
+      "timing": 84.428398132324219,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 19,
+      "timing": 84.47125244140625,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 20,
+      "timing": 84.514106750488281,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 21,
+      "timing": 84.556968688964844,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 22,
+      "timing": 84.599822998046875,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 23,
+      "timing": 84.642677307128906,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 5,
+      "lineNum": 24,
+      "timing": 84.685539245605469,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 25,
+      "timing": 84.728401184082031,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 3,
+      "lineNum": 26,
+      "timing": 84.771247863769531,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 4,
+      "lineNum": 26,
+      "timing": 84.771247863769531,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 84.814109802246094,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 84.856971740722656,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 1,
+      "lineNum": 29,
+      "timing": 84.899818420410156,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 1,
+      "lineNum": 30,
+      "timing": 84.942680358886719,
+      "type": 0
+    },
+    {
+      "barNum": 61,
+      "lane": 1,
+      "lineNum": 31,
+      "timing": 84.985542297363281,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 85.028396606445312,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 1,
+      "timing": 85.071250915527344,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 1,
+      "timing": 85.071250915527344,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 2,
+      "timing": 85.114112854003906,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 3,
+      "timing": 85.156967163085938,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 85.199821472167969,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 5,
+      "timing": 85.242683410644531,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 6,
+      "timing": 85.285537719726562,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 7,
+      "timing": 85.328392028808594,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 85.371246337890625,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 9,
+      "timing": 85.414108276367188,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 10,
+      "timing": 85.45697021484375,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 11,
+      "timing": 85.49981689453125,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 85.542678833007812,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 13,
+      "timing": 85.585540771484375,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 14,
+      "timing": 85.628387451171875,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 15,
+      "timing": 85.671249389648438,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 16,
+      "timing": 85.714111328125,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 85.714111328125,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 17,
+      "timing": 85.7569580078125,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 18,
+      "timing": 85.799819946289062,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 19,
+      "timing": 85.842681884765625,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 85.885536193847656,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 1,
+      "lineNum": 20,
+      "timing": 85.885536193847656,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 85.928390502929688,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 85.97125244140625,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 86.014106750488281,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 86.056961059570312,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 86.099822998046875,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 3,
+      "lineNum": 26,
+      "timing": 86.142677307128906,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 3,
+      "lineNum": 27,
+      "timing": 86.185531616210938,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 86.2283935546875,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 3,
+      "lineNum": 29,
+      "timing": 86.271247863769531,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 86.314109802246094,
+      "type": 0
+    },
+    {
+      "barNum": 62,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 86.356964111328125,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 86.399818420410156,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 86.442680358886719,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 86.48553466796875,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 86.528388977050781,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 4,
+      "timing": 86.571250915527344,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 5,
+      "timing": 86.614112854003906,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 6,
+      "timing": 86.656959533691406,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 7,
+      "timing": 86.699821472167969,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 3,
+      "lineNum": 8,
+      "timing": 86.742683410644531,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 86.785530090332031,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 10,
+      "timing": 86.828392028808594,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 11,
+      "timing": 86.871246337890625,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 12,
+      "timing": 86.914100646972656,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 13,
+      "timing": 86.956962585449219,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 14,
+      "timing": 86.99981689453125,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 15,
+      "timing": 87.042678833007812,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 16,
+      "timing": 87.085533142089844,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 17,
+      "timing": 87.128387451171875,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 18,
+      "timing": 87.171249389648438,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 19,
+      "timing": 87.214103698730469,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 87.2569580078125,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 21,
+      "timing": 87.299819946289062,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 22,
+      "timing": 87.342674255371094,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 23,
+      "timing": 87.385528564453125,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 24,
+      "timing": 87.428390502929688,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 25,
+      "timing": 87.47125244140625,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 26,
+      "timing": 87.51409912109375,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 27,
+      "timing": 87.556961059570312,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 28,
+      "timing": 87.599822998046875,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 29,
+      "timing": 87.642669677734375,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 30,
+      "timing": 87.685531616210938,
+      "type": 0
+    },
+    {
+      "barNum": 63,
+      "lane": 5,
+      "lineNum": 31,
+      "timing": 87.7283935546875,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 4,
+      "lineNum": 0,
+      "timing": 87.771247863769531,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 4,
+      "lineNum": 1,
+      "timing": 87.814102172851562,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 87.856964111328125,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 87.899818420410156,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 87.899818420410156,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 3,
+      "lineNum": 4,
+      "timing": 87.942672729492188,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 3,
+      "lineNum": 5,
+      "timing": 87.98553466796875,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 3,
+      "lineNum": 6,
+      "timing": 88.028388977050781,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 3,
+      "lineNum": 7,
+      "timing": 88.071243286132812,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 88.114105224609375,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 88.156959533691406,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 88.199821472167969,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 88.242668151855469,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 88.285530090332031,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 1,
+      "lineNum": 13,
+      "timing": 88.328392028808594,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 1,
+      "lineNum": 14,
+      "timing": 88.371238708496094,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 1,
+      "lineNum": 15,
+      "timing": 88.414100646972656,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 1,
+      "lineNum": 16,
+      "timing": 88.456962585449219,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 17,
+      "timing": 88.499809265136719,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 18,
+      "timing": 88.542671203613281,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 19,
+      "timing": 88.585533142089844,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 20,
+      "timing": 88.628387451171875,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 21,
+      "timing": 88.671241760253906,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 22,
+      "timing": 88.714103698730469,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 23,
+      "timing": 88.7569580078125,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 25,
+      "timing": 88.842674255371094,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 26,
+      "timing": 88.885528564453125,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 0,
+      "lineNum": 27,
+      "timing": 88.928382873535156,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 88.971244812011719,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 89.01409912109375,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 89.056961059570312,
+      "type": 0
+    },
+    {
+      "barNum": 64,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 89.099815368652344,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 89.142669677734375,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 89.185531616210938,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 89.228385925292969,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 89.271240234375,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 4,
+      "timing": 89.314102172851562,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 5,
+      "timing": 89.356964111328125,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 6,
+      "timing": 89.399810791015625,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 7,
+      "timing": 89.442672729492188,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 9,
+      "timing": 89.52838134765625,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 10,
+      "timing": 89.571243286132812,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 11,
+      "timing": 89.614105224609375,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 12,
+      "timing": 89.656951904296875,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 13,
+      "timing": 89.699813842773438,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 15,
+      "timing": 89.785530090332031,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 17,
+      "timing": 89.871238708496094,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 18,
+      "timing": 89.914100646972656,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 89.999809265136719,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 21,
+      "timing": 90.042671203613281,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 22,
+      "timing": 90.085525512695312,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 1,
+      "lineNum": 24,
+      "timing": 90.171241760253906,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 24,
+      "timing": 90.171241760253906,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 25,
+      "timing": 90.214103698730469,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 90.214103698730469,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 1,
+      "lineNum": 25,
+      "timing": 90.214103698730469,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 90.256950378417969,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 26,
+      "timing": 90.256950378417969,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 1,
+      "lineNum": 26,
+      "timing": 90.256950378417969,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 90.299812316894531,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 4,
+      "lineNum": 27,
+      "timing": 90.299812316894531,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 90.342674255371094,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 29,
+      "timing": 90.385520935058594,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 1,
+      "lineNum": 30,
+      "timing": 90.428382873535156,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 90.428382873535156,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 1,
+      "lineNum": 31,
+      "timing": 90.471244812011719,
+      "type": 0
+    },
+    {
+      "barNum": 65,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 90.471244812011719,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 90.514091491699219,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 90.514091491699219,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 90.514091491699219,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 1,
+      "lineNum": 1,
+      "timing": 90.556953430175781,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 90.556953430175781,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 90.599815368652344,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 90.685523986816406,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 90.771240234375,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 90.856956481933594,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 90.899810791015625,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 11,
+      "timing": 90.985527038574219,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 12,
+      "timing": 91.02838134765625,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 14,
+      "timing": 91.114089965820312,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 15,
+      "timing": 91.156951904296875,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 17,
+      "timing": 91.242660522460938,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 18,
+      "timing": 91.2855224609375,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 91.371238708496094,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 21,
+      "timing": 91.414093017578125,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 22,
+      "timing": 91.456954956054688,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 23,
+      "timing": 91.499809265136719,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 24,
+      "timing": 91.54266357421875,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 25,
+      "timing": 91.585525512695312,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 26,
+      "timing": 91.628379821777344,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 27,
+      "timing": 91.671234130859375,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 28,
+      "timing": 91.714096069335938,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 4,
+      "lineNum": 29,
+      "timing": 91.756950378417969,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 91.799812316894531,
+      "type": 0
+    },
+    {
+      "barNum": 66,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 91.842666625976562,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 91.885520935058594,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 91.885520935058594,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 91.928382873535156,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 1,
+      "timing": 91.928382873535156,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 91.971237182617188,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 2,
+      "timing": 91.971237182617188,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 3,
+      "timing": 92.014091491699219,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 92.014091491699219,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 92.056953430175781,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 92.056953430175781,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 1,
+      "lineNum": 5,
+      "timing": 92.099807739257812,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 92.099807739257812,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 1,
+      "lineNum": 6,
+      "timing": 92.142662048339844,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 6,
+      "timing": 92.142662048339844,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 9,
+      "timing": 92.271232604980469,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 10,
+      "timing": 92.314094543457031,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 11,
+      "timing": 92.356956481933594,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 92.399803161621094,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 13,
+      "timing": 92.442665100097656,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 14,
+      "timing": 92.485527038574219,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 15,
+      "timing": 92.52838134765625,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 92.571235656738281,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 17,
+      "timing": 92.614089965820312,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 18,
+      "timing": 92.656951904296875,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 19,
+      "timing": 92.699806213378906,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 20,
+      "timing": 92.742660522460938,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 21,
+      "timing": 92.7855224609375,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 22,
+      "timing": 92.828376770019531,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 23,
+      "timing": 92.871231079101562,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 92.914093017578125,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 25,
+      "timing": 92.956954956054688,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 26,
+      "timing": 92.999801635742188,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 27,
+      "timing": 93.04266357421875,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 28,
+      "timing": 93.085525512695312,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 29,
+      "timing": 93.128372192382812,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 30,
+      "timing": 93.171234130859375,
+      "type": 0
+    },
+    {
+      "barNum": 67,
+      "lane": 0,
+      "lineNum": 31,
+      "timing": 93.214096069335938,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 0,
+      "timing": 93.256942749023438,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 1,
+      "timing": 93.2998046875,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 2,
+      "timing": 93.342666625976562,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 3,
+      "timing": 93.385520935058594,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 93.428375244140625,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 5,
+      "timing": 93.471237182617188,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 6,
+      "timing": 93.514091491699219,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 7,
+      "timing": 93.55694580078125,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 93.599807739257812,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 9,
+      "timing": 93.642662048339844,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 10,
+      "timing": 93.685516357421875,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 11,
+      "timing": 93.728378295898438,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 93.771232604980469,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 13,
+      "timing": 93.814094543457031,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 14,
+      "timing": 93.856948852539062,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 15,
+      "timing": 93.899803161621094,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 93.942665100097656,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 17,
+      "timing": 93.985519409179688,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 18,
+      "timing": 94.028373718261719,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 19,
+      "timing": 94.071235656738281,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 20,
+      "timing": 94.114089965820312,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 21,
+      "timing": 94.156944274902344,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 22,
+      "timing": 94.199806213378906,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 23,
+      "timing": 94.242660522460938,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 94.285514831542969,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 25,
+      "timing": 94.328376770019531,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 26,
+      "timing": 94.371231079101562,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 27,
+      "timing": 94.414085388183594,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 0,
+      "lineNum": 28,
+      "timing": 94.456947326660156,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 1,
+      "lineNum": 29,
+      "timing": 94.499801635742188,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 1,
+      "lineNum": 30,
+      "timing": 94.54266357421875,
+      "type": 0
+    },
+    {
+      "barNum": 68,
+      "lane": 1,
+      "lineNum": 31,
+      "timing": 94.585517883300781,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 94.628372192382812,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 1,
+      "timing": 94.671234130859375,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 2,
+      "timing": 94.714088439941406,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 3,
+      "timing": 94.756942749023438,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 4,
+      "timing": 94.7998046875,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 5,
+      "timing": 94.842658996582031,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 6,
+      "timing": 94.885513305664062,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 7,
+      "timing": 94.928375244140625,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 8,
+      "timing": 94.971237182617188,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 9,
+      "timing": 95.014083862304688,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 10,
+      "timing": 95.05694580078125,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 11,
+      "timing": 95.099807739257812,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 12,
+      "timing": 95.142654418945312,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 13,
+      "timing": 95.185516357421875,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 14,
+      "timing": 95.228378295898438,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 15,
+      "timing": 95.271232604980469,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 16,
+      "timing": 95.3140869140625,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 17,
+      "timing": 95.356948852539062,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 18,
+      "timing": 95.399803161621094,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 19,
+      "timing": 95.442657470703125,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 20,
+      "timing": 95.485519409179688,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 21,
+      "timing": 95.528373718261719,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 22,
+      "timing": 95.57122802734375,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 23,
+      "timing": 95.614082336425781,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 24,
+      "timing": 95.656944274902344,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 25,
+      "timing": 95.699806213378906,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 26,
+      "timing": 95.742652893066406,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 1,
+      "lineNum": 27,
+      "timing": 95.785514831542969,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 95.828376770019531,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 95.871223449707031,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 95.914085388183594,
+      "type": 0
+    },
+    {
+      "barNum": 69,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 95.956947326660156,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 95.999794006347656,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 1,
+      "timing": 96.042655944824219,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 2,
+      "timing": 96.085517883300781,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 3,
+      "timing": 96.128372192382812,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 96.171226501464844,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 96.214088439941406,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 96.256942749023438,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 96.299797058105469,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 96.342658996582031,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 96.385513305664062,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 96.428367614746094,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 96.471229553222656,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 96.514083862304688,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 96.55694580078125,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 96.599800109863281,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 96.642654418945312,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 96.685516357421875,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 96.728370666503906,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 96.771224975585938,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 96.8140869140625,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 96.856948852539062,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 96.899795532226562,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 96.942657470703125,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 96.985519409179688,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 97.028366088867188,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 97.07122802734375,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 97.114082336425781,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 97.156936645507812,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 97.199798583984375,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 97.242652893066406,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 97.285514831542969,
+      "type": 0
+    },
+    {
+      "barNum": 70,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 97.328369140625,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 97.371223449707031,
+      "type": 0
+    },
+    {
       "barNum": 71,
       "lane": 0,
       "lineNum": 0,
@@ -1127,6 +4587,3247 @@
       ],
       "timing": 97.371246337890625,
       "type": 2
+    },
+    {
+      "barNum": 71,
+      "lane": 4,
+      "lineNum": 1,
+      "timing": 97.414085388183594,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 97.414085388183594,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 97.456939697265625,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 97.499794006347656,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 97.542655944824219,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 97.58551025390625,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 97.628364562988281,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 7,
+      "timing": 97.671226501464844,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 8,
+      "timing": 97.714088439941406,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 9,
+      "timing": 97.756935119628906,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 10,
+      "timing": 97.799797058105469,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 11,
+      "timing": 97.842658996582031,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 12,
+      "timing": 97.885505676269531,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 13,
+      "timing": 97.928367614746094,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 14,
+      "timing": 97.971229553222656,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 15,
+      "timing": 98.014076232910156,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 16,
+      "timing": 98.056938171386719,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 17,
+      "timing": 98.099800109863281,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 18,
+      "timing": 98.142654418945312,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 19,
+      "timing": 98.185508728027344,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 20,
+      "timing": 98.228370666503906,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 21,
+      "timing": 98.271224975585938,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 22,
+      "timing": 98.314079284667969,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 23,
+      "timing": 98.356941223144531,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 24,
+      "timing": 98.399795532226562,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 25,
+      "timing": 98.442657470703125,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 26,
+      "timing": 98.485504150390625,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 27,
+      "timing": 98.528366088867188,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 28,
+      "timing": 98.57122802734375,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 29,
+      "timing": 98.61407470703125,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 30,
+      "timing": 98.656936645507812,
+      "type": 0
+    },
+    {
+      "barNum": 71,
+      "lane": 5,
+      "lineNum": 31,
+      "timing": 98.699798583984375,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 5,
+      "lineNum": 0,
+      "timing": 98.742645263671875,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 5,
+      "lineNum": 1,
+      "timing": 98.785507202148438,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 5,
+      "lineNum": 2,
+      "timing": 98.828369140625,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 5,
+      "lineNum": 3,
+      "timing": 98.871223449707031,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 5,
+      "lineNum": 4,
+      "timing": 98.914077758789062,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 98.956939697265625,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 98.999794006347656,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 7,
+      "timing": 99.042648315429688,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 99.08551025390625,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 99.128364562988281,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 10,
+      "timing": 99.171218872070312,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 11,
+      "timing": 99.214080810546875,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 4,
+      "lineNum": 11,
+      "timing": 99.214080810546875,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 12,
+      "timing": 99.256935119628906,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 13,
+      "timing": 99.299797058105469,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 14,
+      "timing": 99.3426513671875,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 15,
+      "timing": 99.385505676269531,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 16,
+      "timing": 99.428367614746094,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 17,
+      "timing": 99.471221923828125,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 18,
+      "timing": 99.514076232910156,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 19,
+      "timing": 99.556938171386719,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 3,
+      "lineNum": 20,
+      "timing": 99.59979248046875,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 99.642646789550781,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 22,
+      "timing": 99.685508728027344,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 99.728370666503906,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 99.771217346191406,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 99.814079284667969,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 99.856941223144531,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 1,
+      "lineNum": 27,
+      "timing": 99.899787902832031,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 99.899787902832031,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 99.942649841308594,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 1,
+      "lineNum": 29,
+      "timing": 99.985504150390625,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 1,
+      "lineNum": 30,
+      "timing": 100.02836608886719,
+      "type": 0
+    },
+    {
+      "barNum": 72,
+      "lane": 1,
+      "lineNum": 31,
+      "timing": 100.07122039794922,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 100.11407470703125,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 1,
+      "timing": 100.15693664550781,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 2,
+      "timing": 100.19979095458984,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 3,
+      "timing": 100.24264526367188,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 100.28550720214844,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 5,
+      "timing": 100.32836151123047,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 6,
+      "timing": 100.3712158203125,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 7,
+      "timing": 100.41407775878906,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 100.45693969726562,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 9,
+      "timing": 100.49978637695312,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 10,
+      "timing": 100.54264831542969,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 11,
+      "timing": 100.58551025390625,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 100.62835693359375,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 13,
+      "timing": 100.67121887207031,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 14,
+      "timing": 100.71408081054688,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 15,
+      "timing": 100.75692749023438,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 16,
+      "timing": 100.79978942871094,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 17,
+      "timing": 100.8426513671875,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 18,
+      "timing": 100.88550567626953,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 19,
+      "timing": 100.92835998535156,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 20,
+      "timing": 100.97122192382812,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 21,
+      "timing": 101.01407623291016,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 1,
+      "lineNum": 22,
+      "timing": 101.05693054199219,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 23,
+      "timing": 101.09979248046875,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 24,
+      "timing": 101.14264678955078,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 25,
+      "timing": 101.18550872802734,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 26,
+      "timing": 101.22836303710938,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 27,
+      "timing": 101.27121734619141,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 101.31407928466797,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 101.35692596435547,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 101.39978790283203,
+      "type": 0
+    },
+    {
+      "barNum": 73,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 101.44264984130859,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 101.48549652099609,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 101.48549652099609,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 101.52835845947266,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 101.57122039794922,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 101.61407470703125,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 4,
+      "timing": 101.65692901611328,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 5,
+      "timing": 101.69979095458984,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 6,
+      "timing": 101.74264526367188,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 7,
+      "timing": 101.78549957275391,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 8,
+      "timing": 101.82836151123047,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 9,
+      "timing": 101.8712158203125,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 10,
+      "timing": 101.91407012939453,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 11,
+      "timing": 101.95693206787109,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 3,
+      "lineNum": 12,
+      "timing": 101.99978637695312,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 13,
+      "timing": 102.04264831542969,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 14,
+      "timing": 102.08550262451172,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 15,
+      "timing": 102.12835693359375,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 16,
+      "timing": 102.17121887207031,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 17,
+      "timing": 102.21407318115234,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 18,
+      "timing": 102.25692749023438,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 19,
+      "timing": 102.29978942871094,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 102.34264373779297,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 21,
+      "timing": 102.385498046875,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 22,
+      "timing": 102.42835998535156,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 23,
+      "timing": 102.47122192382812,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 24,
+      "timing": 102.51406860351562,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 25,
+      "timing": 102.55693054199219,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 4,
+      "lineNum": 26,
+      "timing": 102.59979248046875,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 5,
+      "lineNum": 27,
+      "timing": 102.64263916015625,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 5,
+      "lineNum": 28,
+      "timing": 102.68550109863281,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 5,
+      "lineNum": 29,
+      "timing": 102.72836303710938,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 5,
+      "lineNum": 30,
+      "timing": 102.77121734619141,
+      "type": 0
+    },
+    {
+      "barNum": 74,
+      "lane": 5,
+      "lineNum": 31,
+      "timing": 102.81407165527344,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 0,
+      "timing": 102.85692596435547,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 1,
+      "timing": 102.89978790283203,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 2,
+      "timing": 102.94264221191406,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 3,
+      "timing": 102.98549652099609,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 4,
+      "timing": 103.02835845947266,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 5,
+      "timing": 103.07121276855469,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 6,
+      "timing": 103.11406707763672,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 7,
+      "timing": 103.15692901611328,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 8,
+      "timing": 103.19979095458984,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 9,
+      "timing": 103.24263763427734,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 10,
+      "timing": 103.28549957275391,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 11,
+      "timing": 103.32836151123047,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 12,
+      "timing": 103.37120819091797,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 13,
+      "timing": 103.41407012939453,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 14,
+      "timing": 103.45693206787109,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 15,
+      "timing": 103.49977874755859,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 5,
+      "lineNum": 16,
+      "timing": 103.54264068603516,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 4,
+      "lineNum": 17,
+      "timing": 103.58550262451172,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 4,
+      "lineNum": 18,
+      "timing": 103.62835693359375,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 4,
+      "lineNum": 19,
+      "timing": 103.67121124267578,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 20,
+      "timing": 103.71407318115234,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 21,
+      "timing": 103.75692749023438,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 22,
+      "timing": 103.79978179931641,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 23,
+      "timing": 103.84264373779297,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 24,
+      "timing": 103.885498046875,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 25,
+      "timing": 103.92835235595703,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 26,
+      "timing": 103.97121429443359,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 3,
+      "lineNum": 27,
+      "timing": 104.01406860351562,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 2,
+      "lineNum": 28,
+      "timing": 104.05693054199219,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 2,
+      "lineNum": 29,
+      "timing": 104.09978485107422,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 2,
+      "lineNum": 30,
+      "timing": 104.14263916015625,
+      "type": 0
+    },
+    {
+      "barNum": 75,
+      "lane": 2,
+      "lineNum": 31,
+      "timing": 104.18550109863281,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 2,
+      "lineNum": 0,
+      "timing": 104.22834777832031,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 2,
+      "lineNum": 1,
+      "timing": 104.27120971679688,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 2,
+      "timing": 104.31407165527344,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 3,
+      "timing": 104.35692596435547,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 4,
+      "timing": 104.3997802734375,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 5,
+      "timing": 104.44264221191406,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 6,
+      "timing": 104.48549652099609,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 7,
+      "timing": 104.52835083007812,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 104.57121276855469,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 9,
+      "timing": 104.61406707763672,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 10,
+      "timing": 104.65692138671875,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 11,
+      "timing": 104.69978332519531,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 104.74263763427734,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 13,
+      "timing": 104.78549957275391,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 14,
+      "timing": 104.82835388183594,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 15,
+      "timing": 104.87120819091797,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 16,
+      "timing": 104.91407012939453,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 17,
+      "timing": 104.95692443847656,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 18,
+      "timing": 104.99977874755859,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 19,
+      "timing": 105.04264068603516,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 20,
+      "timing": 105.08549499511719,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 21,
+      "timing": 105.12834930419922,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 22,
+      "timing": 105.17121124267578,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 23,
+      "timing": 105.21407318115234,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 105.25691986083984,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 25,
+      "timing": 105.29978179931641,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 0,
+      "lineNum": 26,
+      "timing": 105.34264373779297,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 27,
+      "timing": 105.38549041748047,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 105.42835235595703,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 29,
+      "timing": 105.47121429443359,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 30,
+      "timing": 105.51406097412109,
+      "type": 0
+    },
+    {
+      "barNum": 76,
+      "lane": 1,
+      "lineNum": 31,
+      "timing": 105.55692291259766,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 105.59978485107422,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 1,
+      "lineNum": 1,
+      "timing": 105.64263916015625,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 1,
+      "lineNum": 2,
+      "timing": 105.68549346923828,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 2,
+      "timing": 105.68549346923828,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 3,
+      "timing": 105.72834777832031,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 105.77120971679688,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 105.81406402587891,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 105.85691833496094,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 105.8997802734375,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 105.94264221191406,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 105.98548889160156,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 106.02835083007812,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 106.07121276855469,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 106.11405944824219,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 106.15692138671875,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 106.19978332519531,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 106.24263000488281,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 106.28549194335938,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 106.32835388183594,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 18,
+      "timing": 106.37120819091797,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 19,
+      "timing": 106.4140625,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 20,
+      "timing": 106.45692443847656,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 21,
+      "timing": 106.49977874755859,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 22,
+      "timing": 106.54263305664062,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 23,
+      "timing": 106.58549499511719,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 24,
+      "timing": 106.62834930419922,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 25,
+      "timing": 106.67120361328125,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 26,
+      "timing": 106.71406555175781,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 27,
+      "timing": 106.75691986083984,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 106.79978179931641,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 29,
+      "timing": 106.84263610839844,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 106.88549041748047,
+      "type": 0
+    },
+    {
+      "barNum": 77,
+      "lane": 4,
+      "lineNum": 31,
+      "timing": 106.92835235595703,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 0,
+      "timing": 106.97120666503906,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 1,
+      "timing": 107.01406097412109,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 107.05692291259766,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 107.09977722167969,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 107.14263153076172,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 107.18549346923828,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 107.22834777832031,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 7,
+      "timing": 107.27120208740234,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 107.31406402587891,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 107.35691833496094,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 10,
+      "timing": 107.39977264404297,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 11,
+      "timing": 107.44263458251953,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 12,
+      "timing": 107.48548889160156,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 13,
+      "timing": 107.52835083007812,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 14,
+      "timing": 107.57120513916016,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 15,
+      "timing": 107.61405944824219,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 4,
+      "lineNum": 16,
+      "timing": 107.65692138671875,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 17,
+      "timing": 107.69977569580078,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 18,
+      "timing": 107.74263000488281,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 19,
+      "timing": 107.78549194335938,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 20,
+      "timing": 107.82834625244141,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 21,
+      "timing": 107.87120056152344,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 22,
+      "timing": 107.9140625,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 23,
+      "timing": 107.95692443847656,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 24,
+      "timing": 107.99977111816406,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 25,
+      "timing": 108.04263305664062,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 26,
+      "timing": 108.08549499511719,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 27,
+      "timing": 108.12834167480469,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 28,
+      "timing": 108.17120361328125,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 29,
+      "timing": 108.21406555175781,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 30,
+      "timing": 108.25691223144531,
+      "type": 0
+    },
+    {
+      "barNum": 78,
+      "lane": 5,
+      "lineNum": 31,
+      "timing": 108.29977416992188,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 0,
+      "timing": 108.34263610839844,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 1,
+      "timing": 108.38549041748047,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 2,
+      "timing": 108.4283447265625,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 3,
+      "timing": 108.47120666503906,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 4,
+      "timing": 108.51406097412109,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 5,
+      "timing": 108.55691528320312,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 6,
+      "timing": 108.59977722167969,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 7,
+      "timing": 108.64263153076172,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 8,
+      "timing": 108.68549346923828,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 9,
+      "timing": 108.72834014892578,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 10,
+      "timing": 108.77120208740234,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 11,
+      "timing": 108.81406402587891,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 12,
+      "timing": 108.85691070556641,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 13,
+      "timing": 108.89977264404297,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 5,
+      "lineNum": 14,
+      "timing": 108.94263458251953,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 15,
+      "timing": 108.98548126220703,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 16,
+      "timing": 109.02834320068359,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 17,
+      "timing": 109.07120513916016,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 18,
+      "timing": 109.11405944824219,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 19,
+      "timing": 109.15691375732422,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 20,
+      "timing": 109.19977569580078,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 21,
+      "timing": 109.24263000488281,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 22,
+      "timing": 109.28548431396484,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 23,
+      "timing": 109.32834625244141,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 4,
+      "lineNum": 24,
+      "timing": 109.37120056152344,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 25,
+      "timing": 109.41405487060547,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 26,
+      "timing": 109.45691680908203,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 27,
+      "timing": 109.49977111816406,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 109.54263305664062,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 29,
+      "timing": 109.58548736572266,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 109.62834167480469,
+      "type": 0
+    },
+    {
+      "barNum": 79,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 109.67120361328125,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 3,
+      "lineNum": 0,
+      "timing": 109.71405792236328,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 3,
+      "lineNum": 1,
+      "timing": 109.75691223144531,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 3,
+      "lineNum": 2,
+      "timing": 109.79977416992188,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 3,
+      "lineNum": 3,
+      "timing": 109.84262847900391,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 4,
+      "timing": 109.88548278808594,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 5,
+      "timing": 109.9283447265625,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 6,
+      "timing": 109.97120666503906,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 110.01405334472656,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 110.05691528320312,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 110.09977722167969,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 110.14262390136719,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 110.18548583984375,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 110.22834014892578,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 1,
+      "lineNum": 13,
+      "timing": 110.27120208740234,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 1,
+      "lineNum": 14,
+      "timing": 110.31405639648438,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 1,
+      "lineNum": 15,
+      "timing": 110.35691070556641,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 1,
+      "lineNum": 16,
+      "timing": 110.39977264404297,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 1,
+      "lineNum": 17,
+      "timing": 110.442626953125,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 18,
+      "timing": 110.48548126220703,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 19,
+      "timing": 110.52834320068359,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 20,
+      "timing": 110.57119750976562,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 21,
+      "timing": 110.61405181884766,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 22,
+      "timing": 110.65691375732422,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 23,
+      "timing": 110.69977569580078,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 24,
+      "timing": 110.74262237548828,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 25,
+      "timing": 110.78548431396484,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 26,
+      "timing": 110.82834625244141,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 27,
+      "timing": 110.87119293212891,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 28,
+      "timing": 110.91405487060547,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 29,
+      "timing": 110.95691680908203,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 30,
+      "timing": 110.99976348876953,
+      "type": 0
+    },
+    {
+      "barNum": 80,
+      "lane": 0,
+      "lineNum": 31,
+      "timing": 111.04262542724609,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 111.08548736572266,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 1,
+      "timing": 111.12834167480469,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 2,
+      "timing": 111.17119598388672,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 3,
+      "timing": 111.21405792236328,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 4,
+      "timing": 111.25691223144531,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 5,
+      "timing": 111.29976654052734,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 1,
+      "lineNum": 6,
+      "timing": 111.34262847900391,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 7,
+      "timing": 111.38548278808594,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 8,
+      "timing": 111.42833709716797,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 9,
+      "timing": 111.47119903564453,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 10,
+      "timing": 111.51405334472656,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 111.55691528320312,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 111.59976196289062,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 111.64262390136719,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 111.68548583984375,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 111.72833251953125,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 111.77119445800781,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 111.81405639648438,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 111.85691070556641,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 111.89976501464844,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 19,
+      "timing": 111.89976501464844,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 20,
+      "timing": 111.942626953125,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 21,
+      "timing": 111.98548126220703,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 22,
+      "timing": 112.02833557128906,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 23,
+      "timing": 112.07119750976562,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 24,
+      "timing": 112.11405181884766,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 25,
+      "timing": 112.15690612792969,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 26,
+      "timing": 112.19976806640625,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 27,
+      "timing": 112.24262237548828,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 28,
+      "timing": 112.28548431396484,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 29,
+      "timing": 112.32833862304688,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 30,
+      "timing": 112.37119293212891,
+      "type": 0
+    },
+    {
+      "barNum": 81,
+      "lane": 3,
+      "lineNum": 31,
+      "timing": 112.41405487060547,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 0,
+      "timing": 112.4569091796875,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 1,
+      "timing": 112.49976348876953,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 112.54262542724609,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 112.58547973632812,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 112.62833404541016,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 112.67119598388672,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 112.71405792236328,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 7,
+      "timing": 112.75690460205078,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 112.79976654052734,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 112.84262847900391,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 10,
+      "timing": 112.88547515869141,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 11,
+      "timing": 112.92833709716797,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 4,
+      "lineNum": 12,
+      "timing": 112.97119903564453,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 13,
+      "timing": 113.01404571533203,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 14,
+      "timing": 113.05690765380859,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 15,
+      "timing": 113.09976196289062,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 16,
+      "timing": 113.14262390136719,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 17,
+      "timing": 113.18547821044922,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 18,
+      "timing": 113.22833251953125,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 19,
+      "timing": 113.27119445800781,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 20,
+      "timing": 113.31404876708984,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 21,
+      "timing": 113.35690307617188,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 22,
+      "timing": 113.39976501464844,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 23,
+      "timing": 113.442626953125,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 24,
+      "timing": 113.4854736328125,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 25,
+      "timing": 113.52833557128906,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 26,
+      "timing": 113.57119750976562,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 27,
+      "timing": 113.61404418945312,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 28,
+      "timing": 113.65690612792969,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 29,
+      "timing": 113.69976806640625,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 30,
+      "timing": 113.74261474609375,
+      "type": 0
+    },
+    {
+      "barNum": 82,
+      "lane": 5,
+      "lineNum": 31,
+      "timing": 113.78547668457031,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 5,
+      "lineNum": 0,
+      "timing": 113.82833862304688,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 5,
+      "lineNum": 2,
+      "timing": 113.91404724121094,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 113.91404724121094,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 113.9569091796875,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 113.99976348876953,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 114.04261779785156,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 3,
+      "lineNum": 6,
+      "timing": 114.08547973632812,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 3,
+      "lineNum": 7,
+      "timing": 114.12833404541016,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 3,
+      "lineNum": 8,
+      "timing": 114.17118835449219,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 3,
+      "lineNum": 9,
+      "timing": 114.21405029296875,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 3,
+      "lineNum": 10,
+      "timing": 114.25690460205078,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 11,
+      "timing": 114.29976654052734,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 12,
+      "timing": 114.34262084960938,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 13,
+      "timing": 114.38547515869141,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 14,
+      "timing": 114.42833709716797,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 15,
+      "timing": 114.47118377685547,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 16,
+      "timing": 114.51404571533203,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 17,
+      "timing": 114.55690765380859,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 114.59976196289062,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 19,
+      "timing": 114.64261627197266,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 20,
+      "timing": 114.68547821044922,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 21,
+      "timing": 114.72833251953125,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 22,
+      "timing": 114.77118682861328,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 23,
+      "timing": 114.81404876708984,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 24,
+      "timing": 114.85690307617188,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 25,
+      "timing": 114.89975738525391,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 26,
+      "timing": 114.94261932373047,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 27,
+      "timing": 114.9854736328125,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 28,
+      "timing": 115.02833557128906,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 30,
+      "timing": 115.11404418945312,
+      "type": 0
+    },
+    {
+      "barNum": 83,
+      "lane": 1,
+      "lineNum": 31,
+      "timing": 115.15690612792969,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 115.19976043701172,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 1,
+      "lineNum": 1,
+      "timing": 115.24261474609375,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 1,
+      "lineNum": 2,
+      "timing": 115.28547668457031,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 3,
+      "timing": 115.32833099365234,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 4,
+      "timing": 115.37118530273438,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 5,
+      "timing": 115.41404724121094,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 6,
+      "timing": 115.4569091796875,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 7,
+      "timing": 115.499755859375,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 8,
+      "timing": 115.54261779785156,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 9,
+      "timing": 115.58547973632812,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 10,
+      "timing": 115.62832641601562,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 11,
+      "timing": 115.67118835449219,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 12,
+      "timing": 115.71405029296875,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 13,
+      "timing": 115.75689697265625,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 0,
+      "lineNum": 14,
+      "timing": 115.79975891113281,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 1,
+      "lineNum": 15,
+      "timing": 115.84262084960938,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 1,
+      "lineNum": 17,
+      "timing": 115.92832946777344,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 2,
+      "lineNum": 18,
+      "timing": 115.97118377685547,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 2,
+      "lineNum": 19,
+      "timing": 116.01404571533203,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 2,
+      "lineNum": 20,
+      "timing": 116.05690002441406,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 2,
+      "lineNum": 21,
+      "timing": 116.09975433349609,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 3,
+      "lineNum": 21,
+      "timing": 116.09975433349609,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 3,
+      "lineNum": 23,
+      "timing": 116.18547821044922,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 3,
+      "lineNum": 24,
+      "timing": 116.22832489013672,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 3,
+      "lineNum": 25,
+      "timing": 116.27118682861328,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 4,
+      "lineNum": 26,
+      "timing": 116.31404876708984,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 4,
+      "lineNum": 27,
+      "timing": 116.35689544677734,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 4,
+      "lineNum": 28,
+      "timing": 116.39975738525391,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 4,
+      "lineNum": 29,
+      "timing": 116.44261932373047,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 4,
+      "lineNum": 30,
+      "timing": 116.48546600341797,
+      "type": 0
+    },
+    {
+      "barNum": 84,
+      "lane": 4,
+      "lineNum": 31,
+      "timing": 116.52832794189453,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 0,
+      "timing": 116.57118988037109,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 1,
+      "timing": 116.61404418945312,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 2,
+      "timing": 116.65689849853516,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 3,
+      "timing": 116.69976043701172,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 4,
+      "timing": 116.74261474609375,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 5,
+      "timing": 116.78546905517578,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 6,
+      "timing": 116.82833099365234,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 7,
+      "timing": 116.87118530273438,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 8,
+      "timing": 116.91403961181641,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 9,
+      "timing": 116.95690155029297,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 10,
+      "timing": 116.999755859375,
+      "type": 0
+    },
+    {
+      "barNum": 85,
+      "lane": 4,
+      "lineNum": 11,
+      "timing": 117.04261779785156,
+      "type": 0
     }
   ],
   "path": "sounds\\Memory of Heaven.ogg"

@@ -37,7 +37,6 @@ namespace NotesEditor
 		// 補間点計算
 		Vector2<float> CalcInterpolationPoint(std::vector<vector<double>>& p_, float step, int splitNum, int i, int j);
 		void DrawCurve();
-		void DebugDraw();
 		// 中間点セット
 		void SetPoint();
 		// 初期化
@@ -52,7 +51,7 @@ namespace NotesEditor
 		NOTESTYPE GetNotesType() override;
 		void Update() override;
 		void Draw() override;
-		void ChangedScale(float size, bool isScaleUp) override;
+		void ChangedTransformByScale(float size, bool isScaleUp) override;
 		std::vector<ShortNotes*> GetChildNotesList();
 	};
 }

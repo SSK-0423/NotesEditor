@@ -56,7 +56,7 @@ namespace NotesEditor
 		void Update();
 		void Draw();
 		float DecidePutPosY(float x, float y);
-		void ChangedScale(float scaleHeight);
+		void ChangedTransformByScale(float scaleHeight);
 		int LineNum(float y);
 		bool Collision(float x, float y);
 		static void ChangeBarType(BARTYPE type);

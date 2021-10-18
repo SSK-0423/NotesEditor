@@ -16,7 +16,7 @@ namespace Engine
 			friend Singleton<Mouse>;
 
 		private:
-			Mouse() : InputDevice(KEY_NUM), buttonPressingCount(), buttonReleasingCount(), buttonPressed() {}
+			Mouse() : InputDevice(KEY_NUM), buttonPressingCount(), buttonReleasingCount(), buttonPressed(), mouseWheelRotVol(0) {}
 
 			static constexpr int KEY_NUM = 8;
 			mutable Components::Position mousePos;

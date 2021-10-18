@@ -80,24 +80,16 @@ void NotesEditor::SlideNotes::Draw()
 	if (notesList.size() >= 4)
 		DrawCurve();
 	for (auto notes : notesList)
-	{
 		notes->Draw();
-	}
 
-	//　当たり判定描画
-	Engine::Components::Size size = transform->GetSize();
-	float scale = size.scaleHeight;
-	DrawBoxAA(screenPos->x - size.width / 2.f, screenPos->y - size.height * scale / 2.f,
-		screenPos->x + size.width / 2.f, screenPos->y + size.height * scale / 2.f,
-		GetColor(255, 0, 0), false, 2.f);
 }
 
-void NotesEditor::SlideNotes::ChangedScale(float scale, bool isScaleUp)
+void NotesEditor::SlideNotes::ChangedTransformByScale(float scale, bool isScaleUp)
 {
 	for (auto notes : notesList)
-		notes->ChangedScale(scale, isScaleUp);
+		notes->ChangedTransformByScale(scale, isScaleUp);
 
-	transform->Scaling(0.f, scale);
+	transform->Scaling(1.f, scale);
 	// 初期化()
 	Init();
 	//スケール1倍の時のサイズを設定する
@@ -168,8 +160,8 @@ void NotesEditor::SlideNotes::SetInterpolationPoint(std::vector<vector<double>>&
 
 Vector2<float> NotesEditor::SlideNotes::CalcInterpolationPoint(std::vector<vector<double>>& p_, float step, int splitNum, int i, int j)
 {
-	float x = cubicSpline.interpolation(p_[i][0] - step * static_cast<float>(j), true);
-	float y = p_[i][0] - step * static_cast<float>(j);
+	float x = static_cast<float>(cubicSpline.interpolation(p_[i][0] - step * static_cast<double>(j), true));
+	float y = static_cast<float>(p_[i][0] - step * static_cast<double>(j));
 	Vector2<float> vec;
 	vec.x = x;
 	vec.y = y;
@@ -185,16 +177,12 @@ void NotesEditor::SlideNotes::DrawCurve()
 	Engine::Components::Position position = *screenPos;
 	float height = transform->GetSize().height * transform->GetSize().scaleHeight;
 
-	for (int i = 0; i < dx_.size() - 1; i++)
+	for (size_t i = 0; i < dx_.size() - 1; i++)
 	{
 		// dx_[i] - dx_[0]
 		DrawBoxAA(dy_[i] + 40, position.y + (dx_[i] - dx_[0] + height / 2) + 1,
 			dy_[i + 1] - 40, position.y + (dx_[i + 1] - dx_[0] + height / 2) - 1, lineColor, true);
 	}
-}
-
-void NotesEditor::SlideNotes::DebugDraw()
-{
 }
 
 void NotesEditor::SlideNotes::SetPoint()
@@ -216,16 +204,15 @@ void NotesEditor::SlideNotes::SetPoint()
 	//各点間の補間点数
 	int splitNum;
 
-	for (int i = 0; i < p_.size() - 1; i++)
+	for (size_t i = 0; i < p_.size() - 1; i++)
 	{
 		// x座標が同じならリソース削減のために分割数を1にする
 		if (p_[i][1] == p_[i + 1][1])
 			splitNum = 1;
 		else
 			// 分割数の調整
-			splitNum = fabs(p_[i + 1][0] - p_[i][0]);
-		// 分割数の調整
-		//splitNum = fabs(p_[i + 1][0] - p_[i][0]) / 96 * 96;
+			splitNum = fabs(p_[i + 1][0] - p_[i][0]) / 2.f;
+
 		// 2点間の距離を補間点数で割る
 		float step = fabs(p_[i + 1][0] - p_[i][0]) / splitNum;
 		SetInterpolationPoint(p_, step, splitNum, i);

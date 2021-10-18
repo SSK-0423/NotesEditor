@@ -1,0 +1,149 @@
+{
+  "beat": 4,
+  "bpm": 175,
+  "name": "Reincarnation",
+  "notes": [
+    {
+      "barNum": 1,
+      "lane": 1,
+      "lineNum": 0,
+      "timing": 1.3712927103042603,
+      "type": 0
+    },
+    {
+      "barNum": 6,
+      "lane": 0,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 6,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 8.2277555465698242,
+          "type": 0
+        },
+        {
+          "barNum": 7,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 9.5990486145019531,
+          "type": 0
+        }
+      ],
+      "timing": 8.2277555465698242,
+      "type": 1
+    },
+    {
+      "barNum": 7,
+      "lane": 3,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 7,
+          "lane": 3,
+          "lineNum": 0,
+          "timing": 9.5990486145019531,
+          "type": 0
+        },
+        {
+          "barNum": 8,
+          "lane": 3,
+          "lineNum": 0,
+          "timing": 10.970341682434082,
+          "type": 0
+        }
+      ],
+      "timing": 9.5990486145019531,
+      "type": 1
+    },
+    {
+      "barNum": 20,
+      "lane": 10,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 20,
+          "lane": 10,
+          "lineNum": 0,
+          "timing": 27.425861358642578,
+          "type": 0
+        },
+        {
+          "barNum": 21,
+          "lane": 10,
+          "lineNum": 0,
+          "timing": 28.797153472900391,
+          "type": 0
+        },
+        {
+          "barNum": 21,
+          "lane": 9,
+          "lineNum": 0,
+          "timing": 30.168439865112305,
+          "type": 0
+        },
+        {
+          "barNum": 23,
+          "lane": 9,
+          "lineNum": 0,
+          "timing": 31.539731979370117,
+          "type": 0
+        },
+        {
+          "barNum": 24,
+          "lane": 10,
+          "lineNum": 0,
+          "timing": 32.911022186279297,
+          "type": 0
+        },
+        {
+          "barNum": 25,
+          "lane": 10,
+          "lineNum": 0,
+          "timing": 34.282325744628906,
+          "type": 0
+        }
+      ],
+      "timing": 27.425861358642578,
+      "type": 2
+    },
+    {
+      "barNum": 61,
+      "lane": 10,
+      "lineNum": 0,
+      "notes": [
+        {
+          "barNum": 61,
+          "lane": 10,
+          "lineNum": 0,
+          "timing": 83.648849487304688,
+          "type": 0
+        },
+        {
+          "barNum": 62,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 85.020149230957031,
+          "type": 0
+        },
+        {
+          "barNum": 63,
+          "lane": 10,
+          "lineNum": 0,
+          "timing": 86.391433715820312,
+          "type": 0
+        },
+        {
+          "barNum": 64,
+          "lane": 0,
+          "lineNum": 0,
+          "timing": 87.762733459472656,
+          "type": 0
+        }
+      ],
+      "timing": 83.648849487304688,
+      "type": 2
+    }
+  ],
+  "path": "sounds\\Reincarnation.ogg"
+}

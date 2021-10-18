@@ -14,8 +14,8 @@
 #include <stdlib.h>
 
 NotesEditor::NotesEditorMusic& NotesEditor::ShortNotes::notesEditorMusic = NotesEditor::NotesEditorMusic::Instance();
-const int NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80;
-const int NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20;
+const float NotesEditor::ShortNotes::SHORTNOTESWIDTH = 80.f;
+const float NotesEditor::ShortNotes::SHORTNOTESHEIGHT = 20.f;
 const float NotesEditor::ShortNotes::playRange = 0.016f;
 
 NotesEditor::ShortNotes::ShortNotes(const NotesData& notesData) : color(NotesColor::shortNotesColor)
@@ -50,10 +50,9 @@ void NotesEditor::ShortNotes::Update()
 void NotesEditor::ShortNotes::Draw()
 {
 	DrawNotes();
-	collider->Draw();
 }
 
-void NotesEditor::ShortNotes::ChangedScale(float size, bool isScaleUp)
+void NotesEditor::ShortNotes::ChangedTransformByScale(float size, bool isScaleUp)
 {
 	// 倍率が上がった場合
 	if (isScaleUp)
@@ -103,18 +102,4 @@ void NotesEditor::ShortNotes::DrawNotes()
 
 	DrawBoxAA(pos.x - size.width / 2.f, pos.y - size.height / 2.f,
 		pos.x + size.width / 2.f, pos.y + size.height / 2.f, color, true);
-}
-
-// デバッグ用描画
-void NotesEditor::ShortNotes::DebugDraw()
-{
-	DrawFormatString(800, 650, GetColor(0, 255, 0), "timing:%f", timing);
-	if (fabsf(timing - static_cast<float>(notesEditorMusic.GetElapsedTime()) / 1000.f) <= ShortNotes::playRange)
-	{
-		DrawFormatString(800, 700, GetColor(0, 255, 0), "再生！");
-	}
-	else
-	{
-		DrawFormatString(800, 725, GetColor(0, 255, 0), "再生しない");
-	}
 }

@@ -36,6 +36,7 @@ void NotesEditor::FumenJsonLoader::SetNotesEditorMusic(NotesEditorMusic& notesEd
 
 void NotesEditor::FumenJsonLoader::LoadFumen()
 {
+
 	// JSONファイル
 	picojson::value fumen;
 	// JSONファイル読み込み
@@ -72,15 +73,15 @@ float NotesEditor::FumenJsonLoader::GetPosX(NOTESTYPE parentType, int lane)
 float NotesEditor::FumenJsonLoader::CalcPosY(float timing)
 {
 	// 曲の総再生時間
-	float totalTime = static_cast<float>(notesEditorMusic->GetTotalTime());
+	Msecond totalTime = static_cast<float>(notesEditorMusic->GetTotalTime());
 	// 曲の拍子
 	float beat = static_cast<float>(notesEditorMusic->GetBeat());
 	// 1小節の長さ(ms)
-	float barTimeLength = SecToMsec(60.f) / static_cast<float>(notesEditorMusic->GetBPM()) * beat;
+	Msecond barTimeLength = SecToMsec(60.f) / static_cast<float>(notesEditorMusic->GetBPM()) * beat;
 	// 最小音符の長さ(ms)
-	float minimumNoteTimeLength = barTimeLength / BarManager::MAXNOTENUM;
+	Msecond minimumNoteTimeLength = barTimeLength / BarManager::MAXNOTENUM;
 	// 最小単位音符当たりの座標
-	float minimunNotePosY = static_cast<float>(WINDOW_SIZE_HEIGHT) / BarManager::MAXNOTENUM;
+	float minimunNotePosY = static_cast<float>(WINDOW_SIZE_HEIGHT) / static_cast<float>(BarManager::MAXNOTENUM);
 	// 何番目の最小単位音符ラインか * 最小単位音符ライン1つ当たりのY座標
 	int myLineNum = std::roundf(SecToMsec(timing) / minimumNoteTimeLength);
 
@@ -123,6 +124,8 @@ NotesEditor::Notes* NotesEditor::FumenJsonLoader::CreateNotes(picojson::value no
 		return CreateLongNotes(notesVal, type);
 	case NotesEditor::NOTESTYPE::SLIDE_NOTES:
 		return CreateSlideNotes(notesVal, type);
+	default:
+		return nullptr;
 	}
 }
 

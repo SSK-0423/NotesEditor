@@ -65,7 +65,7 @@ float NotesEditor::Bar::DecidePutPosY(float x, float y)
 	return NONE;
 }
 
-void NotesEditor::Bar::ChangedScale(float scaleHeight)
+void NotesEditor::Bar::ChangedTransformByScale(float scaleHeight)
 {
 	float beforeHeight = transform->GetSize().height * transform->GetSize().scaleHeight;
 	float afterHeight = transform->GetSize().height * scaleHeight;
@@ -84,7 +84,7 @@ void NotesEditor::Bar::ChangedScale(float scaleHeight)
 	collider->Update();
 
 	for (auto bar : barLineList)
-		bar->OnChangedScale();
+		bar->ChangedPosByScale();
 }
 
 int NotesEditor::Bar::LineNum(float y)
@@ -93,7 +93,7 @@ int NotesEditor::Bar::LineNum(float y)
 	for (size_t i = 0; i < barLineList.size(); i++)
 	{
 		if (barLineList[i]->GetTransform().GetPosition().y == y)
-			return i;
+			return static_cast<int>(i);
 	}
 	return NONE;
 }
@@ -138,13 +138,13 @@ void NotesEditor::Bar::UpdateBarLine()
 void NotesEditor::Bar::DrawBarNum()
 {
 	const float turningNum = 8.f;
-	const int lineThickness = 2.f;
+	const float lineThickness = 2.f;
 	float height = BARHEIGHT * transform->GetSize().scaleHeight;
 	float barBottom = screenPos->y + height / 2.f;
 
 	// 小節の縦範囲に合わせて黒色のボックス描画
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 128);
-	DrawBox(screenPos->x + BARWIDTH / 2.f - turningNum, screenPos->y + height / 2.f, WINDOW_SIZE_WIDTH, screenPos->y - height / 2.f + lineThickness, GetColor(0, 0, 0), true);
+	DrawBoxAA(screenPos->x + BARWIDTH / 2.f - turningNum, screenPos->y + height / 2.f, WINDOW_SIZE_WIDTH, screenPos->y - height / 2.f + lineThickness, GetColor(0, 0, 0), true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	DrawLineAA(screenPos->x + BARWIDTH / 2.f, screenPos->y + height / 2.f, WINDOW_SIZE_WIDTH, screenPos->y + height / 2.f, GetColor(255, 255, 255), lineThickness);

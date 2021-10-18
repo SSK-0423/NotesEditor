@@ -15,7 +15,6 @@ namespace Engine
 		Components::Transform* transform;
 		// •`‰æ—pÀ•W
 		Components::Position* screenPos;
-		float beforePos;
 
 	public:
 		GameObject();

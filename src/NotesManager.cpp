@@ -11,7 +11,7 @@
 #include "DxLib.h"
 #include <algorithm>
 
-//static•Ï”ŽÀ‘Ì‰»
+float NotesEditor::NotesManager::beforeScale = 1.f;
 NotesEditor::NOTESTYPE NotesEditor::NotesManager::type = NotesEditor::NOTESTYPE::SHORT_NOTES;
 
 NotesEditor::NotesManager::NotesManager() : mousePointerColor(GetColor(0, 255, 0))
@@ -132,15 +132,19 @@ void NotesEditor::NotesManager::Delete()
 	notesList.shrink_to_fit();
 }
 
-void NotesEditor::NotesManager::ChangedScale(float scale)
+void NotesEditor::NotesManager::ChangedNotesTransformByScale(float scale)
 {
-	static float beforeScale = 1.f;
 	if (beforeScale == scale) return;
 
 	for (auto notes : notesList)
-		notes->ChangedScale(scale, beforeScale < scale ? true : false);
+		notes->ChangedTransformByScale(scale, beforeScale < scale ? true : false);
 
 	beforeScale = scale;
+}
+
+void NotesEditor::NotesManager::InitBeforeScale()
+{
+	beforeScale = 1.f;
 }
 
 NotesEditor::NOTESTYPE NotesEditor::NotesManager::GetPutNotesType()

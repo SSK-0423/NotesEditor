@@ -28,7 +28,7 @@ namespace NotesEditor
 	class BarLine : public Engine::GameObject {
 	private:
 		static Color lineColor[4];
-		static int lineThickness;
+		static float lineThickness;
 		static const float BARLINEWIDTH;
 		static const float BARLINEHEIGHT;
 
@@ -53,7 +53,7 @@ namespace NotesEditor
 		~BarLine();
 		void Update();
 		void Draw();
-		void OnChangedScale();
+		void ChangedPosByScale();
 		float DecidePutPosY(float x, float y);
 	};
 }

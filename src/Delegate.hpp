@@ -18,7 +18,7 @@ class Delegate;
 template<class T, class K, class ...U>
 class Delegate<T, K(U...)> : public DelegateBase<K(U...)> {
 public:
-	Delegate() {};
+	Delegate() : obj(nullptr), func(nullptr) {};
 	virtual ~Delegate() {};
 
 	//オペレータ実装

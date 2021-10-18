@@ -36,9 +36,9 @@ namespace NotesEditor
 
 	public:
 		// ノーツの横幅
-		static const int SHORTNOTESWIDTH;
+		static const float SHORTNOTESWIDTH;
 		// ノーツの縦幅
-		static const int SHORTNOTESHEIGHT;
+		static const float SHORTNOTESHEIGHT;
 		// ハンドクラップ再生時のタイミングずれの許容幅
 		static const float playRange;
 
@@ -46,7 +46,7 @@ namespace NotesEditor
 		~ShortNotes();
 		void Update() override;
 		void Draw() override;
-		void ChangedScale(float size, bool isScaleUp) override;
+		void ChangedTransformByScale(float size, bool isScaleUp) override;
 		bool Collision(float x, float y) override;
 		NOTESTYPE GetNotesType() override;
 		void SetColor(Color c);

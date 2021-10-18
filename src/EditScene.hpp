@@ -33,13 +33,13 @@ namespace NotesEditor
 		FumenJsonLoader& fumenJsonLoader;
 		std::vector<Engine::GameObject*> allObjList;
 		
-		static const float MAXSIZE;
-		static const float MINSIZE;
+		static const float MAXSCALE;
+		static const float MINSCALE;
+		static const float SCALEUNIT;
 		float scale;
 		
 		void Input();
 		void OnMusicLoaded();
-		void DeleteObj();
 		void PutNotes();
 		void RemoveNotes();
 		float CalcJudgeTiming(float y);
@@ -48,6 +48,7 @@ namespace NotesEditor
 		void UpdateStartMusicTime();
 		void DrawLaneBackground();
 		void OnChangedScale(int mouseWheelRotVol);
+
 	public:
 		EditScene(Engine::Scene::ISceneChanger* changer);
 		~EditScene();

@@ -22,6 +22,7 @@ namespace NotesEditor
 	class NotesManager : public Singleton<NotesManager> {
 		friend Singleton<NotesManager>;
 	private:
+		static float beforeScale;
 		NotesManager();
 		static NOTESTYPE type;						//ノーツタイプ
 		std::vector<Notes*> notesList;				//ノーツリスト
@@ -39,7 +40,8 @@ namespace NotesEditor
 		void CreateNotes(const NotesData& notesData, std::vector<Engine::GameObject*>& objList);
 		void DeleteNotes(float x, float y, std::vector<Engine::GameObject*>& objList);
 		void Delete();
-		void ChangedScale(float scale);
+		void ChangedNotesTransformByScale(float scale);
+		void InitBeforeScale();
 		NOTESTYPE GetPutNotesType();
 		std::vector<Notes*>& GetNotesListRef();
 	};
