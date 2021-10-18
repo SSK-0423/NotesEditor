@@ -26,7 +26,7 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	fumenJsonLoader.SetNotesList(notesManager.GetNotesListRef());
 	fumenJsonLoader.SetNotesEditorMusic(notesEditorMusic);
 
-	laneHandle = LoadGraph("image/ÉåÅ[Éì02.png");
+	laneHandle = LoadGraph("image/ÉåÅ[Éì.png");
 	backgroundHandle = LoadGraph("image/îwåi.jpg");
 }
 
@@ -250,6 +250,6 @@ void NotesEditor::EditScene::UpdateStartMusicTime()
 
 void NotesEditor::EditScene::DrawLaneBackground()
 {
-	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.0, 0, backgroundHandle, true, false);
+	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2 - 100, WINDOW_SIZE_HEIGHT / 2, 0.75, 0, backgroundHandle, true, false);
 	DrawRotaGraph(WINDOW_SIZE_WIDTH / 2, WINDOW_SIZE_HEIGHT / 2, 1.0, 0, laneHandle, true, false);
 }
