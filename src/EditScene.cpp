@@ -26,8 +26,8 @@ NotesEditor::EditScene::EditScene(Engine::Scene::ISceneChanger* changer)
 	fumenJsonLoader.SetNotesList(notesManager.GetNotesListRef());
 	fumenJsonLoader.SetNotesEditorMusic(notesEditorMusic);
 
-	laneHandle = LoadGraph("image/ÉåÅ[Éì.png");
-	backgroundHandle = LoadGraph("image/îwåi.jpg");
+	laneHandle = LoadGraph("image/Lane.png");
+	backgroundHandle = LoadGraph("image/Background.jpg");
 }
 
 NotesEditor::EditScene::~EditScene()
