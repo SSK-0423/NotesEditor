@@ -20,4 +20,4 @@
 ### 実行環境
 Windows10
 ### 実行手順
-NotesEditor.exeを起動する
+NotesEditor.exeを起動
