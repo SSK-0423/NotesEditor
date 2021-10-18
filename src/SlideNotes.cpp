@@ -211,7 +211,7 @@ void NotesEditor::SlideNotes::SetPoint()
 			splitNum = 1;
 		else
 			// •ªŠ„”‚Ì’²®
-			splitNum = fabs(p_[i + 1][0] - p_[i][0]) / 2.f;
+			splitNum = fabs(p_[i + 1][0] - p_[i][0]);
 
 		// 2“_ŠÔ‚Ì‹——£‚ğ•âŠÔ“_”‚ÅŠ„‚é
 		float step = fabs(p_[i + 1][0] - p_[i][0]) / splitNum;
