@@ -13,105 +13,434 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\Engine">
+      <UniqueIdentifier>{2c69f71c-f29e-438b-b27b-72253ab57725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine">
+      <UniqueIdentifier>{a0bc1816-1dd8-4513-a000-8d19157fe255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine\Scene">
+      <UniqueIdentifier>{378f30b0-bd9d-485d-b37b-e41c4a7a3f85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\Scene">
+      <UniqueIdentifier>{226f845f-728e-4dea-8bcf-cd639c8a9f6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor">
+      <UniqueIdentifier>{5a5c162c-f929-4c0a-94d4-43c7b2294686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor">
+      <UniqueIdentifier>{8315254c-a393-48d6-a534-61d3428cb072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine\Components">
+      <UniqueIdentifier>{d60560dd-fb9f-4816-9c98-17f74fe3b24d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine\Collision">
+      <UniqueIdentifier>{c9238a48-cf59-4c63-bfef-12422100c60c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\Components">
+      <UniqueIdentifier>{5c598420-a1c0-4514-90a2-9b0e04a1b721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\Collision">
+      <UniqueIdentifier>{cadf9e8a-d409-4a0c-99e2-5258c006416a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\UI">
+      <UniqueIdentifier>{7f3fd7e8-538b-4bcf-b117-57db587888c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine\UI">
+      <UniqueIdentifier>{9ac38899-025f-4ae2-abb0-85ce48e9fdc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\Input">
+      <UniqueIdentifier>{9800c6ee-47ce-46be-94e4-b25af35520f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine\Input">
+      <UniqueIdentifier>{811fcb08-d479-4d40-9f8b-ba6379765ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Engine\PrimitiveObj">
+      <UniqueIdentifier>{fdd9b56c-14ac-42c5-9f20-b5d16772376e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Engine\PrimitiveObj">
+      <UniqueIdentifier>{09afdd19-83d8-43e6-abc2-e43936eee5dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Math">
+      <UniqueIdentifier>{ed3b8c62-bccc-44ba-91d1-c06cf2e83529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Math">
+      <UniqueIdentifier>{6b237552-df02-45c8-8b22-d405804907f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\Notes">
+      <UniqueIdentifier>{b34be32e-f94b-419a-8a8b-916a671de1a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\Bar">
+      <UniqueIdentifier>{a29c88f6-efa6-42ee-a404-181bfdf61f54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\Lane">
+      <UniqueIdentifier>{96cc4946-988d-4a8f-9e17-93b5fcc6f445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\Bar">
+      <UniqueIdentifier>{b5eed04d-ef68-4748-b5e3-0b6c15aaea30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\Lane">
+      <UniqueIdentifier>{b6f93bb5-cae5-4f47-a612-6b5c55b80321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\Notes">
+      <UniqueIdentifier>{c3ceb358-7d1d-42ba-a390-924b86374c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\NotesEditor\FumenJson">
+      <UniqueIdentifier>{42b4722c-4009-446a-95b1-746d85b365a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\NotesEditor\FumenJson">
+      <UniqueIdentifier>{384716a3-2383-468e-8cab-89b607d6900a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="BaseScene.cpp">
+    <ClCompile Include="src\Application.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ISceneChanger.cpp">
+    <ClCompile Include="src\Keyboard.cpp">
+      <Filter>ソース ファイル\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mouse.cpp">
+      <Filter>ソース ファイル\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputDevice.cpp">
+      <Filter>ソース ファイル\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ISceneChanger.cpp">
+      <Filter>ソース ファイル\Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>ソース ファイル\Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorSceneCanvas.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditScene.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BaseScene.cpp">
+      <Filter>ソース ファイル\Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>ソース ファイル\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BoxCollider.cpp">
+      <Filter>ソース ファイル\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Polygon.cpp">
+      <Filter>ソース ファイル\Engine\PrimitiveObj</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Matrix.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rotator.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CrossingNumberAlgorithm.cpp">
+      <Filter>ソース ファイル\Engine\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PointWithPolygon.cpp">
+      <Filter>ソース ファイル\Engine\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureButton.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColliderCreator.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CubicSpline.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenFileExplorer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
+    <ClCompile Include="src\EquationsSolver.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GaussElimination.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LUdecomposition.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureTextBox.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MultiTextureButton.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioSource.cpp">
+      <Filter>ソース ファイル\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotesEditorMusic.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MusicInfoTextBox.cpp">
+      <Filter>ソース ファイル\NotesEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera2D.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bar.cpp">
+      <Filter>ソース ファイル\NotesEditor\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BarManager.cpp">
+      <Filter>ソース ファイル\NotesEditor\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BarLine.cpp">
+      <Filter>ソース ファイル\NotesEditor\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Lane.cpp">
+      <Filter>ソース ファイル\NotesEditor\Lane</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LaneManager.cpp">
+      <Filter>ソース ファイル\NotesEditor\Lane</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotesManager.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShortNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlideNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongNotesCreator.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LongNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShortNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SlideNotes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Notes.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NotesColor.cpp">
+      <Filter>ソース ファイル\NotesEditor\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FumenJsonGenerator.cpp">
+      <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FumenJsonLoader.cpp">
+      <Filter>ソース ファイル\NotesEditor\FumenJson</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Button.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Editor.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="src\GUI.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Music.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenFileExplorer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera2D.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Bar.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="TextBox.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="src\Canvas.cpp">
+      <Filter>ソース ファイル\Engine\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="UIManager.hpp">
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Application.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="BaseScene.hpp">
+    <ClInclude Include="src\Keyboard.hpp">
+      <Filter>ヘッダー ファイル\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Singleton.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ISceneChanger.hpp">
+    <ClInclude Include="src\IInputDevice.hpp">
+      <Filter>ヘッダー ファイル\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputDevice.hpp">
+      <Filter>ヘッダー ファイル\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputDeviceContainer.hpp">
+      <Filter>ヘッダー ファイル\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IScene.hpp">
+      <Filter>ヘッダー ファイル\Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ISceneChanger.hpp">
+      <Filter>ヘッダー ファイル\Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager.hpp">
+      <Filter>ヘッダー ファイル\Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorSceneCanvas.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditScene.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Canvas.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ICanvas.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BaseScene.hpp">
+      <Filter>ヘッダー ファイル\Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Position.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rotation.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Size.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transform.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BoxCollider.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ICollider.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Point.hpp">
+      <Filter>ヘッダー ファイル\Engine\PrimitiveObj</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polygon.hpp">
+      <Filter>ヘッダー ファイル\Engine\PrimitiveObj</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Matrix.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rotator.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CrossingNumberAlgorithm.hpp">
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PointWithPolygon.hpp">
+      <Filter>ヘッダー ファイル\Engine\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Button.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureButton.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ColliderCreator.hpp">
+      <Filter>ヘッダー ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Delegate.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.hpp">
+    <ClInclude Include="src\CubicSpline.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenFileExplorer.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Task.hpp">
+    <ClInclude Include="src\GUI.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EquationsSolver.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GaussElimination.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LUdecomposition.hpp">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureTextBox.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MultiTextureButton.hpp">
+      <Filter>ヘッダー ファイル\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AudioSource.hpp">
+      <Filter>ヘッダー ファイル\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesEditorMusic.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MusicInfoTextBox.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera2D.hpp">
+      <Filter>ヘッダー ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject.hpp">
+      <Filter>ヘッダー ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bar.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BarLine.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BarManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Lane.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Lane</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LaneManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Lane</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesManager.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlideNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlideNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShortNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShortNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongNotes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongNotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\INotesCreator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Notes.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesData.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NotesColor.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\Notes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FumenJsonGenerator.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FumenJsonLoader.hpp">
+      <Filter>ヘッダー ファイル\NotesEditor\FumenJson</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameUtility.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Editor.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowSize.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Delegate.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Music.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenFileExplorer.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera2D.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Bar.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="picojson.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="TextBox.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="FPS.hpp">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="src\Mouse.hpp">
+      <Filter>ヘッダー ファイル\Engine\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
