@@ -1,8 +1,8 @@
 #pragma once
 #include "GameObject.hpp"
-#include "IPlayable.hpp"
 #include "GameUtility.hpp"
 #include "Transform.hpp"
+#include "Vector2.hpp"
 #include <vector>
 
 namespace Engine
