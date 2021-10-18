@@ -10,6 +10,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	ChangeWindowMode(true), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 	SetAlwaysRunFlag(true);
+	SetWindowText("NotesEditor");
 	Application game;
 	game.MainLoop();
 	DxLib_End();
