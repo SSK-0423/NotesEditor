@@ -113,7 +113,7 @@ void NotesEditor::EditScene::Input()
 	{
 		if (mouse.GetMouseWheelRotVol())
 			OnChangedScale(mouse.GetMouseWheelRotVol());
-
+		
 		if (keyboard.GetPressingCount(KEY_INPUT_S))
 			fumenJsonGenerator.SaveFumen();
 	}
