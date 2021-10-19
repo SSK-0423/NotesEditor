@@ -5,12 +5,12 @@
 //ゲームループ
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) 
 {
-	//ウィンドウモード、初期化、裏画面設定
+	SetWindowText("NotesEditor");
 	SetGraphMode(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, 16);
+	//ウィンドウモード、初期化、裏画面設定
 	ChangeWindowMode(true), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 	SetAlwaysRunFlag(true);
-	SetWindowText("NotesEditor");
 	Application game;
 	game.MainLoop();
 	DxLib_End();

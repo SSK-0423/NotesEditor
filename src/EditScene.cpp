@@ -108,12 +108,14 @@ void NotesEditor::EditScene::Input()
 	}
 
 	const Engine::Input::Keyboard keyboard = Engine::Input::InputDeviceContainer::Instance().GetKeyboard();
-	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) && keyboard.GetPressingCount(KEY_INPUT_S))
-		fumenJsonGenerator.SaveFumen();
 
-	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) && mouse.GetMouseWheelRotVol())
+	if (keyboard.GetPressingCount(KEY_INPUT_LCONTROL) || keyboard.GetPressingCount(KEY_INPUT_RCONTROL))
 	{
-		OnChangedScale(mouse.GetMouseWheelRotVol());
+		if (mouse.GetMouseWheelRotVol())
+			OnChangedScale(mouse.GetMouseWheelRotVol());
+		
+		if (keyboard.GetPressingCount(KEY_INPUT_S))
+			fumenJsonGenerator.SaveFumen();
 	}
 }
 
