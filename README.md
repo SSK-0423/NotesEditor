@@ -1,6 +1,6 @@
 # NotesEditor α版ver1.0.0
 自作音楽ゲーム用のノーツエディタ
-![ノーツエディターサンプル画像](https://user-images.githubusercontent.com/83057130/137784052-2b4c224c-50c0-4d72-be73-ffc09a61ec5b.PNG)
+![ノーツエディターサンプル画像](https://user-images.githubusercontent.com/83057130/137940970-50f5d995-4bbe-4da6-a6aa-f0db82057254.PNG)
 ### 機能
 + ショート、ロング、スライドノーツ(3次Spline補間)対応
 + 4分,8分,16分,32分対応
