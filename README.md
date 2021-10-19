@@ -26,6 +26,7 @@
 | 拡大・縮小| 左Ctrl + マウスホイール |
 | 譜面保存 | 左Ctrl + S |
 #### 画面構成
+![画面構成](https://user-images.githubusercontent.com/83057130/137941139-2955bd59-ce60-4e78-8b2e-d8ae2547e874.png)
 #### 
 
 ### 実行環境
