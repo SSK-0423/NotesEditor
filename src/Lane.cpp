@@ -7,7 +7,7 @@
 #include "GameUtility.hpp"
 #include "DxLib.h"
 
-int NotesEditor::Lane::lineThickness = 2;
+int NotesEditor::Lane::lineThickness = 1;
 Color NotesEditor::Lane::laneColor[2] = {
 	GetColor(255, 255, 255),
 	GetColor(0, 255, 255)
