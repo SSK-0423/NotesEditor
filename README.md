@@ -27,9 +27,7 @@
 | 譜面保存 | 左Ctrl + S |
 #### 画面構成
 ![画面構成](https://user-images.githubusercontent.com/83057130/137941139-2955bd59-ce60-4e78-8b2e-d8ae2547e874.png)
-#### 
-
 ### 実行環境
-Windows10
+Windows10 DirectX9以上
 ### 実行手順
 NotesEditor.exeを起動
