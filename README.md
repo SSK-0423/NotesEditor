@@ -1,4 +1,4 @@
-# NotesEditor α版ver1.0.0
+# NotesEditor α版ver1.0.0あ
 自作音楽ゲーム用のノーツエディタ
 ![ノーツエディターサンプル画像](https://user-images.githubusercontent.com/83057130/137940970-50f5d995-4bbe-4da6-a6aa-f0db82057254.PNG)
 ### 機能
