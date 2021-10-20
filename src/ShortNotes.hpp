@@ -32,7 +32,6 @@ namespace NotesEditor
 
 		void PlayClap();
 		void DrawNotes();
-		void DebugDraw();
 
 	public:
 		// ƒm[ƒc‚Ì‰¡•

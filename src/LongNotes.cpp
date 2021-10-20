@@ -46,6 +46,19 @@ void NotesEditor::LongNotes::Draw()
 
 void NotesEditor::LongNotes::ChangedTransformByScale(float scale, bool isScaleUp)
 {
+	// 倍率が上がった場合
+	if (isScaleUp)
+	{
+		// 座標とスケールの更新
+		transform->SetPosition(transform->GetPosition().x,
+			transform->GetPosition().y - 6.f * lineNum - 192.f * barNum);
+	}
+	else
+	{
+		transform->SetPosition(transform->GetPosition().x,
+			transform->GetPosition().y + 6.f * lineNum + 192.f * barNum);
+	}
+
 	for (auto notes : notesList)
 		notes->ChangedTransformByScale(scale, isScaleUp);
 
